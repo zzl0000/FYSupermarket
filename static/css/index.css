@@ -1,0 +1,345 @@
+/*加载效果背景*/
+
+.layui-layer-shade {
+	background: rgba(0, 0, 0, 0)!important;
+}
+.layui-layer-title{
+	background: #fff !important;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+	width: 0px;
+	height: 0px;
+	background-color: #18a1ff;
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, .3);
+	background-color: #18a1ff;
+}
+
+
+.container-layout{
+	width: 100%;
+	height: 100%;
+}
+
+/*左边块内容*/
+
+.left-nav{
+	width: 120px;
+	height: 100%;
+}
+
+.tb_left {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	top: 0px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.tb_left ul{
+	display: flex;
+	flex-flow: wrap;
+}
+.tb_left ul li{
+	width: 100%;
+	height: 180px;
+	text-align: center;
+	line-height: 180px;
+	justify-content: center;
+	align-items: center;
+	font-size: 18px;
+	color: #8f9090;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+.tb_left ul li.active{
+	background-color:#3185ff ;
+	color: #fff;
+}
+
+.tb_left ul li span{
+	position: absolute;
+	left: 35px;
+	top: 49px;
+	display: block;
+	width: 51px;
+	height: 51px;
+}
+
+.tb_left ul li font{
+	display: inline-block;
+	padding-top: 32px;
+}
+
+
+.tb_left .icon01{
+	background: url(../img/nav-icon01.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .icon02{
+	background: url(../img/nav-icon02.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .icon03{
+	background: url(../img/nav-icon03.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .icon04{
+	background: url(../img/nav-icon04.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .icon05{
+	background: url(../img/nav-icon05.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .icon06{
+	background: url(../img/nav-icon06.png) no-repeat;
+	background-size: 100% 100%;
+}
+/*右边块内容*/
+
+.tb_right {
+	width: calc(100% - 120px);
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	top: 0px;
+	overflow: auto;
+	background: #f5f7ff;
+	min-height: 400px;
+	cursor: pointer;
+}
+
+
+/* 首页模块 */
+.home_bg{
+	width: 100%;
+	height: 100%;
+	background: url(../img/home-bg.png) no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+
+.time_module{
+	color: #fff;
+	position: absolute;
+	right: 32px;
+	top: 32px;
+	width: 150px;
+}
+
+.time_module .day{
+	font-size: 48px;
+	display: block;
+	float: left;
+
+}
+.time_module p{
+	font-size: 14px;
+	padding: 0;
+	float: left;
+	margin-left: 10px;
+	line-height: 18px;
+	padding-top: 10px;
+}
+.time_module p span{
+	display: block;
+	
+}
+
+.time_module p span:last-child{
+	letter-spacing: 2px;
+}
+
+
+
+/* 主体 */
+
+.warp {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+
+/* 收银模块 */
+
+.cashier{}
+
+.cashier .left{
+	width: 630px;
+	height: 100%;
+	float: left;
+	background: white;
+	margin-left: 2px;;
+	position: relative;
+}
+
+
+
+.cashier .memberLogin{
+	text-align: center;
+}
+.memberLogin h5{
+	font-size: 36px;
+	color: #000;
+	display: inline-block;
+	padding: 55px 0;
+	position: relative;
+}
+
+.memberLogin h5:before{
+	content: '';
+	clear: both;
+	width: 34px;
+	height: 33px;
+	position: absolute;
+	right: -45px;
+	top: 65px;
+	background: url(../img/icon-01.png) no-repeat;
+	background-size: auto;
+}
+.shopGoodslist{
+	max-height: 450px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.shopGoodslist .shopGoodsTop h5{
+	font-size: 24px;
+	color: #000;
+	font-weight: 600;
+}
+
+.shopGoodslist .shopGoodsCT{
+	display: table;
+	width: 100%;
+}
+
+.shopGoodslist .shopGoodsCT .price{
+	display: table-cell;
+	font-size: 24px;
+	color: #4786ff;
+}
+
+.shopGoodslist .shopGoodsCT div{
+	display: table-cell;
+	text-align: right;
+}
+
+.shopGoodslist .shopGoodsCT div .minus{
+	font-size: 24px;
+	display: inline-block;
+	width: 33px;
+	height: 33px;
+	border-radius: 50%;
+	border: 1px solid #4786ff;
+	text-align: center;
+	color: #4786ff;
+	margin-right: 10px;
+}
+
+.shopGoodslist .shopGoodsCT div .number{
+	font-size: 24px;
+	display: inline-block;
+	color: #8f9090;
+}
+
+.shopGoodslist .shopGoodsCT div .add{
+	font-size: 24px;
+	display: inline-block;
+	width: 33px;
+	height: 33px;
+	border-radius: 50%;
+	border: 1px solid #4786ff;
+	background: #4786ff;
+	text-align: center;
+	color: white;
+	margin-left: 10px;
+}
+
+
+.shopGoodsClearing{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: white;
+}
+.shopGoodsInfo{
+	text-align: right;
+}
+.shopGoodsInfo p{
+	line-height: 32px;
+	color: #8f9090;
+}
+.shopGoodsInfo .price{
+	font-size: 24px;
+	color: #4786ff;
+}
+
+.shopGoodsBtn button{
+	border-radius: 50px;
+	width: 150px;
+	font-size: 24px;
+	padding: 10px 0;
+	color: #e0e0e0;
+	font-weight: 400;
+}
+.shopGoodsBtn .button-active {
+	color: #4786ff;
+	border-color: #4786ff;
+}
+
+.cashier .right{
+	width: calc(100% - 640px);
+	height: 100%;
+	float: left;
+	padding-top: 98px;
+	background-color:#f8f8f8 ;
+}
+.settlementModule{
+	width: 760px;
+	padding-left: 150px;
+}
+
+.settlementMethod{
+	
+}
+.settlementMethod ul{}
+.settlementMethod ul li{
+	width: 33.3%;
+	float: left;
+	padding: 10px 0;
+	font-size: 28px;
+	text-align: center;
+	background: white;
+	color: #e0e0e0;
+}
+.settlementMethod ul li.active{
+	color: white;
+	background-color:#4786ff ;
+}
+
+
