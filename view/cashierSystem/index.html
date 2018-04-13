@@ -17,7 +17,7 @@
 						<span>大杯350ml</span>
 					</div>
 					<div class="shopGoodsCT margin-big-top">
-						<span class="price">¥ 15.00</span>
+						<span class="price">¥15.00</span>
 						<div>
 							<span class="minus"> - </span>
 							<span class="number"> 3 </span>
@@ -31,7 +31,7 @@
 						<span>大杯350ml</span>
 					</div>
 					<div class="shopGoodsCT margin-big-top">
-						<span class="price">¥ 15.00</span>
+						<span class="price">¥15.00</span>
 						<div>
 							<span class="minus"> - </span>
 							<span class="number"> 3 </span>
@@ -45,7 +45,7 @@
 						<span>大杯350ml</span>
 					</div>
 					<div class="shopGoodsCT margin-big-top">
-						<span class="price">¥ 15.00</span>
+						<span class="price">¥15.00</span>
 						<div>
 							<span class="minus"> - </span>
 							<span class="number"> 3 </span>
@@ -53,45 +53,17 @@
 						</div>
 					</div>
 				</li>
-				<li class="border-gray border-bottom padding-big-bottom padding-big-top">
-					<div class="shopGoodsTop">
-						<h5>卡布奇洛</h5>
-						<span>大杯350ml</span>
-					</div>
-					<div class="shopGoodsCT margin-big-top">
-						<span class="price">¥ 15.00</span>
-						<div>
-							<span class="minus"> - </span>
-							<span class="number"> 3 </span>
-							<span class="add"> + </span>
-						</div>
-					</div>
-				</li>
-				<li class="border-gray border-bottom padding-big-bottom padding-big-top">
-					<div class="shopGoodsTop">
-						<h5>卡布奇洛</h5>
-						<span>大杯350ml</span>
-					</div>
-					<div class="shopGoodsCT margin-big-top">
-						<span class="price">¥ 15.00</span>
-						<div>
-							<span class="minus"> - </span>
-							<span class="number"> 3 </span>
-							<span class="add"> + </span>
-						</div>
-					</div>
-				</li>
-				
+			
 			</ul>
 		</div>
 
 		<!-- 商品信息汇总 -->
 		<div class="shopGoodsClearing padding-big  border-gray border-top">
 			<div class="shopGoodsInfo padding-big-top">
-				<p>合计：<span>¥ 135.00</span></p>
-				<p>优惠券：<span>¥ 5.00</span></p>
-				<p>积分：<span>¥ 5.00</span></p>
-				<p>实收：<span class="price">¥ 125.00</span></p>
+				<p>合计：¥ <span id="realPrice">45.00</span></p>
+				<p>优惠券：¥ <span id="couponPrice">5.00</span></p>
+				<p>积分：¥ <span id="integralPrice">5.00</span></p>
+				<p>实收：¥ <span id="payPrice" class="price payPrice">30.00</span></p>
 			</div>
 			<div class="shopGoodsBtn margin-big-top">
 				
@@ -112,46 +84,47 @@
 				</ul>
 			</div>
 			<br  clear="all"/>
-			<div id="" class="margin-big-top border-gray border-bottom">
+			<div id="" class="ycPrice margin-big-top border-gray border-bottom padding-big-top padding-big-bottom">
 				<span>应收金额</span>
-				<span class="price">¥ 125.00</span>
+				<span class="price ">¥ <em class="payPrice">30.00</em></span>
 			</div>
-			<div id="" class="margin-big-top border-gray border-bottom">
+			<div id="" class="scPrice margin-big-top border-gray border-bottom padding-big-top padding-big-bottom">
 				<div>
 					<span>实收金额</span>
-					<input type="text" readonly="" name="">
+					<input type="text" name="" id="relTakePrice">
 				</div>
 				<div>
 					<span>找零</span>
-					<span></span>
+					<input type="text" name="">
 				</div>
 			</div>
 			<!--  触摸键盘 -->
-			<div class="">
+			<div class="settlementKeyboard margin-big-top">
 				<ul>
-					<li>7</li>
-					<li>8</li>
-					<li>9</li>
-					<li>x</li>
+					<li class="ml-none input-key">7</li>
+					<li class="input-key">8</li>
+					<li class="input-key">9</li>
+					<li class="empty" onclick="resetKeyboard()"><span></span></li>
 
-					<li>4</li>
-					<li>5</li>
-					<li>6</li>
-					<li>¥10</li>
+					<li class="ml-none input-key">4</li>
+					<li class="input-key">5</li>
+					<li class="input-key">6</li>
+					<li class="bg-blue specialKey">¥10</li>
 
-					<li>1</li>
-					<li>2</li>
-					<li>3</li>
-					<li>¥50</li>
+					<li class="ml-none input-key">1</li>
+					<li class="input-key">2</li>
+					<li class="input-key">3</li>
+					<li class="bg-blue specialKey">¥50</li>
 
-					<li>0</li>
-					<li>00</li>
-					<li>.</li>
-					<li>¥100</li>
+					<li class="ml-none input-key">0</li>
+					<li class="input-key">00</li>
+					<li class="input-key">.</li>
+					<li class="bg-blue specialKey">¥100</li>
 				</ul>
 			</div>
 			<!-- 结算 -->
-			<div class="btn">
+			<br  clear="all"/>
+			<div class="clearing_btn ">
 				<button class="button">结账</button>
 			</div>
 		</div>
@@ -159,3 +132,5 @@
 	</div>
 
 </div>
+
+<script type="text/javascript" src="./cashierSystem/cashierSystem.js"></script>

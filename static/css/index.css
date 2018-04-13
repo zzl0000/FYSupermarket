@@ -33,6 +33,15 @@
 	background-color: #18a1ff;
 }
 
+.disabled {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.6;
+}
+
+.ml-none{
+	margin-left: 0 !important;
+}
 
 .container-layout{
 	width: 100%;
@@ -97,24 +106,50 @@
 	background: url(../img/nav-icon01.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .active .icon01 {
+	background: url(../img/nav-ac-icon01.png) no-repeat;
+	background-size: 100% 100%;
+}
+
 .tb_left .icon02{
 	background: url(../img/nav-icon02.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .active .icon02 {
+	background: url(../img/nav-ac-icon02.png) no-repeat;
+	background-size: 100% 100%;
+}
+
 .tb_left .icon03{
 	background: url(../img/nav-icon03.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .active .icon03 {
+	background: url(../img/nav-ac-icon03.png) no-repeat;
 	background-size: 100% 100%;
 }
 .tb_left .icon04{
 	background: url(../img/nav-icon04.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .active .icon04 {
+	background: url(../img/nav-ac-icon04.png) no-repeat;
+	background-size: 100% 100%;
+}
 .tb_left .icon05{
 	background: url(../img/nav-icon05.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .active .icon05 {
+	background: url(../img/nav-ac-icon05.png) no-repeat;
+	background-size: 100% 100%;
+}
 .tb_left .icon06{
 	background: url(../img/nav-icon06.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .active .icon06 {
+	background: url(../img/nav-ac-icon06.png) no-repeat;
 	background-size: 100% 100%;
 }
 /*右边块内容*/
@@ -341,5 +376,99 @@
 	color: white;
 	background-color:#4786ff ;
 }
+
+.ycPrice{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.scPrice{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.scPrice div{
+	display: flex;
+	flex-flow: wrap;
+	flex-direction: column;
+	
+}
+.scPrice div:first-child{
+	width: 75%;
+}
+
+.scPrice div:last-child{
+	width: 15%;
+}
+
+.scPrice div span{
+	font-size: 30px;
+	color: #8f9090;
+}
+
+.scPrice div input {
+	font-size: 32px;
+	margin-top: 10px;
+	background: white;
+	padding: 10px 12px;
+	border: 1px solid #e0e0e0;
+}
+
+.ycPrice span{
+	font-size: 30px;
+	color: #8f9090;
+}
+.ycPrice .price {
+	font-size: 24px;
+	color: #4786ff;
+}
+
+
+.settlementKeyboard ul {
+	width: 100%;
+	
+}
+
+.settlementKeyboard ul li{
+	width: 20.5%;
+	float: left;
+	background: white;
+	text-align: center;
+	padding: 20px 0;
+	margin-top: 18px;
+	font-size: 22px;
+	margin-left: 6%;
+	cursor: pointer;
+}
+
+.settlementKeyboard ul li.bg-blue{
+	background-color:#3185ff ;
+	color: white;
+}
+
+.settlementKeyboard ul li.empty span{
+	display: inline-block;
+	background: url(../img/icon-02.jpg) no-repeat;	
+	width: 39px;
+	height: 24px;
+	background-size: 100% 100%;
+	position: relative;
+	top: 2px;
+}
+
+.clearing_btn {
+	margin-top: 40px;
+}
+.clearing_btn .button{
+	width: 100%;
+	font-size: 24px;
+	color: #3185ff;
+	padding: 30px 0;
+	border: 1px solid #3185ff;
+}
+
+
+
 
 
