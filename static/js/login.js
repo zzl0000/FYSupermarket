@@ -15,6 +15,12 @@ function signlog() {
 }
 
 function getStoreId (){
+	var username  = $("#names").val();
+	var pwd = $("#pwds").val();
+	if(username  == "" || pwd == "") {
+		layer.msg("请填写信息");
+		return;
+	}
 	$.ajax({
 		type: "get",
 		url: turl + "/cashier/login/storeLogin?storeId=1",
@@ -25,20 +31,15 @@ function getStoreId (){
 		success: function(rs) {
 			if(rs.status == 200){
 				localStorage.setItem("storeId","1");			
-				getLogin();
+				getLogin(username,pwd);
 			}
 			
 		}
 	})
 }
 
-function getLogin(){
-	var username  = $("#names").val();
-	var pwd = $("#pwds").val();
-	if(username  == "" || pwd == "") {
-		layer.msg("请填写信息");
-		return;
-	}	
+function getLogin(username,pwd){
+		
 	
 	$.ajax({
 		type: "get",
