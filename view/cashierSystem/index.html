@@ -1,0 +1,136 @@
+<!-- 收银模块-->
+
+<div class="warp cashier">
+
+	<div class="left">
+		<!-- 会员登入 -->
+		<div class="memberLogin border-gray border-bottom">
+			<h5>点击登入会员</h5>
+		</div>
+
+		<!-- 商品列表 -->
+		<div class="shopGoodslist  padding-big">
+			<ul>
+				<li class="border-gray border-bottom padding-big-bottom">
+					<div class="shopGoodsTop">
+						<h5>卡布奇洛</h5>
+						<span>大杯350ml</span>
+					</div>
+					<div class="shopGoodsCT margin-big-top">
+						<span class="price">¥15.00</span>
+						<div>
+							<span class="minus"> - </span>
+							<span class="number"> 3 </span>
+							<span class="add"> + </span>
+						</div>
+					</div>
+				</li>
+				<li class="border-gray border-bottom padding-big-bottom padding-big-top">
+					<div class="shopGoodsTop">
+						<h5>卡布奇洛</h5>
+						<span>大杯350ml</span>
+					</div>
+					<div class="shopGoodsCT margin-big-top">
+						<span class="price">¥15.00</span>
+						<div>
+							<span class="minus"> - </span>
+							<span class="number"> 3 </span>
+							<span class="add"> + </span>
+						</div>
+					</div>
+				</li>
+				<li class="border-gray border-bottom padding-big-bottom padding-big-top">
+					<div class="shopGoodsTop">
+						<h5>卡布奇洛</h5>
+						<span>大杯350ml</span>
+					</div>
+					<div class="shopGoodsCT margin-big-top">
+						<span class="price">¥15.00</span>
+						<div>
+							<span class="minus"> - </span>
+							<span class="number"> 3 </span>
+							<span class="add"> + </span>
+						</div>
+					</div>
+				</li>
+			
+			</ul>
+		</div>
+
+		<!-- 商品信息汇总 -->
+		<div class="shopGoodsClearing padding-big  border-gray border-top">
+			<div class="shopGoodsInfo padding-big-top">
+				<p>合计：¥ <span id="realPrice">45.00</span></p>
+				<p>优惠券：¥ <span id="couponPrice">5.00</span></p>
+				<p>积分：¥ <span id="integralPrice">5.00</span></p>
+				<p>实收：¥ <span id="payPrice" class="price payPrice">30.00</span></p>
+			</div>
+			<div class="shopGoodsBtn margin-big-top">
+				
+				<button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-lg button-active float-right margin-big-left">挂账</button>
+				<button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-lg float-right ">清空</button>
+			</div>
+		</div>
+
+	</div>
+	<div class="right">
+		<div class="settlementModule">
+			<!-- 结算方式 -->
+			<div class="settlementMethod">
+				<ul>
+					<li class="active">现金</li>
+					<li>二维码</li>
+					<li>余额</li>
+				</ul>
+			</div>
+			<br  clear="all"/>
+			<div id="" class="ycPrice margin-big-top border-gray border-bottom padding-big-top padding-big-bottom">
+				<span>应收金额</span>
+				<span class="price ">¥ <font class="payPrice">30.00</font></span>
+			</div>
+			<div id="" class="scPrice margin-big-top border-gray border-bottom padding-big-top padding-big-bottom">
+				<div>
+					<span>实收金额</span>
+					<input type="text" readonly="" name="" id="relTakePrice">
+				</div>
+				<div>
+					<span>找零</span>
+					<input type="text" readonly="" name="">
+				</div>
+			</div>
+			<!--  触摸键盘 -->
+			<div class="settlementKeyboard margin-big-top">
+				<ul>
+					<li class="ml-none input-key">7</li>
+					<li class="input-key">8</li>
+					<li class="input-key">9</li>
+					<li class="empty" onclick="resetKeyboard()"><span></span></li>
+
+					<li class="ml-none input-key">4</li>
+					<li class="input-key">5</li>
+					<li class="input-key">6</li>
+					<li class="bg-blue specialKey">¥10</li>
+
+					<li class="ml-none input-key">1</li>
+					<li class="input-key">2</li>
+					<li class="input-key">3</li>
+					<li class="bg-blue specialKey">¥50</li>
+
+					<li class="ml-none input-key">0</li>
+					<li class="input-key">00</li>
+					<li class="decimal" >.</li>
+					<li class="bg-blue specialKey">¥100</li>
+				</ul>
+			</div>
+			<!-- 结算 -->
+			<br  clear="all"/>
+			<div class="clearing_btn ">
+				<button class="button ">结账</button>
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+
+<script type="text/javascript" src="./cashierSystem/cashierSystem.js"></script>
