@@ -6,32 +6,33 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="renderer" content="webkit">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="../static/css/main/pintuer.css" />
+		<link rel="stylesheet" href="../static/css/main/layui.css" />
+		<link rel="stylesheet" href="../static/css/main/public.css" />
 		<link rel="stylesheet" href="../static/css/login.css" />
 		<script type="text/javascript" src="../lib/jquery.js" ></script>
-		<script type="text/javascript" src="../lib/pintuer.js" ></script>
+		<script type="text/javascript" src="../lib/layui.js" ></script>
 		<script type="text/javascript" src="../static/js/center.js"></script>
 	</head>
 	<body class="bg-img">
 		<div class="container set_int">
-			<div class="line">
-	            <div class="xs12 xl12 xb12 pt-hidd">
+			<div class="layui-row">
+	            <div class="">
 	            	<div class="lo_weint">
 	            		<!--登录图片-->
 	            		<div class="lo_font"></div>
 	            		<!--s：登录框-->
 	            		<div class="lo_heigth">
 	            			<div class="lo_name">
-								<input id="names" type="text" maxlength="16" class="input layui-table-hover input-small" placeholder="请输入工号" />
+								<input id="names" type="text" maxlength="16" class="input layui-input  " placeholder="请输入工号" />
 	            				<span></span>
 							</div>
 							<div class="lo_pwd">
-								<input id="pwds" type="password" class="input" maxlength="16" placeholder="输入密码" />
+								<input id="pwds" type="password" class="input layui-input" maxlength="16" placeholder="输入密码" />
 	            				<span></span>
 							</div>
 							<div class="lo_denlu margin-big-top clearfix">
 								<!--<a href="register.html">找回密码</a>-->
-								<input class="button bg-blue float-right" style="width: 100%;" onclick="signlog()" type="button" value="登录" />
+								<input class="layui-btn layui-btn-fluid float-right bg-blue" style="width: 100%;" onclick="signlog()" type="button" value="登录" />
 							</div>
 	            		</div>
 	            		<!--e：登录框-->

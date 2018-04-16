@@ -337,8 +337,6 @@
 	border-radius: 50px;
 	width: 150px;
 	font-size: 24px;
-	padding: 10px 0;
-	color: #e0e0e0;
 	font-weight: 400;
 }
 .shopGoodsBtn .button-active {
@@ -463,8 +461,10 @@
 	width: 100%;
 	font-size: 24px;
 	color: #3185ff;
-	padding: 30px 0;
+	padding: 20px 0;
 	border: 1px solid #3185ff;
+	background: none;
+	cursor: pointer;
 }
 
 
