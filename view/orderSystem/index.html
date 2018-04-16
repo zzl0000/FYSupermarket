@@ -3,7 +3,7 @@
 <div class="warp group">
 	<!-- 操作栏-->
 	<div class="group-top">
-		<div class="xs12 xb2 form-group">
+		<div class="xs12 xb3 form-group">
 			<label for="">支付方式</label>
 			<select class="form-control" id="cateone">
 				<option value="-1">请选择</option>
@@ -14,7 +14,7 @@
 			</select>
 		</div>
 		
-		<div class="xs12 xb3 form-group">
+		<div class="xs12 xb4 form-group">
 			<label for="">购买时间</label>
 			<input type="text" class="form-control"/>
 			<span>至</span>
@@ -43,20 +43,16 @@
 					<td>2018/03/17 15:33:50</td>
 					<td>吴赫</td>
 					<td>¥ 200</td>
-					<td><a class="button button-small bg-blue">查看</a></td>
+					<td>
+						<a class="button button-small bg-red del_btn" data-id="">删除</a>
+						<a class="button button-small bg-blue detail_btn" data-id="">详情</a>						
+						<a class="button button-small bg-blue clear_btn" data-id="">结账</a>
+					</td>
 				</tr>
-				<tr>
-					<td>2</td>
-					<td>0020180317</td>
-					<td>李力</td>
-					<td>现金</td>
-					<td>2018/03/17 15:33:50</td>
-					<td>吴赫</td>
-					<td>¥ 200</td>
-					<td><a class="button button-small bg-blue">查看</a></td>
-				</tr>
+
 			</tbody>			
 		</table>
 	</div>
 
 </div>
+<script type="text/javascript" src="./orderSystem/order.js"></script>

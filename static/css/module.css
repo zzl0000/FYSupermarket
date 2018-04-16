@@ -4,12 +4,66 @@
 .group {
 	background: #f8f8f8;
 	padding: 32px;
+	position: relative;
 }
-.group-top{
+.group-top {
 	width: 100%;
 	height: auto;
 	overflow: hidden;
 }
+
+.group-top .infoList{
+
+}
+
+
+.group h5.title{
+	font-size: 18px;
+	color: #3185ff;
+	padding-left: 40px;
+	margin-bottom: 20px;
+	position: relative;
+}
+.group h5.title:after{
+	content: '';
+	clear: both;
+	position: absolute;
+	left: 25px;
+	top: 10px;
+	width: 7px;
+	height: 7px;
+	background-color: #3185ff;
+	border-radius: 50%;
+}
+
+.group-top .infoList{
+	
+	padding-left: 40px;
+}
+
+.group-top .infoList ul,.refund-panel ul{
+	display: flex;
+	flex-flow: nowrap;
+	justify-content: space-between;
+}
+.group-top .infoList ul li,.refund-panel ul li{
+	min-width: 15%;
+	padding: 10px 0;
+	display: inline-block;
+}
+
+.group-top .infoList ul li span,.refund-panel ul li span{
+	font-size: 16px;
+	color: #3185ff;
+	padding-left: 10px;
+}
+
+.group-top .infoList ul li span:last-child,.refund-panel ul li span:last-child{
+	color: #929292;
+}
+
+
+
 .group-list{
 	width: 100%;
 	height: auto;
@@ -18,8 +72,12 @@
 	box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.09);
 }
 
+
 .group-list table{
 	width: 100%;
+	margin:  0 auto;
+	
+	
 }
 .group-list table thead{
 	background-color: #fafafa ;
@@ -67,4 +125,21 @@
 .group .form-group span{
 	font-size: 14px;
 	margin-left: 10px;
+}
+
+
+.group .refund-panel h5.title{
+	font-size: 18px;
+}
+
+.refund-panel .group-top .infoList ul li span{
+	font-size: 14px;
+}
+
+.group .refund-panel .group-list table thead th{
+	font-size: 14px;
+}
+
+.group .refund-panel  table tbody tr td{
+	font-size: 12px;
 }

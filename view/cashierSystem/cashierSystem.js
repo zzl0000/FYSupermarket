@@ -41,23 +41,24 @@ $('.minus').on('click', function(e) {
 
 // 输入键盘 
 var _relTakePrice = 0;
-var _inputkey = '';
+var _inputkey = 0;
 var _specialKey = 0 ;
 $('.input-key').on('click', function(e){
 	
 	e.preventDefault();
 	var _curval = $(this).text();
+	
 	_inputkey = _inputkey += _curval
-	//_relTakePrice = _relTakePrice + parseFloat(_inputkey)
-	$('#relTakePrice').val(parseFloat(_inputkey));
+	_relTakePrice = parseFloat(_inputkey) + parseFloat(_specialKey)
+	$('#relTakePrice').val(_relTakePrice);
 })
 
 $('.specialKey').on('click' ,function(e){
 	e.preventDefault();
 	var _curval = $(this).text().substring(1);	
-	_specialKey = parseInt(_relTakePrice) + parseInt(_curval)
-	
-	$('#relTakePrice').val(_relTakePrice)
+	_specialKey =  parseFloat(_specialKey) + parseFloat(_curval);
+	_relTakePrice = parseFloat(_inputkey) + parseFloat(_specialKey);
+	$('#relTakePrice').val(_relTakePrice);
 })
 
 

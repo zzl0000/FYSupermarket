@@ -136,31 +136,72 @@ body {
     padding-right: 30px;
 }
 
-
-/*验证码*/
-
-.lo_yue span {
-    width: 30px;
-    height: 30px;
-    display: block;
-    position: absolute;
-    top: 7px;
-    left: 7px;
-    background: url(../img/yue.png) no-repeat 0 0;
+.loginState{
+    width: 100%;
 }
 
-.lo_yue input:focus~span {
-    background-position-y: -36px;
+.loginState .top{
+    width: 100%;
+    height: 120px;
+    position: relative;
 }
 
-.lo_yue a {
+.top_bg{
+    background: url(../img/logbg-02.jpg) no-repeat 0 0;
+    background-size: 100% 100%;
+}
+
+
+.loginState .top .back{
+    position: relative;
+    left: 40px;
+    top: 34px;
+    width: 46px;
+    height: 46px;
+    background: url(../img/back-icon.png) no-repeat 0 0;
+    background-size: 100% 100%;
     cursor: pointer;
-    color: #02a9ff;
+}
+.loginState .top .log{
+    position: absolute;
+    right: 450px;
+    top: 34px;
+    background: url(../img/logo-icon02.png)no-repeat 0 0 / 100% auto;
+    width: 128px;;
+    height: 43px;
 }
 
-.lo_font003 {
-    background: url(../img/12333.png)no-repeat 0 0 / 100% auto;
-    height: 124px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+.loginState .content{
+    position: relative;
+    top: 300px;
+}
+
+.loginState .onDuty{
+    width: 24%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginState .offDuty{
+    width: 24%;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginState .offDuty img{
+    margin-top:42px; 
+}
+
+.loginState .button{
+    margin-top:40px; 
+    width: 175px;
+    border-radius: 100px;
+    background-color: #3185ff;
+    color: white;
+    font-size: 24px;
+    padding: 15px 0;
 }

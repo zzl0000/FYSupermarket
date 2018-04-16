@@ -12,7 +12,7 @@ $('.left-nav ul li').on('click',function(e){
 })
 
 
-$('#mali').load("./cashierSystem/index.html");
+$('#mali').load("./home/index.html");
 
 
 //  自定义 路由
