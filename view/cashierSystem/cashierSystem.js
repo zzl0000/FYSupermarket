@@ -6,13 +6,13 @@ init();
 
 function init() {
 	getMemberInfo();
-	getGoodsList();
+	//getGoodsList();
 }
 
 var num, _curnum;
 var price, unitPrice, _unitPrice, realPrice, couponPrice = $('#couponPrice').text(),
 	integralPrice = $('#integralPrice').text();
-var _realPrice, _payPrice,money;
+var _realPrice, _payPrice, money;
 
 var token;
 var goodsList = [];
@@ -22,7 +22,7 @@ $('body').on('click', '.add', function(e) {
 
 	num = $(this).siblings('.number').text();
 	realPrice = $('#realPrice').text();
-	if(num <= 0) {
+	if (num <= 0) {
 		unitPrice = 5;
 		$(this).siblings('.minus').removeClass('disabled');
 	} else {
@@ -40,7 +40,7 @@ $('body').on('click', '.minus', function(e) {
 	var _slef = $(this);
 	num = $(this).siblings('.number').text();
 	realPrice = $('#realPrice').text();
-	if(num == 0) {
+	if (num == 0) {
 		unitPrice = $(this).parent().siblings().text().substring(1)
 	} else {
 		unitPrice = $(this).parent().siblings().text().substring(1) / num;
@@ -61,7 +61,7 @@ var isdecimalKey = false;
 $('body').on('click', '.input-key', function(e) {
 
 	e.preventDefault();
-	if(!isSpecialKey && !isdecimalKey) {
+	if (!isSpecialKey && !isdecimalKey) {
 		_relTakePrice = 0;
 	}
 	var _curval = $(this).text();
@@ -70,10 +70,10 @@ $('body').on('click', '.input-key', function(e) {
 	_inputkey += _curval;
 	_relTakePrice = _relTakePrice + _inputkey;
 
-	if(isdecimalKey) {
+	if (isdecimalKey) {
 		_inputkey = '';
 
-		if(_relTakePrice.split('.')[1].length > 2) {
+		if (_relTakePrice.split('.')[1].length > 2) {
 			layer.msg('小数位数书不能超过两位');
 			return;
 		}
@@ -90,7 +90,7 @@ $('body').on('click', '.specialKey', function(e) {
 	_inputkey = '';
 	var _curval = $(this).text().substring(1);
 	_specialKey = parseFloat(_relTakePrice) + parseFloat(_curval)
-	//console.log(_specialKey, _relTakePrice, _curval)
+		//console.log(_specialKey, _relTakePrice, _curval)
 	_relTakePrice = _specialKey;
 	isSpecialKey = true;
 
@@ -99,7 +99,7 @@ $('body').on('click', '.specialKey', function(e) {
 
 $('body').on('click', '.decimal', function() {
 	$(this).addClass('disabled');
-	if($('#relTakePrice').val() == '') {
+	if ($('#relTakePrice').val() == '') {
 		return false;
 	}
 	decimal = $(this).text();
@@ -112,10 +112,18 @@ $('body').on('click', '.decimal', function() {
 	keyCount(key);
 })
 
+$('#ScanCodeinput').bind('keypress', function(event) {
+	var inputkey = $('#ScanCodeinput').val();
+	if (event.keyCode == "13") {
+		getGoodsList(inputkey);
+		//alert('你输入的内容为：' + $('#ScanCodeinput').val());
+	}
+});
+
 function keyCount(val) {
 	var price = _payPrice || $('#payPrice').text();
 	console.log(price);
-	if(parseFloat(val) > parseFloat(price)) {
+	if (parseFloat(val) > parseFloat(price)) {
 		layer.msg('输入的价格不能大于应收金额');
 		return;
 	}
@@ -141,7 +149,7 @@ function addCount(num) {
 
 function minusCount(el, num) {
 	_curnum = parseInt(num) - 1;
-	if(_curnum <= 0) {
+	if (_curnum <= 0) {
 		_curnum = 0;
 		el.addClass('disabled');
 		$("#Goods").html('');
@@ -163,19 +171,19 @@ function priceCount(unitPrice, _curnum) {
 function realPriceCount(type, realPrice, unitPrice) {
 
 	//console.log(realPrice,unitPrice)
-	if(unitPrice <= 0) {
+	if (unitPrice <= 0) {
 		return false;
 	}
 
-	if(type == "add") {
+	if (type == "add") {
 		_realPrice = (parseInt(realPrice) + unitPrice).toFixed(2);
-	} else if(type == "minus") {
+	} else if (type == "minus") {
 		_realPrice = (parseInt(realPrice) - unitPrice).toFixed(2);
-		if(_realPrice <= 0) {
+		if (_realPrice <= 0) {
 			_realPrice = '0.00';
 		}
 	}
-	if(_realPrice == 0) {
+	if (_realPrice == 0) {
 		_payPrice = '0.00';
 	} else {
 		_payPrice = (_realPrice - couponPrice - integralPrice).toFixed(2);
@@ -199,7 +207,7 @@ function getMemberInfo() {
 		},
 		crossDomain: true,
 		success: function(rs) {
-			if(rs.status == 200) {
+			if (rs.status == 200) {
 				var html = template('memberInfoList', {
 					value: rs.data
 				});
@@ -210,8 +218,8 @@ function getMemberInfo() {
 	})
 }
 
-function getGoodsList() {
-	var gNo = "690003";
+function getGoodsList(key) {
+	var gNo = key || "690003";
 	$.ajax({
 		type: "get",
 		url: getGoods,
@@ -223,15 +231,14 @@ function getGoodsList() {
 		},
 		crossDomain: true,
 		success: function(rs) {
-			if(rs.status == 200) {
+			if (rs.status == 200) {
 				var html = template('GoodsList', {
 					value: rs.data
 				});
 				$("#Goods").append(html);
 				$('#realPrice').text((rs.data.specValue.price).toFixed(2));
 				$('.payPrice').text((rs.data.specValue.price).toFixed(2));
-				
-				
+
 			}
 		}
 	})
@@ -254,46 +261,49 @@ function uplodOrder() {
 // 结账
 
 function checkOut() {
-	var goodsList = [],
-		goodsInfo = {
+	var goodsList = [];
+	var _payPrice = $('#payPrice').text();
+	if (parseFloat(_payPrice) <= 0) {
+		layer.msg('请先添加商品');
+		return false;
+	}
+
+	$('#Goods li').each(function(index, el) {
+		var goodsInfo = {
 			"goodsId": 0,
-		     "money": 0,
-		     "num": 0,
-		     "specValueId": 0
+			"money": 0,
+			"num": 0,
+			"specValueId": 0
 		};
-	
-	$('#Goods li').each(function(){
-		goodsInfo.goodsId = $(this).attr('data-goodsId');
-		goodsInfo.specValueId = $(this).attr('data-specValueId');
-		goodsInfo.num  = $(this).find('.number').text();
-		goodsInfo.money = $(this).find('.price').text().substring(1);
+		goodsInfo.goodsId = $(el).attr('data-goodsId');
+		goodsInfo.specValueId = $(el).attr('data-specValueId');
+		goodsInfo.num = $(el).find('.number').text();
+		goodsInfo.money = $(el).find('.price').text().substring(1);
+		goodsList.push(goodsInfo);
 	})
-	goodsList.push(goodsInfo);
+	console.log(goodsList)
+
 	var data = {
 		"goodsList": goodsList,
-		"sumMoney": $('#payPrice').text(),
+		"sumMoney": _payPrice,
 		"token": token
-		}
-
+	}
 	$.ajax({
 		type: "post",
 		url: payByCash,
-		data:JSON.stringify(data),
-		headers: {
-	        Accept: "application/json; charset=utf-8"
-	    },
-	    contentType:"application/x-www-form-urlencoded",
-		dataType:'json',
+		data: JSON.stringify(data),
+		contentType: "application/json",
+		dataType: 'json',
 		xhrFields: {
 			withCredentials: true
 		},
 		crossDomain: true,
 		success: function(rs) {
-			if(rs.status == 200) {
-				var html = template('GoodsList', {
-					value: rs.data
-				});
+			if (rs.status == 200) {
+				layer.msg('结账成功');
 
+			} else {
+				layer.msg(rs.message)
 			}
 		}
 	});

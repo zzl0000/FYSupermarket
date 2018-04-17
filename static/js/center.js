@@ -29,6 +29,10 @@ var saveHangOrder = turl + "/cashier/hangOrder/saveHangOrder"; // 保存挂单
 
 var getLoginEmployee = turl + "/cashier/login/getLoginEmployee";   //获取当前登录员工 
 var updateStatus = turl + "/cashier/login/updateStatus";   //上传员工 当班状态
+var updateImprestCash = turl + "/cashier/login/updateImprestCash"; // 更新备用现金
+
+
+
 var logout = turl + "/cashier/login/logout";  // 下班
 
 

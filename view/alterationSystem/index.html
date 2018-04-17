@@ -3,7 +3,7 @@
 <div class="warp group">
 	<!-- 操作栏-->
 	<div class="group-top">
-		<button class="layui-btn layui-btn-fluid layui-btn-danger button float-right" onclick="">下班</button>
+		<button class="layui-btn layui-btn-fluid layui-btn-danger button float-right" onclick="openPanel()">下班</button>
 	</div>
 
 	<div class="group-list">
@@ -42,6 +42,47 @@
 					</tr>
 				</tbody>
 			</table>
+		</div>
+	</div>
+	
+	<!-- 下班弹窗 -->
+	<div class="refund-panel" id="refundPanel" style="display: none">
+		<div class="group-top padding-big-top">
+			<h5 class="title">基础信息</h5>
+			<div class="infoList">
+				<ul>
+					<li>
+						<i class="icon"><img src="../static/img/icon-01.png"></i>
+						<span>店铺名称:</span>
+						<span>柠檬</span>
+					</li>
+					<li>
+						<i class="icon"><img src="../static/img/icon-03.png"></i>
+						<span>收银员:</span>
+						<span>李瑞</span>
+					</li>
+					<li style="">
+						<i class="icon"><img src="../static/img/icon-05.png"></i>
+						<span>编号:</span>
+						<span>0025</span>
+					</li>
+					<li>
+						<i class="icon"><img src="../static/img/icon-02.png"></i>
+						<span>上班时间:</span>
+						<span>2018-12-13 12:00:00</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="group-list">
+			<div class="box-shadow" style="width: 95%">
+				<h5 class="title">收款信息</h5>
+				
+			</div>	
+		</div>
+		<!-- 商品信息汇总 -->
+		<div class="shopGoodsClearing padding-big ">
+			<button class="layui-btn" onclick="getLogout()">下班</button>
 		</div>
 	</div>
 

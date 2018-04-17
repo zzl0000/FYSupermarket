@@ -14,6 +14,10 @@ function signlog() {
 	getStoreId();	
 }
 
+function clearCookie(name) {  
+    setCookie(name, "", -1);  
+}
+
 function getStoreId (){
 	var username  = $("#names").val();
 	var pwd = $("#pwds").val();
@@ -60,6 +64,7 @@ function getLogin(username,pwd){
 				},2000);
 				
 			}else{
+				clearCookie('storeId');
 				layer.msg(rs.message,{time:1000});
 			}
 			console.log(rs.message);

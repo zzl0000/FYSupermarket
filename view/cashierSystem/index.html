@@ -18,7 +18,7 @@
         <!-- 商品列表 -->
         <div class="shopGoodslist  padding-big">
         	<div class="ScanCodeinput border-gray border-bottom padding-big-bottom">
-        		<input type="text" name="" class="layui-input" placeholder="扫码添加商品">
+        		<input type="text" name="" class="layui-input" id="ScanCodeinput" placeholder="扫码添加商品">
         	</div>
             <ul id="Goods">
                 <script type="text/template" id="GoodsList">
@@ -102,7 +102,7 @@
             <!-- 结算 -->
             <br clear="all" />
             <div class="clearing_btn ">
-                <button class="button" onclick="checkOut()">结账</button>
+                <button class="button" onclick="checkOut()" >结账</button>
             </div>
         </div>
     </div>
