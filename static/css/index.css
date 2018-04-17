@@ -258,6 +258,19 @@
 	background: url(../img/icons-01.png) no-repeat;
 	background-size: auto;
 }
+
+.memberLogin .memberInfo{
+	padding: 30px 10px;
+}
+.memberLogin .memberInfo ul li{
+	display: inline-block;
+	width:49%;
+	text-align: left;
+	padding: 5px 0;
+}
+
+
+
 .shopGoodslist{
 	max-height: 450px;
 	overflow-x: hidden;
@@ -265,9 +278,13 @@
 }
 
 .shopGoodslist .shopGoodsTop h5{
+	width: 240px;
 	font-size: 24px;
 	color: #000;
 	font-weight: 600;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .shopGoodslist .shopGoodsCT{

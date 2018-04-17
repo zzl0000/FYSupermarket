@@ -17,6 +17,15 @@ function imgurls() {
 
 
 /*接口api*/
+var getUser = turl + "/cashier/cashier/getUser"; // 获取会员信息
+var getGoods = turl + "/cashier/cashier/getGoods"; // 获取商品信息
+
+var payByCash = turl + "/cashier/cashier/payByCash";  // 现金支付
+
+
+var saveHangOrder = turl + "/cashier/hangOrder/saveHangOrder"; // 保存挂单
+
+
 
 var getLoginEmployee = turl + "/cashier/login/getLoginEmployee";   //获取当前登录员工 
 var updateStatus = turl + "/cashier/login/updateStatus";   //上传员工 当班状态
@@ -25,6 +34,9 @@ var logout = turl + "/cashier/login/logout";  // 下班
 
 var getHangOrderList = turl + "/cashier/hangOrder/getHangOrderList";   //获取挂单数据
 var removeHangOrder = turl + "/cashier/hangOrder/removeHangOrder";   //删除挂单数据
+
+
+
 
 
 

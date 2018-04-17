@@ -57,7 +57,7 @@ function getLogin(username,pwd){
 				layer.msg('登录成功');
 				setTimeout(function(){
 					window.location.href = "longinState.html";
-				},3000);
+				},2000);
 				
 			}else{
 				layer.msg(rs.message,{time:1000});

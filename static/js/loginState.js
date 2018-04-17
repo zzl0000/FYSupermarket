@@ -22,7 +22,7 @@ function getUpdateStatus(data){
 				layer.msg(rs.message,{time:1000});
 				setTimeout(function(){
 					window.location.href = "index.html";
-				},3000)
+				},2000)
 				
 			}
 			
