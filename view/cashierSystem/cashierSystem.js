@@ -112,11 +112,12 @@ $('body').on('click', '.decimal', function () {
     _inputkey = '';
     keyCount(key);
 })
-
+var curk = 0;
 $('#ScanCodeinput').bind('keypress', function (event) {
     var inputkey = $('#ScanCodeinput').val();
     if (event.keyCode == "13") {
-        getGoodsList(inputkey);
+        getGoodsList(inputkey, curk);
+        curk++;
         //alert('你输入的内容为：' + $('#ScanCodeinput').val());
     }
 });
@@ -223,28 +224,32 @@ function getMemberInfo() {
     });
 }
 
-var gNo, isgNo = false;
+var gNo = [], isgNo = false;
 
 var ListData = {
     goodsListData: []
 };
 
-function getGoodsList(key) {
-    if (gNo == key) {
-        num++;
-        isgNo = true;
-    } else {
-        isgNo = false;
-        num = 0;
+function getGoodsList(key,status) {
+    if(status <=0){
+        gNo.push(key);
+    }else{
+        if (gNo[returnSAIndexof(gNo, key)] == key) {
+            num++;
+            isgNo = true;
+        } else {
+            gNo.push(key);
+            isgNo = false;
+            num = 0;
+        }
     }
-
-    //console.log(num);
-    gNo = key;
+    //console.log(gNo,isgNo,status)
+    //return;
     $.ajax({
         type: "get",
         url: getGoods,
         data: {
-            gNo: gNo
+            gNo: key
         },
         xhrFields: {
             withCredentials: true
@@ -267,6 +272,22 @@ function getGoodsList(key) {
             }
         }
     })
+}
+
+// 返回数组下标
+function returnSAIndexof(arr, value) {
+    var _curIndex;
+
+    var a = arr;//为了增加方法扩展适应性。我这稍微修改了下
+    for (var i = 0; i < a.length; i++) {
+        if (a[i] == value) {
+            _curIndex = i;
+        }
+
+    }
+
+    console.log(_curIndex);
+    return _curIndex;
 }
 
 // 返回数组下标
@@ -299,10 +320,10 @@ function renderGoodsList(data) {
 function getPrice(realPrice) {
     var _realPrice, _payPrice;
     for (var i = 0; i < realPrice.length; i++) {
-        if(i<1){
+        if (i < 1) {
             _realPrice = (realPrice[i].specValue.price).substring(1);
-        }else{
-            for (var j = 0; j < i; j++){
+        } else {
+            for (var j = 0; j < i; j++) {
                 _realPrice = strFormat(realPrice[i].specValue.price) + strFormat(realPrice[j].specValue.price);
             }
         }
@@ -313,7 +334,8 @@ function getPrice(realPrice) {
     $('#realPrice').text(_realPrice);
     $('.payPrice').text(_payPrice);
 }
-function strFormat(val){
+
+function strFormat(val) {
     console.log(val);
     var curVal;
     curVal = parseFloat(val.substring(1))
