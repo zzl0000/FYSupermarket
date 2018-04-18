@@ -9,7 +9,8 @@ function init() {
 	//getGoodsList();
 }
 
-var num, _curnum;
+var num = 0,
+	_curnum;
 var price, unitPrice, _unitPrice, realPrice, couponPrice = $('#couponPrice').text(),
 	integralPrice = $('#integralPrice').text();
 var _realPrice, _payPrice, money;
@@ -22,7 +23,7 @@ $('body').on('click', '.add', function(e) {
 
 	num = $(this).siblings('.number').text();
 	realPrice = $('#realPrice').text();
-	if (num <= 0) {
+	if(num <= 0) {
 		unitPrice = 5;
 		$(this).siblings('.minus').removeClass('disabled');
 	} else {
@@ -40,7 +41,7 @@ $('body').on('click', '.minus', function(e) {
 	var _slef = $(this);
 	num = $(this).siblings('.number').text();
 	realPrice = $('#realPrice').text();
-	if (num == 0) {
+	if(num == 0) {
 		unitPrice = $(this).parent().siblings().text().substring(1)
 	} else {
 		unitPrice = $(this).parent().siblings().text().substring(1) / num;
@@ -61,7 +62,7 @@ var isdecimalKey = false;
 $('body').on('click', '.input-key', function(e) {
 
 	e.preventDefault();
-	if (!isSpecialKey && !isdecimalKey) {
+	if(!isSpecialKey && !isdecimalKey) {
 		_relTakePrice = 0;
 	}
 	var _curval = $(this).text();
@@ -70,10 +71,10 @@ $('body').on('click', '.input-key', function(e) {
 	_inputkey += _curval;
 	_relTakePrice = _relTakePrice + _inputkey;
 
-	if (isdecimalKey) {
+	if(isdecimalKey) {
 		_inputkey = '';
 
-		if (_relTakePrice.split('.')[1].length > 2) {
+		if(_relTakePrice.split('.')[1].length > 2) {
 			layer.msg('小数位数书不能超过两位');
 			return;
 		}
@@ -90,7 +91,7 @@ $('body').on('click', '.specialKey', function(e) {
 	_inputkey = '';
 	var _curval = $(this).text().substring(1);
 	_specialKey = parseFloat(_relTakePrice) + parseFloat(_curval)
-		//console.log(_specialKey, _relTakePrice, _curval)
+	//console.log(_specialKey, _relTakePrice, _curval)
 	_relTakePrice = _specialKey;
 	isSpecialKey = true;
 
@@ -99,7 +100,7 @@ $('body').on('click', '.specialKey', function(e) {
 
 $('body').on('click', '.decimal', function() {
 	$(this).addClass('disabled');
-	if ($('#relTakePrice').val() == '') {
+	if($('#relTakePrice').val() == '') {
 		return false;
 	}
 	decimal = $(this).text();
@@ -114,7 +115,7 @@ $('body').on('click', '.decimal', function() {
 
 $('#ScanCodeinput').bind('keypress', function(event) {
 	var inputkey = $('#ScanCodeinput').val();
-	if (event.keyCode == "13") {
+	if(event.keyCode == "13") {
 		getGoodsList(inputkey);
 		//alert('你输入的内容为：' + $('#ScanCodeinput').val());
 	}
@@ -122,8 +123,8 @@ $('#ScanCodeinput').bind('keypress', function(event) {
 
 function keyCount(val) {
 	var price = _payPrice || $('#payPrice').text();
-	console.log(price);
-	if (parseFloat(val) > parseFloat(price)) {
+	//console.log(price);
+	if(parseFloat(val) > parseFloat(price)) {
 		layer.msg('输入的价格不能大于应收金额');
 		return;
 	}
@@ -144,13 +145,13 @@ function resetKeyboard() {
 // 数量计算
 function addCount(num) {
 	_curnum = parseInt(num) + 1;
-	console.log(_curnum);
+	//console.log(_curnum);
 	return _curnum
 }
 
 function minusCount(el, num) {
 	_curnum = parseInt(num) - 1;
-	if (_curnum <= 0) {
+	if(_curnum <= 0) {
 		_curnum = 0;
 		el.addClass('disabled');
 		$("#Goods").html('');
@@ -164,27 +165,26 @@ function minusCount(el, num) {
 
 function priceCount(unitPrice, _curnum) {
 
-	_unitPrice = parseInt(unitPrice) * _curnum;
+	_unitPrice = parseFloat(unitPrice) * _curnum;
 	//console.log(key);
 	return '¥' + _unitPrice.toFixed(2);
 }
 
 function realPriceCount(type, realPrice, unitPrice) {
-
-	//console.log(realPrice,unitPrice)
-	if (unitPrice <= 0) {
+	console.log(realPrice, unitPrice)
+	if(unitPrice <= 0) {
 		return false;
 	}
 
-	if (type == "add") {
-		_realPrice = (parseInt(realPrice) + unitPrice).toFixed(2);
-	} else if (type == "minus") {
-		_realPrice = (parseInt(realPrice) - unitPrice).toFixed(2);
-		if (_realPrice <= 0) {
+	if(type == "add") {
+		_realPrice = (parseFloat(realPrice) + unitPrice).toFixed(2);
+	} else if(type == "minus") {
+		_realPrice = (parseFloat(realPrice) - unitPrice).toFixed(2);
+		if(_realPrice <= 0) {
 			_realPrice = '0.00';
 		}
 	}
-	if (_realPrice == 0) {
+	if(_realPrice == 0) {
 		_payPrice = '0.00';
 	} else {
 		_payPrice = (_realPrice - couponPrice - integralPrice).toFixed(2);
@@ -208,7 +208,7 @@ function getMemberInfo() {
 		},
 		crossDomain: true,
 		success: function(rs) {
-			if (rs.status == 200) {
+			if(rs.status == 200) {
 				var html = template('memberInfoList', {
 					value: rs.data
 				});
@@ -219,8 +219,22 @@ function getMemberInfo() {
 	})
 }
 
+var gNo, isgNo = false;
+	
+var ListData= {
+	goodsListData : []
+};
+
 function getGoodsList(key) {
-	var gNo = key || "690003";
+	if(gNo == key) {
+		num++;
+		isgNo = true;
+	} else {
+		isgNo = false;
+		num = 0;
+	}
+	//console.log(num);
+	gNo = key;
 	$.ajax({
 		type: "get",
 		url: getGoods,
@@ -232,18 +246,34 @@ function getGoodsList(key) {
 		},
 		crossDomain: true,
 		success: function(rs) {
-			if (rs.status == 200) {
-				var html = template('GoodsList', {
-					value: rs.data
-				});
-				$("#Goods").append(html);
-				$('#realPrice').text((rs.data.specValue.price).toFixed(2));
-				$('.payPrice').text((rs.data.specValue.price).toFixed(2));
-
+			if(rs.status == 200) {
+				$('#ScanCodeinput').val('');
+				rs.data.specValue.price = priceCount(rs.data.specValue.price, addCount(num));
+				rs.data.specValue.num = addCount(num);
+				console.log(rs.data);
+				ListData.goodsListData.push(rs.data);
+				
+				renderGoodsList(ListData)
+				$('#realPrice').text('');
+				$('.payPrice').text('')
+			} else {
+				layer.msg(rs.message)
 			}
 		}
 	})
 }
+
+function renderGoodsList(data) {
+	console.log(data);
+	
+	var html = template('GoodsList', {
+		lsit: data
+	});
+	$("#Goods").append(html);
+}
+
+
+
 
 // 清空重置
 
@@ -264,7 +294,7 @@ function uplodOrder() {
 function checkOut() {
 	var goodsList = [];
 	var _payPrice = $('#payPrice').text();
-	if (parseFloat(_payPrice) <= 0) {
+	if(parseFloat(_payPrice) <= 0) {
 		layer.msg('请先添加商品');
 		return false;
 	}
@@ -300,7 +330,7 @@ function checkOut() {
 		},
 		crossDomain: true,
 		success: function(rs) {
-			if (rs.status == 200) {
+			if(rs.status == 200) {
 				layer.msg('结账成功');
 
 			} else {

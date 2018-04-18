@@ -52,7 +52,7 @@ function openPanel() {
 						});
 						$("#gatheringList").html(html1);
 						$("#memberlinfoList").html(html2);
-						
+						$('#imprestCashLogout').text(rs.data.imprestCashLogout);
 					}
 				}
 			})

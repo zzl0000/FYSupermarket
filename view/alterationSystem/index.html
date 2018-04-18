@@ -64,17 +64,17 @@
 						<li>
 							<i class="icon"><img src="../static/img/icon-03.png"></i>
 							<span>收银员:</span>
-							<span>李瑞</span>
+							<span>{{value.employeeName}}</span>
 						</li>
 						<li style="">
 							<i class="icon"><img src="../static/img/icon-05.png"></i>
 							<span>编号:</span>
-							<span>0025</span>
+							<span>{{value.employeeId}}</span>
 						</li>
 						<li>
 							<i class="icon"><img src="../static/img/icon-02.png"></i>
 							<span>上班时间:</span>
-							<span>2018-12-13 12:00:00</span>
+							<span>{{value.loginTime}}</span>
 						</li>
 					</ul>
 				</script>
@@ -132,7 +132,7 @@
 					<span>下班</span>
 					<span>15:00:00</span>
 				</a>
-				<p><span>当前金额</span><span>1200.00</span></p>
+				<p><span>当前金额</span><span id="imprestCashLogout">1200.00</span></p>
 			</div>
 		</div>
 

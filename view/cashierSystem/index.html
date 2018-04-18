@@ -22,20 +22,23 @@
         	</div>
             <ul id="Goods">
                 <script type="text/template" id="GoodsList">
-                    <li class="border-gray border-bottom padding-big-bottom padding-big-top" data-goodsId="{{value.goods.id}}" data-specValueId="{{value.specValue.specValueId}}">
+                	{{each goodsListData vs value i}}
+                    <li class="border-gray border-bottom padding-big-bottom padding-big-top"  >
                         <div class="shopGoodsTop">
-                            <h5 title="{{value.goods.gname}}">{{value.goods.gname}}</h5>
-                            <span>{{value.goods.unit}}</span>
+                        	
+                            <h5 title=""></h5>
+                            <span></span>
                         </div>
                         <div class="shopGoodsCT margin-big-top">
-	                        <span class="price">¥{{value.specValue.price}}</span>
+	                        <span class="price"></span>
                             <div>
                                 <span class="minus"> - </span>
-                                <span class="number"> 1 </span>
+                                <span class="number">  </span>
                                 <span class="add"> + </span>
                             </div>
                         </div>
                     </li>
+                    {{/each}}
                 </script>
             </ul>
         </div>
