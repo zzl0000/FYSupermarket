@@ -415,11 +415,11 @@
 	
 }
 .scPrice div:first-child{
-	width: 75%;
+	width: 65%;
 }
 
 .scPrice div:last-child{
-	width: 15%;
+	width: 25%;
 }
 
 .scPrice div span{

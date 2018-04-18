@@ -156,6 +156,9 @@ function reumover() {
     }, 500)
 }
 
+
+
+
 function settron() {
     var syc = '[' + localStorage.getItem("sddy") + ']';
     var sby = "";
