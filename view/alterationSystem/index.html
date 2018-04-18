@@ -3,7 +3,7 @@
 <div class="warp group">
 	<!-- 操作栏-->
 	<div class="group-top">
-		<button class="layui-btn layui-btn-fluid layui-btn-danger button float-right" onclick="openPanel()">下班</button>
+		<button class="layui-btn layui-btn-fluid layui-btn-danger button float-right" onclick="openPanel()">注销</button>
 	</div>
 
 	<div class="group-list">
@@ -28,7 +28,9 @@
 						<td>2018/03/17 15:33:50</td>
 						<td>吴赫</td>
 						<td>¥ 200</td>
-						<td><a class="layui-btn layui-btn-xs layui-btn-normal bg-blue">查看</a></td>
+						<td>
+							<a class="layui-btn layui-btn-xs layui-btn-normal bg-blue check_btn">查看</a>
+						</td>
 					</tr>
 					<tr>
 						<td>2</td>
@@ -38,54 +40,180 @@
 						<td>2018/03/17 15:33:50</td>
 						<td>吴赫</td>
 						<td>¥ 200</td>
-						<td><a class="layui-btn layui-btn-xs layui-btn-normal bg-blue">查看</a></td>
+						<td>
+							<a class="layui-btn layui-btn-xs layui-btn-normal bg-blue check_btn">查看</a>
+						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-	
+
 	<!-- 下班弹窗 -->
+	<div class="refund-panel" id="logoutPanel" style="display: none">
+		<div class="group-top padding-big-top">
+			<h5 class="title">基础信息</h5>
+			<div class="infoList" id="memberlinfoList" style="padding: 0;">
+				<script type="text/template" id="memberList">
+					<ul style="justify-content: space-around;">
+						<li>
+							<i class="icon"><img src="../static/img/icon-01.png"></i>
+							<span>店铺名称:</span>
+							<span>柠檬</span>
+						</li>
+						<li>
+							<i class="icon"><img src="../static/img/icon-03.png"></i>
+							<span>收银员:</span>
+							<span>李瑞</span>
+						</li>
+						<li style="">
+							<i class="icon"><img src="../static/img/icon-05.png"></i>
+							<span>编号:</span>
+							<span>0025</span>
+						</li>
+						<li>
+							<i class="icon"><img src="../static/img/icon-02.png"></i>
+							<span>上班时间:</span>
+							<span>2018-12-13 12:00:00</span>
+						</li>
+					</ul>
+				</script>
+			</div>
+		</div>
+		<div class="group-list border-top padding-big-top">
+			<div style="width: 100%;margin: 0 auto;">
+				<h5 class="title">收款信息</h5>
+				<div class="gatheringList" id="gatheringList">
+					<script type="text/template" id="templateList">
+						<ul>
+						<li>
+							<span class="gatheringListPrice">{{value.balanceReceipt}}</span>
+							<span class="gatheringListTitle">收款金额</span>
+						</li>
+						<li>
+							<span class="gatheringListPrice">{{value.pointMoney}}</span>
+							<span class="gatheringListTitle">积分抵现</span>
+						</li>
+						<li>
+							<span class="gatheringListPrice">{{value.couponMoney}}</span>
+							<span class="gatheringListTitle">优惠券抵现</span>
+						</li>
+						<li>
+							<span class="gatheringListPrice">{{value.totalReceipt}}</span>
+							<span class="gatheringListTitle">收款合计</span>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<span class="gatheringListPrice">{{value.saleNum}}</span>
+							<span class="gatheringListTitle">销售商品数</span>
+						</li>
+						<li>
+							<span class="gatheringListPrice">{{value.returnNum}}</span>
+							<span class="gatheringListTitle">退货商品</span>
+						</li>
+						<li>
+							<span class="gatheringListPrice">{{value.totalReturn}}</span>
+							<span class="gatheringListTitle">退货金额</span>
+						</li>
+						<li>
+							<span class="gatheringListPrice">{{value.imprestCashLogin}}</span>
+							<span class="gatheringListTitle">备用金</span>
+						</li>
+					</ul>
+                </script>			
+				</div>
+			</div>
+		</div>
+		<!-- 商品信息汇总 -->
+		<div class="gatheringListBtn">
+			<div class="getLogoutBtn padding-big ">
+				<a href="javascript:void(0)" onclick="getLogout()">
+					<span>下班</span>
+					<span>15:00:00</span>
+				</a>
+				<p><span>当前金额</span><span>1200.00</span></p>
+			</div>
+		</div>
+
+	</div>
+	<!-- 订单弹窗 -->
 	<div class="refund-panel" id="refundPanel" style="display: none">
 		<div class="group-top padding-big-top">
 			<h5 class="title">基础信息</h5>
 			<div class="infoList">
-				<ul>
+				<ul style="justify-content: space-between;">
 					<li>
 						<i class="icon"><img src="../static/img/icon-01.png"></i>
-						<span>店铺名称:</span>
+						<span>会员:</span>
 						<span>柠檬</span>
 					</li>
 					<li>
 						<i class="icon"><img src="../static/img/icon-03.png"></i>
-						<span>收银员:</span>
-						<span>李瑞</span>
+						<span>手机号:</span>
+						<span>13668666221</span>
 					</li>
-					<li style="">
+					<li style="min-width: 192px">
 						<i class="icon"><img src="../static/img/icon-05.png"></i>
-						<span>编号:</span>
-						<span>0025</span>
+						<span>订单号:</span>
+						<span>3365547411</span>
 					</li>
+				</ul>
+				<ul>
 					<li>
 						<i class="icon"><img src="../static/img/icon-02.png"></i>
-						<span>上班时间:</span>
+						<span>支付方式:</span>
+						<span>支付宝</span>
+					</li>
+					<li>
+						<i class="icon"><img src="../static/img/icon-04.png"></i>
+						<span>购买日期:</span>
 						<span>2018-12-13 12:00:00</span>
+					</li>
+					<li style="min-width: 192px">
+						<i class="icon"><img src="../static/img/icon-06.png"></i>
+						<span>收银员:</span>
+						<span>李瑞</span>
 					</li>
 				</ul>
 			</div>
 		</div>
 		<div class="group-list">
 			<div class="box-shadow" style="width: 95%">
-				<h5 class="title">收款信息</h5>
-				
+				<h5 class="title">商品信息</h5>
+				<table border="0" cellspacing="0" cellpadding="0" >
+					<thead>
+						<th>序号</th>
+						<th>商品编号</th>
+						<th>购买人</th>
+						<th>商品名称</th>
+						<th>数量</th>
+						<th>小计</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="checkbox" name="" style="margin-right: 10px">1</td>
+							<td>0020180317</td>
+							<td>卡布奇洛 350ml</td>
+							<td>1</td>
+							<td>¥ 200</td>
+							<td>¥ 200</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>	
 		</div>
 		<!-- 商品信息汇总 -->
 		<div class="shopGoodsClearing padding-big ">
-			<button class="layui-btn" onclick="getLogout()">下班</button>
+			<div class="shopGoodsInfo padding-big-top">
+				<p>合计：¥ <span id="realPrice">45.00</span></p>
+				<p>优惠券：¥ <span id="couponPrice">5.00</span></p>
+				<p>积分：¥ <span id="integralPrice">5.00</span></p>
+				<p>实收：¥ <span id="payPrice" class="price payPrice">30.00</span></p>
+			</div>
 		</div>
 	</div>
-
 </div>
 
 <script type="text/javascript" src="./alterationSystem/alteration.js"></script>

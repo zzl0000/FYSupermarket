@@ -33,13 +33,13 @@ function getStoreId (){
         },
 		crossDomain: false,
 		success: function(rs) {
-			if(rs.status == 200){
+			if(rs.status == 200 || rs.status == 300){
 				localStorage.setItem("storeId","1");			
 				getLogin(username,pwd);
 			}
 			
 		}
-	})
+	});
 }
 
 function getLogin(username,pwd){

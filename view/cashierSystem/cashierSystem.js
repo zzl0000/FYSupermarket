@@ -144,6 +144,7 @@ function resetKeyboard() {
 // 数量计算
 function addCount(num) {
 	_curnum = parseInt(num) + 1;
+	console.log(_curnum);
 	return _curnum
 }
 

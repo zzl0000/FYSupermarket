@@ -37,14 +37,13 @@
 }
 
 .group-top .infoList{
-	
 	padding-left: 40px;
 }
 
 .group-top .infoList ul,.refund-panel ul{
 	display: flex;
 	flex-flow: nowrap;
-	justify-content: space-between;
+	justify-content:space-between;
 }
 .group-top .infoList ul li,.refund-panel ul li{
 	min-width: 15%;
@@ -146,4 +145,86 @@
 
 .group .refund-panel  table tbody tr td{
 	font-size: 12px;
+}
+.group .gatheringList{
+	padding: 0 20px;
+}
+.group .gatheringList ul{
+	display: flex;
+	justify-content: space-between;
+}
+
+.group .gatheringList ul li{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+
+
+.group .gatheringList ul li span{
+	display: inline-block;
+	padding: 5px 0;
+}
+.group .gatheringList ul li span.gatheringListPrice{
+	font-size: 20px;
+	color: #000;
+}
+.group .gatheringList ul li span.gatheringListTitle{
+	
+	padding-left: 24px;
+	position: relative;
+	font-size: 14px;
+	color: #959595;
+}
+.group .gatheringList ul li span.gatheringListTitle:before{
+	content: '';
+	clear: both;
+	position: absolute;
+	left: 25%;
+	top: 7px;
+	width: 16px;
+	height: 16px;
+	background: url(../img/gathering-icon.jpg) no-repeat;
+}
+.group .gatheringListBtn{
+	margin: 0 auto;
+	text-align: center;
+}
+
+.group .getLogoutBtn{
+	display: inline-block;
+}
+
+.group .getLogoutBtn a{
+	display: inline-block;
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	width: 136px;
+	height:136px;
+	padding: 50px 0;
+	background: url(../img/logout-icon.png) no-repeat;
+	background-size:auto;
+}
+
+.group .getLogoutBtn a span{
+	display: block;
+	text-align: center;
+}
+
+.group .getLogoutBtn a span:last-child{
+	padding-top: 8px;
+	font-size: 14px;
+}
+
+.group .gatheringListBtn p span{
+	display: block;
+	text-align: center;
+	font-size: 18px;
+	color: #959595;
+}
+.group .gatheringListBtn p span:last-child{
+	font-size: 36px;
+	color:#ff5a58;
 }
