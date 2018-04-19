@@ -12,7 +12,7 @@ function getLogout() {
 // 获取员工信息
 function get() {}
 
-$('.check_btn').on('click', function(e) {
+$('body').on('click','#alterationListDemo .check_btn', function(e) {
 	var html = $('#refundPanel');
 	layer.open({
 		title: '订单详情',

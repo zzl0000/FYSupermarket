@@ -121,19 +121,14 @@ function gainpage(pages, alltotal) {
         return false;
     } else {
         laypage({
-            cont: 'biuuu_city',
+            cont: 'page',
             skip: true, //是否开启跳页
-            skin: '#425EC1',
+            skin: '#1E9FFF',
             pages: pages,
             jump: function(obj, first) {
                 var curr = obj.curr;
                 console.log(obj);
                 //得到了当前页，用于向服务端请求对应数据
-                if (obj.curr == 0) {
-                    $('#pagetxt').css("display", "none");
-                } else {
-                    $('#pagetxt').html("当前在第 " + obj.curr + " 页/" + "共 " + obj.pages + " 页").removeAttr("style");
-                }
             }
         })
     }

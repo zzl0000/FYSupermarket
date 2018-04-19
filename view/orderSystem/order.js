@@ -27,7 +27,8 @@ function getOrderList() {
 			//console.log(rs.data);
 			var html = '';
 			if(rs.status == 200) {
-				if(rs.data.length == 0) {
+
+				if(rs.data ==null) {
 					html = ''
 					$("#noeList").show();
 					layer.closeAll('loading');
