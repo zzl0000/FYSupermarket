@@ -5,7 +5,7 @@
 init();
 
 function init() {
-    getMemberInfo();
+    //getMemberInfo();
     //getGoodsList();
 }
 
@@ -122,6 +122,15 @@ $('#ScanCodeinput').bind('keypress', function (event) {
     }
 });
 
+$('#ScanCodeMember').bind('keypress', function (event) {
+    var inputkey = $('#ScanCodeinput').val();
+    if (event.keyCode == "13") {
+        getMemberInfo(inputkey);
+    }
+});
+
+
+
 function keyCount(val) {
     var price = _payPrice || $('#payPrice').text();
     //console.log(price);
@@ -176,7 +185,7 @@ function priceCount(unitPrice, _curnum) {
 }
 
 function realPriceCount(type, realPrice, unitPrice) {
-    console.log(realPrice, unitPrice)
+    //console.log(realPrice, unitPrice)
     if (unitPrice <= 0) {
         return false;
     }
@@ -194,14 +203,14 @@ function realPriceCount(type, realPrice, unitPrice) {
     } else {
         _payPrice = (_realPrice - couponPrice - integralPrice).toFixed(2);
     }
-    console.log(_payPrice);
+    //console.log(_payPrice);
     $('#realPrice').text(_realPrice);
     $('.payPrice').text(_payPrice);
 }
 
-function getMemberInfo() {
-    var phone = "18012345678";
-
+function getMemberInfo(inputkey) {
+    var phone = inputkey || "18012345678";
+	
     $.ajax({
         type: "get",
         url: getUser,
@@ -214,6 +223,9 @@ function getMemberInfo() {
         crossDomain: true,
         success: function (rs) {
             if (rs.status == 200) {
+            	$('#ScanCodeMemberInput').hide();
+            	$('#ScanCodeMember').val('');
+            	$("#memberInfo").show();
                 var html = template('memberInfoList', {
                     value: rs.data
                 });
@@ -348,12 +360,65 @@ function reset() {
     $("#Goods").html('');
     $('#realPrice').text('0.00');
     $('.payPrice').text('0.00');
+    $('#ScanCodeMemberInput').show();
+    $('#memberInfo').hide();
+    gNo = [];
+    curk = 0;
+    isgNo = false;
+    num = 0;
+    ListData.goodsListData = [];
 }
 
 // 挂账
 
 function uplodOrder() {
+	var goodsList = [];
+    var _payPrice = $('#payPrice').text();
+    if (parseFloat(_payPrice) <= 0) {
+        layer.msg('请先添加商品');
+        return false;
+    }
 
+    $('#Goods li').each(function (index, el) {
+        var goodsInfo = {
+            "goodsId": 0,
+            "money": 0,
+            "num": 0,
+            "specValueId": 0
+        };
+        goodsInfo.goodsId = $(el).attr('data-goodsId');
+        goodsInfo.specValueId = $(el).attr('data-specValueId');
+        goodsInfo.num = $(el).find('.number').text();
+        goodsInfo.money = $(el).find('.price').text().substring(1);
+        goodsList.push(goodsInfo);
+    })
+    //console.log(goodsList)
+
+    var data = {
+        "goodsList": goodsList,
+        "sumMoney": _payPrice,
+        "token": token
+    }
+	$.ajax({
+        type: "post",
+        url: saveHangOrder,
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        dataType: 'json',
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function (rs) {
+            if (rs.status == 200) {
+                layer.msg('挂账成功');
+				reset();
+				resetKeyboard();
+            } else {
+                layer.msg(rs.message)
+            }
+        }
+    });
 }
 
 // 结账
@@ -379,7 +444,7 @@ function checkOut() {
         goodsInfo.money = $(el).find('.price').text().substring(1);
         goodsList.push(goodsInfo);
     })
-    console.log(goodsList)
+    //console.log(goodsList)
 
     var data = {
         "goodsList": goodsList,
@@ -399,7 +464,8 @@ function checkOut() {
         success: function (rs) {
             if (rs.status == 200) {
                 layer.msg('结账成功');
-
+				reset();
+				resetKeyboard();
             } else {
                 layer.msg(rs.message)
             }

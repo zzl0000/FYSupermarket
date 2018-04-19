@@ -22,7 +22,6 @@ $('.left-nav ul li').on('click', function(e) {
 //	}
 //});
 
-
 function touch(startY, endY) {
 
 }
@@ -32,5 +31,6 @@ $('#mali').load("./home/index.html");
 //  自定义 路由
 
 function router(url) {
+
 	$('#mali').load(url);
 }

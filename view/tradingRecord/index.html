@@ -6,19 +6,18 @@
 		<div class="layui-col-xs3 form-group">
 			<label for="">支付方式</label>
 			<select class="form-control" id="cateone">
-				<option value="-1">请选择</option>
-				<option value="0">支付宝</option>
-				<option value="1">微信 </option>
+				<option value="">请选择</option>
 				<option value="1">现金 </option>
-				<option value="1">余额 </option>
+				<option value="2">扫码 </option>
+				<option value="3">余额 </option>
 			</select>
 		</div>
 
-		<div class="layui-col-xs4 form-group">
+		<div class="layui-col-xs5 form-group">
 			<label for="">购买时间</label>
-			<input type="text" class="form-control" />
+			<input type="text" class="form-control" id="startDate" readonly/>
 			<span>至</span>
-			<input type="text" class="form-control" />
+			<input type="text" class="form-control" id="endDate" readonly/>
 		</div>
 	</div>
 
@@ -35,20 +34,32 @@
 					<th>金额</th>
 					<th>操作</th>
 				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>0020180317</td>
-						<td>李力</td>
-						<td>现金</td>
-						<td>2018/03/17 15:33:50</td>
-						<td>吴赫</td>
-						<td>¥ 200</td>
-						<td><a class="layui-btn layui-btn-xs layui-btn-normal check_btn">查看</a></td>
-					</tr>
+				<tbody id="orderListDemo">
+					<script type="text/template" id="orderList">
+						{{each list as value i}}
+							<tr>
+								<td>{{i +1 }}</td>
+								<td>{{value.orderNo}}</td>
+								<td>李力</td>
+								<td>{{value.payWay}}</td>
+								<td>{{value.payTime}}</td>
+								<td>{{value.employeeId}}</td>
+								<td>¥ {{value.receipt}}</td>
+								<td>
+									<a class="layui-btn layui-btn-ms layui-btn-normal check_btn" data-id="{{value.orderId}}">查看</a>
+								</td>
+							</tr>
+						{{/each}}
+					</script>	
 				</tbody>
 			</table>
+			<!--分页-->
+			<div class="clearfix padding-large-top padding-big-bottom" style="background: #fff;">
+				<div class="float-right" id="laypages"></div>
+				<div class="float-left" id="pagetxt"></div>
+			</div>
 		</div>
+		
 
 	</div>
 	<!-- 订单弹窗 -->
@@ -93,8 +104,8 @@
 			</div>
 		</div>
 		<div class="group-list">
-			<div class="box-shadow" style="width: 95%">
-				<h5 class="title">商品信息</h5>
+			<h5 class="title" >商品信息</h5>
+			<div class="box-shadow" style="width: 95%">			
 				<table border="0" cellspacing="0" cellpadding="0" >
 					<thead>
 						<th>序号</th>
@@ -104,26 +115,30 @@
 						<th>数量</th>
 						<th>小计</th>
 					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<input type="checkbox" name="" style="margin-right: 10px">1</td>
-							<td>0020180317</td>
-							<td>卡布奇洛 350ml</td>
-							<td>1</td>
-							<td>¥ 200</td>
-							<td>¥ 200</td>
-						</tr>
+					
+					<tbody id="orderDetailListDemo">
+						<script type="text/template" id="orderDetailList">
+							{{each list as value i}}
+								<tr>
+									<td>{{i + 1}}</td>								
+									<td>{{value.integer}}</td>
+									<td>200</td>
+									<td>{{value.goodsName}}</td>
+									<td>{{value.num}}</td>							
+									<td>{{value.money}}</td>
+								</tr>
+							{{/each}}
+						</script>	
 					</tbody>
 				</table>
-			</div>	
+			</div>
 		</div>
 		<!-- 商品信息汇总 -->
 		<div class="shopGoodsClearing padding-big ">
 			<div class="shopGoodsInfo padding-big-top">
 				<p>合计：¥ <span id="realPrice">45.00</span></p>
-				<p>优惠券：¥ <span id="couponPrice">5.00</span></p>
-				<p>积分：¥ <span id="integralPrice">5.00</span></p>
+				<p>优惠券：¥ <span id="couponPrice">0.00</span></p>
+				<p>积分：¥ <span id="integralPrice">0.00</span></p>
 				<p>实收：¥ <span id="payPrice" class="price payPrice">30.00</span></p>
 			</div>
 		</div>

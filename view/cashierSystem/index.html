@@ -3,8 +3,10 @@
     <div class="left">
         <!-- 会员登入 -->
         <div class="memberLogin border-gray border-bottom">
-            <h5 style="display: none">点击登入会员</h5>
-            <div class="memberInfo" id="memberInfo">
+            <div class="ScanCodeinput" id="ScanCodeMemberInput">
+        		<input type="text" name="" class="layui-input" id="ScanCodeMember" placeholder="扫码添加会员信息">
+        	</div>
+            <div class="memberInfo" id="memberInfo" style="display: none;">
                 <script type="text/template" id="memberInfoList">
                     <ul>
                         <li>会员:<span>{{value.nick}}</span></li>
@@ -50,7 +52,7 @@
                 <p>实收：¥ <span id="payPrice" class="price payPrice">0.00</span></p>
             </div>
             <div class="shopGoodsBtn margin-big-top">
-                <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-lg button-active float-right margin-big-left">挂账</button>
+                <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-lg button-active float-right margin-big-left" onclick="uplodOrder()">挂账</button>
                 <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-lg float-right " onclick="reset()">清空</button>
             </div>
         </div>

@@ -262,6 +262,13 @@
 	background-size: auto;
 }
 
+.memberLogin .ScanCodeinput{
+	display: inline-block;
+	padding: 40px 0;
+	width: 90%;
+	position: relative;
+}
+
 .memberLogin .memberInfo{
 	padding: 30px 10px;
 }

@@ -46,7 +46,7 @@
 	justify-content:space-between;
 }
 .group-top .infoList ul li,.refund-panel ul li{
-	min-width: 15%;
+	min-width: 25%;
 	padding: 10px 0;
 	display: inline-block;
 }
@@ -87,10 +87,10 @@
 }
 
 .group-list table thead th{
-	padding: 22px 0;
+	padding: 18px 0;
 	text-align: left;
 	padding-left: 20px;
-	font-size: 20px;
+	font-size: 16px;
 }
 .group-list table thead th:last-child{
 	text-align: center;
@@ -104,10 +104,10 @@
 }
 
 .group-list table tbody tr td{
-	padding: 20px 0;
+	padding: 10px 0;
 	text-align: left;
 	padding-left: 20px;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 .group-list table tbody tr td:last-child{
@@ -227,4 +227,10 @@
 .group .gatheringListBtn p span:last-child{
 	font-size: 36px;
 	color:#ff5a58;
+}
+
+.noeList{
+	width: 100%;
+	text-align: center;
+	padding: 20px 0;
 }

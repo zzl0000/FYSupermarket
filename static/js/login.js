@@ -14,7 +14,6 @@ function signlog() {
 	getStoreId();	
 }
 
-
 function getStoreId (){
 	var username  = $("#names").val();
 	var pwd = $("#pwds").val();
@@ -56,6 +55,9 @@ function getLogin(username,pwd){
 		success: function(rs) {
 			if(rs.status=="200"){
 				layer.msg('登录成功');
+				localStorage.setItem("name",rs.data.name);
+				
+
 				setTimeout(function(){
 					window.location.href = "longinState.html";
 				},2000);

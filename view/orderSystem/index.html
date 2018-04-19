@@ -4,21 +4,15 @@
 	<!-- 操作栏-->
 	<div class="group-top">
 		<div class="layui-col-xs3 form-group">
-			<label for="">支付方式</label>
-			<select class="form-control" id="cateone">
-				<option value="-1">请选择</option>
-				<option value="0">支付宝</option>
-				<option value="1">微信 </option>
-				<option value="1">现金 </option>
-				<option value="1">余额 </option>
-			</select>
+			<label for="">订单号</label>
+			<input type="text" class="form-control" id="startDate" readonly/>
 		</div>
 
-		<div class="layui-col-xs4 form-group">
+		<div class="layui-col-xs5 form-group">
 			<label for="">购买时间</label>
-			<input type="text" class="form-control" />
+			<input type="text" class="form-control" id="startDate" readonly/>
 			<span>至</span>
-			<input type="text" class="form-control" />
+			<input type="text" class="form-control" id="endDate" readonly/>
 		</div>
 	</div>
 
@@ -29,30 +23,34 @@
 					<th>序号</th>
 					<th>订单号</th>
 					<th>购买人</th>
-					<th>支付方式</th>
 					<th>购买日期</th>
 					<th>收银员</th>
 					<th>金额</th>
 					<th>操作</th>
 				</thead>
-				<tbody>
-					<tr>
-						<td>1</td>
-						<td>0020180317</td>
-						<td>李力</td>
-						<td>现金</td>
-						<td>2018/03/17 15:33:50</td>
-						<td>吴赫</td>
-						<td>¥ 200</td>
-						<td>
-							<a class="layui-btn layui-btn-xs layui-btn-danger del_btn" data-id="">删除</a>
-							<a class="layui-btn layui-btn-xs layui-btn-normal detail_btn" data-id="">详情</a>
-							<a class="layui-btn layui-btn-xs layui-btn-normal clear_btn" data-id="">结账</a>
-						</td>
-					</tr>
-
+				<tbody id="HangOrderListDemo">
+					<script type="text/template" id="HangOrderList">
+						{{each list as value i}}
+						<tr>
+							<td>1</td>
+							<td>{{value.hangOrderId}}</td>
+							<td>{{value.nick}}</td>
+							<td>2018/03/17 15:33:50</td>
+							<td id="cashierName"></td>
+							<td>{{value.sumMoney}}</td>						
+							<td>
+								<a class="layui-btn layui-btn-ms layui-btn-danger del_btn" data-id="{{value.hangOrderId}}">删除</a>
+								<a class="layui-btn layui-btn-ms layui-btn-normal detail_btn" data-id="">详情</a>
+								<a class="layui-btn layui-btn-ms layui-btn-normal clear_btn" data-id="">结账</a>
+							</td>
+						</tr>
+						{{/each}}
+					</script>
 				</tbody>
 			</table>
+			<div id="noeList" class="noeList" style="display: none;">
+				暂无数据
+			</div>
 		</div>
 	</div>
 
