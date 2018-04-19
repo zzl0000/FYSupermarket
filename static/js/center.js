@@ -37,6 +37,26 @@ var removeHangOrder = turl + "/cashier/hangOrder/removeHangOrder";   //删除挂
 
 
 
+function queryMenberInfo(token){
+	$.ajax({
+        type: "get",
+        url: getUser,
+        data: {
+            phone: token
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function (rs) {
+            if (rs.status == 200) {
+				localStorage.setItem("menberInfo",rs.data);
+            }
+        }
+    });
+}
+
+
 
 
 function removeHTML(str) {
