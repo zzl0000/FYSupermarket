@@ -8,9 +8,7 @@ function imgurls() {
     return "http://49.4.12.221:8082/NuoQiHuiMaven";
 }
 
-window.onunload=function(){
-    localStorage.clear();
-}
+
 
 /*接口api*/
 

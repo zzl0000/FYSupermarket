@@ -69,7 +69,10 @@ $('body').on('click', '.clear_btn', function(e) {
 		success: function(rs) {
 			if(rs.status == 200) {
 				localStorage.setItem("hangOrderData",JSON.stringify(hangOrderData))
+
 				$('#mali').load("./cashierSystem/index.html");
+                $('.left-nav ul li:eq(0)').addClass('active');
+                $('.left-nav ul li:eq(2)').removeClass('active');
 			}
 		}
 	})

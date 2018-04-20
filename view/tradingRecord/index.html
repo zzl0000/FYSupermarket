@@ -6,7 +6,7 @@
 		<div class="layui-col-xs3 form-group">
 			<label for="">支付方式</label>
 			<select class="form-control" id="cateone">
-				<option value="">请选择</option>
+				<option value="0">请选择</option>
 				<option value="1">现金 </option>
 				<option value="2">扫码 </option>
 				<option value="3">余额 </option>
@@ -41,7 +41,7 @@
 								<td>{{i +1 }}</td>
 								<td>{{value.orderNo}}</td>
 								<td>李力</td>
-								<td>{{value.payWay}}</td>
+								<td>{{value.payWay | getPayWay}}</td>
 								<td>{{value.payTime}}</td>
 								<td>{{value.employeeId}}</td>
 								<td>¥ {{value.receipt}}</td>
@@ -53,6 +53,9 @@
 					</script>	
 				</tbody>
 			</table>
+			<div id="noeList" class="noeList" style="display: none;">
+				暂无数据
+			</div>
 			<!--分页-->
 			<div id="page" class="padding-big"></div>
 		</div>

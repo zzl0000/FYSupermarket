@@ -39,6 +39,9 @@ $('.back_btn').on('click', function(e){
 					$('.lo_title').find('span').hide();
 					$('.lo_title').find('font').text('门店登录');
 					localStorage.removeItem('storeId');
+					window.onunload=function(){
+						localStorage.clear();
+					}
 			}			
 		}
 	});
