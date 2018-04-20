@@ -29,10 +29,10 @@ function init() {
     if(sessionStorage.getItem("hangOrderData") != ''){
         hangOrderDtata  = JSON.parse(sessionStorage.getItem("hangOrderData"));
 	};
-
+	console.log(hangOrderDtata)
 	var key = sessionStorage.getItem("clearingId");
 	//console.log(key)
-	if(hangOrderDtata != null){
+	if(hangOrderDtata != ''){
 		isMemberVal = true;
 		$("#memberInfo").show();
 		getMemberInfo(hangOrderDtata[key].token);
