@@ -116,6 +116,7 @@ var curk = 0;
 $('#ScanCodeinput').bind('keypress', function (event) {
     var inputkey = $('#ScanCodeinput').val();
     if (event.keyCode == "13") {
+    	//console.log(curk)
         getGoodsList(inputkey, curk);
         curk++;
         //alert('你输入的内容为：' + $('#ScanCodeinput').val());
@@ -123,7 +124,7 @@ $('#ScanCodeinput').bind('keypress', function (event) {
 });
 
 $('#ScanCodeMember').bind('keypress', function (event) {
-    var inputkey = $('#ScanCodeinput').val();
+    var inputkey = $('#ScanCodeMember').val();
     if (event.keyCode == "13") {
         getMemberInfo(inputkey);
     }
@@ -159,19 +160,21 @@ function resetKeyboard() {
 // 数量计算
 function addCount(num) {
     _curnum = parseInt(num) + 1;
-    //console.log(_curnum);
+    //console.log(_curnum,num);
     return _curnum;
 }
 
 function minusCount(el, num) {
     _curnum = parseInt(num) - 1;
+    num = parseInt(num) - 1;
     if (_curnum <= 0) {
-        _curnum = 0;
-        el.addClass('disabled');
-        $("#Goods").html('');
+       // console.log(el);
+        el.addClass('disabled');  
+        el.parent().parent().parent().hide();
         $('#realPrice').text('0.00');
         $('.payPrice').text('0.00');
     }
+    console.log(num);
     return _curnum;
 }
 
@@ -209,6 +212,7 @@ function realPriceCount(type, realPrice, unitPrice) {
 }
 
 function getMemberInfo(inputkey) {
+	//console.log(inputkey);
     var phone = inputkey || "18012345678";
 	
     $.ajax({
@@ -243,6 +247,7 @@ var ListData = {
 };
 
 function getGoodsList(key,status) {
+	console.log(num)
     if(status <=0){
         gNo.push(key);
     }else{
@@ -269,6 +274,7 @@ function getGoodsList(key,status) {
         crossDomain: true,
         success: function (rs) {
             if (rs.status == 200) {
+            	
                 $('#ScanCodeinput').val('');
                 rs.data.specValue.price = priceCount(rs.data.specValue.price, addCount(num));
                 rs.data.specValue.num = addCount(num);
@@ -298,7 +304,7 @@ function returnSAIndexof(arr, value) {
 
     }
 
-    console.log(_curIndex);
+    //console.log(_curIndex);
     return _curIndex;
 }
 
@@ -315,7 +321,7 @@ function returnIndexof(arr, value) {
 
     }
 
-    console.log(_curIndex);
+    //console.log(_curIndex);
     return _curIndex;
 }
 
@@ -331,24 +337,24 @@ function renderGoodsList(data) {
 
 function getPrice(realPrice) {
     var _realPrice, _payPrice;
-    for (var i = 0; i < realPrice.length; i++) {
-        if (i < 1) {
-            _realPrice = (realPrice[i].specValue.price).substring(1);
-        } else {
-            for (var j = 0; j < i; j++) {
-                _realPrice = strFormat(realPrice[i].specValue.price) + strFormat(realPrice[j].specValue.price);
-            }
-        }
-
-    }
+    //console.log(realPrice);
+    
+   var str='';  
+	   for (i in realPrice){  
+	       str+= strFormat(realPrice[i].specValue.price);
+	       str+='+';  
+	  
+	}  
+	str=str.substring(0, str.length - 1); 
+	_realPrice = eval(str).toFixed(2)
     _payPrice = (_realPrice - couponPrice - integralPrice).toFixed(2);
-    console.log(_realPrice);
+    //console.log(_realPrice);
     $('#realPrice').text(_realPrice);
     $('.payPrice').text(_payPrice);
 }
 
 function strFormat(val) {
-    console.log(val);
+    //console.log(val);
     var curVal;
     curVal = parseFloat(val.substring(1))
     return curVal
