@@ -11,8 +11,8 @@ function getOrderList(_curr) {
 		"pageNum": _curr,
 		"pageSize": 10,
 		"payWay": 0,
-		"beginTime": '2017-07-09',
-		"endTime": '2018-07-10'
+		"beginTime": format(new Date()),
+		"endTime": format(new Date())
 	}
 	$.ajax({
 		type: "get",

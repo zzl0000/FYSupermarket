@@ -25,7 +25,7 @@
             <ul id="Goods">
                 <script type="text/template" id="GoodsList">
                     {{each list.goodsListData as value i}}
-                    <li class="border-gray border-bottom padding-big-bottom padding-big-top" data-goodsId="{{value.specValue.goodsId}}" data-specValueId="{{value.specValue.specValueId}}"  >
+                    <li class="border-gray border-bottom padding-big-bottom padding-big-top" data-gNo="{{value.specValue.gNo}}"  data-goodsId="{{value.specValue.goodsId}}" data-specValueId="{{value.specValue.specValueId}}"  >
                         <div class="shopGoodsTop">
                             <h5 title="{{value.goods.gname}}">{{value.goods.gname}}</h5>
                             <span>{{value.goods.unit}}</span>

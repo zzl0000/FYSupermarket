@@ -27,13 +27,13 @@ init();
 function init() {
 	var hangOrderDtata = JSON.parse(localStorage.getItem("hangOrderData"));
 	console.log(hangOrderDtata);
-	if(hangOrderDtata != null){
-		isMemberVal = true;
-		$("#memberInfo").show();
-		getMemberInfo(hangOrderDtata[0].token);
-		ListData.goodsListData = hangOrderDtata[0].goods;		
-		renderGoodsList(ListData.goodsListData);
-	}
+	// if(hangOrderDtata != null){
+	// 	isMemberVal = true;
+	// 	$("#memberInfo").show();
+	// 	getMemberInfo(hangOrderDtata[0].token);
+	// 	ListData.goodsListData = hangOrderDtata[0].goods;
+	// 	renderGoodsList(ListData.goodsListData);
+	// }
 }
 
 
@@ -297,11 +297,13 @@ function uplodOrder() {
 
 	$('#Goods li').each(function(index, el) {
 		var goodsInfo = {
+			"gNo":'0',
 			"goodsId": 0,
 			"money": 0,
 			"num": 0,
 			"specValueId": 0
 		};
+        goodsInfo.gNo = $(el).attr('data-gNo');
 		goodsInfo.goodsId = $(el).attr('data-goodsId');
 		goodsInfo.specValueId = $(el).attr('data-specValueId');
 		goodsInfo.num = $(el).find('.number').text();
