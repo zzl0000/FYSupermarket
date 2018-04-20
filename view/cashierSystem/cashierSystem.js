@@ -19,20 +19,24 @@ var gNo = [],
 var ListData = {
 	goodsListData: []
 };
-var hangOrderDtata = '';
+var hangOrderDtata;
+var key;
 var isMemberVal = false;
 
 init();
 
 function init() {
     gNo = [];
-    if(sessionStorage.getItem("hangOrderData") != ''){
+    hangOrderDtata = null
+    var key = '';
+    if(sessionStorage.getItem("hangOrderData") != null){
         hangOrderDtata  = JSON.parse(sessionStorage.getItem("hangOrderData"));
+        key = sessionStorage.getItem("clearingId");
 	};
 	//console.log(hangOrderDtata)
-	var key = sessionStorage.getItem("clearingId");
-	//console.log(key)
-	if(hangOrderDtata != ''){
+
+	console.log(hangOrderDtata)
+	if(hangOrderDtata != null){
 		isMemberVal = true;
 		$("#memberInfo").show();
 		getMemberInfo(hangOrderDtata[key].token);
@@ -124,7 +128,8 @@ function getGoodsList(key, status) {
 			num = 0;
 		}
 	}
-
+	//console.log(gNo,isgNo,status)
+	//return;
 	$.ajax({
 		type: "get",
 		url: getGoods,

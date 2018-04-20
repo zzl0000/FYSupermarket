@@ -41,7 +41,7 @@ function getUpdateImprestCash() {
 	layer.prompt({
 		title: '更新备用现金',
         closeBtn:0,
-        shadeClose :true,
+        shade:0,
         formType: 0
 	}, function(pass, index) {
 		$.ajax({
