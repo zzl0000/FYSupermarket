@@ -1,4 +1,5 @@
 //  初始化
+var hangOrderData;
 init();
 
 function init() {
@@ -41,13 +42,38 @@ function getOrderList() {
 				setTimeout(function() {
 					layer.closeAll('loading');
 					$("#HangOrderListDemo").html(html);
-					$('#cashierName').text(localStorage.getItem("name"))
+					$('#cashierName').text(localStorage.getItem("name"));
+					hangOrderData = rs.data;
 				}, 500)
 			}
 
 		}
 	})
 }
+
+// 结账
+
+$('body').on('click', '.clear_btn', function(e) {
+	e.preventDefault();
+	var hangOrderId = $(this).attr('data-id');
+	$.ajax({
+		type: "get",
+		url: removeHangOrder,
+		data: {
+			hangOrderId: hangOrderId
+		},
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function(rs) {
+			if(rs.status == 200) {
+				localStorage.setItem("hangOrderData",JSON.stringify(hangOrderData))
+				$('#mali').load("./cashierSystem/index.html");
+			}
+		}
+	})
+})
 
 // 删除挂单
 

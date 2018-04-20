@@ -19,33 +19,27 @@
 					<th>金额</th>
 					<th>操作</th>
 				</thead>
-				<tbody id="alterationListDemo">
-					<tr>
-						<td>1</td>
-						<td>0020180317</td>
-						<td>李力</td>
-						<td>现金</td>
-						<td>2018/03/17 15:33:50</td>
-						<td>吴赫</td>
-						<td>¥ 200</td>
-						<td>
-							<a class="layui-btn layui-btn-ms layui-btn-normal bg-blue check_btn">查看</a>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>0020180317</td>
-						<td>李力</td>
-						<td>现金</td>
-						<td>2018/03/17 15:33:50</td>
-						<td>吴赫</td>
-						<td>¥ 200</td>
-						<td>
-							<a class="layui-btn layui-btn-ms layui-btn-normal bg-blue check_btn">查看</a>
-						</td>
-					</tr>
+				<tbody id="orderListDemo">
+					<script type="text/template" id="orderList">
+						{{each list as value i}}
+							<tr>
+								<td>{{i +1 }}</td>
+								<td>{{value.orderNo}}</td>
+								<td>李力</td>
+								<td>{{value.payWay}}</td>
+								<td>{{value.payTime}}</td>
+								<td>{{value.employeeId}}</td>
+								<td>¥ {{value.receipt}}</td>
+								<td>
+									<a class="layui-btn layui-btn-ms layui-btn-normal check_btn" data-id="{{value.orderId}}">查看</a>
+								</td>
+							</tr>
+						{{/each}}
+					</script>	
 				</tbody>
 			</table>
+			<!--分页-->
+			<div id="page" class="padding-big"></div>
 		</div>
 	</div>
 

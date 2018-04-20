@@ -262,11 +262,12 @@
 }
 
 .memberLogin .ScanCodeinput{
-	display: inline-block;
-	padding: 40px 0;
-	width: 90%;
+	display:block;
+	width: 100%;
+	padding: 40px 20px;
 	position: relative;
 }
+
 
 .memberLogin .memberInfo{
 	padding: 30px 10px;

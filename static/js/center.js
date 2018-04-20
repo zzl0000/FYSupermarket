@@ -8,6 +8,9 @@ function imgurls() {
     return "http://49.4.12.221:8082/NuoQiHuiMaven";
 }
 
+window.onunload=function(){
+    localStorage.clear();
+}
 
 /*接口api*/
 
@@ -23,12 +26,12 @@ var getLoginEmployee = turl + "/cashier/login/getLoginEmployee";   //获取当�
 
 var updateStatus = turl + "/cashier/login/updateStatus";   //上传员工 当班状态
 var updateImprestCash = turl + "/cashier/login/updateImprestCash"; // 更新备用现金
+
+var getCheckOut = turl + "/cashier/login/getCheckOut";//下班时获取收银详情
 var logout = turl + "/cashier/login/logout";  // 下班
 
-var findOrderAll = turl + "/cashier/order/findAll";   // 获取所有订单数据
-var findOrderOne = turl + "/cashier/order/findOne";   // 根据订单号查询
 var findOrderDetail = turl + "/cashier/order/findOrderDetail";   // 查询订单详情
-var findPage = turl + "/cashier/order/findPage";   // 分页查询
+var findPage = turl + "/cashier/order/findPage";   // 查询订单详情
 
 var deleteOrder = turl + "/cashier/order/delete"; //删除订单
 
@@ -118,22 +121,5 @@ function nulls(s) {
     return 1;
 }
 
-function gainpage(pages, alltotal) {
-    if (alltotal < 0) {
-        return false;
-    } else {
-        laypage({
-            cont: 'page',
-            skip: true, //是否开启跳页
-            skin: '#1E9FFF',
-            pages: pages,
-            jump: function(obj, first) {
-                var curr = obj.curr;
-                console.log(obj);
-                //得到了当前页，用于向服务端请求对应数据
-            }
-        })
-    }
-}
 
 

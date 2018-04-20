@@ -8,7 +8,8 @@ layer.config({
     offset : ['50%','70%']
 })
 
-if(localStorage.getItem("storeId") != ''){
+console.log(localStorage.getItem("storeId"))
+if(localStorage.getItem("storeId") != null){
 	$('.lo_store').hide();
 	$('.lo_employee').show();
 	$('.lo_title').find('font').text('员工登录')
@@ -37,7 +38,7 @@ $('.back_btn').on('click', function(e){
 					$('.lo_employee').hide();
 					$('.lo_title').find('span').hide();
 					$('.lo_title').find('font').text('门店登录');
-					localStorage.setItem("storeId",'');	
+					localStorage.removeItem('storeId');
 			}			
 		}
 	});
