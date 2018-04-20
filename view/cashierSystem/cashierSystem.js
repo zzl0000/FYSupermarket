@@ -164,9 +164,10 @@ function addCount(num) {
     return _curnum;
 }
 
-function minusCount(el, num) {
-    _curnum = parseInt(num) - 1;
-    num = parseInt(num) - 1;
+function minusCount(el, _num) {
+    _curnum = parseInt(_num) - 1;
+    num = parseInt(_num) - 1;
+	curk = 0;
     if (_curnum <= 0) {
        // console.log(el);
         el.addClass('disabled');  
@@ -174,7 +175,7 @@ function minusCount(el, num) {
         $('#realPrice').text('0.00');
         $('.payPrice').text('0.00');
     }
-    console.log(num);
+    //console.log(num);
     return _curnum;
 }
 
@@ -247,7 +248,7 @@ var ListData = {
 };
 
 function getGoodsList(key,status) {
-	console.log(num)
+	
     if(status <=0){
         gNo.push(key);
     }else{
@@ -327,7 +328,7 @@ function returnIndexof(arr, value) {
 
 
 function renderGoodsList(data) {
-
+	console.log(data);
     var html = template('GoodsList', {
         list: data
     });
