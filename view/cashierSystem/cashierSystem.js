@@ -36,6 +36,35 @@ function init() {
 	}
 }
 
+
+
+$('#ScanCodeinput').bind('keypress', function(event) {
+    var inputkey = $('#ScanCodeinput').val();
+    if(!isMemberVal) {
+        layer.msg('请先添加会员信息');
+        return false;
+    }
+    if(event.keyCode == "13") {
+        if(inputkey == ""){
+            return false;
+        }
+        //console.log(curk)
+        getGoodsList(inputkey, curk);
+        curk++;
+        //alert('你输入的内容为：' + $('#ScanCodeinput').val());
+    }
+});
+
+$('#ScanCodeMember').bind('keypress', function(event) {
+    var inputkey = $('#ScanCodeMember').val();
+    if(inputkey != ""){
+        isMemberVal = true;
+    }
+    if(event.keyCode == "13") {
+        getMemberInfo(inputkey);
+    }
+});
+
 function getMemberInfo(inputkey) {
 	//console.log(inputkey);
 	var phone = inputkey;
@@ -396,32 +425,3 @@ $('body').on('click', '.minus', function(e) {
 	realPriceCount("minus", realPrice, unitPrice);
 })
 
-
-
-$('#ScanCodeinput').bind('keypress', function(event) {
-	var inputkey = $('#ScanCodeinput').val();
-	console.log($('#ScanCodeMember').val())
-	if(isMemberVal) {
-		layer.msg('请先添加会员信息');
-		return false;
-	}
-	if(inputkey == ""){
-		return false;
-	}
-	if(event.keyCode == "13") {
-		//console.log(curk)
-		getGoodsList(inputkey, curk);
-		curk++;
-		//alert('你输入的内容为：' + $('#ScanCodeinput').val());
-	}
-});
-
-$('#ScanCodeMember').bind('keypress', function(event) {
-	var inputkey = $('#ScanCodeMember').val();
-	if(inputkey != ""){
-		isMemberVal = true;
-	}
-	if(event.keyCode == "13") {
-		getMemberInfo(inputkey);
-	}
-});
