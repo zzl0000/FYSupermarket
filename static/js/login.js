@@ -9,12 +9,12 @@ layer.config({
 })
 
 console.log(localStorage.getItem("storeId"))
-if(localStorage.getItem("storeId") != null){
-	$('.lo_store').hide();
-	$('.lo_employee').show();
-	$('.lo_title').find('font').text('员工登录')
-	$('.lo_title').find('span').show();
-}
+// if(localStorage.getItem("storeId") != null){
+// 	$('.lo_store').hide();
+// 	$('.lo_employee').show();
+// 	$('.lo_title').find('font').text('员工登录')
+// 	$('.lo_title').find('span').show();
+// }
 
 
 //门店注销 

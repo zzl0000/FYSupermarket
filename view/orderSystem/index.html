@@ -41,7 +41,7 @@
 							<td>
 								<a class="layui-btn layui-btn-ms layui-btn-danger del_btn" data-id="{{value.hangOrderId}}">删除</a>
 <!--							<a class="layui-btn layui-btn-ms layui-btn-normal detail_btn" data-id="">详情</a>-->
-								<a class="layui-btn layui-btn-ms layui-btn-normal clear_btn" data-id="">结账</a>
+								<a class="layui-btn layui-btn-ms layui-btn-normal clear_btn"data-hangOrderId = {{value.hangOrderId}} data-id="{{i}}">结账</a>
 							</td>
 						</tr>
 						{{/each}}

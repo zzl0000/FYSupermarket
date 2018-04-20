@@ -44,6 +44,7 @@ function getOrderList() {
 					$("#HangOrderListDemo").html(html);
 					$('#cashierName').text(localStorage.getItem("name"));
 					hangOrderData = rs.data;
+                    sessionStorage.setItem("hangOrderData",JSON.stringify(hangOrderData));
 				}, 500)
 			}
 
@@ -55,7 +56,8 @@ function getOrderList() {
 
 $('body').on('click', '.clear_btn', function(e) {
 	e.preventDefault();
-	var hangOrderId = $(this).attr('data-id');
+	var clearingId = $(this).attr('data-id');
+    var hangOrderId = $(this).attr('data-hangOrderId');
 	$.ajax({
 		type: "get",
 		url: removeHangOrder,
@@ -68,8 +70,7 @@ $('body').on('click', '.clear_btn', function(e) {
 		crossDomain: true,
 		success: function(rs) {
 			if(rs.status == 200) {
-				localStorage.setItem("hangOrderData",JSON.stringify(hangOrderData))
-
+                sessionStorage.setItem("clearingId",clearingId)
 				$('#mali').load("./cashierSystem/index.html");
                 $('.left-nav ul li:eq(0)').addClass('active');
                 $('.left-nav ul li:eq(2)').removeClass('active');

@@ -19,21 +19,30 @@ var gNo = [],
 var ListData = {
 	goodsListData: []
 };
-
+var hangOrderDtata;
 var isMemberVal = false;
 
 init();
 
 function init() {
-	var hangOrderDtata = JSON.parse(localStorage.getItem("hangOrderData"));
-	console.log(hangOrderDtata);
-	// if(hangOrderDtata != null){
-	// 	isMemberVal = true;
-	// 	$("#memberInfo").show();
-	// 	getMemberInfo(hangOrderDtata[0].token);
-	// 	ListData.goodsListData = hangOrderDtata[0].goods;
-	// 	renderGoodsList(ListData.goodsListData);
-	// }
+    gNo = [];
+    if(sessionStorage.getItem("hangOrderData") != ''){
+        hangOrderDtata  = JSON.parse(sessionStorage.getItem("hangOrderData"));
+	};
+
+	var key = sessionStorage.getItem("clearingId");
+	//console.log(key)
+	if(hangOrderDtata != null){
+		isMemberVal = true;
+		$("#memberInfo").show();
+		getMemberInfo(hangOrderDtata[key].token);
+        //console.log(hangOrderDtata[0].goodsList);
+        $.each(hangOrderDtata[key].goodsList,function(index, val){
+            getGoodsList(val.gNo,curk)
+            curk++;
+
+		})
+	}
 }
 
 
@@ -283,6 +292,7 @@ function reset() {
 	isgNo = false;
 	num = 0;
 	ListData.goodsListData = [];
+    sessionStorage.setItem("hangOrderData",'');
 }
 
 // 挂账
@@ -317,6 +327,7 @@ function uplodOrder() {
 		"sumMoney": _payPrice,
 		"token": token
 	}
+	console.log(data)
 	$.ajax({
 		type: "post",
 		url: saveHangOrder,
