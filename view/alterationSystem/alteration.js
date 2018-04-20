@@ -131,15 +131,18 @@ function openPanel() {
 				success: function(rs) {
 					if(rs.status == 201 || rs.status == 200) {
 						console.log(rs);
-						var html1 = template('templateList', {
-							value: rs.data
-						});
-						var html2 = template('memberList', {
-							value: rs.data
-						});
-						$("#gatheringList").html(html1);
-						$("#memberlinfoList").html(html2);
-						$('#imprestCashLogout').text(rs.data.imprestCashLogout);
+						if(rs.data != null){
+                            var html1 = template('templateList', {
+                                value: rs.data
+                            });
+                            var html2 = template('memberList', {
+                                value: rs.data
+                            });
+                            $("#gatheringList").html(html1);
+                            $("#memberlinfoList").html(html2);
+                            $('#imprestCashLogout').text(rs.data.imprestCashLogout);
+						}
+
 					}
 				}
 			})

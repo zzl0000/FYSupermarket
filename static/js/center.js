@@ -102,6 +102,8 @@ function formats(times) {
     /*return y + '-' + add0(m) + '-' + add0(d);*/
 }
 
+
+
 //判断比例  %
 function typebl(val) {
     if (val == null) {
