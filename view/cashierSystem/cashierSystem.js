@@ -19,7 +19,7 @@ var gNo = [],
 var ListData = {
 	goodsListData: []
 };
-var hangOrderDtata;
+var hangOrderDtata = '';
 var isMemberVal = false;
 
 init();
@@ -29,7 +29,7 @@ function init() {
     if(sessionStorage.getItem("hangOrderData") != ''){
         hangOrderDtata  = JSON.parse(sessionStorage.getItem("hangOrderData"));
 	};
-	console.log(hangOrderDtata)
+	//console.log(hangOrderDtata)
 	var key = sessionStorage.getItem("clearingId");
 	//console.log(key)
 	if(hangOrderDtata != ''){
@@ -124,8 +124,7 @@ function getGoodsList(key, status) {
 			num = 0;
 		}
 	}
-	//console.log(gNo,isgNo,status)
-	//return;
+
 	$.ajax({
 		type: "get",
 		url: getGoods,

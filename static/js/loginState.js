@@ -21,6 +21,7 @@ function getUpdateStatus(stat) {
 				layer.msg(rs.message, {
 					time: 1000
 				});
+                sessionStorage.setItem('dutyType',stat);
 				if (stat == "1") {
 					getUpdateImprestCash();
 				} else {
@@ -39,7 +40,9 @@ function getUpdateStatus(stat) {
 function getUpdateImprestCash() {
 	layer.prompt({
 		title: '更新备用现金',
-		formType: 0
+        closeBtn:0,
+        shadeClose :true,
+        formType: 0
 	}, function(pass, index) {
 		$.ajax({
 				type: "get",
