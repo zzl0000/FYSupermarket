@@ -19,8 +19,8 @@
 					<th>金额</th>
 					<th>操作</th>
 				</thead>
-				<tbody id="orderListDemo">
-					<script type="text/template" id="orderList">
+				<tbody id="alterationListDemo">
+					<script type="text/template" id="alterationList">
 						{{each list as value i}}
 							<tr>
 								<td>{{i +1 }}</td>
@@ -38,6 +38,9 @@
 					</script>	
 				</tbody>
 			</table>
+			<div id="noeList" class="noeList" style="display: none;">
+				暂无数据
+			</div>
 			<!--分页-->
 			<div id="page" class="padding-big"></div>
 		</div>

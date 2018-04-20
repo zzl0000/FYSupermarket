@@ -78,7 +78,9 @@ function signlogStore() {
                 $('.lo_store').hide();
                 $('.lo_employee').show();
                 $('.lo_title').find('span').show();
-            } else {
+            }else if(rs.status == 302){
+                layer.msg(rs.message, {time: 1000});
+            }else {
                 layer.msg(rs.data, {time: 1000});
             }
 

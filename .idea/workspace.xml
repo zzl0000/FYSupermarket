@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb063a20-08e2-465d-8db4-de4f023d7c7e" name="默认的" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/static/js/login.js" afterPath="$PROJECT_DIR$/static/js/login.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/loginState.js" afterPath="$PROJECT_DIR$/static/js/loginState.js" />
+      <change beforePath="$PROJECT_DIR$/view/alterationSystem/alteration.js" afterPath="$PROJECT_DIR$/view/alterationSystem/alteration.js" />
+      <change beforePath="$PROJECT_DIR$/view/alterationSystem/index.html" afterPath="$PROJECT_DIR$/view/alterationSystem/index.html" />
       <change beforePath="$PROJECT_DIR$/view/cashierSystem/cashierSystem.js" afterPath="$PROJECT_DIR$/view/cashierSystem/cashierSystem.js" />
+      <change beforePath="$PROJECT_DIR$/view/cashierSystem/index.html" afterPath="$PROJECT_DIR$/view/cashierSystem/index.html" />
+      <change beforePath="$PROJECT_DIR$/view/orderSystem/order.js" afterPath="$PROJECT_DIR$/view/orderSystem/order.js" />
+      <change beforePath="$PROJECT_DIR$/view/tradingRecord/tradingRecord.js" afterPath="$PROJECT_DIR$/view/tradingRecord/tradingRecord.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,71 +23,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="loginState.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/loginState.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="order.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/orderSystem/order.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="63" column="15" lean-forward="true" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/cashierSystem/cashierSystem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="31" column="54" lean-forward="false" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
-              <folding />
+            <state relative-caret-position="372">
+              <caret line="341" column="5" lean-forward="true" selection-start-line="341" selection-start-column="5" selection-end-line="341" selection-end-column="5" />
+              <folding>
+                <element signature="e#1505#1684#0" expanded="false" />
+                <element signature="n#!!block;n#getMemberInfo#0" expanded="false" />
+                <element signature="n#!!block;n#renderMenberInfo#0" expanded="false" />
+                <element signature="n#!!block;n#renderGoodsList#0" expanded="false" />
+                <element signature="n#!!block;n#returnSAIndexof#0" expanded="false" />
+                <element signature="n#!!block;n#returnIndexof#0" expanded="false" />
+                <element signature="n#!!block;n#strFormat#0" expanded="false" />
+                <element signature="n#!!block;n#checkOut#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/index.js">
+      <file leaf-file-name="order.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/orderSystem/order.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="60" column="17" lean-forward="true" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alteration.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/alterationSystem/alteration.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="629">
+              <caret line="70" column="31" lean-forward="true" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -91,8 +55,18 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="144">
+              <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/cashierSystem/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="37" column="92" lean-forward="false" selection-start-line="37" selection-start-column="92" selection-end-line="37" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -109,6 +83,9 @@
       <find>resetKeyboard</find>
       <find>token</find>
       <find>signlog</find>
+      <find>getPrice</find>
+      <find>addCount(num)rs.data.specValue.numrs.data.specValue.num</find>
+      <find>console.log</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,20 +107,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/view/alterationSystem/index.html" />
         <option value="$PROJECT_DIR$/static/css/index.css" />
         <option value="$PROJECT_DIR$/static/js/center.js" />
-        <option value="$PROJECT_DIR$/view/tradingRecord/index.html" />
-        <option value="$PROJECT_DIR$/view/tradingRecord/tradingRecord.js" />
-        <option value="$PROJECT_DIR$/view/alterationSystem/alteration.js" />
-        <option value="$PROJECT_DIR$/view/cashierSystem/index.html" />
         <option value="$PROJECT_DIR$/view/orderSystem/index.html" />
-        <option value="$PROJECT_DIR$/view/orderSystem/order.js" />
         <option value="$PROJECT_DIR$/view/index.html" />
         <option value="$PROJECT_DIR$/static/js/index.js" />
         <option value="$PROJECT_DIR$/static/js/loginState.js" />
+        <option value="$PROJECT_DIR$/view/cashierSystem/index.html" />
         <option value="$PROJECT_DIR$/static/js/login.js" />
+        <option value="$PROJECT_DIR$/view/tradingRecord/index.html" />
+        <option value="$PROJECT_DIR$/view/alterationSystem/index.html" />
+        <option value="$PROJECT_DIR$/view/tradingRecord/tradingRecord.js" />
+        <option value="$PROJECT_DIR$/view/alterationSystem/alteration.js" />
         <option value="$PROJECT_DIR$/view/cashierSystem/cashierSystem.js" />
+        <option value="$PROJECT_DIR$/view/orderSystem/order.js" />
       </list>
     </option>
   </component>
@@ -153,7 +130,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="60" />
     <option name="y" value="69" />
     <option name="width" value="1845" />
@@ -242,6 +219,12 @@
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="orderSystem" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="tradingRecord" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -317,15 +300,15 @@
       <workItem from="1524061471250" duration="934000" />
       <workItem from="1524140686976" duration="1699000" />
       <workItem from="1524142411300" duration="2970000" />
-      <workItem from="1524223422932" duration="15772000" />
+      <workItem from="1524223422932" duration="21347000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28628000" />
+    <option name="totallyTimeSpent" value="34203000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13804004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -364,21 +347,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/view/cashierSystem/cashierSystem.js</url>
-          <line>107</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/view/cashierSystem/cashierSystem.js</url>
-          <line>226</line>
+          <line>236</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/view/cashierSystem/cashierSystem.js</url>
-          <line>163</line>
+          <line>166</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/view/cashierSystem/cashierSystem.js</url>
+          <line>184</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/view/cashierSystem/cashierSystem.js</url>
+          <line>296</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -443,7 +433,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4165">
           <caret line="245" column="6" lean-forward="false" selection-start-line="245" selection-start-column="6" selection-end-line="245" selection-end-column="6" />
-          <folding />
+          <folding>
+            <element signature="e#1505#1684#0" expanded="false" />
+            <element signature="n#!!block;n#getMemberInfo#0" expanded="false" />
+            <element signature="n#!!block;n#renderMenberInfo#0" expanded="false" />
+            <element signature="n#!!block;n#renderGoodsList#0" expanded="false" />
+            <element signature="n#!!block;n#returnSAIndexof#0" expanded="false" />
+            <element signature="n#!!block;n#returnIndexof#0" expanded="false" />
+            <element signature="n#!!block;n#strFormat#0" expanded="false" />
+            <element signature="n#!!block;n#checkOut#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -473,7 +472,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2346">
           <caret line="138" column="42" lean-forward="true" selection-start-line="138" selection-start-column="42" selection-end-line="138" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="e#1505#1684#0" expanded="false" />
+            <element signature="n#!!block;n#getMemberInfo#0" expanded="false" />
+            <element signature="n#!!block;n#renderMenberInfo#0" expanded="false" />
+            <element signature="n#!!block;n#renderGoodsList#0" expanded="false" />
+            <element signature="n#!!block;n#returnSAIndexof#0" expanded="false" />
+            <element signature="n#!!block;n#returnIndexof#0" expanded="false" />
+            <element signature="n#!!block;n#strFormat#0" expanded="false" />
+            <element signature="n#!!block;n#checkOut#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -515,34 +523,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/tradingRecord/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="59" column="25" lean-forward="false" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/KeyboardVal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
           <caret line="77" column="42" lean-forward="true" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/tradingRecord/tradingRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="77" column="52" lean-forward="false" selection-start-line="77" selection-start-column="37" selection-end-line="77" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/cashierSystem/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -563,42 +547,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/alterationSystem/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/alterationSystem/alteration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="60" column="17" lean-forward="true" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -611,26 +563,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/orderSystem/order.js">
+    <entry file="file://$PROJECT_DIR$/static/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="63" column="15" lean-forward="true" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="15" />
+        <state relative-caret-position="308">
+          <caret line="60" column="17" lean-forward="true" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/cashierSystem/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="37" column="92" lean-forward="false" selection-start-line="37" selection-start-column="92" selection-end-line="37" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="816">
+          <caret line="81" column="36" lean-forward="false" selection-start-line="81" selection-start-column="36" selection-end-line="81" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/alterationSystem/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/alterationSystem/alteration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="33" column="48" lean-forward="true" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/tradingRecord/tradingRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="119" column="47" lean-forward="true" selection-start-line="119" selection-start-column="47" selection-end-line="119" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/tradingRecord/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="35" column="24" lean-forward="true" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/cashierSystem/cashierSystem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="31" column="54" lean-forward="false" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+        <state relative-caret-position="372">
+          <caret line="341" column="5" lean-forward="true" selection-start-line="341" selection-start-column="5" selection-end-line="341" selection-end-column="5" />
+          <folding>
+            <element signature="e#1505#1684#0" expanded="false" />
+            <element signature="n#!!block;n#getMemberInfo#0" expanded="false" />
+            <element signature="n#!!block;n#renderMenberInfo#0" expanded="false" />
+            <element signature="n#!!block;n#renderGoodsList#0" expanded="false" />
+            <element signature="n#!!block;n#returnSAIndexof#0" expanded="false" />
+            <element signature="n#!!block;n#returnIndexof#0" expanded="false" />
+            <element signature="n#!!block;n#strFormat#0" expanded="false" />
+            <element signature="n#!!block;n#checkOut#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/orderSystem/order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="70" column="31" lean-forward="true" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
           <folding />
         </state>
       </provider>

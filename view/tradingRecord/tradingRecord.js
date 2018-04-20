@@ -111,12 +111,13 @@ function getOrderList(_curr,payWay,beginTime,endTime) {
             if(rs.status == 200) {
                 var html
                 if(rs.data.total == 0) {
-                    html = ''
-                    $("#orderListDemo").html(html);
+                    // html = ''
+                    $("#orderListDemo").hide();
                     $("#noeList").show();
                     $('#page').hide();
                     layer.closeAll('loading');
                 }else {
+                    $("#orderListDemo").show();
                     $("#noeList").hide();
                     template.defaults.imports.getPayWay = function(key){
                         var payWayText =['无','现金','扫码','余额'];

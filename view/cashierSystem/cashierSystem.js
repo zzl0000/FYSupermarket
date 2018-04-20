@@ -49,8 +49,6 @@ function init() {
 	}
 }
 
-
-
 $('#ScanCodeinput').bind('keypress', function(event) {
     var inputkey = $('#ScanCodeinput').val();
     if(!isMemberVal) {
@@ -115,12 +113,12 @@ function renderMenberInfo(rs) {
 
 
 function getGoodsList(key, status) {
-
+	//console.log(num);
 	if(status <= 0) {
 		gNo.push(key);
 	} else {
 		if(gNo[returnSAIndexof(gNo, key)] == key) {
-			num++;
+			//num++;
 			isgNo = true;
 		} else {
 			gNo.push(key);
@@ -142,15 +140,20 @@ function getGoodsList(key, status) {
 		crossDomain: true,
 		success: function(rs) {
 			if(rs.status == 200) {
-
 				$('#ScanCodeinput').val('');
-				rs.data.specValue.price = priceCount(rs.data.specValue.price, addCount(num));
-				rs.data.specValue.num = addCount(num);
 				if(isgNo) {
-					ListData.goodsListData[returnIndexof(ListData.goodsListData, rs.data.goods.id)] = rs.data;
+                    var index = returnIndexof(ListData.goodsListData,rs.data.goods.id);
+                    //console.log(index)
+                    //console.log(ListData.goodsListData[0].specValue)
+                    rs.data.specValue.num  = ListData.goodsListData[index].specValue.num + 1
+					ListData.goodsListData[index] = rs.data;
 				} else {
+
+                    rs.data.specValue.num = 1;
 					ListData.goodsListData.push(rs.data);
 				}
+                rs.data.specValue.price = priceCount(rs.data.specValue.price,rs.data.specValue.num);
+				//console.log(ListData.goodsListData)
 				renderGoodsList(ListData);
 
 			} else {
@@ -170,22 +173,29 @@ function renderGoodsList(data) {
 }
 
 // 数量计算
-function addCount(num) {
+function addCount(el,num) {
 	_curnum = parseInt(num) + 1;
+    var id = el.attr('data-goodsId');
+    var index = returnIndexof(ListData.goodsListData,id);
+    ListData.goodsListData[index].specValue.num = _curnum;
 	//console.log(_curnum,num);
 	return _curnum;
 }
 
 function minusCount(el, _num) {
 	_curnum = parseInt(_num) - 1;
-	num = parseInt(_num) - 1;
-	curk = 0;
+	var id = el.attr('data-goodsId');
+	var index = returnIndexof(ListData.goodsListData,id);
+
 	if(_curnum <= 0) {
 		// console.log(el);
 		el.addClass('disabled');
 		el.parent().parent().parent().hide();
 		$('#realPrice').text('0.00');
 		$('.payPrice').text('0.00');
+        ListData.goodsListData[index].specValue.num = 0;
+    }else{
+        ListData.goodsListData[index].specValue.num = _curnum;
 	}
 	//console.log(num);
 	return _curnum;
@@ -266,7 +276,6 @@ function getPrice(realPrice) {
 	for(i in realPrice) {
 		str += strFormat(realPrice[i].specValue.price);
 		str += '+';
-
 	}
 	str = str.substring(0, str.length - 1);
 	_realPrice = eval(str).toFixed(2)
@@ -296,7 +305,7 @@ function reset() {
 	isgNo = false;
 	num = 0;
 	ListData.goodsListData = [];
-    sessionStorage.setItem("hangOrderData",'');
+    sessionStorage.setItem("hangOrderData",null);
 }
 
 // 挂账
@@ -331,7 +340,7 @@ function uplodOrder() {
 		"sumMoney": _payPrice,
 		"token": token
 	}
-	console.log(data)
+	//console.log(data)
 	$.ajax({
 		type: "post",
 		url: saveHangOrder,
@@ -411,6 +420,7 @@ function checkOut() {
 
 $('body').on('click', '.add', function(e) {
 	e.preventDefault();
+    var _slef = $(this);
 
 	num = $(this).siblings('.number').text();
 	realPrice = $('#realPrice').text();
@@ -422,7 +432,7 @@ $('body').on('click', '.add', function(e) {
 
 	}
 
-	$(this).siblings(".number").text(addCount(num))
+	$(this).siblings(".number").text(addCount(_slef,num))
 	$(this).parent().siblings().text(priceCount(unitPrice, _curnum));
 	realPriceCount("add", realPrice, unitPrice);
 })

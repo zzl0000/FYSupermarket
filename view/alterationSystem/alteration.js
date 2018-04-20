@@ -23,17 +23,30 @@ function getOrderList(_curr) {
 		data: data,
 		crossDomain: true,
 		success: function(rs) {
-			if(rs.status == 200) {
-				var html = template('orderList', {
-					list: rs.data.rows
-				});
-				setTimeout(function() {
-					layer.closeAll('loading');
-					$("#orderListDemo").html(html);
-					gainpage(Math.ceil(rs.data.total / 10), _curr, 0);
-				}, 500)
-
-			}
+            if(rs.status == 200) {
+                var html
+                if(rs.data.total == 0) {
+                    $("#alterationList").hide();
+                    $("#noeList").show();
+                    $('#page').hide();
+                    layer.closeAll('loading');
+                }else {
+                    $("#alterationList").show();
+                    $("#noeList").hide();
+                    template.defaults.imports.getPayWay = function(key){
+                        var payWayText =['无','现金','扫码','余额'];
+                        return payWayText[key]
+                    };
+                    html = template('orderList', {
+                        list: rs.data.rows
+                    });
+                }
+                setTimeout(function() {
+                    layer.closeAll('loading');
+                    $("#alterationListDemo").html(html);
+                    gainpage(Math.ceil(rs.data.total/10),_curr,0);
+                }, 0)
+            }
 		}
 	})
 }
@@ -52,7 +65,7 @@ function gainpage(pages, curr, alltotal) {
 			jump: function(obj, first) {
 				var curr = obj.curr;
 				if(!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
-					getOrderList(curr);
+                    getOrderList(curr);
 				}
 			}
 		})

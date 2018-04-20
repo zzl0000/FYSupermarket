@@ -44,7 +44,7 @@ function getOrderList() {
 					$("#HangOrderListDemo").html(html);
 					$('#cashierName').text(localStorage.getItem("name"));
 					hangOrderData = rs.data;
-                    sessionStorage.setItem("hangOrderData",JSON.stringify(hangOrderData));
+
 				}, 500)
 			}
 
@@ -70,6 +70,7 @@ $('body').on('click', '.clear_btn', function(e) {
 		crossDomain: true,
 		success: function(rs) {
 			if(rs.status == 200) {
+                sessionStorage.setItem("hangOrderData",JSON.stringify(hangOrderData));
                 sessionStorage.setItem("clearingId",clearingId)
 				$('#mali').load("./cashierSystem/index.html");
                 $('.left-nav ul li:eq(0)').addClass('active');
