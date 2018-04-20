@@ -153,7 +153,7 @@ function renderGoodsList(data) {
 		list: data
 	});
 	$("#Goods").html(html);
-	//getPrice(data.goodsListData);
+	getPrice(data.goodsListData);
 }
 
 // 数量计算
@@ -357,7 +357,7 @@ function checkOut() {
 		goodsInfo.goodsId = $(el).attr('data-goodsId');
 		goodsInfo.specValueId = $(el).attr('data-specValueId');
 		goodsInfo.num = $(el).find('.number').text();
-		goodsInfo.money = $(el).find('.price').text().substring(1);
+		goodsInfo.money = parseFloat($(el).find('.price').text().substring(1) / goodsInfo.num);
 		goodsList.push(goodsInfo);
 	})
 	//console.log(goodsList)
