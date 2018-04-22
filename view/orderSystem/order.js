@@ -54,8 +54,10 @@ function getOrderList() {
 
 // 结账
 
-$('body').on('click', '.clear_btn', function(e) {
+$('body').off('click').on('click', '.clear_btn', function(e) {
 	e.preventDefault();
+	var _self = $(this);
+    console.log(11)
 	var clearingId = $(this).attr('data-id');
     var hangOrderId = $(this).attr('data-hangOrderId');
 
@@ -76,6 +78,7 @@ $('body').on('click', '.clear_btn', function(e) {
                 router('./cashierSystem/index.html')
                 $('.left-nav ul li:eq(0)').addClass('active');
                 $('.left-nav ul li:eq(2)').removeClass('active');
+
 			}
 		}
 	})
@@ -83,7 +86,7 @@ $('body').on('click', '.clear_btn', function(e) {
 
 // 删除挂单
 
-$('body').on('click', '.del_btn', function(e) {
+$('body').off('click').on('click', '.del_btn', function(e) {
 	e.preventDefault();
 	var hangOrderId = $(this).attr('data-id');
 	$.ajax({

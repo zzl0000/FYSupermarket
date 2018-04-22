@@ -420,7 +420,7 @@ function checkOut() {
 
 
 
-$('body').on('click', '.add', function(e) {
+$('body').off('click').on('click', '.add', function(e) {
 	e.preventDefault();
     var _slef = $(this);
 
@@ -439,7 +439,7 @@ $('body').on('click', '.add', function(e) {
 	realPriceCount("add", realPrice, unitPrice);
 })
 
-$('body').on('click', '.minus', function(e) {
+$('body').off('click').on('click', '.minus', function(e) {
 	e.preventDefault();
 	var _slef = $(this);
 	num = $(this).siblings('.number').text();
