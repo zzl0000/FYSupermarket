@@ -32,6 +32,7 @@ function getOrderList(_curr) {
                     layer.closeAll('loading');
                 }else {
                     $("#alterationList").show();
+                    $('#page').show();
                     $("#noeList").hide();
                     template.defaults.imports.getPayWay = function(key){
                         var payWayText =['无','现金','扫码','余额'];
