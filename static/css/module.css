@@ -51,6 +51,10 @@
 	display: inline-block;
 }
 
+#memberlinfoList ul li{
+	min-width: 15%;
+}
+
 .group-top .infoList ul li span,.refund-panel ul li span{
 	font-size: 16px;
 	color: #3185ff;

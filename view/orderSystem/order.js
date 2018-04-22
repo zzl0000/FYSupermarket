@@ -29,7 +29,7 @@ function getOrderList() {
 			var html = '';
 			if(rs.status == 200) {
 
-				if(rs.data ==null) {
+				if(rs.data.length == 0) {
 					html = ''
 					$("#noeList").show();
 					//layer.closeAll();

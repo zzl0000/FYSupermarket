@@ -1,7 +1,7 @@
 /*加载效果背景*/
 
 .layui-layer-shade {
-	background: rgba(255, 255, 255,0.5)!important;
+	background: rgba(0, 0, 0,0.5)!important;
 }
 .layui-layer-title{
 	background: #fff !important;
@@ -166,7 +166,6 @@
 	background: #f5f7ff;
 	min-height: 400px;
 	cursor: pointer;
-	z-index: 1;
 }
 
 .loading{
