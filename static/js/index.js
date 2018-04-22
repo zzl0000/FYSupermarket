@@ -83,11 +83,17 @@ $('#mali').load("./home/index.html");
 //  自定义 路由
 
 function router(url) {
+    layer.load(2)
+    $('.loading').show();
     $.ajaxSetup ({
         cache: false //close AJAX cache
     });
     $('#mali').load(url,function(result){
-        $result = $(result);
-        $result.find("script").appendTo('#mali');
+            setTimeout(function(){
+                layer.closeAll();
+                $('.loading').hide();
+            },1000)
+            $result = $(result);
+            $result.find("script").appendTo('#mali');
     });
 }
