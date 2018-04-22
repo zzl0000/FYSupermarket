@@ -16,7 +16,7 @@ function init() {
 //  获取 所有订单数据
 
 function getOrderList() {
-	layer.load(2);
+	//layer.load(2);
 	$.ajax({
 		type: "get",
 		url: getHangOrderList,
@@ -32,7 +32,7 @@ function getOrderList() {
 				if(rs.data ==null) {
 					html = ''
 					$("#noeList").show();
-					layer.closeAll('loading');
+					//layer.closeAll();
 				} else {
 					$("#noeList").hide()
 					html = template('HangOrderList', {
@@ -40,7 +40,7 @@ function getOrderList() {
 					});
 				}
 				setTimeout(function() {
-					layer.closeAll('loading');
+					//layer.closeAll();
 					$("#HangOrderListDemo").html(html);
 					$('#cashierName').text(localStorage.getItem("name"));
 					hangOrderData = rs.data;

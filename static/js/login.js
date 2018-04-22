@@ -73,7 +73,7 @@ function signlogStore() {
         success: function (rs) {
             if (rs.status == 200 || rs.status == 300) {
                 layer.msg('门店登录成功', {time: 1000})
-                localStorage.setItem("storeId", rs.data.id);
+                sessionStorage.setItem("storeId", rs.data.id);
                 $('.lo_title').find('font').text('员工登录')
                 $('.lo_store').hide();
                 $('.lo_employee').show();
@@ -152,7 +152,9 @@ function signlog() {
                     window.location.href = "longinState.html";
                 }, 2000);
 
-            } else {
+            } else if(rs.status == 302){
+                layer.msg(rs.message, {time: 1000});
+            }else {
                 layer.msg(rs.data, {time: 1000});
             }
             //console.log(rs.message);

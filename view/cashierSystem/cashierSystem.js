@@ -21,17 +21,18 @@ var ListData = {
 };
 var hangOrderDtata;
 var key;
+var keyId;
 var isMemberVal = false;
-
+var hangOrderNum = [];
 init();
 
 function init() {
     gNo = [];
     hangOrderDtata = null
-    var key = '';
+    keyId = ''
     if(sessionStorage.getItem("hangOrderData") != null){
         hangOrderDtata  = JSON.parse(sessionStorage.getItem("hangOrderData"));
-        key = sessionStorage.getItem("clearingId");
+        keyId = sessionStorage.getItem("clearingId");
 	};
 	//console.log(hangOrderDtata)
 
@@ -39,11 +40,12 @@ function init() {
 	if(hangOrderDtata != null){
 		isMemberVal = true;
 		$("#memberInfo").show();
-		getMemberInfo(hangOrderDtata[key].token);
+		getMemberInfo(hangOrderDtata[keyId].token);
 
         //console.log(hangOrderDtata[0].goodsList);
-        $.each(hangOrderDtata[key].goodsList,function(index, val){
+        $.each(hangOrderDtata[keyId].goodsList,function(index, val){
             getGoodsList(val.gNo,curk)
+            hangOrderNum .push(val.num)
             curk++;
 
 		})
@@ -52,6 +54,7 @@ function init() {
 
 $('#ScanCodeinput').bind('keypress', function(event) {
     var inputkey = $('#ScanCodeinput').val();
+    	hangOrderNum = [];
     if(!isMemberVal) {
         layer.msg('请先添加会员信息');
         return false;
@@ -150,8 +153,11 @@ function getGoodsList(key, status) {
                     rs.data.specValue.num  = ListData.goodsListData[index].specValue.num + 1
 					ListData.goodsListData[index] = rs.data;
 				} else {
-
-                    rs.data.specValue.num = 1;
+					if(hangOrderNum.length > 0){
+                        rs.data.specValue.num = hangOrderNum[returnSAIndexof(gNo, key)];
+					}else{
+                        rs.data.specValue.num = 1;
+					}
 					ListData.goodsListData.push(rs.data);
 				}
                 rs.data.specValue.price = priceCount(rs.data.specValue.price,rs.data.specValue.num);

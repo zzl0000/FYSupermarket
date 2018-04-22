@@ -6,7 +6,7 @@ function init() {
 
 //  获取 所有订单数据
 function getOrderList(_curr) {
-	layer.load(2);
+	//layer.load(2);
 	var data = {
 		"pageNum": _curr,
 		"pageSize": 10,
@@ -29,7 +29,7 @@ function getOrderList(_curr) {
                     $("#alterationList").hide();
                     $("#noeList").show();
                     $('#page').hide();
-                    layer.closeAll('loading');
+                    //layer.closeAll('loading');
                 }else {
                     $("#alterationList").show();
                     $('#page').show();
@@ -43,7 +43,7 @@ function getOrderList(_curr) {
                     });
                 }
                 setTimeout(function() {
-                    layer.closeAll('loading');
+                   // layer.closeAll();
                     $("#alterationListDemo").html(html);
                     gainpage(Math.ceil(rs.data.total/10),_curr,0);
                 }, 0)

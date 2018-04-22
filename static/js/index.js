@@ -61,6 +61,7 @@ $('.left-nav ul li').on('click', function (e) {
     router(_url);
 })
 
+
 //var letObj = document.getElementById('left-nav');
 //var startY, endY;
 //
@@ -83,14 +84,14 @@ $('#mali').load("./home/index.html");
 //  自定义 路由
 
 function router(url) {
-    layer.load(2)
+    var index = layer.load(3);
     $('.loading').show();
     $.ajaxSetup ({
         cache: false //close AJAX cache
     });
     $('#mali').load(url,function(result){
             setTimeout(function(){
-                layer.closeAll();
+                layer.close(index);
                 $('.loading').hide();
             },1000)
             $result = $(result);

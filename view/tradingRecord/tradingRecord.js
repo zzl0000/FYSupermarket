@@ -90,7 +90,7 @@ function getOrderDetail(orderId) {
 
 //  获取 所有订单数据
 function getOrderList(_curr,payWay,beginTime,endTime) {
-    layer.load(2);
+    //layer.load(2);
 
     var data = {
         "pageNum": _curr,
@@ -115,7 +115,7 @@ function getOrderList(_curr,payWay,beginTime,endTime) {
                     $("#orderListDemo").hide();
                     $("#noeList").show();
                     $('#page').hide();
-                    layer.closeAll('loading');
+                    //layer.closeAll('loading');
                 }else {
                     $("#orderListDemo").show();
                     $('#page').show();
@@ -129,7 +129,7 @@ function getOrderList(_curr,payWay,beginTime,endTime) {
                     });
                 }
                 setTimeout(function() {
-                    layer.closeAll('loading');
+                    // layer.closeAll('loading');
                     $("#orderListDemo").html(html);
                     gainpage(Math.ceil(rs.data.total/10),_curr,0);
                 }, 0)
