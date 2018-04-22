@@ -86,7 +86,7 @@ $('body').off('click').on('click', '.clear_btn', function(e) {
 
 // 删除挂单
 
-$('body').off('click').on('click', '.del_btn', function(e) {
+$('body').on('click', '.del_btn', function(e) {
 	e.preventDefault();
 	var hangOrderId = $(this).attr('data-id');
 	$.ajax({
