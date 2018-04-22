@@ -89,25 +89,30 @@ $('body').off('click').on('click', '.clear_btn', function(e) {
 $('body').on('click', '.del_btn', function(e) {
 	e.preventDefault();
 	var hangOrderId = $(this).attr('data-id');
-	$.ajax({
-		type: "get",
-		url: removeHangOrder,
-		data: {
-			hangOrderId: hangOrderId
-		},
-		xhrFields: {
-			withCredentials: true
-		},
-		crossDomain: true,
-		success: function(rs) {
-			if(rs.status == 200) {
-				layer.msg(rs.message, {
-					time: 1000
-				}, function() {
-					init();
-				});
+    layer.confirm('是否删除挂单？', {
+        btn: ['确定','取消'] //按钮
+    }, function(){
+        $.ajax({
+            type: "get",
+            url: removeHangOrder,
+            data: {
+                hangOrderId: hangOrderId
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function(rs) {
+                if(rs.status == 200) {
+                    layer.msg(rs.message, {
+                        time: 1000
+                    }, function() {
+                        init();
+                    });
 
-			}
-		}
-	})
+                }
+            }
+        })
+    });
+
 })
