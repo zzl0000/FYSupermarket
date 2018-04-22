@@ -58,6 +58,7 @@ $('body').on('click', '.clear_btn', function(e) {
 	e.preventDefault();
 	var clearingId = $(this).attr('data-id');
     var hangOrderId = $(this).attr('data-hangOrderId');
+
 	$.ajax({
 		type: "get",
 		url: removeHangOrder,
@@ -71,8 +72,8 @@ $('body').on('click', '.clear_btn', function(e) {
 		success: function(rs) {
 			if(rs.status == 200) {
                 sessionStorage.setItem("hangOrderData",JSON.stringify(hangOrderData));
-                sessionStorage.setItem("clearingId",clearingId)
-				$('#mali').load("./cashierSystem/index.html");
+                sessionStorage.setItem("clearingId",clearingId);
+                router('./cashierSystem/index.html')
                 $('.left-nav ul li:eq(0)').addClass('active');
                 $('.left-nav ul li:eq(2)').removeClass('active');
 			}

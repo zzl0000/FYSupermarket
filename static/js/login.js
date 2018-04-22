@@ -8,8 +8,8 @@ layer.config({
     offset: ['50%', '70%']
 })
 
-console.log(localStorage.getItem("storeId"))
-if (localStorage.getItem("storeId") != null) {
+console.log(sessionStorage.getItem("storeId"))
+if (sessionStorage.getItem("storeId") != null) {
     $('.lo_store').hide();
     $('.lo_employee').show();
     $('.lo_title').find('font').text('员工登录')
@@ -38,9 +38,9 @@ $('.back_btn').on('click', function (e) {
                 $('.lo_employee').hide();
                 $('.lo_title').find('span').hide();
                 $('.lo_title').find('font').text('门店登录');
-                localStorage.removeItem('storeId');
+                sessionStorage.removeItem('storeId');
                 window.onunload = function () {
-                    localStorage.clear();
+                    sessionStorage.clear();
                 }
             }
         }
@@ -146,8 +146,7 @@ function signlog() {
         success: function (rs) {
             if (rs.status == "200") {
                 layer.msg('登录成功');
-                localStorage.setItem("name", rs.data.name);
-
+                sessionStorage.setItem("name", rs.data.name);
 
                 setTimeout(function () {
                     window.location.href = "longinState.html";

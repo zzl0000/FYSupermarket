@@ -40,6 +40,7 @@ function init() {
 		isMemberVal = true;
 		$("#memberInfo").show();
 		getMemberInfo(hangOrderDtata[key].token);
+
         //console.log(hangOrderDtata[0].goodsList);
         $.each(hangOrderDtata[key].goodsList,function(index, val){
             getGoodsList(val.gNo,curk)
@@ -126,6 +127,7 @@ function getGoodsList(key, status) {
 			num = 0;
 		}
 	}
+	
 	//console.log(gNo,isgNo,status)
 	//return;
 	$.ajax({
