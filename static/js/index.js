@@ -2,7 +2,8 @@
 
 
 setInit();
-function setInit(){
+
+function setInit() {
     var dutyType = sessionStorage.getItem('dutyType');
     var letNavhtml = '';
     if (dutyType == 1) {
@@ -32,7 +33,7 @@ function setInit(){
         letNavhtml += '<font class="title">设置</font>';
         letNavhtml += '</li>';
         letNavhtml += '</ul>';
-    }else{
+    } else {
         letNavhtml += '<ul>';
         letNavhtml += '<li  data-url=\'tradingRecord/index.html\'>';
         letNavhtml += '<span class="icon02"></span>';
@@ -62,20 +63,31 @@ $('.left-nav ul li').on('click', function (e) {
 })
 
 
-//var letObj = document.getElementById('left-nav');
-//var startY, endY;
-//
-//letObj.addEventListener('touchmove', function(ev) {
-//	if(event.targetTouches.length == 1) {　　　　
-//		event.preventDefault(); // 阻止浏览器默认事件，重要 
-//		var touch = event.targetTouches[0];
-//		// 把元素放在手指所在的位置
-//		startY = touch.pageY;
-//		
-//	}
-//});
+var letObj = document.getElementById('left-nav');
+var startY, endY;
+letObj.addEventListener("touchstart", function(event) {
+    event.preventDefault();
+    startY = event.targetTouches[0].pageY;
+});
+letObj.addEventListener('touchmove', function (event) {
+    var _self = $(this);
+    if (event.targetTouches.length == 1) {
+        event.preventDefault(); // 阻止浏览器默认事件，重要
+        var touch = event.targetTouches[0];
+        // 把元素放在手指所在的位置
+        endY = touch.pageY;
+        getTouch(endY - startY )
+    }
+});
 
-function touch(startY, endY) {
+
+function getTouch(Y) {
+    console.log(parseInt(Y))
+    if(Math.abs(Y) > 240){
+        return false;
+    }else{
+        $("#left-nav").animate({top:Y + "px"},0)
+    }
 
 }
 
@@ -86,15 +98,15 @@ $('#mali').load("./home/index.html");
 function router(url) {
     var index = layer.load(3);
     $('.loading').show();
-    $.ajaxSetup ({
+    $.ajaxSetup({
         cache: false //close AJAX cache
     });
-    $('#mali').load(url,function(result){
-            setTimeout(function(){
-                layer.close(index);
-                $('.loading').hide();
-            },1000)
-            $result = $(result);
-            $result.find("script").appendTo('#mali');
+    $('#mali').load(url, function (result) {
+        setTimeout(function () {
+            layer.close(index);
+            $('.loading').hide();
+        }, 1000)
+        $result = $(result);
+        $result.find("script").appendTo('#mali');
     });
 }
