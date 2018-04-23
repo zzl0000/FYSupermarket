@@ -46,7 +46,7 @@ $('#cateone').change(function(){
 
 // 查看详情
 
-$('body').on('click', '#orderListDemo .check_btn', function(e) {
+$('body').off('click').on('click', '#orderListDemo .check_btn', function(e) {
     e.preventDefault();
     var html = $('#refundPanel');
     var orderId = $(this).attr('data-id');

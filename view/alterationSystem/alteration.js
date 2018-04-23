@@ -38,7 +38,8 @@ function getOrderList(_curr) {
                         var payWayText =['无','现金','扫码','余额'];
                         return payWayText[key]
                     };
-                    html = template('orderList', {
+
+                    html = template('alterationList', {
                         list: rs.data.rows
                     });
                 }
@@ -100,16 +101,57 @@ function getLogout() {
 // 获取员工信息
 function get() {}
 
-$('body').on('click', '#alterationListDemo .check_btn', function(e) {
+$('body').off('click').on('click', '#alterationListDemo .check_btn', function(e) {
 	var html = $('#refundPanel');
+    var orderId = $(this).attr('data-id');
 	layer.open({
 		title: '订单详情',
 		type: 1,
+        closeBtn:2,
 		shadeClose: true, //开启遮罩关闭
 		area: ['1054px', '650px'], //宽高
-		content: html
+		content: html,
+        success: function() {
+            getOrderDetail(orderId);
+        }
 	});
 })
+function getOrderDetail(orderId) {
+
+    $.ajax({
+        type: "get",
+        url: findOrderDetail,
+        data: {
+            orderId: orderId
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function(rs) {
+            if(rs.status == 200) {
+                var data = rs.data;
+                var payWayText =['无','现金','扫码','余额'];
+                var html = template('orderDetailList', {
+                    list: rs.data.orderOptionList
+                });
+                $("#orderDetailListDemo").html(html);
+                $('#realPrice').text(rs.data.order.receipt);
+                $('#payPrice').text(rs.data.order.totalMoney);
+                queryMenberIFFnfo(rs.data.order.token,function(val){
+                    console.log(val);
+                    $('#nick').text(val.nick)
+                    $('#phone').text(val.phone)
+                    $('#orderCode').text(data.order.orderNo)
+                    $('#payWay').text(payWayText[data.order.payWay])
+                    $('#payTime').text(data.order.payTime)
+
+                })
+            }
+        }
+    })
+}
+
 
 function openPanel() {
 
@@ -142,6 +184,7 @@ function openPanel() {
                             $("#gatheringList").html(html1);
                             $("#memberlinfoList").html(html2);
                             $('#imprestCashLogout').text(rs.data.imprestCashLogout);
+
 						}
 
 					}

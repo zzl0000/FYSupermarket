@@ -65,6 +65,8 @@ function keyCount(val) {
 	console.log(price)
 	//console.log(price);
 	if(parseFloat(val) <= parseFloat(price)) {
+
+
 		layer.msg('输入的价格不能小于应收金额');
 	}else{
         var changePrice = (parseFloat(val) - parseFloat(price)).toFixed(2);
