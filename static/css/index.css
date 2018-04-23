@@ -115,12 +115,21 @@
 	background-size: 100% 100%;
 }
 
+.tb_left .integral .icon01 {
+	background: url(../img/integral-icon01.png) no-repeat;
+	background-size: 100% 100%;
+}
+
 .tb_left .icon02{
 	background: url(../img/nav-icon02.png) no-repeat;
 	background-size: 100% 100%;
 }
 .tb_left .active .icon02 {
 	background: url(../img/nav-ac-icon02.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .integral .icon02 {
+	background: url(../img/integral-icon02.png) no-repeat;
 	background-size: 100% 100%;
 }
 
@@ -132,12 +141,20 @@
 	background: url(../img/nav-ac-icon03.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .integral .icon03 {
+	background: url(../img/integral-icon03.png) no-repeat;
+	background-size: 100% 100%;
+}
 .tb_left .icon04{
 	background: url(../img/nav-icon04.png) no-repeat;
 	background-size: 100% 100%;
 }
 .tb_left .active .icon04 {
 	background: url(../img/nav-ac-icon04.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .integral .icon04 {
+	background: url(../img/integral-icon04.png) no-repeat;
 	background-size: 100% 100%;
 }
 .tb_left .icon05{
@@ -148,14 +165,39 @@
 	background: url(../img/nav-ac-icon05.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .integral .icon05 {
+	background: url(../img/integral-icon05.png) no-repeat;
+	background-size: 100% 100%;
+}
 .tb_left .icon06{
 	background: url(../img/nav-icon06.png) no-repeat;
 	background-size: 100% 100%;
 }
+
 .tb_left .active .icon06 {
 	background: url(../img/nav-ac-icon06.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .integral .icon06 {
+	background: url(../img/integral-icon06.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.tb_left .icon07{
+	background: url(../img/nav-icon07.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.tb_left .active .icon07 {
+	background: url(../img/nav-integral-icon.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#changeSystem {
+	background: white;
+	color: #8f9090;
+}
+
 /*右边块内容*/
 
 .tb_right {
@@ -194,7 +236,7 @@
 }
 
 .home_bg.active{
-	/*background: url(../img/home-bg02.png) no-repeat;*/
+	background: url(../img/home-bg02.png) no-repeat;
 }
 
 .time_module{
@@ -228,14 +270,12 @@
 	letter-spacing: 2px;
 }
 
-
 .ChangeSystem{
 	position: absolute;
 	right: 32px;
 	bottom: 32px;
 	width: 150px;
 }
-
 
 
 /* 主体 */
