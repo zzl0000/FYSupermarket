@@ -62,15 +62,15 @@ $('body').on('click', '.decimal', function() {
 
 function keyCount(val) {
 	var price = _payPrice || $('#payPrice').text();
+	console.log(price)
 	//console.log(price);
-	if(parseFloat(val) > parseFloat(price)) {
-		layer.msg('输入的价格不能大于应收金额');
-		resetKeyboard();
-		return;
+	if(parseFloat(val) <= parseFloat(price)) {
+		layer.msg('输入的价格不能小于应收金额');
+	}else{
+        var changePrice = (parseFloat(val) - parseFloat(price)).toFixed(2);
+        $('#relTakePrice').val(val);
+        $('#changePrice').val(changePrice)
 	}
-	var changePrice = (parseFloat(price) - parseFloat(val)).toFixed(2);
-	$('#relTakePrice').val(val);
-	$('#changePrice').val(changePrice)
 }
 
 // 重置键盘
