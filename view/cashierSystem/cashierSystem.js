@@ -11,6 +11,7 @@ var price, unitPrice, _unitPrice, realPrice, couponPrice = $('#couponPrice').tex
 var _realPrice, _payPrice, money;
 
 var token;
+var nick;
 var goodsList = [];
 
 var gNo = [],
@@ -100,6 +101,7 @@ function getMemberInfo(inputkey) {
 				$("#memberInfo").show();
 				renderMenberInfo(rs);
 				token = rs.data.token;
+                nick = rs.data.nick;
 			} else {
 				layer.msg(rs.message);
 			}
@@ -346,7 +348,8 @@ function uplodOrder() {
 	var data = {
 		"goodsList": goodsList,
 		"sumMoney": _payPrice,
-		"token": token
+		"token": token,
+
 	}
 	//console.log(data)
 	$.ajax({
@@ -399,7 +402,8 @@ function checkOut() {
 	var data = {
 		"goodsList": goodsList,
 		"sumMoney": _payPrice,
-		"token": token
+		"token": token,
+        "nick": nick
 	}
 	$.ajax({
 		type: "post",
