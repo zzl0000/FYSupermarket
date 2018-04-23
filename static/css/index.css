@@ -4,7 +4,9 @@
 	background: rgba(0, 0, 0,0.5)!important;
 }
 .layui-layer-title{
-	background: #fff !important;
+	background: #3185ff !important;
+	color: #fff !important;
+	text-align: center;
 }
 .layui-btn-danger{
 	background: red;

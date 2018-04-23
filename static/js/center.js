@@ -40,7 +40,7 @@ var removeHangOrder = turl + "/cashier/hangOrder/removeHangOrder";   //删除挂
 
 
 
-function queryMenberInfo(token){
+function queryMenberIFFnfo(token,callback){
 	$.ajax({
         type: "get",
         url: getUser,
@@ -53,7 +53,7 @@ function queryMenberInfo(token){
         crossDomain: true,
         success: function (rs) {
             if (rs.status == 200) {
-				localStorage.setItem("menberInfo",rs.data);
+                callback(rs.data);
             }
         }
     });
