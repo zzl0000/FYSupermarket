@@ -91,6 +91,7 @@ function getTouch(Y) {
 
 }
 
+
 $('#mali').load("./home/index.html");
 
 //  自定义 路由

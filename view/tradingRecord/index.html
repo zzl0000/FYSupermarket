@@ -40,10 +40,10 @@
 							<tr>
 								<td>{{i +1 }}</td>
 								<td>{{value.orderNo}}</td>
-								<td>李力</td>
+								<td>{{value.nick}}</td>
 								<td>{{value.payWay | getPayWay}}</td>
 								<td>{{value.payTime}}</td>
-								<td>{{value.employeeId}}</td>
+								<td>{{value.employeeName}}</td>
 								<td>¥ {{value.receipt}}</td>
 								<td>
 									<a class="layui-btn layui-btn-ms layui-btn-normal check_btn" data-id="{{value.orderId}}">查看</a>
@@ -98,7 +98,7 @@
 					<li >
 						<i class="icon"><img src="../static/img/icon-06.png"></i>
 						<span>收银员:</span>
-						<span id="">李瑞</span>
+						<span id="employeeName"></span>
 					</li>
 				</ul>
 			</div>

@@ -193,6 +193,10 @@
 	position: relative;
 }
 
+.home_bg.active{
+	/*background: url(../img/home-bg02.png) no-repeat;*/
+}
+
 .time_module{
 	color: #fff;
 	position: absolute;
@@ -222,6 +226,14 @@
 
 .time_module p span:last-child{
 	letter-spacing: 2px;
+}
+
+
+.ChangeSystem{
+	position: absolute;
+	right: 32px;
+	bottom: 32px;
+	width: 150px;
 }
 
 

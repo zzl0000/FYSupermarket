@@ -145,6 +145,7 @@ function getOrderDetail(orderId) {
                     $('#orderCode').text(data.order.orderNo)
                     $('#payWay').text(payWayText[data.order.payWay])
                     $('#payTime').text(data.order.payTime)
+                    $('#payTime').text(data.order.employeeName)
 
                 })
             }
