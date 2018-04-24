@@ -1,0 +1,197 @@
+init()
+
+function init() {
+	getOrderList(1)
+}
+
+//  获取 所有订单数据
+function getOrderList(_curr) {
+	//layer.load(2);
+	var data = {
+		"pageNum": _curr,
+		"pageSize": 10,
+		"payWay": 0,
+		"beginTime": format(new Date()),
+		"endTime": format(new Date())
+	}
+	$.ajax({
+		type: "get",
+		url: findPage,
+		xhrFields: {
+			withCredentials: true
+		},
+		data: data,
+		crossDomain: true,
+		success: function(rs) {
+            if(rs.status == 200) {
+                var html
+                if(rs.data.total == 0) {
+                    $("#alterationList").hide();
+                    $("#noeList").show();
+                    $('#page').hide();
+                    //layer.closeAll('loading');
+                }else {
+                    $("#alterationList").show();
+                    $('#page').show();
+                    $("#noeList").hide();
+                    template.defaults.imports.getPayWay = function(key){
+                        var payWayText =['无','现金','扫码','余额'];
+                        return payWayText[key]
+                    };
+
+                    html = template('alterationList', {
+                        list: rs.data.rows
+                    });
+                }
+                setTimeout(function() {
+                   // layer.closeAll();
+                    $("#alterationListDemo").html(html);
+                    gainpage(Math.ceil(rs.data.total/10),_curr,0);
+                }, 0)
+            }
+		}
+	})
+}
+
+function gainpage(pages, curr, alltotal) {
+	console.log(alltotal)
+	if(alltotal < 0) {
+		return false;
+	} else {
+		laypage({
+			cont: 'page',
+			skip: true, //是否开启跳页
+			skin: '#1E9FFF',
+			pages: pages,
+			curr: curr || 1,
+			jump: function(obj, first) {
+				var curr = obj.curr;
+				if(!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
+                    getOrderList(curr);
+				}
+			}
+		})
+	}
+}
+
+// 下班
+
+function getLogout() {
+	$.ajax({
+		type: "get",
+		url: logout,
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function(rs) {
+			if(rs.status == 201 || rs.status == 200) {
+				layer.msg('下班成功', {
+					time: 1000
+				});
+				setTimeout(function() {
+					window.location.href = "login.html";
+				}, 2000);
+			}
+		}
+	})
+
+}
+
+// 获取员工信息
+function get() {}
+
+$('body').off('click').on('click', '#alterationListDemo .check_btn', function(e) {
+	var html = $('#refundPanel');
+    var orderId = $(this).attr('data-id');
+	layer.open({
+		title: '订单详情',
+		type: 1,
+        closeBtn:2,
+		shadeClose: true, //开启遮罩关闭
+		area: ['1054px', '650px'], //宽高
+		content: html,
+        success: function() {
+            getOrderDetail(orderId);
+        }
+	});
+})
+function getOrderDetail(orderId) {
+
+    $.ajax({
+        type: "get",
+        url: findOrderDetail,
+        data: {
+            orderId: orderId
+        },
+        xhrFields: {
+            withCredentials: true
+        },
+        crossDomain: true,
+        success: function(rs) {
+            if(rs.status == 200) {
+                var data = rs.data;
+                var payWayText =['无','现金','扫码','余额'];
+                var html = template('orderDetailList', {
+                    list: rs.data.orderOptionList
+                });
+                $("#orderDetailListDemo").html(html);
+                $('#realPrice').text(rs.data.order.receipt);
+                $('#payPrice').text(rs.data.order.totalMoney);
+                queryMenberIFFnfo(rs.data.order.token,function(val){
+                    console.log(val);
+                    $('#nick').text(val.nick)
+                    $('#phone').text(val.phone)
+                    $('#orderCode').text(data.order.orderNo)
+                    $('#payWay').text(payWayText[data.order.payWay])
+                    $('#payTime').text(data.order.payTime)
+                    $('#payTime').text(data.order.employeeName)
+
+                })
+            }
+        }
+    })
+}
+
+
+function openPanel() {
+
+	var html = $('#logoutPanel');
+	layer.open({
+		title: '今日统计',
+		type: 1,
+		closeBtn: 1,
+		shadeClose: true, //开启遮罩关闭
+		area: ['1054px', '650px'], //宽高
+		content: html,
+		success: function(index, layero) {
+			$.ajax({
+				type: "get",
+				url: getCheckOut,
+				xhrFields: {
+					withCredentials: true
+				},
+				crossDomain: true,
+				success: function(rs) {
+					if(rs.status == 201 || rs.status == 200) {
+						console.log(rs);
+						if(rs.data != null){
+                            var html1 = template('templateList', {
+                                value: rs.data
+                            });
+                            var html2 = template('memberList', {
+                                value: rs.data
+                            });
+                            $("#gatheringList").html(html1);
+                            $("#memberlinfoList").html(html2);
+                            $('#imprestCashLogout').text(rs.data.imprestCashLogout);
+
+						}
+
+					}
+				}
+			})
+		}
+	});
+
+}

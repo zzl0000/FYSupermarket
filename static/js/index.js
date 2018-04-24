@@ -1,50 +1,52 @@
 // 左侧导航 栏
 
 var integral =  sessionStorage.getItem('integral');
-
+var homeUrl = '';
 setInit();
 
 function setInit() {
     var dutyType = sessionStorage.getItem('dutyType');
+    console.log(dutyType)
     var letNavhtml = '';
     letNavhtml += '<ul>';
     console.log(integral);
-    if(integral != 1){
+    if(integral == 0){
+        homeUrl = './supermarket/home/index.html';
         if (dutyType == 1) {
-            letNavhtml += '<li  data-url=\'cashierSystem/index.html\'>';
+            letNavhtml += '<li  data-url=\'supermarket/cashierSystem/index.html\'>';
             letNavhtml += '<span class="icon01"></span>';
             letNavhtml += '<font class="title">收银</font>';
             letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'tradingRecord/index.html\'>';
+            letNavhtml += '<li  data-url=\'supermarket/tradingRecord/index.html\'>';
             letNavhtml += '<span class="icon02"></span>';
             letNavhtml += '<font class="title">交易记录</font>';
             letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'orderSystem/index.html\'>';
+            letNavhtml += '<li  data-url=\'supermarket/orderSystem/index.html\'>';
             letNavhtml += '<span class="icon03"></span>';
             letNavhtml += '<font class="title">挂单</font>';
             letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'swopSystem/index.html\'>';
+            letNavhtml += '<li  data-url=\'supermarket/swopSystem/index.html\'>';
             letNavhtml += '<span class="icon04"></span>';
             letNavhtml += '<font class="title">退还货</font>';
             letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'alterationSystem/index.html\'>';
+            letNavhtml += '<li  data-url=\'supermarket/alterationSystem/index.html\'>';
             letNavhtml += '<span class="icon05"></span>';
             letNavhtml += '<font class="title">交换班</font>';
             letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'setSystem/index.html\'>';
+            letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
             letNavhtml += '<span class="icon06"></span>';
             letNavhtml += '<font class="title">设置</font>';
             letNavhtml += '</li>';
         } else {
-            letNavhtml += '<li  data-url=\'tradingRecord/index.html\'>';
+            letNavhtml += '<li  data-url=\'supermarket/tradingRecord/index.html\'>';
             letNavhtml += '<span class="icon02"></span>';
             letNavhtml += '<font class="title">交易记录</font>';
             letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'alterationSystem/index.html\'>';
+            letNavhtml += '<li  data-url=\'supermarket/alterationSystem/index.html\'>';
             letNavhtml += '<span class="icon05"></span>';
             letNavhtml += '<font class="title">交换班</font>';
             letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'setSystem/index.html\'>';
+            letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
             letNavhtml += '<span class="icon06"></span>';
             letNavhtml += '<font class="title">设置</font>';
             letNavhtml += '</li>';
@@ -54,31 +56,32 @@ function setInit() {
         letNavhtml += '<font class="title">切换</font>';
         letNavhtml += '</li>';
     }else{
-        letNavhtml += '<li class="integral"  data-url=\'cashierSystem/index.html\'>';
+        homeUrl = './integral/home/index.html';
+        letNavhtml += '<li class="integral"  data-url=\'integral/cashierSystem/index.html\'>';
         letNavhtml += '<span class="icon01"></span>';
         letNavhtml += '<font class="title">收银</font>';
         letNavhtml += '</li>';
-        letNavhtml += '<li class="integral" data-url=\'tradingRecord/index.html\'>';
+        letNavhtml += '<li class="integral" data-url=\'integral/tradingRecord/index.html\'>';
         letNavhtml += '<span class="icon02"></span>';
         letNavhtml += '<font class="title">交易记录</font>';
         letNavhtml += '</li>';
-        letNavhtml += '<li class="integral"  data-url=\'orderSystem/index.html\'>';
+        letNavhtml += '<li class="integral"  data-url=\'integral/orderSystem/index.html\'>';
         letNavhtml += '<span class="icon03"></span>';
         letNavhtml += '<font class="title">挂单</font>';
         letNavhtml += '</li>';
-        letNavhtml += '<li class="integral"  data-url=\'swopSystem/index.html\'>';
+        letNavhtml += '<li class="integral"  data-url=\'integral/swopSystem/index.html\'>';
         letNavhtml += '<span class="icon04"></span>';
         letNavhtml += '<font class="title">退还货</font>';
         letNavhtml += '</li>';
-        letNavhtml += '<li class="integral"  data-url=\'alterationSystem/index.html\'>';
+        letNavhtml += '<li class="integral"  data-url=\'integral/alterationSystem/index.html\'>';
         letNavhtml += '<span class="icon05"></span>';
         letNavhtml += '<font class="title">交换班</font>';
         letNavhtml += '</li>';
-        letNavhtml += '<li class="integral" data-url=\'setSystem/index.html\'>';
+        letNavhtml += '<li class="integral" data-url=\'integral/setSystem/index.html\'>';
         letNavhtml += '<span class="icon06"></span>';
         letNavhtml += '<font class="title">设置</font>';
         letNavhtml += '</li>';
-        letNavhtml += '<li   class="active"  data-url="" id="changeSystem">';
+        letNavhtml += '<li   class="integral active"  data-url="" id="changeSystem">';
         letNavhtml += '<span class="icon07"></span>';
         letNavhtml += '<font class="title">切换</font>';
         letNavhtml += '</li>';
@@ -101,17 +104,18 @@ $('#changeSystem').on('click', function(e){
     e.preventDefault();
     var _self = $(this);
     var url;
-    if(_self.hasClass("active")){
+
+    if(_self.hasClass("integral")){
+        sessionStorage.setItem('integral','0');
+        url = '../view/index.html';
+    }else{
         sessionStorage.setItem('integral','1');
         url = '../view/integralSystem.html';
-    }else{
-        sessionStorage.setItem('integral','');
-        url = '../view/index.html';
     }
-    console.log(url)
     window.location.href = url;
 })
 
+$('#mali').load(homeUrl);
 
 
 var letObj = document.getElementById('left-nav');
@@ -143,7 +147,7 @@ function getTouch(Y) {
 }
 
 
-$('#mali').load("./home/index.html");
+
 
 //  自定义 路由
 

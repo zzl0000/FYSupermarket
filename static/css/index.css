@@ -94,6 +94,13 @@
 	color: #fff;
 }
 
+
+.tb_left ul li.integral.active{
+	background:#643cbc ;
+	color: #fff;
+}
+
+
 .tb_left ul li span{
 	display: inline-block;
 	width: 51px;
@@ -119,7 +126,11 @@
 	background: url(../img/integral-icon01.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .integral.active .icon01 {
+	background: url(../img/nav-ac-icon01.png) no-repeat;
+	background-size: 100% 100%;
 
+}
 .tb_left .icon02{
 	background: url(../img/nav-icon02.png) no-repeat;
 	background-size: 100% 100%;
@@ -130,6 +141,10 @@
 }
 .tb_left .integral .icon02 {
 	background: url(../img/integral-icon02.png) no-repeat;
+	background-size: 100% 100%;
+}
+.tb_left .integral.active .icon02 {
+	background: url(../img/nav-ac-icon02.png) no-repeat;
 	background-size: 100% 100%;
 }
 
@@ -145,6 +160,11 @@
 	background: url(../img/integral-icon03.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .integral.active .icon03 {
+	background: url(../img/nav-ac-icon03.png) no-repeat;
+	background-size: 100% 100%;
+}
+
 .tb_left .icon04{
 	background: url(../img/nav-icon04.png) no-repeat;
 	background-size: 100% 100%;
@@ -157,6 +177,11 @@
 	background: url(../img/integral-icon04.png) no-repeat;
 	background-size: 100% 100%;
 }
+.tb_left .integral.active .icon04 {
+	background: url(../img/nav-ac-icon04.png) no-repeat;
+	background-size: 100% 100%;
+}
+
 .tb_left .icon05{
 	background: url(../img/nav-icon05.png) no-repeat;
 	background-size: 100% 100%;
@@ -167,6 +192,11 @@
 }
 .tb_left .integral .icon05 {
 	background: url(../img/integral-icon05.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.tb_left .integral.active .icon05 {
+	background: url(../img/nav-ac-icon05.png) no-repeat;
 	background-size: 100% 100%;
 }
 .tb_left .icon06{
@@ -180,6 +210,11 @@
 }
 .tb_left .integral .icon06 {
 	background: url(../img/integral-icon06.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.tb_left .integral.active .icon06 {
+	background: url(../img/nav-ac-icon06.png) no-repeat;
 	background-size: 100% 100%;
 }
 
