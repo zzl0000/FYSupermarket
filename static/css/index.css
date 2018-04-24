@@ -575,6 +575,10 @@
 	background-color:#3185ff ;
 	color: white;
 }
+.settlementKeyboard ul li.bg-purple{
+	background-color: #643cbc;
+	color: white;
+}
 
 .settlementKeyboard ul li.empty span{
 	display: inline-block;
