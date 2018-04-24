@@ -160,7 +160,6 @@ function getGoodsList(key, status) {
 					//console.log(ListData.goodsListData[0].specValue)
 					rs.data.specValue.num = ListData.goodsListData[index].specValue.num + 1
 					ListData.goodsListData[index] = rs.data;
-					getAllotPrice(ListData.goodsListData);
 				} else {
 					if (hangOrderNum.length > 0) {
 						rs.data.specValue.num = hangOrderNum[returnSAIndexof(gNo, key)];
@@ -168,16 +167,8 @@ function getGoodsList(key, status) {
 						rs.data.specValue.num = 1;
 					}
 					ListData.goodsListData.push(rs.data);
-					getAllotPrice(ListData.goodsListData);
 				}
 				rs.data.specValue.price = priceCount(rs.data.specValue.price, rs.data.specValue.num);
-				
-				if (hangOrderDtata != null){
-					if(status == (gNo.length - 1)){
-						getAllotPrice(ListData.goodsListData);
-					}
-				}
-				
 				renderGoodsList(ListData);
 				
 			} else {
@@ -195,6 +186,15 @@ function renderGoodsList(data) {
 		list: data
 	});
 	$("#Goods").html(html);
+	$('#Goods li').each(function (index, el) {
+		var type = $(el).attr('data-allotType');
+		if(type == '一档区'){
+			$('#allotOnePrice').text($(el).find('.price').text().substring(1));
+		}else{
+			$('#allotTowPrice').text($(el).find('.price').text().substring(1));
+		}
+		
+	})
 	getPrice(data.goodsListData);
 	
 }
@@ -308,47 +308,7 @@ function getPrice(realPrice) {
 	$('#realPrice').text(_realPrice);
 	$('.payPrice').text(_payPrice);
 }
-var _allotOnePrice = [], _allotTowPrice = [];
-// 计算档区价格
-function getAllotPrice(rs) {
 
-	console.log(rs)
-	var type;
-	for (i in rs) {
-		type = rs[i].goods.allotTitle;
-		if (type == '一档区') {
-			_allotOnePrice.push(rs[i].specValue.price)
-		} else {
-			_allotTowPrice.push(rs[i].specValue.price)
-		}
-	}
-	//console.log(_allotOnePrice,_allotTowPrice);
-	
-	
-	 $('#allotOnePrice').text(priceAcount(_allotOnePrice));
-	 $('#allotTowPrice').text(priceAcount(_allotTowPrice));
-}
-
-function priceAcount(rs){
-	//console.log(rs)
-	if(rs.length > 0){
-		var str = '';
-		for (i in rs) {
-			str += rs[i];
-			str += '+';
-		}
-		str = str.substring(0, str.length - 1);
-		var Price = eval(str).toFixed(2);
-		return Price;
-	}
-}
-
-// function strFormat(val) {
-// 	//console.log(val);
-// 	var curVal;
-// 	curVal = parseFloat(val.substring(1))
-// 	return curVal
-// }
 
 // 清空重置
 
