@@ -42,7 +42,7 @@ function getOrderList() {
 				setTimeout(function() {
 					//layer.closeAll();
 					$("#HangOrderListDemo").html(html);
-					$('#cashierName').text(localStorage.getItem("name"));
+					$('#cashierName').text(sessionStorage.getItem("name"));
 					hangOrderData = rs.data;
 
 				}, 500)
@@ -75,7 +75,7 @@ $('body').off('click').on('click', '.clear_btn', function(e) {
 			if(rs.status == 200) {
                 sessionStorage.setItem("hangOrderData",JSON.stringify(hangOrderData));
                 sessionStorage.setItem("clearingId",clearingId);
-                router('./cashierSystem/index.html')
+                router('./supermarket/cashierSystem/index.html')
                 $('.left-nav ul li:eq(0)').addClass('active');
                 $('.left-nav ul li:eq(2)').removeClass('active');
 

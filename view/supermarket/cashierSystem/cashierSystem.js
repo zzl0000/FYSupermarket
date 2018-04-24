@@ -10,6 +10,10 @@ var price, unitPrice, _unitPrice, realPrice, couponPrice = $('#couponPrice').tex
 	integralPrice = $('#integralPrice').text();
 var _realPrice, _payPrice, money;
 
+// 档区价格
+
+
+
 var token;
 var nick;
 var goodsList = [];
@@ -28,57 +32,59 @@ var hangOrderNum = [];
 init();
 
 function init() {
-    gNo = [];
-    hangOrderDtata = null
-    keyId = ''
-    if(sessionStorage.getItem("hangOrderData") != null){
-        hangOrderDtata  = JSON.parse(sessionStorage.getItem("hangOrderData"));
-        keyId = sessionStorage.getItem("clearingId");
-	};
+	gNo = [];
+	hangOrderDtata = null
+	keyId = ''
+	if (sessionStorage.getItem("hangOrderData") != null) {
+		hangOrderDtata = JSON.parse(sessionStorage.getItem("hangOrderData"));
+		keyId = sessionStorage.getItem("clearingId");
+	}
+	;
 	//console.log(hangOrderDtata)
-
-	console.log(hangOrderDtata)
-	if(hangOrderDtata != null){
+	
+	//console.log(hangOrderDtata)
+	if (hangOrderDtata != null) {
 		isMemberVal = true;
 		$("#memberInfo").show();
 		getMemberInfo(hangOrderDtata[keyId].token);
-
-        //console.log(hangOrderDtata[0].goodsList);
-        $.each(hangOrderDtata[keyId].goodsList,function(index, val){
-            getGoodsList(val.gNo,curk)
-            hangOrderNum .push(val.num)
-            curk++;
-
-		})
+		
+		//console.log(hangOrderDtata[0].goodsList);
+		$.each(hangOrderDtata[keyId].goodsList, function (index, val) {
+			getGoodsList(val.gNo, curk);
+			hangOrderNum.push(val.num);
+			curk++;
+			
+		});
+		
 	}
 }
 
-$('#ScanCodeinput').bind('keypress', function(event) {
-    var inputkey = $('#ScanCodeinput').val();
-    	hangOrderNum = [];
-    if(!isMemberVal) {
-        layer.msg('请先添加会员信息');
-        return false;
-    }
-    if(event.keyCode == "13") {
-        if(inputkey == ""){
-            return false;
-        }
-        //console.log(curk)
-        getGoodsList(inputkey, curk);
-        curk++;
-        //alert('你输入的内容为：' + $('#ScanCodeinput').val());
-    }
+$('#ScanCodeinput').bind('keypress', function (event) {
+	var inputkey = $('#ScanCodeinput').val();
+	hangOrderNum = [];
+	if (!isMemberVal) {
+		layer.msg('请先添加会员信息');
+		return false;
+	}
+	if (event.keyCode == "13") {
+		if (inputkey == "") {
+			return false;
+		}
+		//console.log(curk)
+		getGoodsList(inputkey, curk);
+		curk++;
+		//alert('你输入的内容为：' + $('#ScanCodeinput').val());
+	}
 });
 
-$('#ScanCodeMember').bind('keypress', function(event) {
-    var inputkey = $('#ScanCodeMember').val();
-    if(inputkey != ""){
-        isMemberVal = true;
-    }
-    if(event.keyCode == "13") {
-        getMemberInfo(inputkey);
-    }
+$('#ScanCodeMember').bind('keypress', function (event) {
+	var inputkey = $('#ScanCodeMember').val();
+	if (inputkey != "") {
+		isMemberVal = true;
+	}
+	if (event.keyCode == "13") {
+		getMemberInfo(inputkey);
+	}
 });
 
 function getMemberInfo(inputkey) {
@@ -94,14 +100,14 @@ function getMemberInfo(inputkey) {
 			withCredentials: true
 		},
 		crossDomain: true,
-		success: function(rs) {
-			if(rs.status == 200) {
+		success: function (rs) {
+			if (rs.status == 200) {
 				$('#ScanCodeMemberInput').hide();
 				$('#ScanCodeMember').val('');
 				$("#memberInfo").show();
 				renderMenberInfo(rs);
 				token = rs.data.token;
-                nick = rs.data.nick;
+				nick = rs.data.nick;
 			} else {
 				layer.msg(rs.message);
 			}
@@ -117,13 +123,13 @@ function renderMenberInfo(rs) {
 }
 
 
-
 function getGoodsList(key, status) {
+	console.log(status);
 	//console.log(num);
-	if(status <= 0) {
+	if (status <= 0) {
 		gNo.push(key);
 	} else {
-		if(gNo[returnSAIndexof(gNo, key)] == key) {
+		if (gNo[returnSAIndexof(gNo, key)] == key) {
 			//num++;
 			isgNo = true;
 		} else {
@@ -145,32 +151,42 @@ function getGoodsList(key, status) {
 			withCredentials: true
 		},
 		crossDomain: true,
-		success: function(rs) {
-			if(rs.status == 200) {
+		success: function (rs) {
+			if (rs.status == 200) {
 				$('#ScanCodeinput').val('');
-				if(isgNo) {
-                    var index = returnIndexof(ListData.goodsListData,rs.data.goods.id);
-                    //console.log(index)
-                    //console.log(ListData.goodsListData[0].specValue)
-                    rs.data.specValue.num  = ListData.goodsListData[index].specValue.num + 1
+				if (isgNo) {
+					var index = returnIndexof(ListData.goodsListData, rs.data.goods.id);
+					//console.log(index)
+					//console.log(ListData.goodsListData[0].specValue)
+					rs.data.specValue.num = ListData.goodsListData[index].specValue.num + 1
 					ListData.goodsListData[index] = rs.data;
+					getAllotPrice(ListData.goodsListData);
 				} else {
-					if(hangOrderNum.length > 0){
-                        rs.data.specValue.num = hangOrderNum[returnSAIndexof(gNo, key)];
-					}else{
-                        rs.data.specValue.num = 1;
+					if (hangOrderNum.length > 0) {
+						rs.data.specValue.num = hangOrderNum[returnSAIndexof(gNo, key)];
+					} else {
+						rs.data.specValue.num = 1;
 					}
 					ListData.goodsListData.push(rs.data);
+					getAllotPrice(ListData.goodsListData);
 				}
-                rs.data.specValue.price = priceCount(rs.data.specValue.price,rs.data.specValue.num);
-				//console.log(ListData.goodsListData)
+				rs.data.specValue.price = priceCount(rs.data.specValue.price, rs.data.specValue.num);
+				
+				if (hangOrderDtata != null){
+					if(status == (gNo.length - 1)){
+						getAllotPrice(ListData.goodsListData);
+					}
+				}
+				
 				renderGoodsList(ListData);
-
+				
 			} else {
 				layer.msg(rs.message)
 			}
 		}
 	})
+	
+	
 }
 
 function renderGoodsList(data) {
@@ -180,14 +196,15 @@ function renderGoodsList(data) {
 	});
 	$("#Goods").html(html);
 	getPrice(data.goodsListData);
+	
 }
 
 // 数量计算
-function addCount(el,num) {
+function addCount(el, num) {
 	_curnum = parseInt(num) + 1;
-    var id = el.attr('data-goodsId');
-    var index = returnIndexof(ListData.goodsListData,id);
-    ListData.goodsListData[index].specValue.num = _curnum;
+	var id = el.attr('data-goodsId');
+	var index = returnIndexof(ListData.goodsListData, id);
+	ListData.goodsListData[index].specValue.num = _curnum;
 	//console.log(_curnum,num);
 	return _curnum;
 }
@@ -195,17 +212,17 @@ function addCount(el,num) {
 function minusCount(el, _num) {
 	_curnum = parseInt(_num) - 1;
 	var id = el.attr('data-goodsId');
-	var index = returnIndexof(ListData.goodsListData,id);
-
-	if(_curnum <= 0) {
+	var index = returnIndexof(ListData.goodsListData, id);
+	
+	if (_curnum <= 0) {
 		// console.log(el);
 		el.addClass('disabled');
 		el.parent().parent().parent().hide();
 		$('#realPrice').text('0.00');
 		$('.payPrice').text('0.00');
-        ListData.goodsListData[index].specValue.num = 0;
-    }else{
-        ListData.goodsListData[index].specValue.num = _curnum;
+		ListData.goodsListData[index].specValue.num = 0;
+	} else {
+		ListData.goodsListData[index].specValue.num = _curnum;
 	}
 	//console.log(num);
 	return _curnum;
@@ -214,27 +231,27 @@ function minusCount(el, _num) {
 // 价格计算
 
 function priceCount(unitPrice, _curnum) {
-
+	
 	_unitPrice = parseFloat(unitPrice) * _curnum;
 	//console.log(key);
-	return '¥' + _unitPrice.toFixed(2);
+	return _unitPrice.toFixed(2);
 }
 
 function realPriceCount(type, realPrice, unitPrice) {
 	//console.log(realPrice, unitPrice)
-	if(unitPrice <= 0) {
+	if (unitPrice <= 0) {
 		return false;
 	}
-
-	if(type == "add") {
+	
+	if (type == "add") {
 		_realPrice = (parseFloat(realPrice) + unitPrice).toFixed(2);
-	} else if(type == "minus") {
+	} else if (type == "minus") {
 		_realPrice = (parseFloat(realPrice) - unitPrice).toFixed(2);
-		if(_realPrice <= 0) {
+		if (_realPrice <= 0) {
 			_realPrice = '0.00';
 		}
 	}
-	if(_realPrice == 0) {
+	if (_realPrice == 0) {
 		_payPrice = '0.00';
 	} else {
 		_payPrice = (_realPrice - couponPrice - integralPrice).toFixed(2);
@@ -247,15 +264,15 @@ function realPriceCount(type, realPrice, unitPrice) {
 // 返回数组下标
 function returnSAIndexof(arr, value) {
 	var _curIndex;
-
+	
 	var a = arr; //为了增加方法扩展适应性。我这稍微修改了下
-	for(var i = 0; i < a.length; i++) {
-		if(a[i] == value) {
+	for (var i = 0; i < a.length; i++) {
+		if (a[i] == value) {
 			_curIndex = i;
 		}
-
+		
 	}
-
+	
 	//console.log(_curIndex);
 	return _curIndex;
 }
@@ -263,44 +280,75 @@ function returnSAIndexof(arr, value) {
 // 返回数组下标
 function returnIndexof(arr, value) {
 	var _curIndex;
-
+	
 	var a = arr; //为了增加方法扩展适应性。我这稍微修改了下
-	for(var i = 0; i < a.length; i++) {
-		if(a[i].goods.id == value) {
+	for (var i = 0; i < a.length; i++) {
+		if (a[i].goods.id == value) {
 			_curIndex = i;
 			isgNo = true;
 		}
-
+		
 	}
-
-	//console.log(_curIndex);
+	
 	return _curIndex;
 }
 
 
 function getPrice(realPrice) {
 	var _realPrice, _payPrice;
-	//console.log(realPrice);
-
 	var str = '';
-	for(i in realPrice) {
-		str += strFormat(realPrice[i].specValue.price);
+	for (i in realPrice) {
+		str += realPrice[i].specValue.price;
 		str += '+';
 	}
 	str = str.substring(0, str.length - 1);
-	_realPrice = eval(str).toFixed(2)
+	_realPrice = eval(str).toFixed(2);
 	_payPrice = (_realPrice - couponPrice - integralPrice).toFixed(2);
 	//console.log(_realPrice);
 	$('#realPrice').text(_realPrice);
 	$('.payPrice').text(_payPrice);
 }
+var _allotOnePrice = [], _allotTowPrice = [];
+// 计算档区价格
+function getAllotPrice(rs) {
 
-function strFormat(val) {
-	//console.log(val);
-	var curVal;
-	curVal = parseFloat(val.substring(1))
-	return curVal
+	console.log(rs)
+	var type;
+	for (i in rs) {
+		type = rs[i].goods.allotTitle;
+		if (type == '一档区') {
+			_allotOnePrice.push(rs[i].specValue.price)
+		} else {
+			_allotTowPrice.push(rs[i].specValue.price)
+		}
+	}
+	//console.log(_allotOnePrice,_allotTowPrice);
+	
+	
+	 $('#allotOnePrice').text(priceAcount(_allotOnePrice));
+	 $('#allotTowPrice').text(priceAcount(_allotTowPrice));
 }
+
+function priceAcount(rs){
+	//console.log(rs)
+	if(rs.length > 0){
+		var str = '';
+		for (i in rs) {
+			str += rs[i];
+			str += '+';
+		}
+		str = str.substring(0, str.length - 1);
+		var Price = eval(str).toFixed(2);
+		return Price;
+	}
+}
+
+// function strFormat(val) {
+// 	//console.log(val);
+// 	var curVal;
+// 	curVal = parseFloat(val.substring(1))
+// 	return curVal
+// }
 
 // 清空重置
 
@@ -315,7 +363,9 @@ function reset() {
 	isgNo = false;
 	num = 0;
 	ListData.goodsListData = [];
-    sessionStorage.setItem("hangOrderData",null);
+	sessionStorage.setItem("hangOrderData", null);
+	$('#allotOnePrice').text('0.00');
+	$('#allotTowPrice').text('0.00');
 }
 
 // 挂账
@@ -323,20 +373,20 @@ function reset() {
 function uplodOrder() {
 	var goodsList = [];
 	var _payPrice = $('#payPrice').text();
-	if(parseFloat(_payPrice) <= 0) {
+	if (parseFloat(_payPrice) <= 0) {
 		layer.msg('请先添加商品');
 		return false;
 	}
-
-	$('#Goods li').each(function(index, el) {
+	
+	$('#Goods li').each(function (index, el) {
 		var goodsInfo = {
-			"gNo":'0',
+			"gNo": '0',
 			"goodsId": 0,
 			"money": 0,
 			"num": 0,
 			"specValueId": 0
 		};
-        goodsInfo.gNo = $(el).attr('data-gNo');
+		goodsInfo.gNo = $(el).attr('data-gNo');
 		goodsInfo.goodsId = $(el).attr('data-goodsId');
 		goodsInfo.specValueId = $(el).attr('data-specValueId');
 		goodsInfo.num = $(el).find('.number').text();
@@ -344,12 +394,12 @@ function uplodOrder() {
 		goodsList.push(goodsInfo);
 	})
 	//console.log(goodsList)
-
+	
 	var data = {
 		"goodsList": goodsList,
 		"sumMoney": _payPrice,
 		"token": token,
-
+		
 	}
 	//console.log(data)
 	$.ajax({
@@ -362,8 +412,8 @@ function uplodOrder() {
 			withCredentials: true
 		},
 		crossDomain: true,
-		success: function(rs) {
-			if(rs.status == 200) {
+		success: function (rs) {
+			if (rs.status == 200) {
 				layer.msg('挂账成功');
 				reset();
 				resetKeyboard();
@@ -379,31 +429,33 @@ function uplodOrder() {
 function checkOut() {
 	var goodsList = [];
 	var _payPrice = $('#payPrice').text();
-	if(parseFloat(_payPrice) <= 0) {
+	if (parseFloat(_payPrice) <= 0) {
 		layer.msg('请先添加商品');
 		return false;
 	}
-
-	$('#Goods li').each(function(index, el) {
+	
+	$('#Goods li').each(function (index, el) {
 		var goodsInfo = {
 			"goodsId": 0,
 			"money": 0,
 			"num": 0,
-			"specValueId": 0
+			"specValueId": 0,
+			"allotTitle":0
 		};
 		goodsInfo.goodsId = $(el).attr('data-goodsId');
 		goodsInfo.specValueId = $(el).attr('data-specValueId');
+		goodsInfo.allotTitle =  $(el).attr('data-allotType');
 		goodsInfo.num = $(el).find('.number').text();
 		goodsInfo.money = parseFloat($(el).find('.price').text().substring(1) / goodsInfo.num);
 		goodsList.push(goodsInfo);
 	})
 	//console.log(goodsList)
-
+	
 	var data = {
 		"goodsList": goodsList,
 		"sumMoney": _payPrice,
 		"token": token,
-        "nick": nick
+		"nick": nick
 	}
 	$.ajax({
 		type: "post",
@@ -415,8 +467,8 @@ function checkOut() {
 			withCredentials: true
 		},
 		crossDomain: true,
-		success: function(rs) {
-			if(rs.status == 200) {
+		success: function (rs) {
+			if (rs.status == 200) {
 				layer.msg('结账成功');
 				reset();
 				resetKeyboard();
@@ -428,39 +480,54 @@ function checkOut() {
 }
 
 
-
-
-$('body').on('click', '.add', function(e) {
+$('body').on('click', '.add', function (e) {
 	e.preventDefault();
-    var _slef = $(this);
-
+	var _slef = $(this);
+	var allotType = _slef.attr('data-allotType');
+	var allotOnePrice = $('#allotOnePrice').text();
+	var allotTowPrice = $('#allotTowPrice').text()
 	num = $(this).siblings('.number').text();
 	realPrice = $('#realPrice').text();
-	if(num <= 0) {
+	if (num <= 0) {
 		unitPrice = 5;
 		$(this).siblings('.minus').removeClass('disabled');
 	} else {
 		unitPrice = $(this).parent().siblings().text().substring(1) / num;
-
+		
 	}
-
-	$(this).siblings(".number").text(addCount(_slef,num))
-	$(this).parent().siblings().text(priceCount(unitPrice, _curnum));
+	
+	if(allotType == '一档区'){
+		$('#allotOnePrice').text((parseFloat(unitPrice) + parseFloat(allotOnePrice)).toFixed(2));
+	}else{
+		$('#allotTowPrice').text((parseFloat(unitPrice) + parseFloat(allotTowPrice)).toFixed(2));
+	};
+	
+	$(this).siblings(".number").text(addCount(_slef, num))
+	$(this).parent().siblings().text("¥ " + priceCount(unitPrice, _curnum));
 	realPriceCount("add", realPrice, unitPrice);
 })
 
-$('body').on('click', '.minus', function(e) {
+$('body').on('click', '.minus', function (e) {
 	e.preventDefault();
 	var _slef = $(this);
 	num = $(this).siblings('.number').text();
 	realPrice = $('#realPrice').text();
-	if(num == 0) {
+	var allotType = _slef.attr('data-allotType');
+	var allotOnePrice = $('#allotOnePrice').text();
+	var allotTowPrice = $('#allotTowPrice').text();
+	if (num == 0) {
 		unitPrice = $(this).parent().siblings().text().substring(1)
 	} else {
 		unitPrice = $(this).parent().siblings().text().substring(1) / num;
 	}
 	$(this).siblings(".number").text(minusCount(_slef, num))
-	$(this).parent().siblings().text(priceCount(unitPrice, _curnum));
+	$(this).parent().siblings().text("¥ " + priceCount(unitPrice, _curnum));
+	
+	if(allotType == '一档区'){
+		$('#allotOnePrice').text((parseFloat(allotOnePrice) - parseFloat(unitPrice)).toFixed(2));
+	}else{
+		$('#allotTowPrice').text((parseFloat(allotTowPrice) - parseFloat(unitPrice)).toFixed(2));
+	};
 	realPriceCount("minus", realPrice, unitPrice);
 })
 

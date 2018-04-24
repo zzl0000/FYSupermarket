@@ -25,17 +25,17 @@
             <ul id="Goods">
                 <script type="text/template" id="GoodsList">
                     {{each list.goodsListData as value i}}
-                    <li class="border-gray border-bottom padding-big-bottom padding-big-top" data-gNo="{{value.specValue.gNo}}"  data-goodsId="{{value.specValue.goodsId}}" data-specValueId="{{value.specValue.specValueId}}"  >
+                    <li class="border-gray border-bottom padding-big-bottom padding-big-top" data-allotType="{{value.goods.allotTitle}}" data-gNo="{{value.specValue.gNo}}"  data-goodsId="{{value.specValue.goodsId}}" data-specValueId="{{value.specValue.specValueId}}"  >
                         <div class="shopGoodsTop">
                             <h5 title="{{value.goods.gname}}">{{value.goods.gname}}</h5>
                             <span>{{value.goods.unit}}</span>
                         </div>
                         <div class="shopGoodsCT margin-big-top">
-                            <span class="price">{{value.specValue.price}}</span>
+                            <span class="price">¥ {{value.specValue.price}}</span>
                             <div>
-                                <span class="minus" data-goodsId="{{value.specValue.goodsId}}"> - </span>
+                                <span class="minus" data-goodsId="{{value.specValue.goodsId}}" data-allotType="{{value.goods.allotTitle}}"> - </span>
                                 <span class="number">{{value.specValue.num}}</span>
-                                <span class="add" data-goodsId="{{value.specValue.goodsId}}"> + </span>
+                                <span class="add" data-goodsId="{{value.specValue.goodsId}}" data-allotType="{{value.goods.allotTitle}}"> + </span>
                             </div>
                         </div>
                     </li>
@@ -45,12 +45,17 @@
         </div>
         <!-- 商品信息汇总 -->
         <div class="shopGoodsClearing padding-big  border-gray border-top">
-            <div class="shopGoodsInfo padding-big-top">
+            <div class="shopGoodsInfo float-left" style="width: 50%">
+                <p style="text-align: left">一档区:¥ <span id="allotOnePrice">0.00</span></p>
+                <p style="text-align: left">二档区:¥ <span id="allotTowPrice">0.00</span></p>
+            </div>
+            <div class="shopGoodsInfo  float-right" style="width: 50%">
                 <p>合计：¥ <span id="realPrice">0.00</span></p>
                 <p>优惠券：¥ <span id="couponPrice">0.00</span></p>
                 <p>积分：¥ <span id="integralPrice">0.00</span></p>
                 <p>实收：¥ <span id="payPrice" class="price payPrice">0.00</span></p>
             </div>
+            <br clear="all">
             <div class="shopGoodsBtn margin-big-top">
                 <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-lg button-active float-right margin-big-left" onclick="uplodOrder()">挂账</button>
                 <button class="layui-btn layui-btn-primary layui-btn-radius layui-btn-lg float-right " onclick="reset()">清空</button>
