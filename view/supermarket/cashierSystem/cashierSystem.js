@@ -13,7 +13,6 @@ var _realPrice, _payPrice, money;
 // 档区价格
 
 
-
 var token;
 var nick;
 var goodsList = [];
@@ -124,8 +123,7 @@ function renderMenberInfo(rs) {
 
 
 function getGoodsList(key, status) {
-	console.log(status);
-	//console.log(num);
+	
 	if (status <= 0) {
 		gNo.push(key);
 	} else {
@@ -170,7 +168,6 @@ function getGoodsList(key, status) {
 				}
 				rs.data.specValue.price = priceCount(rs.data.specValue.price, rs.data.specValue.num);
 				renderGoodsList(ListData);
-				
 			} else {
 				layer.msg(rs.message)
 			}
@@ -180,23 +177,51 @@ function getGoodsList(key, status) {
 	
 }
 
+
 function renderGoodsList(data) {
 	//console.log(data);
 	var html = template('GoodsList', {
 		list: data
 	});
 	$("#Goods").html(html);
-	$('#Goods li').each(function (index, el) {
-		var type = $(el).attr('data-allotType');
-		if(type == '一档区'){
-			$('#allotOnePrice').text($(el).find('.price').text().substring(1));
-		}else{
-			$('#allotTowPrice').text($(el).find('.price').text().substring(1));
-		}
-		
-	})
+	
 	getPrice(data.goodsListData);
 	
+}
+
+var _allotOnePrice = [];
+var _allotTowPrice = [];
+
+setTimeout(function () {
+	$('#Goods li').each(function (index, el) {
+		//console.log(index);
+		var type = $(el).attr('data-allotType');
+		if (type == '一档区') {
+			_allotOnePrice.push($(el).find('.price').text().substring(1));
+		} else {
+			//console.log($(el).find('.price').text().substring(1));
+			_allotTowPrice = $('#allotTowPrice').text($(el).find('.price').text().substring(1));
+		}
+	})
+	
+	$('#allotOnePrice').text(priceAcount(_allotOnePrice));
+	$('#allotTowPrice').text(priceAcount(_allotTowPrice));
+	
+	
+}, 2000);
+
+function priceAcount(rs) {
+	console.log(rs)
+	if (rs.length > 0) {
+		var str = '';
+		for (i in rs) {
+			str += rs[i];
+			str += '+';
+		}
+		str = str.substring(0, str.length - 1);
+		var Price = eval(str).toFixed(2);
+		return Price;
+	}
 }
 
 // 数量计算
@@ -400,11 +425,11 @@ function checkOut() {
 			"money": 0,
 			"num": 0,
 			"specValueId": 0,
-			"allotTitle":0
+			"allotTitle": 0
 		};
 		goodsInfo.goodsId = $(el).attr('data-goodsId');
 		goodsInfo.specValueId = $(el).attr('data-specValueId');
-		goodsInfo.allotTitle =  $(el).attr('data-allotType');
+		goodsInfo.allotTitle = $(el).attr('data-allotType');
 		goodsInfo.num = $(el).find('.number').text();
 		goodsInfo.money = parseFloat($(el).find('.price').text().substring(1) / goodsInfo.num);
 		goodsList.push(goodsInfo);
@@ -456,11 +481,12 @@ $('body').on('click', '.add', function (e) {
 		
 	}
 	
-	if(allotType == '一档区'){
+	if (allotType == '一档区') {
 		$('#allotOnePrice').text((parseFloat(unitPrice) + parseFloat(allotOnePrice)).toFixed(2));
-	}else{
+	} else {
 		$('#allotTowPrice').text((parseFloat(unitPrice) + parseFloat(allotTowPrice)).toFixed(2));
-	};
+	}
+	;
 	
 	$(this).siblings(".number").text(addCount(_slef, num))
 	$(this).parent().siblings().text("¥ " + priceCount(unitPrice, _curnum));
@@ -483,11 +509,12 @@ $('body').on('click', '.minus', function (e) {
 	$(this).siblings(".number").text(minusCount(_slef, num))
 	$(this).parent().siblings().text("¥ " + priceCount(unitPrice, _curnum));
 	
-	if(allotType == '一档区'){
+	if (allotType == '一档区') {
 		$('#allotOnePrice').text((parseFloat(allotOnePrice) - parseFloat(unitPrice)).toFixed(2));
-	}else{
+	} else {
 		$('#allotTowPrice').text((parseFloat(allotTowPrice) - parseFloat(unitPrice)).toFixed(2));
-	};
+	}
+	;
 	realPriceCount("minus", realPrice, unitPrice);
 })
 

@@ -19,8 +19,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state relative-caret-position="-852">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -34,8 +34,8 @@
       <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-651">
-              <caret line="53" column="39" lean-forward="true" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+            <state relative-caret-position="469">
+              <caret line="212" column="8" lean-forward="false" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="8" />
               <folding>
                 <element signature="n#!!block;n#uplodOrder#0" expanded="false" />
                 <element signature="n#!!block;n#checkOut#0" expanded="false" />
@@ -315,12 +315,12 @@
       <workItem from="1524371690887" duration="4248000" />
       <workItem from="1524376620696" duration="8940000" />
       <workItem from="1524448552240" duration="19237000" />
-      <workItem from="1524533041995" duration="21181000" />
+      <workItem from="1524533041995" duration="22589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88267000" />
+    <option name="totallyTimeSpent" value="89675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -384,13 +384,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js</url>
-          <line>143</line>
+          <line>141</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js</url>
-          <line>296</line>
+          <line>321</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
@@ -779,8 +779,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        <state relative-caret-position="-852">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#0;n#div#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -792,8 +792,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-651">
-          <caret line="53" column="39" lean-forward="true" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
+        <state relative-caret-position="469">
+          <caret line="212" column="8" lean-forward="false" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="8" />
           <folding>
             <element signature="n#!!block;n#uplodOrder#0" expanded="false" />
             <element signature="n#!!block;n#checkOut#0" expanded="false" />
