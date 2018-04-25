@@ -197,28 +197,32 @@ setTimeout(function () {
 		//console.log(index);
 		var type = $(el).attr('data-allotType');
 		if (type == '一档区') {
+			// console.log($(el).find('.price').text());
 			_allotOnePrice.push($(el).find('.price').text().substring(1));
 		} else {
-			//console.log($(el).find('.price').text().substring(1));
-			_allotTowPrice = $('#allotTowPrice').text($(el).find('.price').text().substring(1));
+			//console.log($(el).find('.price').text());
+			_allotTowPrice.push($(el).find('.price').text().substring(1));
 		}
 	})
+	//console.log(_allotTowPrice)
 	
 	$('#allotOnePrice').text(priceAcount(_allotOnePrice));
 	$('#allotTowPrice').text(priceAcount(_allotTowPrice));
 	
 	
-}, 2000);
+}, 1000);
 
 function priceAcount(rs) {
-	console.log(rs)
+	//console.log(rs)
+	var str = '';
 	if (rs.length > 0) {
-		var str = '';
+		
 		for (i in rs) {
 			str += rs[i];
 			str += '+';
 		}
 		str = str.substring(0, str.length - 1);
+		
 		var Price = eval(str).toFixed(2);
 		return Price;
 	}

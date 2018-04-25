@@ -10,7 +10,7 @@ function setInit() {
     var letNavhtml = '';
     letNavhtml += '<ul>';
     console.log(integral);
-    if(integral == 0){
+    if(integral != 0){
         homeUrl = './supermarket/home/index.html';
         if (dutyType == 1) {
             letNavhtml += '<li  data-url=\'supermarket/cashierSystem/index.html\'>';
@@ -106,10 +106,10 @@ $('#changeSystem').on('click', function(e){
     var url;
 
     if(_self.hasClass("integral")){
-        sessionStorage.setItem('integral','0');
+        sessionStorage.setItem('integral','1');
         url = '../view/index.html';
     }else{
-        sessionStorage.setItem('integral','1');
+        sessionStorage.setItem('integral','0');
         url = '../view/integralSystem.html';
     }
     window.location.href = url;

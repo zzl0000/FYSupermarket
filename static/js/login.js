@@ -1,6 +1,6 @@
 $(document).keyup(function (e) {
     if (e.keyCode == 13) {
-        signlog();
+	    signlogStore();
     }
 });
 
@@ -155,7 +155,7 @@ function signlog() {
             } else if(rs.status == 302){
                 layer.msg(rs.message, {time: 1000});
             }else {
-                layer.msg(rs.data, {time: 1000});
+                layer.msg(rs.message, {time: 1000});
             }
             //console.log(rs.message);
             //layer.msg(rs.msg);
