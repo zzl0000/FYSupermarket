@@ -34,7 +34,7 @@ $('.back_btn').on('click', function (e) {
         success: function (rs) {
             if (rs.status == 200) {
                 layer.msg('注销成功', {time: 1000})
-	            $('#signlogStore').removeAttribute('disabled');
+	            $('#signlogStore').removeAttr('disabled');
                 $("#phone").val('')
                 $("#storePwd").val('')
                 $('.lo_store').show();

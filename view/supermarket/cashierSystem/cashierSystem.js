@@ -241,7 +241,7 @@ function minusCount(el, _num) {
 	if (_curnum <= 0) {
 		// console.log(el);
 		el.addClass('disabled');
-		el.parent().parent().parent().hide();
+		el.parent().parent().parent().remove();
 		$('#realPrice').text('0.00');
 		$('.payPrice').text('0.00');
 		ListData.goodsListData[index].num = 0;
