@@ -9,8 +9,7 @@ var curk = 0;
 var price, unitPrice, _unitPrice, realPrice, couponPrice = $('#couponPrice').text(),
 	integralPrice = $('#integralPrice').text();
 var _realPrice, _payPrice, money;
-var _allotOnePrice = [];
-var _allotTowPrice = [];
+
 // 档区价格
 
 
@@ -40,7 +39,7 @@ function init() {
 		keyId = sessionStorage.getItem("clearingId");
 	}
 	;
-	//console.log(hangOrderDtata)
+	
 	
 	//console.log(hangOrderDtata)
 	if (hangOrderDtata != null) {
@@ -124,57 +123,58 @@ function renderMenberInfo(rs) {
 
 
 function getGoodsList(key, status) {
-	
-	if (status <= 0) {
-		gNo.push(key);
-	} else {
-		if (gNo[returnSAIndexof(gNo, key)] == key) {
-			//num++;
-			isgNo = true;
-		} else {
+	if (key != '') {
+		if (status <= 0) {
 			gNo.push(key);
-			isgNo = false;
-			num = 0;
-		}
-	}
-	
-	//console.log(gNo,isgNo,status)
-	//return;
-	$.ajax({
-		type: "get",
-		url: getGoods,
-		data: {
-			gno: key
-		},
-		xhrFields: {
-			withCredentials: true
-		},
-		crossDomain: true,
-		success: function (rs) {
-			if (rs.status == 200) {
-				console.log(rs.data);
-				$('#ScanCodeinput').val('');
-				if (isgNo) {
-					var index = returnIndexof(ListData.goodsListData, rs.data.goodsId);
-					//console.log(index)
-					//console.log(ListData.goodsListData[0].specValue)
-					rs.data.num = ListData.goodsListData[index].num + 1
-					ListData.goodsListData[index] = rs.data;
-				} else {
-					if (hangOrderNum.length > 0) {
-						rs.data.num = hangOrderNum[returnSAIndexof(gNo, key)];
-					} else {
-						rs.data.num = 1;
-					}
-					ListData.goodsListData.push(rs.data);
-				}
-				rs.data.price = priceCount(rs.data.price, rs.data.num);
-				renderGoodsList(ListData);
+		} else {
+			if (gNo[returnSAIndexof(gNo, key)] == key) {
+				//num++;
+				isgNo = true;
 			} else {
-				layer.msg(rs.message)
+				gNo.push(key);
+				isgNo = false;
+				num = 0;
 			}
 		}
-	})
+		
+		//console.log(gNo,isgNo,status)
+		//return;
+		$.ajax({
+			type: "get",
+			url: getGoods,
+			data: {
+				gno: key
+			},
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			success: function (rs) {
+				if (rs.status == 200) {
+					//console.log(rs.data);
+					$('#ScanCodeinput').val('');
+					if (isgNo) {
+						var index = returnIndexof(ListData.goodsListData, rs.data.goodsId);
+						//console.log(index)
+						//console.log(ListData.goodsListData[0].specValue)
+						rs.data.num = ListData.goodsListData[index].num + 1
+						ListData.goodsListData[index] = rs.data;
+					} else {
+						if (hangOrderNum.length > 0) {
+							rs.data.num = hangOrderNum[returnSAIndexof(gNo, key)];
+						} else {
+							rs.data.num = 1;
+						}
+						ListData.goodsListData.push(rs.data);
+					}
+					rs.data.price = priceCount(rs.data.price, rs.data.num);
+					renderGoodsList(ListData);
+				} else {
+					layer.msg(rs.message)
+				}
+			}
+		})
+	}
 	
 	
 }
@@ -186,49 +186,40 @@ function renderGoodsList(data) {
 		list: data
 	});
 	$("#Goods").html(html);
-	
+	getAllotPrice(data.goodsListData);
 	getPrice(data.goodsListData);
 	
 	
 }
 
-function getAllotPrice() {
-	setTimeout(function () {
-		$('#Goods li').each(function (index, el) {
-			//console.log(index);
-			var type = $(el).attr('data-allotType');
-			if (type == '一档区') {
-				// console.log($(el).find('.price').text());
-				_allotOnePrice.push($(el).find('.price').text().substring(1));
-			} else {
-				//console.log($(el).find('.price').text());
-				_allotTowPrice.push($(el).find('.price').text().substring(1));
-			}
-		})
-		//console.log(_allotTowPrice)
-		
-		$('#allotOnePrice').text(priceAcount(_allotOnePrice));
-		$('#allotTowPrice').text(priceAcount(_allotTowPrice));
-		
-		
-	}, 1000);
+function getAllotPrice(rs) {
+	//console.log(rs)
+	var _allotOnePrice = '', _allotTowPrice = '';
+	
+	for (i in rs) {
+		if (rs[i].allotTitle == '一档区') {
+			_allotOnePrice += rs[i].price;
+			_allotOnePrice += '+';
+		} else {
+			_allotTowPrice += rs[i].price;
+			_allotTowPrice += '+';
+		}
+	}
+	// var _allotOnePrice,_allotTowPrice;
+	$('#allotOnePrice').text(priceAcount(_allotOnePrice));
+	$('#allotTowPrice').text(priceAcount(_allotTowPrice));
+	
 }
-
 
 function priceAcount(rs) {
 	//console.log(rs)
-	var str = '';
-	if (rs.length > 0) {
-		
-		for (i in rs) {
-			str += rs[i];
-			str += '+';
-		}
-		str = str.substring(0, str.length - 1);
-		
-		var Price = eval(str).toFixed(2);
-		return Price;
+	var Price;
+	if (rs != '') {
+		var str = '';
+		str = rs.substring(0, rs.length - 1);
+		Price = eval(str).toFixed(2);
 	}
+	return Price;
 }
 
 // 数量计算
@@ -254,6 +245,8 @@ function minusCount(el, _num) {
 		$('#realPrice').text('0.00');
 		$('.payPrice').text('0.00');
 		ListData.goodsListData[index].num = 0;
+		//gNo[index] = '';
+		//hangOrderDtata[keyId].goodsList[index].gno = '';
 	} else {
 		ListData.goodsListData[index].num = _curnum;
 	}
@@ -376,7 +369,6 @@ $('body').keyup(function () {
 		}
 	}
 });
-
 
 
 // 挂账
