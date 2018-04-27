@@ -46,6 +46,12 @@ function getOrderList() {
 					hangOrderData = rs.data;
 
 				}, 500)
+			}else {
+				setTimeout(function(){
+					layer.msg(rs.message);
+					$("#noeList").show();
+				},2000)
+				
 			}
 
 		}
