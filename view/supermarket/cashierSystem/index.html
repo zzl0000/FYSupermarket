@@ -25,17 +25,17 @@
             <ul id="Goods">
                 <script type="text/template" id="GoodsList">
                     {{each list.goodsListData as value i}}
-                    <li class="border-gray border-bottom padding-big-bottom padding-big-top" data-allotType="{{value.goods.allotTitle}}" data-gNo="{{value.specValue.gNo}}"  data-goodsId="{{value.specValue.goodsId}}" data-specValueId="{{value.specValue.specValueId}}"  >
+                    <li class="border-gray border-bottom padding-big-bottom padding-big-top" data-allotType="{{value.allotTitle}}" data-gNo="{{value.gno}}"  data-goodsId="{{value.goodsId}}" data-specValueId="{{value.specValueId}}"  >
                         <div class="shopGoodsTop">
-                            <h5 title="{{value.goods.gname}}">{{value.goods.gname}}</h5>
-                            <span>{{value.goods.unit}}</span>
+                            <h5 title="{{value.gname}}">{{value.gname}}</h5>
+                            <span>{{value.unit}}</span>
                         </div>
                         <div class="shopGoodsCT margin-big-top">
-                            <span class="price">¥ {{value.specValue.price}}</span>
+                            <span class="price">¥ {{value.price}}</span>
                             <div>
-                                <span class="minus" data-goodsId="{{value.specValue.goodsId}}" data-allotType="{{value.goods.allotTitle}}"> - </span>
-                                <span class="number">{{value.specValue.num}}</span>
-                                <span class="add" data-goodsId="{{value.specValue.goodsId}}" data-allotType="{{value.goods.allotTitle}}"> + </span>
+                                <span class="minus" data-goodsId="{{value.goodsId}}" data-allotType="{{value.allotTitle}}"> - </span>
+                                <span class="number">{{value.num}}</span>
+                                <span class="add" data-goodsId="{{value.goodsId}}" data-allotType="{{value.allotTitle}}"> + </span>
                             </div>
                         </div>
                     </li>
@@ -112,9 +112,12 @@
             <br clear="all" />
             <div class="clearing_btn ">
                 <button class="button" onclick="checkOut()" >结账</button>
+                <!--<button class="button" onclick="viewToWord()">打印小票</button>-->
             </div>
         </div>
     </div>
 </div>
+
 <script type="text/javascript" src="../view/supermarket/cashierSystem/cashierSystem.js"></script>
 <script type="text/javascript" src="../static/js/KeyboardVal.js"></script>
+<script type="text/javascript" src="../static/js/printer.js"></script>

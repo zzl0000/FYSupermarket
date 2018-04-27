@@ -1,12 +1,7 @@
-$(document).keyup(function (e) {
-    if (e.keyCode == 13) {
-	    signlogStore();
-    }
-});
 
-layer.config({
-    offset: ['50%', '70%']
-})
+
+
+
 
 console.log(sessionStorage.getItem("storeId"))
 if (sessionStorage.getItem("storeId") != null) {
@@ -16,10 +11,17 @@ if (sessionStorage.getItem("storeId") != null) {
     $('.lo_title').find('span').show();
 }
 
+// $(document).keyup(function (e) {
+//
+// 	if (e.keyCode == 13) {
+// 		signlogStore();
+// 	}
+// });
 
 //门店注销 
 
 $('.back_btn').on('click', function (e) {
+	
     e.preventDefault()
 
     $.ajax({
@@ -32,6 +34,7 @@ $('.back_btn').on('click', function (e) {
         success: function (rs) {
             if (rs.status == 200) {
                 layer.msg('注销成功', {time: 1000})
+	            $('#signlogStore').removeAttribute('disabled');
                 $("#phone").val('')
                 $("#storePwd").val('')
                 $('.lo_store').show();
@@ -64,46 +67,81 @@ function signlogStore() {
         data: {
             "phone": phone,
             "code": storePwd,
-            "loginType": 2,
+            "loginType": 1,
         },
         xhrFields: {
             withCredentials: true
         },
         crossDomain: false,
         success: function (rs) {
-            if (rs.status == 200 || rs.status == 300) {
-                layer.msg('门店登录成功', {time: 1000})
-                sessionStorage.setItem("storeId", rs.data.id);
-                $('.lo_title').find('font').text('员工登录')
-                $('.lo_store').hide();
-                $('.lo_employee').show();
-                $('.lo_title').find('span').show();
-            }else if(rs.status == 302){
+            if (rs.status == 200) {
+	            sessionStorage.setItem("storeId", rs.data.id);
+	            $('#signlogStore').attr({'disabled':"disabled"});
+	            layer.confirm('门店登录成功，是否同步数据',
+		            {
+			            btn: ['同步', '否']
+		            }, function () {
+			            inStepData();
+		            },function () {
+			            layer.closeAll();
+			            $('.lo_title').find('font').text('员工登录')
+			            $('.lo_store').hide();
+			            $('.lo_employee').show();
+			            $('.lo_title').find('span').show();
+		            })
+	
+            }
+            else{
                 layer.msg(rs.message, {time: 1000});
-            }else {
-                layer.msg(rs.data, {time: 1000});
             }
 
         }
     });
 }
 
+function inStepData(){
+	layer.config({
+		offset: ['50%', '50%']
+	})
+	var index = layer.load(2)
+	$.ajax({
+		type: "get",
+		url: turl + "/cashier/goods/batchImport",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function (rs) {
+			if (rs.status == "200") {
+				layer.close(index);
+				layer.msg(rs.message, {time: 1000},function(){
+					$('.lo_title').find('font').text('员工登录')
+					$('.lo_store').hide();
+					$('.lo_employee').show();
+					$('.lo_title').find('span').show();
+				});
+				
+			} else {
+				layer.msg(rs.message, {time: 1000});
+			}
+		}
+	})
+}
+
 // 修复员工 
 $('.repair_btn').on('click', function (e) {
     e.preventDefault()
     var username = $("#names").val();
-    var pwd = $("#pwds").val();
-    if (username == "" || pwd == "") {
+    if (username == "" ){
         layer.msg("请填写信息");
         return;
     }
 
     $.ajax({
         type: "get",
-        url: turl + "/cashier/login/repair",
+        url: turl + "/cashier/login/logout",
         data: {
-            "username": username,
-            "password": pwd
+            "username": username
         },
         xhrFields: {
             withCredentials: true
@@ -124,14 +162,16 @@ $('.repair_btn').on('click', function (e) {
 //员工登录
 
 function signlog() {
-
+	
     var username = $("#names").val();
     var pwd = $("#pwds").val();
     if (username == "" || pwd == "") {
         layer.msg("请填写信息");
         return;
     }
-
+	layer.config({
+		offset: ['50%', '60%']
+	})
     $.ajax({
         type: "get",
         url: turl + "/cashier/login/login",

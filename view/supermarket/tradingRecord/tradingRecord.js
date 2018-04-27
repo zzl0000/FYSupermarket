@@ -82,17 +82,19 @@ function getOrderDetail(orderId) {
                 var html = template('orderDetailList', {
                     list: rs.data.orderOptionList
                 });
+	           
                 $("#orderDetailListDemo").html(html);
-                $('#realPrice').text(rs.data.order.receipt);
-                $('#payPrice').text(rs.data.order.totalMoney);
-                queryMenberIFFnfo(rs.data.order.token,function(val){
+	            $('.nick').text(rs.data.nick)
+                $('#realPrice').text(rs.data.receipt);
+                $('#payPrice').text(rs.data.totalMoney);
+                queryMenberIFFnfo(rs.data.token,function(val){
                     console.log(val);
                     $('#nick').text(val.nick)
                     $('#phone').text(val.phone)
-                    $('#orderCode').text(data.order.orderNo)
-                    $('#payWay').text(payWayText[data.order.payWay])
-                    $('#payTime').text(data.order.payTime)
-                    $('#employeeName').text(data.order.employeeName);
+                    $('#orderCode').text(data.orderId)
+                    $('#payWay').text(payWayText[data.payWay])
+                    $('#payTime').text(data.payTime)
+                    $('#employeeName').text(data.employeeName);
 
                 })
             }

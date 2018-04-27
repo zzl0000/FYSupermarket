@@ -39,7 +39,7 @@
 						{{each list as value i}}
 							<tr>
 								<td>{{i +1 }}</td>
-								<td>{{value.orderNo}}</td>
+								<td>{{value.orderId}}</td>
 								<td>{{value.nick}}</td>
 								<td>{{value.payWay | getPayWay}}</td>
 								<td>{{value.payTime}}</td>
@@ -121,8 +121,8 @@
 							{{each list as value i}}
 								<tr>
 									<td>{{i + 1}}</td>								
-									<td>{{value.integer}}</td>
-									<td>200</td>
+									<td>{{value.goodsId}}</td>
+									<td class="nick"></td>
 									<td>{{value.goodsName}}</td>
 									<td>{{value.num}}</td>							
 									<td>{{value.money}}</td>

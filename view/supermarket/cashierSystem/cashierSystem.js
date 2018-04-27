@@ -9,7 +9,8 @@ var curk = 0;
 var price, unitPrice, _unitPrice, realPrice, couponPrice = $('#couponPrice').text(),
 	integralPrice = $('#integralPrice').text();
 var _realPrice, _payPrice, money;
-
+var _allotOnePrice = [];
+var _allotTowPrice = [];
 // 档区价格
 
 
@@ -49,7 +50,7 @@ function init() {
 		
 		//console.log(hangOrderDtata[0].goodsList);
 		$.each(hangOrderDtata[keyId].goodsList, function (index, val) {
-			getGoodsList(val.gNo, curk);
+			getGoodsList(val.gno, curk);
 			hangOrderNum.push(val.num);
 			curk++;
 			
@@ -143,7 +144,7 @@ function getGoodsList(key, status) {
 		type: "get",
 		url: getGoods,
 		data: {
-			gNo: key
+			gno: key
 		},
 		xhrFields: {
 			withCredentials: true
@@ -151,22 +152,23 @@ function getGoodsList(key, status) {
 		crossDomain: true,
 		success: function (rs) {
 			if (rs.status == 200) {
+				console.log(rs.data);
 				$('#ScanCodeinput').val('');
 				if (isgNo) {
-					var index = returnIndexof(ListData.goodsListData, rs.data.goods.id);
+					var index = returnIndexof(ListData.goodsListData, rs.data.goodsId);
 					//console.log(index)
 					//console.log(ListData.goodsListData[0].specValue)
-					rs.data.specValue.num = ListData.goodsListData[index].specValue.num + 1
+					rs.data.num = ListData.goodsListData[index].num + 1
 					ListData.goodsListData[index] = rs.data;
 				} else {
 					if (hangOrderNum.length > 0) {
-						rs.data.specValue.num = hangOrderNum[returnSAIndexof(gNo, key)];
+						rs.data.num = hangOrderNum[returnSAIndexof(gNo, key)];
 					} else {
-						rs.data.specValue.num = 1;
+						rs.data.num = 1;
 					}
 					ListData.goodsListData.push(rs.data);
 				}
-				rs.data.specValue.price = priceCount(rs.data.specValue.price, rs.data.specValue.num);
+				rs.data.price = priceCount(rs.data.price, rs.data.num);
 				renderGoodsList(ListData);
 			} else {
 				layer.msg(rs.message)
@@ -187,30 +189,31 @@ function renderGoodsList(data) {
 	
 	getPrice(data.goodsListData);
 	
+	
 }
 
-var _allotOnePrice = [];
-var _allotTowPrice = [];
+function getAllotPrice() {
+	setTimeout(function () {
+		$('#Goods li').each(function (index, el) {
+			//console.log(index);
+			var type = $(el).attr('data-allotType');
+			if (type == '一档区') {
+				// console.log($(el).find('.price').text());
+				_allotOnePrice.push($(el).find('.price').text().substring(1));
+			} else {
+				//console.log($(el).find('.price').text());
+				_allotTowPrice.push($(el).find('.price').text().substring(1));
+			}
+		})
+		//console.log(_allotTowPrice)
+		
+		$('#allotOnePrice').text(priceAcount(_allotOnePrice));
+		$('#allotTowPrice').text(priceAcount(_allotTowPrice));
+		
+		
+	}, 1000);
+}
 
-setTimeout(function () {
-	$('#Goods li').each(function (index, el) {
-		//console.log(index);
-		var type = $(el).attr('data-allotType');
-		if (type == '一档区') {
-			// console.log($(el).find('.price').text());
-			_allotOnePrice.push($(el).find('.price').text().substring(1));
-		} else {
-			//console.log($(el).find('.price').text());
-			_allotTowPrice.push($(el).find('.price').text().substring(1));
-		}
-	})
-	//console.log(_allotTowPrice)
-	
-	$('#allotOnePrice').text(priceAcount(_allotOnePrice));
-	$('#allotTowPrice').text(priceAcount(_allotTowPrice));
-	
-	
-}, 1000);
 
 function priceAcount(rs) {
 	//console.log(rs)
@@ -233,7 +236,8 @@ function addCount(el, num) {
 	_curnum = parseInt(num) + 1;
 	var id = el.attr('data-goodsId');
 	var index = returnIndexof(ListData.goodsListData, id);
-	ListData.goodsListData[index].specValue.num = _curnum;
+	console.log(index);
+	ListData.goodsListData[index].num = _curnum;
 	//console.log(_curnum,num);
 	return _curnum;
 }
@@ -249,9 +253,9 @@ function minusCount(el, _num) {
 		el.parent().parent().parent().hide();
 		$('#realPrice').text('0.00');
 		$('.payPrice').text('0.00');
-		ListData.goodsListData[index].specValue.num = 0;
+		ListData.goodsListData[index].num = 0;
 	} else {
-		ListData.goodsListData[index].specValue.num = _curnum;
+		ListData.goodsListData[index].num = _curnum;
 	}
 	//console.log(num);
 	return _curnum;
@@ -308,11 +312,12 @@ function returnSAIndexof(arr, value) {
 
 // 返回数组下标
 function returnIndexof(arr, value) {
+	//console.log(arr,value)
 	var _curIndex;
 	
 	var a = arr; //为了增加方法扩展适应性。我这稍微修改了下
 	for (var i = 0; i < a.length; i++) {
-		if (a[i].goods.id == value) {
+		if (a[i].goodsId == value) {
 			_curIndex = i;
 			isgNo = true;
 		}
@@ -327,7 +332,7 @@ function getPrice(realPrice) {
 	var _realPrice, _payPrice;
 	var str = '';
 	for (i in realPrice) {
-		str += realPrice[i].specValue.price;
+		str += realPrice[i].price;
 		str += '+';
 	}
 	str = str.substring(0, str.length - 1);
@@ -357,6 +362,23 @@ function reset() {
 	$('#allotTowPrice').text('0.00');
 }
 
+
+$('body').keyup(function () {
+	// 先判断焦点是不是在文本框中或者下拉框
+	if (document.activeElement.localName != "input" && document.activeElement.localName != "select") {
+		//判断按键是不是R
+		if (event.ctrlKey && event.keyCode == 112) {
+			uplodOrder();
+		}
+		
+		if (event.ctrlKey && event.keyCode == 113) {
+			uplodOrder();
+		}
+	}
+});
+
+
+
 // 挂账
 
 function uplodOrder() {
@@ -369,13 +391,13 @@ function uplodOrder() {
 	
 	$('#Goods li').each(function (index, el) {
 		var goodsInfo = {
-			"gNo": '0',
+			"gno": '0',
 			"goodsId": 0,
 			"money": 0,
 			"num": 0,
 			"specValueId": 0
 		};
-		goodsInfo.gNo = $(el).attr('data-gNo');
+		goodsInfo.gno = $(el).attr('data-gNo');
 		goodsInfo.goodsId = $(el).attr('data-goodsId');
 		goodsInfo.specValueId = $(el).attr('data-specValueId');
 		goodsInfo.num = $(el).find('.number').text();
@@ -388,7 +410,7 @@ function uplodOrder() {
 		"goodsList": goodsList,
 		"sumMoney": _payPrice,
 		"token": token,
-		
+		"nick": nick
 	}
 	//console.log(data)
 	$.ajax({
@@ -425,12 +447,14 @@ function checkOut() {
 	
 	$('#Goods li').each(function (index, el) {
 		var goodsInfo = {
+			"gno": '0',
 			"goodsId": 0,
 			"money": 0,
 			"num": 0,
 			"specValueId": 0,
 			"allotTitle": 0
 		};
+		goodsInfo.gno = $(el).attr('data-gNo');
 		goodsInfo.goodsId = $(el).attr('data-goodsId');
 		goodsInfo.specValueId = $(el).attr('data-specValueId');
 		goodsInfo.allotTitle = $(el).attr('data-allotType');

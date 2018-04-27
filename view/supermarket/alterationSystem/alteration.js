@@ -136,16 +136,17 @@ function getOrderDetail(orderId) {
                     list: rs.data.orderOptionList
                 });
                 $("#orderDetailListDemo").html(html);
-                $('#realPrice').text(rs.data.order.receipt);
-                $('#payPrice').text(rs.data.order.totalMoney);
-                queryMenberIFFnfo(rs.data.order.token,function(val){
+	            $('.nick').text(rs.data.nick);
+                $('#realPrice').text(rs.data.receipt);
+                $('#payPrice').text(rs.data.totalMoney);
+                queryMenberIFFnfo(rs.data.token,function(val){
                     console.log(val);
                     $('#nick').text(val.nick)
                     $('#phone').text(val.phone)
-                    $('#orderCode').text(data.order.orderNo)
-                    $('#payWay').text(payWayText[data.order.payWay])
-                    $('#payTime').text(data.order.payTime)
-                    $('#payTime').text(data.order.employeeName)
+                    $('#orderCode').text(data.orderId)
+                    $('#payWay').text(payWayText[data.payWay])
+                    $('#payTime').text(data.payTime)
+                    $('#employeeName').text(data.employeeName)
 
                 })
             }
@@ -160,7 +161,7 @@ function openPanel() {
 	layer.open({
 		title: '今日统计',
 		type: 1,
-		closeBtn: 1,
+		closeBtn: 2,
 		shadeClose: true, //开启遮罩关闭
 		area: ['1054px', '650px'], //宽高
 		content: html,
@@ -185,7 +186,7 @@ function openPanel() {
                             $("#gatheringList").html(html1);
                             $("#memberlinfoList").html(html2);
                             $('#imprestCashLogout').text(rs.data.imprestCashLogout);
-
+                            $('#LogoutTime').text(rs.data.logoutTime.slice(10,rs.data.logoutTime.length));
 						}
 
 					}

@@ -5,36 +5,16 @@ function back() {
 // 上班 状态
 
 function getUpdateStatus(stat) {
-
-	$.ajax({
-		type: "get",
-		url: updateStatus,
-		data: {
-			status: stat
-		},
-		xhrFields: {
-			withCredentials: true
-		},
-		crossDomain: true,
-		success: function(rs) {
-			if (rs.status == 200) {
-				layer.msg(rs.message, {
-					time: 1000
-				});
-                sessionStorage.setItem('dutyType',stat);
-				if (stat == "1") {
-					getUpdateImprestCash();
-				} else {
-					setTimeout(function() {
-						window.location.href = "index.html";
-					}, 2000)
-				}
-
-			}
-
-		}
-	})
-
+	sessionStorage.setItem('dutyType',stat);
+	if(stat == 0){
+		setTimeout(function() {
+			window.location.href = "index.html";
+		}, 100)
+		
+	}else{
+		getUpdateImprestCash()
+	}
+	
 }
 
 function getUpdateImprestCash() {
@@ -46,7 +26,7 @@ function getUpdateImprestCash() {
 	}, function(pass, index) {
 		$.ajax({
 				type: "get",
-				url: updateImprestCash,
+				url: updateStatus,
 				data: {
 					imprestCash: pass
 				},
@@ -59,7 +39,7 @@ function getUpdateImprestCash() {
 						layer.msg(rs.message);
 						setTimeout(function() {
 							window.location.href = "index.html";
-						}, 2000)
+						}, 1000)
 
 					} else {
 						layer.msg(rs.message);

@@ -24,7 +24,7 @@
 						{{each list as value i}}
 							<tr>
 								<td>{{i +1 }}</td>
-								<td>{{value.orderNo}}</td>
+								<td>{{value.orderId}}</td>
 								<td>{{value.nick}}</td>
 								<td>{{value.payWay}}</td>
 								<td>{{value.payTime}}</td>
@@ -127,7 +127,7 @@
 			<div class="getLogoutBtn padding-big ">
 				<a href="javascript:void(0)" onclick="getLogout()">
 					<span>下班</span>
-					<span>15:00:00</span>
+					<span id="LogoutTime">15:00:00</span>
 				</a>
 				<p><span>当前金额</span><span id="imprestCashLogout">0</span></p>
 			</div>
@@ -170,7 +170,7 @@
 					<li >
 						<i class="icon"><img src="../static/img/icon-06.png"></i>
 						<span>收银员:</span>
-						<span id="">李瑞</span>
+						<span id="employeeName"></span>
 					</li>
 				</ul>
 			</div>
@@ -193,8 +193,8 @@
 						{{each list as value i}}
 						<tr>
 							<td>{{i + 1}}</td>
-							<td>{{value.integer}}</td>
-							<td>200</td>
+							<td>{{value.goodsId}}</td>
+							<td class="nick"></td>
 							<td>{{value.goodsName}}</td>
 							<td>{{value.num}}</td>
 							<td>{{value.money}}</td>
