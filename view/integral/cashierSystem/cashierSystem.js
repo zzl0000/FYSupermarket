@@ -64,6 +64,9 @@ function init() {
 				return false;
 			}
 			//console.log(curk)
+			$.each($("input[type=radio]"), function () {
+				$(this).attr({"disabled":"disabled"});
+			})
 			getGoodsList(inputkey, curk, PaymentKey);
 			curk++;
 			//alert('你输入的内容为：' + $('#ScanCodeinput').val());
@@ -420,6 +423,10 @@ function reset() {
 	isMemberVal = false;
 	num = 0;
 	ListData.goodsListData = [];
+	$.each($("input[type=radio]"), function () {
+		$(this).removeAttr("disabled");
+		$(this).removeAttr("checked");
+	})
 }
 
 
