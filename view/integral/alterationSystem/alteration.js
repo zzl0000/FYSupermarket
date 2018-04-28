@@ -131,7 +131,7 @@ function getOrderDetail(orderId) {
         success: function(rs) {
             if(rs.status == 200) {
                 var data = rs.data;
-                var payWayText =['无','现金','扫码','余额'];
+	            var payWayText =['无','积分','积分+余额'];
                 var html = template('orderDetailList', {
                     list: rs.data.integralOrderOptionList
                 });

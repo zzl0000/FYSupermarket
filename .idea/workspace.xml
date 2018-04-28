@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb063a20-08e2-465d-8db4-de4f023d7c7e" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" afterPath="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" />
-      <change beforePath="$PROJECT_DIR$/view/integral/cashierSystem/index.html" afterPath="$PROJECT_DIR$/view/integral/cashierSystem/index.html" />
+      <change beforePath="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" afterPath="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="544">
@@ -26,6 +25,26 @@
                 <element signature="n#!!block;n#getGoodsList#0" expanded="false" />
                 <element signature="e#4116#5299#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="alteration.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="139" column="52" lean-forward="true" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tradingRecord.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/integral/tradingRecord/tradingRecord.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="80" column="51" lean-forward="true" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="51" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,13 +162,13 @@
         <option value="$PROJECT_DIR$/static/css/index.css" />
         <option value="$PROJECT_DIR$/static/js/center.js" />
         <option value="$PROJECT_DIR$/view/integral/tradingRecord/tradingRecord.js" />
-        <option value="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
         <option value="$PROJECT_DIR$/view/integral/tradingRecord/index.html" />
         <option value="$PROJECT_DIR$/view/integral/alterationSystem/index.html" />
         <option value="$PROJECT_DIR$/view/integral/swopSystem/index.html" />
         <option value="$PROJECT_DIR$/static/css/module.css" />
         <option value="$PROJECT_DIR$/view/integral/cashierSystem/index.html" />
         <option value="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" />
+        <option value="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
       </list>
     </option>
   </component>
@@ -248,13 +267,6 @@
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="integral" type="462c0819:PsiDirectoryNode" />
               <item name="alterationSystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="integral" type="462c0819:PsiDirectoryNode" />
-              <item name="cashierSystem" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
@@ -378,12 +390,12 @@
       <workItem from="1524533041995" duration="22728000" />
       <workItem from="1524618431899" duration="12717000" />
       <workItem from="1524796465407" duration="16882000" />
-      <workItem from="1524878241444" duration="22871000" />
+      <workItem from="1524878241444" duration="23606000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142284000" />
+    <option name="totallyTimeSpent" value="143019000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
@@ -755,22 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="139" column="52" lean-forward="true" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/tradingRecord/tradingRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1376">
-          <caret line="86" column="16" lean-forward="false" selection-start-line="86" selection-start-column="16" selection-end-line="89" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/integral/swopSystem/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
@@ -813,6 +809,22 @@
             <element signature="n#!!block;n#getGoodsList#0" expanded="false" />
             <element signature="e#4116#5299#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/integral/tradingRecord/tradingRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="548">
+          <caret line="80" column="51" lean-forward="true" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="139" column="52" lean-forward="true" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
