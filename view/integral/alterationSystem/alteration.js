@@ -16,7 +16,7 @@ function getOrderList(_curr) {
 	}
 	$.ajax({
 		type: "get",
-		url: findPage,
+		url: findIntegralOrderPage,
 		xhrFields: {
 			withCredentials: true
 		},
@@ -120,9 +120,9 @@ function getOrderDetail(orderId) {
 
     $.ajax({
         type: "get",
-        url: findOrderDetail,
+        url: findIntegralOrderDetail,
         data: {
-            orderId: orderId
+	        integralOrderId: orderId
         },
         xhrFields: {
             withCredentials: true
@@ -133,19 +133,22 @@ function getOrderDetail(orderId) {
                 var data = rs.data;
                 var payWayText =['无','现金','扫码','余额'];
                 var html = template('orderDetailList', {
-                    list: rs.data.orderOptionList
+                    list: rs.data.integralOrderOptionList
                 });
                 $("#orderDetailListDemo").html(html);
-                $('#realPrice').text(rs.data.order.receipt);
-                $('#payPrice').text(rs.data.order.totalMoney);
-                queryMenberIFFnfo(rs.data.order.token,function(val){
+	            $('.nick').text(rs.data.nick)
+	            $('#balance').text(rs.data.balance);
+	            $('#integralPrice').text(rs.data.integral);
+	            //$('#couponPrice').text(rs.data.balance);
+	            $('#payPrice').text(rs.data.cash);
+                queryMenberIFFnfo(rs.data.token,function(val){
                     console.log(val);
-                    $('#nick').text(val.nick)
+	                $('#nick').text(val.nick)
                     $('#phone').text(val.phone)
-                    $('#orderCode').text(data.order.orderNo)
-                    $('#payWay').text(payWayText[data.order.payWay])
-                    $('#payTime').text(data.order.payTime)
-                    $('#payTime').text(data.order.employeeName)
+                    $('#orderCode').text(data.integralOrderId)
+                    $('#payWay').text(payWayText[data.payWay])
+                    $('#payTime').text(data.payTime)
+                    $('#payTime').text(data.employeeName)
 
                 })
             }
@@ -160,7 +163,7 @@ function openPanel() {
 	layer.open({
 		title: '今日统计',
 		type: 1,
-		closeBtn: 1,
+		closeBtn: 2,
 		shadeClose: true, //开启遮罩关闭
 		area: ['1054px', '650px'], //宽高
 		content: html,

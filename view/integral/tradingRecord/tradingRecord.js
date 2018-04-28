@@ -67,9 +67,9 @@ function getOrderDetail(orderId) {
 
     $.ajax({
         type: "get",
-        url: findOrderDetail,
+        url: findIntegralOrderDetail,
         data: {
-            orderId: orderId
+	        integralOrderId: orderId
         },
         xhrFields: {
             withCredentials: true
@@ -78,21 +78,24 @@ function getOrderDetail(orderId) {
         success: function(rs) {
             if(rs.status == 200) {
                 var data = rs.data;
-                var payWayText =['无','现金','扫码','余额'];
+                var payWayText =['无','积分','积分+余额'];
                 var html = template('orderDetailList', {
-                    list: rs.data.orderOptionList
+                    list: rs.data.integralOrderOptionList
                 });
                 $("#orderDetailListDemo").html(html);
-                $('#realPrice').text(rs.data.order.receipt);
-                $('#payPrice').text(rs.data.order.totalMoney);
-                queryMenberIFFnfo(rs.data.order.token,function(val){
+	            $('.nick').text(rs.data.nick)
+                $('#balance').text(rs.data.balance);
+	            $('#integralPrice').text(rs.data.integral);
+	            //$('#couponPrice').text(rs.data.balance);
+	            $('#payPrice').text(rs.data.cash);
+                queryMenberIFFnfo(rs.data.token,function(val){
                     console.log(val);
-                    $('#nick').text(val.nick)
+	                $('#nick').text(val.nick)
                     $('#phone').text(val.phone)
-                    $('#orderCode').text(data.order.orderNo)
-                    $('#payWay').text(payWayText[data.order.payWay])
-                    $('#payTime').text(data.order.payTime)
-                    $('#employeeName').text(data.order.employeeName);
+                    $('#orderCode').text(data.integralOrderId)
+                    $('#payWay').text(payWayText[data.payWay])
+                    $('#payTime').text(data.payTime)
+                    $('#employeeName').text(data.employeeName);
 
                 })
             }
@@ -117,7 +120,7 @@ function getOrderList(_curr,payWay,beginTime,endTime) {
     }
     $.ajax({
         type: "get",
-        url: findPage,
+        url: findIntegralOrderPage,
         xhrFields: {
             withCredentials: true
         },
@@ -137,7 +140,7 @@ function getOrderList(_curr,payWay,beginTime,endTime) {
                     $('#page').show();
                     $("#noeList").hide();
                     template.defaults.imports.getPayWay = function(key){
-                        var payWayText =['无','现金','扫码','余额'];
+	                    var payWayText =['无','积分','积分+余额'];
                         return payWayText[key]
                     };
                     html = template('orderList', {

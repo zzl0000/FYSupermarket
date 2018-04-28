@@ -238,3 +238,12 @@
 	text-align: center;
 	padding: 20px 0;
 }
+
+
+.integral-warp .layui-btn-normal {
+	background-color: #643cbc;
+}
+
+.integral-warp .layui-layer-title{
+	background-color: #643cbc !important;
+}

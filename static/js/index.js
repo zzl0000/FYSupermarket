@@ -65,10 +65,6 @@ function setInit() {
         letNavhtml += '<span class="icon02"></span>';
         letNavhtml += '<font class="title">交易记录</font>';
         letNavhtml += '</li>';
-        letNavhtml += '<li class="integral"  data-url=\'integral/orderSystem/index.html\'>';
-        letNavhtml += '<span class="icon03"></span>';
-        letNavhtml += '<font class="title">挂单</font>';
-        letNavhtml += '</li>';
         letNavhtml += '<li class="integral"  data-url=\'integral/swopSystem/index.html\'>';
         letNavhtml += '<span class="icon04"></span>';
         letNavhtml += '<font class="title">退还货</font>';

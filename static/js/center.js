@@ -9,28 +9,21 @@ var getUser = turl + "/cashier/cashier/getUser"; // 获取会员信息
 var getGoods = turl + "/cashier/cashier/getGoods"; // 获取商品信息
 var payByCash = turl + "/cashier/cashier/payByCash";  // 现金支付
 var saveHangOrder = turl + "/cashier/hangOrder/saveHangOrder"; // 保存挂单
-
-
 var getLoginEmployee = turl + "/cashier/login/getLoginEmployee";   //获取当前登录员工
-
-
 var updateStatus = turl + "/cashier/login/updateStatus";   //上传员工 当班状态
-
-
 var getCheckOut = turl + "/cashier/login/getCheckOut";//下班时获取收银详情
 var logout = turl + "/cashier/login/logout";  // 下班
-
 var findOrderDetail = turl + "/cashier/order/findOrderDetail";   // 查询订单详情
 var findPage = turl + "/cashier/order/findPage";   // 查询订单详情
-
 var deleteOrder = turl + "/cashier/order/delete"; //删除订单
-
-
 var getHangOrderList = turl + "/cashier/hangOrder/getHangOrderList";   //获取挂单数据
 var removeHangOrder = turl + "/cashier/hangOrder/removeHangOrder";   //删除挂单数据
 
 
-
+var getIntegralGoods = turl + "/cashier/integralCashier/getIntegralGoods"; // 积分获取商品信息
+var payIntegralOrder = turl + "/cashier/integralCashier/payIntegralOrder";  // 积分支付
+var findIntegralOrderPage = turl + "/cashier/integralOrder/findPage";  // 获取积分订单列表
+var findIntegralOrderDetail = turl + "/cashier/integralOrder/findOrderDetail";  // 获取积分订单详情
 
 
 function queryMenberIFFnfo(token,callback){
