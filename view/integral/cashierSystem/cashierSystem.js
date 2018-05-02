@@ -368,7 +368,7 @@ function checkOut() {
 		integralBillOptions.num = $(el).find('.number').text();
 		integralBillOptions.integral = parseFloat($(el).find('.integral').text() / integralBillOptions.num);
 		integralBillOptions.balance =  parseFloat($(el).find('.price').text() / integralBillOptions.num);
-		integralBillOptions.cash =     parseFloat($(el).find('.price').text() / integralBillOptions.num);
+		//integralBillOptions.cash =     parseFloat($(el).find('.price').text() / integralBillOptions.num);
 		integralBillOptions.sellType = PaymentKey;
 		goodsList.push(integralBillOptions);
 	})
@@ -406,7 +406,6 @@ function checkOut() {
 
 
 
-
 /**
  * 清空重置
  */
@@ -428,7 +427,6 @@ function reset() {
 		$(this).removeAttr("checked");
 	})
 }
-
 
 
 /**
