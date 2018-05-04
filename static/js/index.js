@@ -114,22 +114,6 @@ $('#changeSystem').on('click', function(e){
 $('#mali').load(homeUrl);
 
 
-var letObj = document.getElementById('left-nav');
-var startY, endY;
-letObj.addEventListener("touchstart", function(event) {
-    event.preventDefault();
-    startY = event.targetTouches[0].pageY;
-});
-letObj.addEventListener('touchmove', function (event) {
-    var _self = $(this);
-    if (event.targetTouches.length == 1) {
-        event.preventDefault(); // 阻止浏览器默认事件，重要
-        var touch = event.targetTouches[0];
-        // 把元素放在手指所在的位置
-        endY = touch.pageY;
-        getTouch(endY - startY )
-    }
-});
 
 
 function getTouch(Y) {
@@ -158,7 +142,7 @@ function router(url) {
             setTimeout(function () {
                 layer.close(index);
                 $('.loading').hide();
-            }, 1000)
+            }, 500)
             $result = $(result);
             $result.find("script").appendTo('#mali');
         });
