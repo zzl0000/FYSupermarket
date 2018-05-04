@@ -19,24 +19,13 @@
         </div>
         <div id="paymentPanel" >
                 <div class="form-group">
-                    <label>请选择支付方式：</label>
-                    <div class="form-input">
-                        <input type="radio"   name="paymentKey" value="1">
-                        <label>积分</label>
-
-                    </div>
-                    <div class="form-input">
-                        <input type="radio" name="paymentKey" value="2">
-                        <label>余额+积分</label>
-                    </div>
-                    <div class="form-input">
-                        <input type="radio" name="paymentKey" value="3">
-                        <label>余额+消费券</label>
-                    </div>
-                    <div class="form-input">
-                        <input type="radio" name="paymentKey" value="6">
-                        <label>消费券</label>
-                    </div>
+                    <label>支付方式：</label>
+                    <select name="paymentKey" class="form-control">
+                        <option value="1">积分</option>
+                        <option value="2">余额+积分</option>
+                        <option value="3">余额+消费券</option>
+                        <option value="4">消费券</option>
+                    </select>
                 </div>
         </div>
         <!-- 商品列表 -->
