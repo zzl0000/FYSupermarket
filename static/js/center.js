@@ -21,11 +21,16 @@ var getHangOrderList = turl + "/cashier/hangOrder/getHangOrderList";   //获取�
 var removeHangOrder = turl + "/cashier/hangOrder/removeHangOrder";   //删除挂单数据
 
 
+
+
 var getIntegralGoods = turl + "/cashier/integralCashier/getIntegralGoods"; // 积分获取商品信息
 var payIntegralOrder = turl + "/cashier/integralCashier/payIntegralOrder";  // 积分支付
 var findIntegralOrderPage = turl + "/cashier/integralOrder/findPage";  // 获取积分订单列表
 var findIntegralOrderDetail = turl + "/cashier/integralOrder/findOrderDetail";  // 获取积分订单详情
 
+
+var printWc = turl + "/cashier/print/wc";   //打印网超小票
+var printIntegral = turl + "/cashier/print/integral";   //打印积分小票
 
 function queryMenberIFFnfo(token,callback){
 	$.ajax({
