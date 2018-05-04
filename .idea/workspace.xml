@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cb063a20-08e2-465d-8db4-de4f023d7c7e" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/static/css/index.css" afterPath="$PROJECT_DIR$/static/css/index.css" />
-      <change beforePath="$PROJECT_DIR$/static/js/index.js" afterPath="$PROJECT_DIR$/static/js/index.js" />
-      <change beforePath="$PROJECT_DIR$/view/login.html" afterPath="$PROJECT_DIR$/view/login.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +19,8 @@
       <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="250" column="22" lean-forward="true" selection-start-line="250" selection-start-column="22" selection-end-line="250" selection-end-column="22" />
+            <state relative-caret-position="316">
+              <caret line="486" column="16" lean-forward="true" selection-start-line="486" selection-start-column="16" selection-end-line="486" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -347,12 +345,12 @@
       <workItem from="1525223593013" duration="2304000" />
       <workItem from="1525231703527" duration="615000" />
       <workItem from="1525313712076" duration="44000" />
-      <workItem from="1525396745530" duration="15039000" />
+      <workItem from="1525396745530" duration="15643000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="161416000" />
+    <option name="totallyTimeSpent" value="162020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -771,8 +769,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="250" column="22" lean-forward="true" selection-start-line="250" selection-start-column="22" selection-end-line="250" selection-end-column="22" />
+        <state relative-caret-position="316">
+          <caret line="486" column="16" lean-forward="true" selection-start-line="486" selection-start-column="16" selection-end-line="486" selection-end-column="16" />
           <folding />
         </state>
       </provider>
