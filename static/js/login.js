@@ -1,8 +1,6 @@
 
 
 
-
-
 console.log(sessionStorage.getItem("storeId"))
 if (sessionStorage.getItem("storeId") != null) {
     $('.lo_store').hide();
