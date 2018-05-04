@@ -75,7 +75,7 @@ function signlogStore() {
         crossDomain: false,
         success: function (rs) {
             if (rs.status == 200) {
-	            sessionStorage.setItem("storeId", rs.data.id);
+	            sessionStorage.setItem("storeId", phone);
 	            $('#signlogStore').attr({'disabled':"disabled"});
 	            layer.confirm('门店登录成功，是否同步数据',
 		            {
@@ -90,6 +90,12 @@ function signlogStore() {
 			            $('.lo_title').find('span').show();
 		            })
 	
+            }else if(rs.status == 201){
+	           
+	            $('.lo_title').find('font').text('员工登录')
+	            $('.lo_store').hide();
+	            $('.lo_employee').show();
+	            $('.lo_title').find('span').show();
             }
             else{
                 layer.msg(rs.message, {time: 1000});
@@ -106,7 +112,7 @@ function inStepData(){
 	var index = layer.load(2)
 	$.ajax({
 		type: "get",
-		url: turl + "/cashier/goods/batchImport",
+		url: turl + "/cashier/synchronize/data",
 		xhrFields: {
 			withCredentials: true
 		},

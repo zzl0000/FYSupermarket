@@ -36,6 +36,7 @@ function init() {
 			isMemberVal = true;
 		}
 		if (event.keyCode == "13") {
+			
 			getMemberInfo(inputkey);
 		}
 	});
@@ -150,6 +151,7 @@ function getMemberInfo(inputkey) {
 				$('#ScanCodeMemberInput').hide();
 				$('#ScanCodeMember').val('');
 				$("#memberInfo").show();
+				$("#ScanCodeinput").focus();
 				renderMenberInfo(rs);
 				token = rs.data.token;
 				nick = rs.data.nick;
