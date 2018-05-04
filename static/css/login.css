@@ -21,9 +21,9 @@ body {
 }
 
 .set_int {
+    display: flex;
     justify-content: flex-end;
     align-items: center;
-    display: -webkit-flex;
     height: 100%;
     width: 100%;
     right: 10%;

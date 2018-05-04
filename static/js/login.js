@@ -49,7 +49,7 @@ $('.back_btn').on('click', function (e) {
 
 // 门店登录 
 function signlogStore() {
-
+	
     var phone = $("#phone").val();
     var storePwd = $("#storePwd").val();
 
