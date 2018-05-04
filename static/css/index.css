@@ -503,7 +503,7 @@
 	width: 33.3%;
 	float: left;
 	padding: 10px 0;
-	font-size: 28px;
+	font-size: 20px;
 	text-align: center;
 	background: white;
 	color: #e0e0e0;
@@ -539,12 +539,12 @@
 }
 
 .scPrice div span{
-	font-size: 30px;
+	font-size: 20px;
 	color: #8f9090;
 }
 
 .scPrice div input {
-	font-size: 32px;
+	font-size: 20px;
 	margin-top: 10px;
 	background: white;
 	padding: 10px 12px;
@@ -552,11 +552,11 @@
 }
 
 .ycPrice span{
-	font-size: 30px;
+	font-size: 20px;
 	color: #8f9090;
 }
 .ycPrice .price {
-	font-size: 24px;
+	font-size: 18px;
 	color: #4786ff;
 }
 
@@ -573,7 +573,7 @@
 	text-align: center;
 	padding: 20px 0;
 	margin-top: 18px;
-	font-size: 22px;
+	font-size: 16px;
 	margin-left: 6%;
 	cursor: pointer;
 }
@@ -602,7 +602,7 @@
 }
 .clearing_btn .button{
 	width: 100%;
-	font-size: 24px;
+	font-size: 20px;
 	color: #3185ff;
 	padding: 20px 0;
 	border: 1px solid #3185ff;

@@ -157,8 +157,9 @@ function getGoodsList(key, status) {
 					if (isgNo) {
 						var index = returnIndexof(ListData.goodsListData, rs.data.goodsId);
 						//console.log(index)
-						//console.log(ListData.goodsListData[0].specValue)
-						rs.data.num = ListData.goodsListData[index].num + 1
+						console.log(ListData.goodsListData[0].num)
+						rs.data.num = ListData.goodsListData[index].num + 1;
+						rs.data.price = priceCount(rs.data.price, rs.data.num);
 						ListData.goodsListData[index] = rs.data;
 					} else {
 						if (hangOrderNum.length > 0) {
@@ -166,9 +167,10 @@ function getGoodsList(key, status) {
 						} else {
 							rs.data.num = 1;
 						}
+						rs.data.price = priceCount(rs.data.price, rs.data.num);
 						ListData.goodsListData.push(rs.data);
 					}
-					rs.data.price = priceCount(rs.data.price, rs.data.num);
+					
 					renderGoodsList(ListData);
 				} else {
 					layer.msg(rs.message)
@@ -182,7 +184,8 @@ function getGoodsList(key, status) {
 
 
 function renderGoodsList(data) {
-	//console.log(data);
+	
+	console.log(data);
 	var html = template('GoodsList', {
 		list: data
 	});
@@ -228,8 +231,9 @@ function addCount(el, num) {
 	_curnum = parseInt(num) + 1;
 	var id = el.attr('data-goodsId');
 	var index = returnIndexof(ListData.goodsListData, id);
-	console.log(index);
+	//console.log(index);
 	ListData.goodsListData[index].num = _curnum;
+	
 	//console.log(_curnum,num);
 	return _curnum;
 }
@@ -257,9 +261,15 @@ function minusCount(el, _num) {
 
 // 价格计算
 
-function priceCount(unitPrice, _curnum) {
+function priceCount(unitPrice, _curnum,el) {
 	
+	//console.log(unitPrice,_curnum)
 	_unitPrice = parseFloat(unitPrice) * _curnum;
+	if(el != undefined){
+		var id = el.attr('data-goodsId');
+		var index = returnIndexof(ListData.goodsListData, id);
+		ListData.goodsListData[index].price = _unitPrice.toFixed(2);
+	}
 	//console.log(key);
 	return _unitPrice.toFixed(2);
 }
@@ -510,7 +520,7 @@ $('body').on('click', '.add', function (e) {
 	;
 	
 	$(this).siblings(".number").text(addCount(_slef, num))
-	$(this).parent().siblings().text("¥ " + priceCount(unitPrice, _curnum));
+	$(this).parent().siblings().text("¥ " + priceCount(unitPrice, _curnum,_slef));
 	realPriceCount("add", realPrice, unitPrice);
 })
 
@@ -528,7 +538,7 @@ $('body').on('click', '.minus', function (e) {
 		unitPrice = $(this).parent().siblings().text().substring(1) / num;
 	}
 	$(this).siblings(".number").text(minusCount(_slef, num))
-	$(this).parent().siblings().text("¥ " + priceCount(unitPrice, _curnum));
+	$(this).parent().siblings().text("¥ " + priceCount(unitPrice, _curnum,_slef));
 	
 	if (allotType == '一档区') {
 		$('#allotOnePrice').text((parseFloat(allotOnePrice) - parseFloat(unitPrice)).toFixed(2));
