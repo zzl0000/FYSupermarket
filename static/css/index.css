@@ -76,6 +76,7 @@
 .tb_left ul li{
 	width: 100%;
 	height: calc(100% / 7);
+	min-height: 110px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
