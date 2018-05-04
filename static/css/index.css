@@ -390,7 +390,7 @@
 
 .shopGoodslist .shopGoodsTop h5{
 	width: 240px;
-	font-size: 24px;
+	font-size: 18px;
 	color: #000;
 	font-weight: 600;
 	white-space: nowrap;
@@ -412,7 +412,7 @@
 }
 
 .shopGoodslist .shopGoodsCT .price{
-	font-size: 24px;
+	font-size: 20px;
 	color: #4786ff;
 }
 
