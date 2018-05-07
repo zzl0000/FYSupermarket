@@ -47,7 +47,9 @@ function getReturnOrderList(orderId){
 					
 				})
 			} else {
-				layer.msg(rs.message)
+				layer.msg(rs.message,{'time':1000});
+				$('#group-select').show();
+				$('#swopPanel').hide();
 			}
 		}
 	})
