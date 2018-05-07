@@ -94,7 +94,7 @@
 	padding: 18px 0;
 	text-align: left;
 	padding-left: 20px;
-	font-size: 15px;
+	font-size: 16px;
 }
 .group-list table thead th:last-child{
 	text-align: center;
@@ -120,7 +120,7 @@
 
 .group .form-group .form-control{
 	width: 140px;
-	height: 42px;
+	height: 36px;
 	margin-left: 10px;
 	border:1px solid #d0d0d0;
 	padding-left: 12px;
@@ -132,10 +132,6 @@
 .group .form-group span{
 	font-size: 14px;
 	margin-left: 10px;
-}
-.group .form-group .form-control option{
-	font-size: 20px;
-	color: #787878;
 }
 
 

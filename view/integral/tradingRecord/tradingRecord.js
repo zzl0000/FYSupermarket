@@ -41,32 +41,6 @@ $('#cateone').change(function(){
     getOrderList(_curr,payWay,beginTime,endTime);
 })
 
-// 打印下票
-
-$('body').off('click').on('click', '#orderListDemo .print_btn', function(e) {
-	e.preventDefault();
-	var integralOrderId = $(this).attr('data-id');
-	$.ajax({
-		type: "get",
-		url: printIntegral,
-		data: {
-			integralOrderId: integralOrderId
-		},
-		xhrFields: {
-			withCredentials: true
-		},
-		crossDomain: true,
-		success: function(rs) {
-			if(rs.status == 200) {
-				layer.msg('打印成功！')
-			}else{
-				layer.msg(rs.message)
-			}
-		}
-	})
-	
-})
-
 
 
 

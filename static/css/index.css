@@ -390,7 +390,7 @@
 
 .shopGoodslist .shopGoodsTop h5{
 	width: 240px;
-	font-size: 18px;
+	font-size: 20px;
 	color: #000;
 	font-weight: 600;
 	white-space: nowrap;
@@ -404,11 +404,12 @@
 }
 .shopGoodslist .shopGoodsCT .shopGoodPrice{
 	display: table-cell;
-	width: 50%;
+	width: 70%;
 	text-align: left;
 }
 .shopGoodslist .shopGoodsCT .shopGoodPrice p{
 	display: inline-block;
+	font-size: 16px;
 }
 
 .shopGoodslist .shopGoodsCT .price{
@@ -617,16 +618,19 @@
 }
 
 .integral-warp .left{
-	width: 90%;
-	float: none;
-	margin:  0 auto;
+	width: 35%;
+	height: 100%;
+	float: left;
+	background: white;
+	margin-left: 2px;;
+	position: relative;
 }
 
 
 .integral-warp .memberLogin .ScanCodeinput{
 	display:block;
 	width: 100%;
-	padding: 40px 0px;
+	padding: 40px 20px;
 	position: relative;
 }
 
@@ -659,7 +663,47 @@
 	color: #643cbc;
 }
 .integral-warp  .shopGoodslist .shopGoodsCT .shopGoodPrice p span{
-	font-size: 24px;
+	font-size:16px;
 	color: #643cbc;
+}
+
+
+/*多选*/
+
+.infor_con_item_select {
+	height: auto;
+	overflow: hidden;
+	background: #FFFFFF;
+}
+
+
+.tb_list {
+	width: 100%;
+	border-bottom: solid 1px #ddd;
+	padding: 15px;
+	line-height: 45px;
+}
+
+.tb_list:last-child{
+	border-bottom:0;
+}
+
+.tb_list_left{
+	display: inline-block;
+	width: 50%;
+}
+.tb_list_left input {
+	display: inline-block;
+	position: relative;
+	top: 6px;
+	width: 25px;
+	height:25px;
+}
+
+.tb_list span {
+	display: inline-block;
+	font-size: 18px;
+	padding-left: 12px;
+
 }
 
