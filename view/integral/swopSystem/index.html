@@ -79,6 +79,9 @@
 						<th>商品编号</th>
 						<th>购买人</th>
 						<th width="240" >商品名称</th>
+						<th>现金</th>
+						<th>福币</th>
+						<th>积分</th>
 						<th>数量</th>
 						<th>操作</th>
 					</thead>
@@ -86,13 +89,16 @@
 						<script type="text/template" id="orderDetailList">
 							{{each list as value i}}
 							<tr>
-								<td><input type="checkbox" value="{{value.orderId}}" name="" style="width: 25px; height: 25px;"></td>
+								<td><input type="checkbox" value="{{value.integralOrderId}}" name="" style="width: 25px; height: 25px;"></td>
 								<td>{{i + 1}}</td>
 								<td>{{value.goodsId}}</td>
 								<td class="nick"></td>
 								<td>{{value.goodsName}}</td>
+								<td>{{value.cash}}</td>
+								<td>{{value.fubi}}</td>
+								<td>{{value.integral}}</td>
 								<td>{{value.num}}</td>
-								<td><a class="layui-btn layui-btn-ms layui-btn-normal refund_btn" data-orderId="{{value.orderId}}" data-orderData="{{value}}">退货</a></td>
+								<td><a class="layui-btn layui-btn-ms layui-btn-normal  refund_btn" data-orderId="{{value.integralOrderId}}" data-orderData="{{value}}">退货</a></td>
 							</tr>
 							{{/each}}
 						</script>
@@ -103,9 +109,6 @@
 		<!-- 商品信息汇总 -->
 		<div class="shopGoodsClearing padding-big ">
 			<div class="shopGoodsInfo padding-big-top">
-				<p>现金：¥ <span id="realPrice">0.00</span></p>
-				<p>福币： <span id="couponPrice">0.00</span></p>
-				<p>积分： <span id="integralPrice">0.00</span></p>
 			</div>
 			<div class="shopGoodsBtn margin-big-top">
 				<button class="layui-btn layui-btn-danger button  float-right margin-big-left" onclick="getBatchReturn()">批量退货</button>

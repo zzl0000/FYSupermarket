@@ -36,10 +36,6 @@ function getReturnOrderList(orderId){
 				
 				$("#orderDetailListDemo").html(html);
 				$('.nick').text(rs.data.nick);
-				$('#realPrice').text(rs.data.cash);
-				$('#couponPrice').text(rs.data.fubi);
-				$('#integralPrice').text(rs.data.integral);
-				
 				queryMenberIFFnfo(rs.data.token,function(val){
 					//console.log(val);
 					$('#nick').text(val.nick);
@@ -59,16 +55,7 @@ function getReturnOrderList(orderId){
 
 
 var goodsList = [];
-var goodsInfo = {
-	"fromSkuId":'0',
-	"gno": '0',
-	"goodsId": 0,
-	"goodsName": 0,
-	"money":0,
-	"num": 0,
-	"selected": 0,
-	'specValueId':0,
-};
+
 $('body').off('click').on('click','.refund_btn', function(e){
 	e.preventDefault()
 	var orderId = $(this).attr('data-orderId');
@@ -78,7 +65,18 @@ $('body').off('click').on('click','.refund_btn', function(e){
 	if(!key){
 		layer.msg('请选择退货商品',{'time':1000});
 	}else{
-		
+		var goodsInfo = {
+			"fromSkuId":'0',
+			"goodsNo": '0',
+			"balance":0,
+			"goodsId": 0,
+			"goodsName": 0,
+			"fubi":0,
+			"cash":0,
+			"integral":0,
+			"num": 0,
+			'sellType':0,
+		};
 		goodsInfo.balance = data.balance;
 		goodsInfo.cash = data.cash;
 		goodsInfo.fromSkuId = data.fromSkuId;
@@ -89,7 +87,6 @@ $('body').off('click').on('click','.refund_btn', function(e){
 		goodsInfo.goodsNo = data.goodsNo;
 		goodsInfo.integral = data.integral;
 		goodsInfo.sellType = data.sellType;
-		
 		
 		goodsList.push(goodsInfo);
 		
@@ -105,12 +102,24 @@ function getBatchReturn(){
 	$('input[type=checkbox]').each(function(){
 		if($(this).is(':checked')){
 			data.push(JSON.parse($(this).parent().siblings().find('.refund_btn').attr('data-orderData')));
-			orderId =  data.orderId;
+			orderId =  data.integralOrderId;
 		}else{
 			layer.msg('请选择退货商品',{'time':1000});
 		}
 	});
 	for(var i=0 ; i<data.length; i++){
+		var goodsInfo = {
+			"fromSkuId":'0',
+			"goodsNo": '0',
+			"balance":0,
+			"goodsId": 0,
+			"goodsName": 0,
+			"fubi":0,
+			"cash":0,
+			"integral":0,
+			"num": 0,
+			'sellType':0,
+		};
 		goodsInfo.balance = data.balance;
 		goodsInfo.cash = data.cash;
 		goodsInfo.fromSkuId = data.fromSkuId;
@@ -121,7 +130,7 @@ function getBatchReturn(){
 		goodsInfo.goodsNo = data.goodsNo;
 		goodsInfo.integral = data.integral;
 		goodsInfo.sellType = data.sellType;
-		goodsList[i] = goodsInfo
+		goodsList.push(goodsInfo);
 	}
 	
 	console.log(goodsList);
@@ -140,7 +149,7 @@ function batchReturnAjax(orderId,goodsList){
 			"integralOrderId":orderId,
 			"integralReturnBillOptionList": goodsList
 		}
-		return;
+	
 		$.ajax({
 			type: "post",
 			url: integralReturn,
