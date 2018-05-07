@@ -1,23 +1,20 @@
-
-
-
-$('#search').on('click', function(e){
+$('#search').on('click', function (e) {
 	e.preventDefault();
 	var orderId = $('#storeOrderId').val();
-	if(orderId == ''){
+	if (orderId == '') {
 		layer.msg('请填写订单号')
 		return false;
-	}else{
+	} else {
 		getReturnOrderList(orderId);
 	}
 })
 
-function getReturnOrderList(orderId){
+function getReturnOrderList(orderId) {
 	$.ajax({
 		type: "get",
 		url: findIntegralOrder,
 		data: {
-			integralOrderId  : orderId
+			integralOrderId: orderId
 		},
 		xhrFields: {
 			withCredentials: true
@@ -36,7 +33,7 @@ function getReturnOrderList(orderId){
 				
 				$("#orderDetailListDemo").html(html);
 				$('.nick').text(rs.data.nick);
-				queryMenberIFFnfo(rs.data.token,function(val){
+				queryMenberIFFnfo(rs.data.token, function (val) {
 					//console.log(val);
 					$('#nick').text(val.nick);
 					$('#phone').text(val.phone);
@@ -47,7 +44,7 @@ function getReturnOrderList(orderId){
 					
 				})
 			} else {
-				layer.msg(rs.message,{'time':1000});
+				layer.msg(rs.message, {'time': 1000});
 				$('#group-select').show();
 				$('#swopPanel').hide();
 			}
@@ -58,26 +55,26 @@ function getReturnOrderList(orderId){
 
 var goodsList = [];
 
-$('body').off('click').on('click','.refund_btn', function(e){
-	e.preventDefault()
+$('body').off('click').on('click', '.refund_btn', function (e) {
+	e.preventDefault();
 	var orderId = $(this).attr('data-orderId');
-	var data =JSON.parse($(this).attr('data-orderData'));
+	var data = JSON.parse($(this).attr('data-orderData'));
 	
 	var key = $(this).parent().siblings().find('input').is(':checked');
-	if(!key){
-		layer.msg('请选择退货商品',{'time':1000});
-	}else{
+	if (!key) {
+		layer.msg('请选择退货商品', {'time': 1000});
+	} else {
 		var goodsInfo = {
-			"fromSkuId":'0',
+			"fromSkuId": '0',
 			"goodsNo": '0',
-			"balance":0,
+			"balance": 0,
 			"goodsId": 0,
 			"goodsName": 0,
-			"fubi":0,
-			"cash":0,
-			"integral":0,
+			"fubi": 0,
+			"cash": 0,
+			"integral": 0,
 			"num": 0,
-			'sellType':0,
+			'sellType': 0,
 		};
 		goodsInfo.balance = data.balance;
 		goodsInfo.cash = data.cash;
@@ -92,37 +89,37 @@ $('body').off('click').on('click','.refund_btn', function(e){
 		
 		goodsList.push(goodsInfo);
 		
-		batchReturnAjax(orderId,goodsList)
+		batchReturnAjax(orderId, goodsList)
 	}
 	
 })
 
 
-function getBatchReturn(){
+function getBatchReturn() {
 	var orderId;
 	var data = [];
-	$('input[type=checkbox]').each(function(){
-		if($(this).is(':checked')){
+	$('input[type=checkbox]').each(function () {
+		if ($(this).is(':checked')) {
 			data.push(JSON.parse($(this).parent().siblings().find('.refund_btn').attr('data-orderData')));
 			
-		}else{
-			layer.msg('请选择退货商品',{'time':1000});
+		} else {
+			layer.msg('请选择退货商品', {'time': 1000});
 		}
 	});
-	for(var i=0 ; i<data.length; i++){
+	for (var i = 0; i < data.length; i++) {
 		var goodsInfo = {
-			"fromSkuId":'0',
+			"fromSkuId": '0',
 			"goodsNo": '0',
-			"balance":0,
+			"balance": 0,
 			"goodsId": 0,
 			"goodsName": 0,
-			"fubi":0,
-			"cash":0,
-			"integral":0,
+			"fubi": 0,
+			"cash": 0,
+			"integral": 0,
 			"num": 0,
-			'sellType':0,
+			'sellType': 0,
 		};
-		orderId =  data[i].integralOrderId;
+		orderId = data[i].integralOrderId;
 		goodsInfo.balance = data.balance;
 		goodsInfo.cash = data.cash;
 		goodsInfo.fromSkuId = data.fromSkuId;
@@ -138,40 +135,49 @@ function getBatchReturn(){
 	
 	console.log(orderId);
 	
-	batchReturnAjax(orderId,goodsList)
+	batchReturnAjax(orderId, goodsList)
 }
 
 
-function batchReturnAjax(orderId,goodsList){
+function batchReturnAjax(orderId, goodsList) {
 	console.log(orderId)
-	if(goodsList.length <= 0){
-		layer.msg('请选择退货商品',{'time':1000});
+	if (goodsList.length <= 0) {
+		layer.msg('请选择退货商品', {'time': 1000});
 		return false;
-	}else{
-		var data = {
-			"integralOrderId":orderId,
-			"integralReturnBillOptionList": goodsList
-		}
-	
-		$.ajax({
-			type: "post",
-			url: integralReturn,
-			data: JSON.stringify(data),
-			contentType: "application/json",
-			dataType: 'json',
-			xhrFields: {
-				withCredentials: true
-			},
-			crossDomain: true,
-			success: function (rs) {
-				if (rs.status == 200) {
-					layer.msg('退货成功',{'time':1000});
-					getReturnOrderList(orderId)
-				} else {
-					layer.msg(rs.message,{'time':1000});
+	} else {
+		layer.confirm('是否退货',
+			{
+				closeBtn: 2,
+				shadeClose: true, //开启遮罩关闭
+				btn: ['是', '否']
+			}, function () {
+				var data = {
+					"integralOrderId": orderId,
+					"integralReturnBillOptionList": goodsList
 				}
-			}
-		})
+				
+				$.ajax({
+					type: "post",
+					url: integralReturn,
+					data: JSON.stringify(data),
+					contentType: "application/json",
+					dataType: 'json',
+					xhrFields: {
+						withCredentials: true
+					},
+					crossDomain: true,
+					success: function (rs) {
+						if (rs.status == 200) {
+							layer.msg('退货成功', {'time': 1000});
+							getReturnOrderList(orderId)
+						} else {
+							layer.msg(rs.message, {'time': 1000});
+						}
+					}
+				})
+			}, function () {
+				layer.closeAll();
+			});
 	}
 	
 }

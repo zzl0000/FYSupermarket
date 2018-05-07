@@ -384,6 +384,7 @@ function checkOut() {
 	var goodsList = [];
 	var _payPrice = $('#payPrice').text();
 	var _integralPrice = $('#integralPrice').text();
+	var _fubi = $('#couponPrice').text();
 	//console.log(gNo)
 	if (gNo.length <= 0) {
 		layer.msg('请先添加商品');
@@ -419,6 +420,7 @@ function checkOut() {
 		"integralBillOptions": goodsList,
 		"sumCash": _payPrice,
 		"sumIntegral": _integralPrice,
+		"sumFubi": _fubi,
 		"token": token,
 		"nick": nick,
 	}

@@ -72,7 +72,7 @@
         <div class="group-list">
             <div class="box-shadow">
                 <h5 class="title">商品信息</h5>
-                <table border="0" cellspacing="0" cellpadding="0">
+                <table border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed;">
                     <thead>
                         <th width="50"></th>
                         <th>序号</th>
@@ -92,7 +92,7 @@
                                     <td>{{i + 1}}</td>
                                     <td>{{value.goodsId}}</td>
                                     <td class="nick"></td>
-                                    <td>{{value.goodsName}}</td>
+                                    <td title="{{value.goodsName}}" style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{value.goodsName}}</td>
                                     <td>{{value.num}}</td>
                                     <td>￥{{value.money}}.00</td>
                                     <td><a class="layui-btn layui-btn-ms layui-btn-normal refund_btn" data-orderId="{{value.orderId}}" data-orderData="{{value}}">退货</a></td>
