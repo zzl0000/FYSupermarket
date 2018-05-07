@@ -380,6 +380,7 @@ function getPrice(realPrice) {
 
 
 function checkOut() {
+	console.log(PaymentKey);
 	var goodsList = [];
 	var _payPrice = $('#payPrice').text();
 	var _integralPrice = $('#integralPrice').text();
