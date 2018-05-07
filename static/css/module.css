@@ -83,8 +83,40 @@
 	text-align: center;
 	color: white;
 	margin-left: 10px;
-
 }
+
+
+.integral-warp .return-num .minus{
+	font-size: 24px;
+	display: inline-block;
+	width: 33px;
+	height: 33px;
+	border-radius: 50%;
+	border: 1px solid #643cbc;
+	text-align: center;
+	color: #643cbc;
+	margin-right: 10px;
+}
+
+.return-num .number{
+	font-size: 24px;
+	display: inline-block;
+	color: #8f9090;
+}
+
+.integral-warp .return-num .add {
+	font-size: 24px;
+	display: inline-block;
+	width: 33px;
+	height: 33px;
+	border-radius: 50%;
+	border: 1px solid #643cbc;
+	background: #643cbc;
+	text-align: center;
+	color: white;
+	margin-left: 10px;
+}
+
 
 .group-top {
 	width: 100%;

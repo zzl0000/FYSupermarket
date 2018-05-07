@@ -79,7 +79,7 @@
                         <th>商品编号</th>
                         <th>购买人</th>
                         <th width="240" >商品名称</th>
-                        <th>数量</th>
+                        <th width="135" style="text-align: center">数量</th>
                         <th>单价</th>
                         <th>操作</th>
                     </thead>
@@ -93,7 +93,11 @@
                                     <td>{{value.goodsId}}</td>
                                     <td class="nick"></td>
                                     <td title="{{value.goodsName}}" style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{value.goodsName}}</td>
-                                    <td>{{value.num}}</td>
+                                    <td class="return-num">
+                                        <span class="minus">-</span>
+                                        <span class="number">{{value.num}}</span>
+                                        <span class="add">+</span>
+                                    </td>
                                     <td>￥{{value.money}}.00</td>
                                     <td><a class="layui-btn layui-btn-ms layui-btn-normal refund_btn" data-orderId="{{value.orderId}}" data-orderData="{{value}}">退货</a></td>
                                 </tr>
