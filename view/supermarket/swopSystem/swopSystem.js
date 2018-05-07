@@ -57,16 +57,7 @@ function getReturnOrderList(orderId){
 
 
 var goodsList = [];
-var goodsInfo = {
-	"fromSkuId":'0',
-	"gno": '0',
-	"goodsId": 0,
-	"goodsName": 0,
-	"money":0,
-	"num": 0,
-	"selected": 0,
-	'specValueId':0,
-};
+
 $('body').off('click').on('click','.refund_btn', function(e){
 	e.preventDefault()
 	var orderId = $(this).attr('data-orderId');
@@ -76,7 +67,16 @@ $('body').off('click').on('click','.refund_btn', function(e){
 	if(!key){
 		layer.msg('请选择退货商品',{'time':1000});
 	}else{
-		
+		var goodsInfo = {
+			"fromSkuId":'0',
+			"gno": '0',
+			"goodsId": 0,
+			"goodsName": 0,
+			"money":0,
+			"num": 0,
+			"selected": 0,
+			'specValueId':0,
+		};
 		goodsInfo.fromSkuId = data.fromSkuId;
 		goodsInfo.gno = data.gno;
 		goodsInfo.goodsId = data.goodsId;
@@ -106,6 +106,16 @@ function getBatchReturn(){
 		}
 	});
 	for(var i=0 ; i<data.length; i++){
+		var goodsInfo = {
+			"fromSkuId":'0',
+			"gno": '0',
+			"goodsId": 0,
+			"goodsName": 0,
+			"money":0,
+			"num": 0,
+			"selected": 0,
+			'specValueId':0,
+		};
 		goodsInfo.fromSkuId = data[i].fromSkuId;
 		goodsInfo.gno =  data[i].gno;
 		goodsInfo.goodsId =  data[i].goodsId;
@@ -114,10 +124,9 @@ function getBatchReturn(){
 		goodsInfo.num = 1;
 		goodsInfo.selected =  data[i].selected;
 		goodsInfo.specValueId =  data[i].specValueId;
-		goodsList[i] = goodsInfo
+		goodsList.push(goodsInfo)
 	}
 	
-	console.log(goodsList);
 	
 	batchReturnAjax(orderId,goodsList)
 }
@@ -133,7 +142,7 @@ function batchReturnAjax(orderId,goodsList){
 			"orderId":orderId,
 			"returnBillOptionList": goodsList
 		}
-		return;
+		
 		$.ajax({
 			type: "post",
 			url: batchReturn,

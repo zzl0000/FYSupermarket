@@ -28,7 +28,7 @@ function getReturnOrderList(orderId){
 				$('#group-select').hide();
 				$('#swopPanel').show();
 				$('#storeOrderId').val('');
-				var payWayText =['无','现金','扫码','余额'];
+				//var payWayText =['无','现金','扫码','余额'];
 				//console.log(rs);
 				var html = template('orderDetailList', {
 					list: rs.data.integralOrderOptionList
@@ -44,8 +44,8 @@ function getReturnOrderList(orderId){
 					//console.log(val);
 					$('#nick').text(val.nick);
 					$('#phone').text(val.phone);
-					$('#orderCode').text(rs.data.orderNo);
-					$('#payWay').text(payWayText[rs.data.payWay]);
+					$('#orderCode').text(rs.data.integralOrderNo);
+					//$('#payWay').text(payWayText[rs.data.payWay]);
 					$('#payTime').text(rs.data.payTime);
 					$('#employeeName').text(rs.data.employeeName);
 					
