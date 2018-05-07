@@ -13,7 +13,6 @@
 				<th>序号</th>
 				<th>订单号</th>
 				<th>购买人</th>
-				<th>支付方式</th>
 				<th>购买日期</th>
 				<th>收银员</th>
 				<th>金额</th>
@@ -27,7 +26,6 @@
 						<td>{{i +1 }}</td>
 						<td>{{value.integralOrderId}}</td>
 						<td>{{value.nick}}</td>
-						<td>{{value.payWay | getPayWay}}</td>
 						<td>{{value.payTime}}</td>
 						<td>{{value.employeeName}}</td>
 						<td>¥ {{value.cash}}</td>
