@@ -6,6 +6,56 @@
 	padding: 32px;
 	position: relative;
 }
+
+.group .group-select{
+	position: relative;
+	top: 50px;
+	width: 50%;
+}
+
+.group .group-select .form-group label{
+	width: 100%;
+	font-size: 18px;
+}
+
+.group .group-select .form-group input{
+	width: 100%;
+	margin-top:20px;
+	margin-left:0;
+	height: 48px;
+
+}
+.group .group-select .settlementKeyboard{
+	position: relative;
+	height: auto;
+	overflow: hidden;
+	top: 100px;
+}
+
+.group .group-select .settlementKeyboard ul {
+	width: 100%;
+
+}
+
+.group .group-select .settlementKeyboard ul li{
+	width: 28%;
+	float: left;
+	background: white;
+	text-align: center;
+	height: 60px;
+	margin-top: 18px;
+	font-size: 16px;
+	margin-left: 8%;
+	cursor: pointer;
+}
+.group .group-select .settlementKeyboard ul li.bg-blue{
+	background-color:#3185ff ;
+	color: white;
+}
+
+
+
+
 .group-top {
 	width: 100%;
 	height: auto;
@@ -15,6 +65,7 @@
 .group-top .infoList{
 
 }
+
 
 
 .group h5.title{

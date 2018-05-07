@@ -26,6 +26,13 @@ var payIntegralOrder = turl + "/cashier/integralCashier/payIntegralOrder";  // �
 var findIntegralOrderPage = turl + "/cashier/integralOrder/findPage";  // 获取积分订单列表
 var findIntegralOrderDetail = turl + "/cashier/integralOrder/findOrderDetail";  // 获取积分订单详情
 
+// 超市
+var findReturnOrder = turl + "/cashier/return/findOrder";  // 获取退货订单
+var batchReturn = turl + "/cashier/return/batchReturn";  // 批量退货
+
+// 积分
+var findIntegralOrder = turl + "/cashier/integralReturn/findIntegralOrder";  // 获取积分退货订单
+var integralReturn = turl + "/cashier/integralReturn/batchReturn";  // 积分批量退货
 
 function queryMenberIFFnfo(token,callback){
 	$.ajax({

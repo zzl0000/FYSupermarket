@@ -396,12 +396,14 @@ function uplodOrder() {
 		var goodsInfo = {
 			"gno": '0',
 			"goodsId": 0,
+			"fromSkuId":0,
 			"money": 0,
 			"num": 0,
 			"specValueId": 0
 		};
 		goodsInfo.gno = $(el).attr('data-gNo');
 		goodsInfo.goodsId = $(el).attr('data-goodsId');
+		goodsInfo.fromSkuId = $(el).attr('data-fromSkuId');
 		goodsInfo.specValueId = $(el).attr('data-specValueId');
 		goodsInfo.num = $(el).find('.number').text();
 		goodsInfo.money = $(el).find('.price').text().substring(1);
@@ -452,6 +454,7 @@ function checkOut() {
 		var goodsInfo = {
 			"gno": '0',
 			"goodsId": 0,
+			"fromSkuId":0,
 			"money": 0,
 			"num": 0,
 			"specValueId": 0,
@@ -459,6 +462,7 @@ function checkOut() {
 		};
 		goodsInfo.gno = $(el).attr('data-gNo');
 		goodsInfo.goodsId = $(el).attr('data-goodsId');
+		goodsInfo.fromSkuId = $(el).attr('data-fromSkuId');
 		goodsInfo.specValueId = $(el).attr('data-specValueId');
 		goodsInfo.allotTitle = $(el).attr('data-allotType');
 		goodsInfo.num = $(el).find('.number').text();

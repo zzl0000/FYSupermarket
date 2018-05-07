@@ -395,6 +395,7 @@ function checkOut() {
 			"goodsId": 0,
 			"goodsNo": 0,
 			"integral": 0,
+			"fromSkuId":0,
 			"cash": 0,
 			"num": 0,
 			"fromSkuId": "string",
@@ -402,6 +403,7 @@ function checkOut() {
 		};
 		integralBillOptions.goodsNo = $(el).attr('data-gNo');
 		integralBillOptions.goodsId = $(el).attr('data-goodsId');
+		goodsInfo.fromSkuId = $(el).attr('data-fromSkuId');
 		integralBillOptions.num = $(el).find('.number').text();
 		integralBillOptions.integral = parseFloat($(el).find('.integral').text() / integralBillOptions.num);
 		//integralBillOptions.balance =  parseFloat($(el).find('.price').text() / integralBillOptions.num);

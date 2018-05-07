@@ -89,11 +89,11 @@ function getOrderDetail(orderId) {
                 $('#payPrice').text(rs.data.totalMoney);
                 queryMenberIFFnfo(rs.data.token,function(val){
                     console.log(val);
-                    $('#nick').text(val.nick)
-                    $('#phone').text(val.phone)
-                    $('#orderCode').text(data.orderId)
-                    $('#payWay').text(payWayText[data.payWay])
-                    $('#payTime').text(data.payTime)
+                    $('#nick').text(val.nick);
+                    $('#phone').text(val.phone);
+                    $('#orderCode').text(data.orderId);
+                    $('#payWay').text(payWayText[data.payWay]);
+                    $('#payTime').text(data.payTime);
                     $('#employeeName').text(data.employeeName);
 
                 })
