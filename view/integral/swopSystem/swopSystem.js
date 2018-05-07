@@ -102,7 +102,7 @@ function getBatchReturn(){
 	$('input[type=checkbox]').each(function(){
 		if($(this).is(':checked')){
 			data.push(JSON.parse($(this).parent().siblings().find('.refund_btn').attr('data-orderData')));
-			orderId =  data.integralOrderId;
+			
 		}else{
 			layer.msg('请选择退货商品',{'time':1000});
 		}
@@ -120,6 +120,7 @@ function getBatchReturn(){
 			"num": 0,
 			'sellType':0,
 		};
+		orderId =  data[i].integralOrderId;
 		goodsInfo.balance = data.balance;
 		goodsInfo.cash = data.cash;
 		goodsInfo.fromSkuId = data.fromSkuId;
@@ -133,14 +134,14 @@ function getBatchReturn(){
 		goodsList.push(goodsInfo);
 	}
 	
-	console.log(goodsList);
+	console.log(orderId);
 	
 	batchReturnAjax(orderId,goodsList)
 }
 
 
 function batchReturnAjax(orderId,goodsList){
-	//console.log(goodsList)
+	console.log(orderId)
 	if(goodsList.length <= 0){
 		layer.msg('请选择退货商品',{'time':1000});
 		return false;
