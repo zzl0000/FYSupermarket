@@ -380,7 +380,7 @@ function getPrice(realPrice) {
 
 
 function checkOut() {
-	console.log(PaymentKey);
+	//console.log(PaymentKey)
 	var goodsList = [];
 	var _payPrice = $('#payPrice').text();
 	var _integralPrice = $('#integralPrice').text();
@@ -438,6 +438,7 @@ function checkOut() {
 				layer.msg('结账成功');
 				reset();
 			} else {
+				reset();
 				layer.msg(rs.message)
 			}
 		}
