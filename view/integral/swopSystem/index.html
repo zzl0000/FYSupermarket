@@ -82,7 +82,7 @@
 						<th>现金</th>
 						<th>福币</th>
 						<th>积分</th>
-						<th>数量</th>
+						<th width="135" style="text-align: center">数量</th>
 						<th>操作</th>
 					</thead>
 					<tbody id="orderDetailListDemo">
@@ -97,10 +97,10 @@
 								<td>{{value.cash}}</td>
 								<td>{{value.fubi}}</td>
 								<td>{{value.integral}}</td>
-								<td>
-									<span class="icon-minus">-</span>
-									<span>{{value.num}}</span>
-									<span class="icon-adjust">+</span>
+								<td class="return-num">
+									<span class="minus">-</span>
+									<span class="number">{{value.num}}</span>
+									<span class="add">+</span>
 								</td>
 								<td><a class="layui-btn layui-btn-ms layui-btn-normal  refund_btn" data-orderId="{{value.integralOrderId}}" data-orderData="{{value}}">退货</a></td>
 							</tr>
