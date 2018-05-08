@@ -70,13 +70,12 @@ function signlogStore() {
         crossDomain: false,
         success: function (rs) {
             if (rs.status == 200) {
-	            sessionStorage.setItem("storeId", phone);
 	            $('#signlogStore').attr({'disabled':"disabled"});
 	            layer.confirm('门店登录成功，是否同步数据',
 		            {
 			            btn: ['同步', '否']
 		            }, function () {
-			            inStepData();
+			            inStepData(phone);
 		            },function () {
 			            layer.closeAll();
 			            $('.lo_title').find('font').text('员工登录')
@@ -100,7 +99,7 @@ function signlogStore() {
     });
 }
 
-function inStepData(){
+function inStepData(phone){
 	layer.config({
 		offset: ['50%', '50%']
 	})
@@ -115,6 +114,7 @@ function inStepData(){
 		success: function (rs) {
 			if (rs.status == "200") {
 				layer.close(index);
+				sessionStorage.setItem("storeId", phone);
 				layer.msg(rs.message, {time: 1000},function(){
 					$('.lo_title').find('font').text('员工登录')
 					$('.lo_store').hide();
@@ -124,6 +124,8 @@ function inStepData(){
 				
 			} else {
 				layer.msg(rs.message, {time: 1000});
+				$('#signlogStore').removeAttr('disabled');
+				layer.close(index);
 			}
 		}
 	})
