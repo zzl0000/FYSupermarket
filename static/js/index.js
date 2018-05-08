@@ -148,3 +148,10 @@ function router(url) {
         });
     }
 }
+
+
+function baoremove(dx)
+{ // www.jb51.net
+	if(isNaN(dx)||dx>this.length){return false;}
+	this.splice(dx,1);
+}

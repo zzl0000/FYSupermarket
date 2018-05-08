@@ -49,6 +49,7 @@ function init() {
 		
 		//console.log(hangOrderDtata[0].goodsList);
 		$.each(hangOrderDtata[keyId].goodsList, function (index, val) {
+			//console.log(val.num);
 			getGoodsList(val.gno, curk);
 			hangOrderNum.push(val.num);
 			curk++;
@@ -250,6 +251,8 @@ function minusCount(el, _num) {
 		$('#realPrice').text('0.00');
 		$('.payPrice').text('0.00');
 		ListData.goodsListData[index].num = 0;
+		//ListData.goodsListData.baoremove(index);
+		console.log(ListData.goodsListData[index]);
 		//gNo[index] = '';
 		//hangOrderDtata[keyId].goodsList[index].gno = '';
 	} else {
