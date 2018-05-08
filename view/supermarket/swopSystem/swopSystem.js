@@ -49,10 +49,12 @@ function getReturnOrderList(orderId){
 					list: rs.data.orderOptionList
 				});
 				
-				$("#returnOrderDetailListDemo").html(html);
-				$('.nick').text(rs.data.nick);
 				$('#realPrice').text(rs.data.receipt);
 				$('#payPrice').text(rs.data.totalMoney);
+				
+				$("#returnOrderDetailListDemo").html(html);
+				$('.nick').text(rs.data.nick);
+				
 				queryMenberIFFnfo(rs.data.token,function(val){
 					//console.log(val);
 					$('#nick').text(val.nick);
@@ -61,6 +63,7 @@ function getReturnOrderList(orderId){
 					$('#payWay').text(payWayText[rs.data.payWay]);
 					$('#payTime').text(rs.data.payTime);
 					$('#employeeName').text(rs.data.employeeName);
+					
 					
 				})
 				$('body .add').off('click').on('click', function (e) {
@@ -216,8 +219,12 @@ function batchReturnAjax(orderId,goodsList){
 			crossDomain: true,
 			success: function (rs) {
 				if (rs.status == 200) {
-					layer.msg('退货成功',{'time':1000});
-					getReturnOrderList(orderId)
+					
+					layer.msg('退货成功',{'time':1000},function(){
+						$('#group-select').show();
+						$('#swopPanel').hide();
+					});
+					//getReturnOrderList(orderId)
 				} else {
 					layer.msg(rs.message,{'time':1000});
 				}

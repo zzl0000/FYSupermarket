@@ -227,8 +227,10 @@ function batchReturnAjax(orderId, goodsList) {
 					crossDomain: true,
 					success: function (rs) {
 						if (rs.status == 200) {
-							layer.msg('退货成功', {'time': 1000});
-							getReturnOrderList(orderId)
+							layer.msg('退货成功',{'time':1000},function(){
+								$('#group-select').show();
+								$('#swopPanel').hide();
+							});
 						} else {
 							layer.msg(rs.message, {'time': 1000});
 						}

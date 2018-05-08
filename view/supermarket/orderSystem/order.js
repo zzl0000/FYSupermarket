@@ -48,9 +48,9 @@ function getOrderList() {
 				}, 500)
 			}else {
 				setTimeout(function(){
-					layer.msg(rs.message);
+					//layer.msg(rs.message);
 					$("#noeList").show();
-				},2000)
+				},500)
 				
 			}
 

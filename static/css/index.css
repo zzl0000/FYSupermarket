@@ -668,6 +668,19 @@
 }
 
 
+.integral-warp .shopGoodslist .shopGoodsCT div .minus{
+	border: 1px solid #643cbc;
+	color: #643cbc;
+}
+
+
+.integral-warp .shopGoodslist .shopGoodsCT div .add{
+	border: 1px solid #643cbc;
+	background: #643cbc;
+	color: white;
+
+}
+
 /*多选*/
 
 .infor_con_item_select {
