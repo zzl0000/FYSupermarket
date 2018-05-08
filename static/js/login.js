@@ -78,6 +78,7 @@ function signlogStore() {
 			            inStepData(phone);
 		            },function () {
 			            layer.closeAll();
+			            sessionStorage.setItem("storeId", phone);
 			            $('.lo_title').find('font').text('员工登录')
 			            $('.lo_store').hide();
 			            $('.lo_employee').show();
