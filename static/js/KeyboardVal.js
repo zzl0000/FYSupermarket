@@ -64,13 +64,12 @@ function keyCount(val) {
 	var price = _payPrice || $('#payPrice').text();
 	//console.log(price)
 	//console.log(price);
+	$('#relTakePrice').val(val);
 	if(parseFloat(val) <= parseFloat(price)) {
-
-
-		layer.msg('输入的价格不能小于应收金额');
+		//layer.msg('输入的价格不能小于应收金额');
+		$('#changePrice').val('0.00');
 	}else{
         var changePrice = (parseFloat(val) - parseFloat(price)).toFixed(2);
-        $('#relTakePrice').val(val);
         $('#changePrice').val(changePrice)
 	}
 }
