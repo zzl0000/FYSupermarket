@@ -2,22 +2,20 @@ var _curnum;
 var isClick = false;
 
 
-
-$('#search').bind('keypress', function (event) {
-
-	if (event.keyCode == "13") {
-		var orderId = $('#storeOrderId').val();
-		if(orderId == ''){
-			layer.msg('请填写订单号')
-			return false;
-		}else{
-			getReturnOrderList(orderId);
-		}
+$(document).keydown(function(event){
+	//alert(event.keyCode);
+	if(event.keyCode == '13'){
+		searchReturnOrder()
+		
 	}
 });
 
 $('#search').on('click', function(e){
 	e.preventDefault();
+	searchReturnOrder();
+});
+
+function searchReturnOrder(){
 	var orderId = $('#storeOrderId').val();
 	if(orderId == ''){
 		layer.msg('请填写订单号')
@@ -25,7 +23,7 @@ $('#search').on('click', function(e){
 	}else{
 		getReturnOrderList(orderId);
 	}
-});
+}
 
 function getReturnOrderList(orderId){
 	$.ajax({
