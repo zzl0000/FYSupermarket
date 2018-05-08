@@ -90,7 +90,7 @@ function addCount(el, num) {
 
 function minusCount(el, _num) {
 	_curnum = parseInt(_num) - 1;
-	if (_curnum <= 0) {
+	if (_curnum <= 1) {
 		// console.log(el);
 		el.addClass('disabled');
 	}
