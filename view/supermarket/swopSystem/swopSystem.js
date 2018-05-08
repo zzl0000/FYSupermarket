@@ -2,18 +2,20 @@ var _curnum;
 var isClick = false;
 
 
-$(document).keydown(function(event){
-	//alert(event.keyCode);
-	if(event.keyCode == '13'){
-		searchReturnOrder()
-		
-	}
-});
-
-$('#search').on('click', function(e){
-	e.preventDefault();
-	searchReturnOrder();
-});
+$(function(){
+	$(document).keydown(function(event){
+		//alert(event.keyCode);
+		if(event.keyCode == '13'){
+			searchReturnOrder()
+			
+		}
+	});
+	
+	$('#search').on('click', function(e){
+		e.preventDefault();
+		searchReturnOrder();
+	});
+})
 
 function searchReturnOrder(){
 	var orderId = $('#storeOrderId').val();
