@@ -1,6 +1,21 @@
 var _curnum;
 var isClick = false;
 
+
+
+$('#search').bind('keypress', function (event) {
+
+	if (event.keyCode == "13") {
+		var orderId = $('#storeOrderId').val();
+		if(orderId == ''){
+			layer.msg('请填写订单号')
+			return false;
+		}else{
+			getReturnOrderList(orderId);
+		}
+	}
+});
+
 $('#search').on('click', function(e){
 	e.preventDefault();
 	var orderId = $('#storeOrderId').val();
@@ -30,11 +45,11 @@ function getReturnOrderList(orderId){
 				$('#storeOrderId').val('');
 				var payWayText =['无','现金','扫码','余额'];
 				//console.log(rs);
-				var html = template('orderDetailList', {
+				var html = template('returnOrderDetailList', {
 					list: rs.data.orderOptionList
 				});
 				
-				$("#orderDetailListDemo").html(html);
+				$("#returnOrderDetailListDemo").html(html);
 				$('.nick').text(rs.data.nick);
 				$('#realPrice').text(rs.data.receipt);
 				$('#payPrice').text(rs.data.totalMoney);

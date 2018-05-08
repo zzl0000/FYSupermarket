@@ -186,7 +186,7 @@ function getGoodsList(key, status) {
 
 function renderGoodsList(data) {
 	
-	console.log(data);
+	//console.log(data);
 	var html = template('GoodsList', {
 		list: data
 	});
@@ -252,12 +252,14 @@ function minusCount(el, _num) {
 		$('.payPrice').text('0.00');
 		ListData.goodsListData[index].num = 0;
 		//ListData.goodsListData.baoremove(index);
-		console.log(ListData.goodsListData[index]);
+		//console.log(ListData.goodsListData[index]);
+		ListData.goodsListData.splice(1,1)
 		//gNo[index] = '';
 		//hangOrderDtata[keyId].goodsList[index].gno = '';
 	} else {
 		ListData.goodsListData[index].num = _curnum;
 	}
+	console.log(ListData.goodsListData);
 	//console.log(num);
 	return _curnum;
 }
