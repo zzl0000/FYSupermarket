@@ -214,7 +214,7 @@ function batchReturnAjax(orderId, goodsList) {
 					"integralOrderId": orderId,
 					"integralReturnBillOptionList": goodsList
 				}
-				return;
+				
 				$.ajax({
 					type: "post",
 					url: integralReturn,
