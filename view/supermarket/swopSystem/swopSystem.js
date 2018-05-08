@@ -48,22 +48,25 @@ function getReturnOrderList(orderId){
 					$('#employeeName').text(rs.data.employeeName);
 					
 				})
-				
-				$('body').on('click', '.add', function (e) {
+				$('body .add').off('click').on('click', function (e) {
 					e.preventDefault();
 					var _slef = $(this);
 					var num = $(this).siblings('.number').text();
-					if(num >= rs.data.num){
+					var key = $(this).attr("data-num");
+					_slef.siblings('.minus').removeClass('disabled');
+					//console.log(key)
+					if(num >= key){
 						layer.msg('退货数量不能超过订单数量',{'time':1000});
+						_slef.addClass('disabled');
 						return false;
 					}else{
 						$(this).siblings(".number").text(addCount(_slef, num))
 					}
 				})
-				
-				$('body').on('click', '.minus', function (e) {
+				$('body .minus').off('click').on('click', function (e) {
 					e.preventDefault();
 					var _slef = $(this);
+					_slef.siblings('.add').removeClass('disabled');
 					var num = $(this).siblings('.number').text();
 					$(this).siblings(".number").text(minusCount(_slef, num))
 				});
@@ -81,7 +84,6 @@ function getReturnOrderList(orderId){
 
 // 数量计算
 function addCount(el, num) {
-	el.removeClass('disabled');
 	_curnum = parseInt(num) + 1;
 	return _curnum;
 }
