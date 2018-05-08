@@ -17,6 +17,7 @@
 				<th>收银员</th>
 				<th>金额</th>
 				<th>积分</th>
+				<th>福币</th>
 				<th>操作</th>
 				</thead>
 				<tbody id="alterationListDemo">
@@ -30,6 +31,7 @@
 						<td>{{value.employeeName}}</td>
 						<td>¥ {{value.cash}}</td>
 						<td>{{value.integral}}</td>
+						<td>{{value.fubi}}</td>
 						<td>
 							<a class="layui-btn layui-btn-ms layui-btn-normal check_btn" data-id="{{value.integralOrderId}}">查看</a>
 						</td>
@@ -158,11 +160,7 @@
 					</li>
 				</ul>
 				<ul>
-					<li>
-						<i class="icon"><img src="../static/img/icon-02.png"></i>
-						<span>支付方式:</span>
-						<span id="payWay"></span>
-					</li>
+
 					<li>
 						<i class="icon"><img src="../static/img/icon-04.png"></i>
 						<span>购买日期:</span>
@@ -210,9 +208,9 @@
 		<div class="shopGoodsClearing padding-big ">
 			<div class="shopGoodsInfo padding-big-top">
 				<p>余额：¥ <span id="balance">0.00</span></p>
-				<p>积分：¥ <span id="integralPrice">0.00</span></p>
-				<p>消费券：¥ <span id="couponPrice">0.00</span></p>
-				<p>现金：¥ <span id="payPrice" class="payPrice">0.00</span></p>
+				<p>积分： <span id="integralPrice">0</span></p>
+				<p>消费券： <span id="couponPrice">0</span></p>
+				<p>现金： ¥<span id="payPrice" class="payPrice">0.00</span></p>
 			</div>
 		</div>
 	</div>

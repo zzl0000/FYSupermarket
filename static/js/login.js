@@ -1,6 +1,9 @@
 
 
-console.log(sessionStorage.getItem("storeId"))
+
+
+//console.log(sessionStorage.getItem("storeId"))
+
 if (sessionStorage.getItem("storeId") != null) {
     $('.lo_store').hide();
     $('.lo_employee').show();
@@ -8,12 +11,7 @@ if (sessionStorage.getItem("storeId") != null) {
     $('.lo_title').find('span').show();
 }
 
-// $(document).keyup(function (e) {
-//
-// 	if (e.keyCode == 13) {
-// 		signlogStore();
-// 	}
-// });
+
 
 //门店注销 
 
