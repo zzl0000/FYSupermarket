@@ -45,49 +45,61 @@ function getReturnOrderList(orderId){
 				$('#storeOrderId').val('');
 				var payWayText =['无','现金','扫码','余额'];
 				//console.log(rs);
-				var html = template('returnOrderDetailList', {
-					list: rs.data.orderOptionList
-				});
-				
-				$('#realPrice').text(rs.data.receipt);
-				$('#payPrice').text(rs.data.totalMoney);
-				
-				$("#returnOrderDetailListDemo").html(html);
-				$('.nick').text(rs.data.nick);
-				
-				queryMenberIFFnfo(rs.data.token,function(val){
-					//console.log(val);
-					$('#nick').text(val.nick);
-					$('#phone').text(val.phone);
-					$('#orderCode').text(rs.data.orderNo);
-					$('#payWay').text(payWayText[rs.data.payWay]);
-					$('#payTime').text(rs.data.payTime);
-					$('#employeeName').text(rs.data.employeeName);
+				if(rs.data.orderOptionList == null) {
+					$("#noeList").show();
+				}else{
+					$("#noeList").hide();
+					var html = template('returnOrderDetailList', {
+						list: rs.data.orderOptionList
+					});
 					
 					
-				})
-				$('body .add').off('click').on('click', function (e) {
-					e.preventDefault();
-					var _slef = $(this);
-					var num = $(this).siblings('.number').text();
-					var key = $(this).attr("data-num");
-					_slef.siblings('.minus').removeClass('disabled');
-					//console.log(key)
-					if(num >= key){
-						layer.msg('退货数量不能超过订单数量',{'time':1000});
-						_slef.addClass('disabled');
-						return false;
-					}else{
-						$(this).siblings(".number").text(addCount(_slef, num))
-					}
-				})
-				$('body .minus').off('click').on('click', function (e) {
-					e.preventDefault();
-					var _slef = $(this);
-					_slef.siblings('.add').removeClass('disabled');
-					var num = $(this).siblings('.number').text();
-					$(this).siblings(".number").text(minusCount(_slef, num))
-				});
+					$("#returnOrderDetailListDemo").html(html);
+					$('.nick').text(rs.data.nick);
+					
+					queryMenberIFFnfo(rs.data.token,function(val){
+						//console.log(val);
+						$('#nick').text(val.nick);
+						$('#phone').text(val.phone);
+						$('#orderCode').text(rs.data.orderNo);
+						$('#payWay').text(payWayText[rs.data.payWay]);
+						$('#payTime').text(rs.data.payTime);
+						$('#employeeName').text(rs.data.employeeName);
+						
+						
+					})
+					$('body .add').off('click').on('click', function (e) {
+						e.preventDefault();
+						var _slef = $(this);
+						var num = $(this).siblings('.number').text();
+						var key = $(this).attr("data-num");
+						_slef.siblings('.minus').removeClass('disabled');
+						//console.log(key)
+						if(num >= key){
+							layer.msg('退货数量不能超过订单数量',{'time':1000});
+							_slef.addClass('disabled');
+							return false;
+						}else{
+							$(this).siblings(".number").text(addCount(_slef, num))
+						}
+					})
+					$('body .minus').off('click').on('click', function (e) {
+						e.preventDefault();
+						var _slef = $(this);
+						_slef.siblings('.add').removeClass('disabled');
+						var num = $(this).siblings('.number').text();
+						$(this).siblings(".number").text(minusCount(_slef, num))
+					});
+					
+					var _returnPrice = '0.00';
+					
+					$('body input[type=checkbox]').off('click').on('click', function(){
+						_returnPrice = parseFloat($(this).attr('data-num') * $(this).attr('data-money')).toFixed(2);
+						$('#returnPrice').text(_returnPrice);
+					});
+					
+				}
+				
 			} else {
 				layer.msg(rs.message,{'time':1000});
 				$('#group-select').show();
@@ -96,8 +108,6 @@ function getReturnOrderList(orderId){
 		}
 	})
 }
-
-
 
 
 // 数量计算
@@ -202,34 +212,43 @@ function batchReturnAjax(orderId,goodsList){
 		layer.msg('请选择退货商品',{'time':1000});
 		return false;
 	}else{
-		var data = {
-			"orderId":orderId,
-			"returnBillOptionList": goodsList
-		}
-		
-		$.ajax({
-			type: "post",
-			url: batchReturn,
-			data: JSON.stringify(data),
-			contentType: "application/json",
-			dataType: 'json',
-			xhrFields: {
-				withCredentials: true
-			},
-			crossDomain: true,
-			success: function (rs) {
-				if (rs.status == 200) {
-					
-					layer.msg('退货成功',{'time':1000},function(){
-						$('#group-select').show();
-						$('#swopPanel').hide();
-					});
-					//getReturnOrderList(orderId)
-				} else {
-					layer.msg(rs.message,{'time':1000});
+		layer.confirm('是否退货',
+			{
+				closeBtn: 2,
+				shadeClose: true, //开启遮罩关闭
+				btn: ['是', '否']
+			}, function () {
+				var data = {
+					"orderId": orderId,
+					"returnBillOptionList": goodsList
 				}
-			}
-		})
-	}
+				
+				$.ajax({
+					type: "post",
+					url: batchReturn,
+					data: JSON.stringify(data),
+					contentType: "application/json",
+					dataType: 'json',
+					xhrFields: {
+						withCredentials: true
+					},
+					crossDomain: true,
+					success: function (rs) {
+						if (rs.status == 200) {
+							
+							layer.msg('退货成功', {'time': 1000}, function () {
+								$('#group-select').show();
+								$('#swopPanel').hide();
+							});
+							//getReturnOrderList(orderId)
+						} else {
+							layer.msg(rs.message, {'time': 1000});
+						}
+					}
+				})
+			}, function () {
+				layer.closeAll();
+			})
+		}
 	
 }

@@ -88,7 +88,7 @@
                          <script type="text/template" id="returnOrderDetailList">
                              {{each list as value i}}
                                 <tr>
-                                    <td><input type="checkbox" value="{{value.orderId}}" name="" style="width: 25px; height: 25px;"></td>
+                                    <td><input type="checkbox" value="{{value.orderId}}" data-num="{{value.num}}" data-money="{{value.money}}" name="" style="width: 25px; height: 25px;"></td>
                                     <td>{{i + 1}}</td>
                                     <td>{{value.goodsId}}</td>
                                     <td class="nick"></td>
@@ -98,7 +98,7 @@
                                         <span class="number">{{value.num}}</span>
                                         <span class="add" data-num="{{value.num}}">+</span>
                                     </td>
-                                    <td>￥{{value.money}}.00</td>
+                                    <td class="unitPrice">￥{{value.money}}.00</td>
                                     <td><a class="layui-btn layui-btn-ms layui-btn-normal refund_btn" data-orderId="{{value.orderId}}" data-orderData="{{value}}">退货</a></td>
                                 </tr>
                              {{/each}}
@@ -106,15 +106,15 @@
                     </tbody>
 
                 </table>
+                <div id="noeList" class="noeList" style="display: none;">
+                    商品已退完,暂无退货商品
+                </div>
             </div>
         </div>
         <!-- 商品信息汇总 -->
         <div class="shopGoodsClearing padding-big ">
             <div class="shopGoodsInfo padding-big-top">
-                <p>合计：¥ <span id="realPrice">0.00</span></p>
-                <p>优惠券：¥ <span id="couponPrice">0.00</span></p>
-                <p>积分：¥ <span id="integralPrice">0.00</span></p>
-                <p>实收：¥ <span id="payPrice" class="price payPrice">0.00</span></p>
+                <p>退货金额：¥ <span id="returnPrice" class="price">0.00</span></p>
             </div>
             <div class="shopGoodsBtn margin-big-top">
                 <button class="layui-btn layui-btn-danger button  float-right margin-big-left" onclick="getBatchReturn()">批量退货</button>
