@@ -226,6 +226,7 @@ function getGoodsList(key, status) {
 								PaymentKey = $(this).val();
 								var integralIndex = returnIntegralIndex(rs.data.integralSellTypeList, PaymentKey);
 								rs.data.num = 1;
+								rs.data.sellType = rs.data.integralSellTypeList[integralIndex].sellType;
 								rs.data.price = priceCount(rs.data.price, rs.data.num);
 								rs.data.price = priceCount(rs.data.integralSellTypeList[integralIndex].cash, rs.data.num);
 								unitPrice = priceCount(rs.data.integralSellTypeList[integralIndex].cash, rs.data.num);
@@ -237,7 +238,6 @@ function getGoodsList(key, status) {
 								renderGoodsList(ListData);
 								layer.closeAll();
 							})
-							
 						}
 					});
 				}
@@ -253,8 +253,7 @@ function getGoodsList(key, status) {
 
 
 function renderGoodsList(data) {
-	
-	//console.log(paymentType);
+
 	var html = template('GoodsList', {
 		list: data
 	});
@@ -381,7 +380,7 @@ function getPrice(realPrice) {
 
 
 function checkOut() {
-	//console.log(PaymentKey)
+	//console.log(PaymentKey);
 	var goodsList = [];
 	_payPrice = $('#payPrice').text();
 	var _integralPrice = $('#integralPrice').text();
@@ -412,7 +411,7 @@ function checkOut() {
 		//integralBillOptions.balance =  parseFloat($(el).find('.price').text() / integralBillOptions.num);
 		integralBillOptions.cash = parseFloat($(el).find('.price').text() / integralBillOptions.num);
 		integralBillOptions.fubi = parseFloat($(el).find('.coupon').text() / integralBillOptions.num);
-		integralBillOptions.sellType = PaymentKey;
+		integralBillOptions.sellType = $(el).attr('data-sellType');
 		goodsList.push(integralBillOptions);
 	})
 	//console.log(goodsList)

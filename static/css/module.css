@@ -233,7 +233,7 @@
 
 .group .form-group .form-control{
 	width: 140px;
-	height: 36px;
+	height: 42px;
 	margin-left: 10px;
 	border:1px solid #d0d0d0;
 	padding-left: 12px;
@@ -245,6 +245,10 @@
 .group .form-group span{
 	font-size: 14px;
 	margin-left: 10px;
+}
+.group .form-group .form-control option{
+	font-size: 20px;
+	color: #787878;
 }
 
 
