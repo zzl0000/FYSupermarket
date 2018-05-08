@@ -179,16 +179,16 @@ function getBatchReturn() {
 			'sellType': 0,
 		};
 		orderId = data[i].integralOrderId;
-		goodsInfo.balance = data.balance;
-		goodsInfo.cash = data.cash;
-		goodsInfo.fromSkuId = data.fromSkuId;
-		goodsInfo.fubi = data.fubi;
-		goodsInfo.goodsId = data.goodsId;
+		goodsInfo.balance = data[i].balance;
+		goodsInfo.cash = data[i].cash;
+		goodsInfo.fromSkuId = data[i].fromSkuId;
+		goodsInfo.fubi = data[i].fubi;
+		goodsInfo.goodsId = data[i].goodsId;
 		goodsInfo.num = numArray[i];
-		goodsInfo.goodsName = data.goodsName;
-		goodsInfo.goodsNo = data.goodsNo;
-		goodsInfo.integral = data.integral;
-		goodsInfo.sellType = data.sellType;
+		goodsInfo.goodsName = data[i].goodsName;
+		goodsInfo.goodsNo = data[i].goodsNo;
+		goodsInfo.integral = data[i].integral;
+		goodsInfo.sellType = data[i].sellType;
 		goodsList.push(goodsInfo);
 	}
 	
@@ -199,7 +199,7 @@ function getBatchReturn() {
 
 
 function batchReturnAjax(orderId, goodsList) {
-	console.log(orderId)
+	console.log(orderId,goodsList)
 	if (goodsList.length <= 0) {
 		layer.msg('请选择退货商品', {'time': 1000});
 		return false;
@@ -214,7 +214,7 @@ function batchReturnAjax(orderId, goodsList) {
 					"integralOrderId": orderId,
 					"integralReturnBillOptionList": goodsList
 				}
-				
+				return;
 				$.ajax({
 					type: "post",
 					url: integralReturn,

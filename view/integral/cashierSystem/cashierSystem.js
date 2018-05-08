@@ -334,6 +334,7 @@ function realPriceCount(type,unitPrice, uniIntegral,unitFubi) {
 	
 	$('#integralPrice').text(integralPrice.toFixed(2));
 	$('#payPrice').text(cash.toFixed(2));
+	$('.payPrice').text(cash.toFixed(2));
 	$('#couponPrice').text(fubi.toFixed(2));
 }
 

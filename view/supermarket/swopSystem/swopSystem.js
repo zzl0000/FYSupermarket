@@ -91,12 +91,6 @@ function getReturnOrderList(orderId){
 						$(this).siblings(".number").text(minusCount(_slef, num))
 					});
 					
-					var _returnPrice = '0.00';
-					
-					$('body input[type=checkbox]').off('click').on('click', function(){
-						_returnPrice = parseFloat($(this).attr('data-num') * $(this).attr('data-money')).toFixed(2);
-						$('#returnPrice').text(_returnPrice);
-					});
 					
 				}
 				
@@ -108,6 +102,7 @@ function getReturnOrderList(orderId){
 		}
 	})
 }
+
 
 
 // 数量计算
