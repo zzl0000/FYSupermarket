@@ -82,7 +82,7 @@ function init() {
 		} else {
 			unitPrice = $(this).parent().siblings().find('.price').text() / num;
 			unitIntegral = $(this).parent().siblings().find('.integral').text() / num;
-			unitFubi = $(this).parent().siblings().find('.coupon').text();
+			unitFubi = $(this).parent().siblings().find('.coupon').text()/ num;
 			
 		}
 		$(this).siblings(".number").text(addCount(_slef, num));
@@ -411,6 +411,7 @@ function checkOut() {
 		//integralBillOptions.balance =  parseFloat($(el).find('.price').text() / integralBillOptions.num);
 		integralBillOptions.cash = parseFloat($(el).find('.price').text() / integralBillOptions.num);
 		integralBillOptions.fubi = parseFloat($(el).find('.coupon').text() / integralBillOptions.num);
+		console.log(integralBillOptions.fubi);
 		integralBillOptions.sellType = $(el).attr('data-sellType');
 		goodsList.push(integralBillOptions);
 	})
@@ -423,7 +424,7 @@ function checkOut() {
 		"sumFubi": _fubi,
 		"token": token,
 		"nick": nick,
-	}
+	};
 	
 	$.ajax({
 		type: "post",

@@ -1,7 +1,10 @@
-// 输入键盘 
+// 输入键盘
+
+
 var _inputkey = '';
 
-$('body').on('click', '.input-key', function(e) {
+$('body .input-key ').off('click').on('click', function(e) {
+	e.preventDefault();
 	var _curval = $(this).text();
 	keyCount(_curval)
 })
