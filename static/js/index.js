@@ -33,10 +33,10 @@ function setInit() {
             letNavhtml += '<span class="icon05"></span>';
             letNavhtml += '<font class="title">交换班</font>';
             letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
-            letNavhtml += '<span class="icon06"></span>';
-            letNavhtml += '<font class="title">设置</font>';
-            letNavhtml += '</li>';
+            // letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
+            // letNavhtml += '<span class="icon06"></span>';
+            // letNavhtml += '<font class="title">设置</font>';
+            // letNavhtml += '</li>';
         } else {
             letNavhtml += '<li  data-url=\'supermarket/tradingRecord/index.html\'>';
             letNavhtml += '<span class="icon02"></span>';
@@ -46,10 +46,10 @@ function setInit() {
             letNavhtml += '<span class="icon05"></span>';
             letNavhtml += '<font class="title">交换班</font>';
             letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
-            letNavhtml += '<span class="icon06"></span>';
-            letNavhtml += '<font class="title">设置</font>';
-            letNavhtml += '</li>';
+            // letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
+            // letNavhtml += '<span class="icon06"></span>';
+            // letNavhtml += '<font class="title">设置</font>';
+            // letNavhtml += '</li>';
         }
         letNavhtml += '<li   class=""  data-url="" id="changeSystem">';
         letNavhtml += '<span class="icon07"></span>';
@@ -73,14 +73,15 @@ function setInit() {
         letNavhtml += '<span class="icon05"></span>';
         letNavhtml += '<font class="title">交换班</font>';
         letNavhtml += '</li>';
-        letNavhtml += '<li class="integral" data-url=\'integral/setSystem/index.html\'>';
-        letNavhtml += '<span class="icon06"></span>';
-        letNavhtml += '<font class="title">设置</font>';
-        letNavhtml += '</li>';
+        // letNavhtml += '<li class="integral" data-url=\'integral/setSystem/index.html\'>';
+        // letNavhtml += '<span class="icon06"></span>';
+        // letNavhtml += '<font class="title">设置</font>';
+        // letNavhtml += '</li>';
         letNavhtml += '<li   class="integral active"  data-url="" id="changeSystem">';
         letNavhtml += '<span class="icon07"></span>';
         letNavhtml += '<font class="title">切换</font>';
         letNavhtml += '</li>';
+	    letNavhtml += '<li style="background: white"></li>';
     }
 
 
