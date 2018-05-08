@@ -62,7 +62,7 @@ $('body').on('click', '.decimal', function() {
 
 function keyCount(val) {
 	var price = _payPrice || $('#payPrice').text();
-	console.log(price)
+	//console.log(price)
 	//console.log(price);
 	if(parseFloat(val) <= parseFloat(price)) {
 

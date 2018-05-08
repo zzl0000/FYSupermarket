@@ -13,7 +13,8 @@ var price,
 	unitIntegral,
 	unitIntegral,
 	unitFubi,
-	realPrice;
+	realPrice,
+	_payPrice;
 
 var token;
 var nick;
@@ -382,7 +383,7 @@ function getPrice(realPrice) {
 function checkOut() {
 	//console.log(PaymentKey)
 	var goodsList = [];
-	var _payPrice = $('#payPrice').text();
+	_payPrice = $('#payPrice').text();
 	var _integralPrice = $('#integralPrice').text();
 	var _fubi = $('#couponPrice').text();
 	//console.log(gNo)

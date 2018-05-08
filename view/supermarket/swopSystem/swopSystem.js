@@ -1,5 +1,5 @@
-
-
+var _curnum;
+var isClick = false;
 
 $('#search').on('click', function(e){
 	e.preventDefault();
@@ -10,7 +10,7 @@ $('#search').on('click', function(e){
 	}else{
 		getReturnOrderList(orderId);
 	}
-})
+});
 
 function getReturnOrderList(orderId){
 	$.ajax({
@@ -48,6 +48,25 @@ function getReturnOrderList(orderId){
 					$('#employeeName').text(rs.data.employeeName);
 					
 				})
+				
+				$('body').on('click', '.add', function (e) {
+					e.preventDefault();
+					var _slef = $(this);
+					var num = $(this).siblings('.number').text();
+					if(num >= rs.data.num){
+						layer.msg('退货数量不能超过订单数量',{'time':1000});
+						return false;
+					}else{
+						$(this).siblings(".number").text(addCount(_slef, num))
+					}
+				})
+				
+				$('body').on('click', '.minus', function (e) {
+					e.preventDefault();
+					var _slef = $(this);
+					var num = $(this).siblings('.number').text();
+					$(this).siblings(".number").text(minusCount(_slef, num))
+				});
 			} else {
 				layer.msg(rs.message,{'time':1000});
 				$('#group-select').show();
@@ -58,13 +77,33 @@ function getReturnOrderList(orderId){
 }
 
 
+
+
+// 数量计算
+function addCount(el, num) {
+	el.removeClass('disabled');
+	_curnum = parseInt(num) + 1;
+	return _curnum;
+}
+
+function minusCount(el, _num) {
+	_curnum = parseInt(_num) - 1;
+	if (_curnum <= 0) {
+		// console.log(el);
+		el.addClass('disabled');
+	}
+	//console.log(num);
+	return _curnum;
+}
+
+
 var goodsList = [];
 
 $('body').off('click').on('click','.refund_btn', function(e){
 	e.preventDefault()
 	var orderId = $(this).attr('data-orderId');
 	var data =JSON.parse($(this).attr('data-orderData'));
-	
+	var num = $(this).parent().siblings().find('.number').text();
 	var key = $(this).parent().siblings().find('input').is(':checked');
 	if(!key){
 		layer.msg('请选择退货商品',{'time':1000});
@@ -84,7 +123,7 @@ $('body').off('click').on('click','.refund_btn', function(e){
 		goodsInfo.goodsId = data.goodsId;
 		goodsInfo.goodsName = data.goodsName;
 		goodsInfo.money = data.money;
-		goodsInfo.num = 1;
+		goodsInfo.num = num;
 		goodsInfo.selected = data.selected;
 		goodsInfo.specValueId = data.specValueId;
 		
@@ -99,9 +138,11 @@ $('body').off('click').on('click','.refund_btn', function(e){
 function getBatchReturn(){
 	var orderId;
 	var data = [];
+	var numArray = [];
 	$('input[type=checkbox]').each(function(){
 		if($(this).is(':checked')){
 				data.push(JSON.parse($(this).parent().siblings().find('.refund_btn').attr('data-orderData')));
+				numArray.push($(this).parent().siblings().find('.number').text());
 		}else{
 			layer.msg('请选择退货商品',{'time':1000});
 		}
@@ -117,13 +158,13 @@ function getBatchReturn(){
 			"selected": 0,
 			'specValueId':0,
 		};
-		orderId =  data[i].integralOrderId;
+		orderId =  data[i].orderId;
 		goodsInfo.fromSkuId = data[i].fromSkuId;
 		goodsInfo.gno =  data[i].gno;
 		goodsInfo.goodsId =  data[i].goodsId;
 		goodsInfo.goodsName =  data[i].goodsName;
 		goodsInfo.money =  data[i].money;
-		goodsInfo.num = 1;
+		goodsInfo.num = numArray[i];
 		goodsInfo.selected =  data[i].selected;
 		goodsInfo.specValueId =  data[i].specValueId;
 		goodsList.push(goodsInfo)
