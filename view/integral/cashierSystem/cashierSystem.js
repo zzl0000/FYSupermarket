@@ -86,10 +86,9 @@ function init() {
 			
 		}
 		$(this).siblings(".number").text(addCount(_slef, num));
-		
-		$(this).parent().siblings().find('.integral').text(priceCount(unitIntegral, _curnum));
-		$(this).parent().siblings().find('.price').text(priceCount(unitPrice, _curnum));
-		$(this).parent().siblings().find('.coupon').text(priceCount(unitFubi, _curnum));
+		$(this).parent().siblings().find('.price').text(priceCount(unitPrice, _curnum,_slef,1));
+		$(this).parent().siblings().find('.integral').text(priceCount(unitIntegral, _curnum,_slef,2));
+		$(this).parent().siblings().find('.coupon').text(priceCount(unitFubi, _curnum,_slef,3));
 		
 		realPriceCount('add', unitPrice, unitIntegral,unitFubi);
 	})
@@ -108,10 +107,9 @@ function init() {
 			unitFubi = $(this).parent().siblings().find('.coupon').text() / num;
 		}
 		$(this).siblings(".number").text(minusCount(_slef, num));
-		
-		$(this).parent().siblings().find('.integral').text(priceCount(unitIntegral, _curnum));
-		$(this).parent().siblings().find('.price').text(priceCount(unitPrice, _curnum));
-		$(this).parent().siblings().find('.coupon').text(priceCount(unitFubi, _curnum));
+		$(this).parent().siblings().find('.price').text(priceCount(unitPrice, _curnum,_slef,1));
+		$(this).parent().siblings().find('.integral').text(priceCount(unitIntegral, _curnum,_slef,2));
+		$(this).parent().siblings().find('.coupon').text(priceCount(unitFubi, _curnum,_slef,3));
 		
 		realPriceCount('minus', unitPrice, unitIntegral, unitFubi);
 	})
@@ -311,10 +309,25 @@ function minusCount(el, _num) {
 
 
 
-function priceCount(val, _num) {
+function priceCount(val, _num,el,type) {
 	//console.log(val,_num);
 	_unitPrice = parseFloat(val) * _num;
 	//console.log(key);
+	
+	if(el != undefined){
+		var id = el.attr('data-goodsId');
+		var index = returnIndexof(ListData.goodsListData, id);
+		if(type == 1){
+			ListData.goodsListData[index].price = _unitPrice.toFixed(2);
+		}
+		if(type == 2){
+			ListData.goodsListData[index].integral = _unitPrice.toFixed(2);
+		}
+		if(type == 3){
+			ListData.goodsListData[index].fubi = _unitPrice.toFixed(2);
+		}
+		
+	}
 	return _unitPrice.toFixed(2);
 }
 
