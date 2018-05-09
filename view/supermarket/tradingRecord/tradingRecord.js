@@ -78,7 +78,7 @@ function getOrderDetail(orderId) {
         success: function(rs) {
             if(rs.status == 200) {
                 var data = rs.data;
-                var payWayText =['无','现金','扫码','余额'];
+                var payWayText =['无','现金','支付宝','微信'];
                 var html = template('orderDetailList', {
                     list: rs.data.orderOptionList
                 });
@@ -139,7 +139,7 @@ function getOrderList(_curr,payWay,beginTime,endTime) {
                     $('#page').show();
                     $("#noeList").hide();
                     template.defaults.imports.getPayWay = function(key){
-                        var payWayText =['无','现金','扫码','余额'];
+                        var payWayText =['无','现金','支付宝','微信'];
                         return payWayText[key]
                     };
                     html = template('orderList', {

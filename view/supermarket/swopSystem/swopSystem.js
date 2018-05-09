@@ -43,7 +43,7 @@ function getReturnOrderList(orderId){
 				$('#group-select').hide();
 				$('#swopPanel').show();
 				$('#storeOrderId').val('');
-				var payWayText =['无','现金','扫码','余额'];
+				var payWayText =['无','现金','支付宝','微信'];
 				//console.log(rs);
 				if(rs.data.orderOptionList == null) {
 					$("#noeList").show();

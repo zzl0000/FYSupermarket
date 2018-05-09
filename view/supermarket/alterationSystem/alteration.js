@@ -35,7 +35,7 @@ function getOrderList(_curr) {
                     $('#page').show();
                     $("#noeList").hide();
                     template.defaults.imports.getPayWay = function(key){
-                        var payWayText =['无','现金','扫码','余额'];
+                        var payWayText =['无','现金','支付宝','微信'];
                         return payWayText[key]
                     };
 
