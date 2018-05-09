@@ -89,7 +89,7 @@
 						<script type="text/template" id="returnOrderDetailList">
 							{{each list as value i}}
 							<tr>
-								<td><input type="checkbox" value="{{value.integralOrderId}}" name="" style="width: 25px; height: 25px;"></td>
+								<td><input type="checkbox"  value="{{i}}" data-num="{{value.num}}" data-money="{{value.money}}" name="" style="width: 25px; height: 25px;"></td>
 								<td>{{i + 1}}</td>
 								<td>{{value.goodsId}}</td>
 								<td class="nick"></td>
@@ -113,6 +113,7 @@
 		<!-- 商品信息汇总 -->
 		<div class="shopGoodsClearing padding-big ">
 			<div class="shopGoodsInfo padding-big-top">
+				<p>退货金额：¥ <span id="returnPrice" class="price">0.00</span></p>
 			</div>
 			<div class="shopGoodsBtn margin-big-top">
 				<button class="layui-btn layui-btn-danger button  float-right margin-big-left" onclick="getBatchReturn()">批量退货</button>
