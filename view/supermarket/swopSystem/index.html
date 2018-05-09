@@ -88,7 +88,7 @@
                          <script type="text/template" id="returnOrderDetailList">
                              {{each list as value i}}
                                 <tr>
-                                    <td><input type="checkbox" value="{{value.orderId}}" data-num="{{value.num}}" data-money="{{value.money}}" name="" style="width: 25px; height: 25px;"></td>
+                                    <td><input type="checkbox" value="{{i}}" data-num="{{value.num}}" data-money="{{value.money}}" name="" style="width: 25px; height: 25px;"></td>
                                     <td>{{i + 1}}</td>
                                     <td>{{value.goodsId}}</td>
                                     <td class="nick"></td>

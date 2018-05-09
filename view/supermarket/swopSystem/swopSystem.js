@@ -94,13 +94,15 @@ function getReturnOrderList(orderId){
 					var _returnPrice = [];
 					
 					$('body input[type=checkbox]').off('click').on('click', function(){
-						var price = parseFloat($(this).attr('data-num') * $(this).attr('data-money')).toFixed(2);
-						if($(this).is(':checked')){
-							_returnPrice.push(price) ;
-						}else{
-							//_returnPrice.slice(0)
-						}
 						
+						var price = parseFloat($(this).attr('data-num') * $(this).attr('data-money')).toFixed(2);
+						var id = $(this).val();
+						
+						if($(this).is(':checked')){
+							_returnPrice[id] = price ;
+						}else{
+							_returnPrice[id] = 0;
+						}
 						$('#returnPrice').text(sum(_returnPrice));
 					});
 					
@@ -136,7 +138,7 @@ function minusCount(el, _num) {
 }
 
 function sum(arr) {
-	return eval(arr.join("+"));
+	return eval(arr.join("+")).toFixed(2);
 };
 
 var goodsList = [];
