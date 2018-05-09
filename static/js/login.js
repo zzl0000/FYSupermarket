@@ -88,7 +88,7 @@ function signlogStore() {
 		            })
 	
             }else if(rs.status == 201){
-	            sessionStorage.setItem("offLine", null);
+	            sessionStorage.setItem("offLine", "null");
 	            layer.msg(rs.message, {time: 1000});
 	            $('.lo_title').find('font').text('员工登录')
 	            $('.lo_store').hide();

@@ -11,7 +11,7 @@ function setInit() {
     var letNavhtml = '';
     letNavhtml += '<ul>';
     //console.log(integral);
-	if(offLine != null){
+	if(offLine != "null"){
 		if(integral != 0){
 			homeUrl = './supermarket/home/index.html';
 			if (dutyType == 1) {
