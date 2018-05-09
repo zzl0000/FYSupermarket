@@ -551,13 +551,10 @@ function getBarCode(code){
 	//console.log(goodsList)
 	
 	var data = {
-		bill:{
 			"goodsList": goodsList,
 			"sumMoney": _payPrice,
 			"token": token,
 			"nick": nick
-		}
-		
 	}
 	
 	
