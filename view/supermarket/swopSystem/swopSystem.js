@@ -143,27 +143,9 @@ function sum(arr) {
 	return eval(arr.join("+")).toFixed(2);
 };
 
-function returnPriceCount(type,el,_num){
-	console.log(_num)
-	var isChecked = $(el).parent().siblings().find('input');
-	if(isChecked.is(':checked')){
-		var _returnPrice =  $('#returnPrice').text();
-		if(parseInt(_num) <= 1){
-			_returnPrice = parseFloat(_returnPrice);
-		}else{
-			if(type == "add"){
-				_returnPrice = parseFloat(_returnPrice) + parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
-			}else{
-				_returnPrice = parseFloat(_returnPrice) - parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
-			}
-		}
-		
-	}else{
-		_returnPrice = 0;
-	}
-	
-	return _returnPrice.toFixed(2);
-}
+
+
+
 
 var goodsList = [];
 

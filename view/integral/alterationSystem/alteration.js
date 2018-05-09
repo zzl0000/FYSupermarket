@@ -188,7 +188,7 @@ function openPanel() {
                             $("#gatheringList").html(html1);
                             $("#memberlinfoList").html(html2);
                             $('#imprestCashLogout').text(rs.data.imprestCashLogout);
-
+							$('#LogoutTime').text(rs.data.logoutTime.slice(10,rs.data.logoutTime.length));
 						}
 
 					}
