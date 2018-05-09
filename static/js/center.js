@@ -9,6 +9,8 @@ var turl = "http://52.80.78.25:8081";
 var getUser = turl + "/cashier/cashier/getUser"; // 获取会员信息
 var getGoods = turl + "/cashier/cashier/getGoods"; // 获取商品信息
 var payByCash = turl + "/cashier/cashier/payByCash";  // 现金支付
+var payByScan = turl + "/cashier/cashier/payByScan";  // 扫码支付
+
 var saveHangOrder = turl + "/cashier/hangOrder/saveHangOrder"; // 保存挂单
 var getLoginEmployee = turl + "/cashier/login/getLoginEmployee";   //获取当前登录员工
 var updateStatus = turl + "/cashier/login/updateStatus";   //上传员工 当班状态

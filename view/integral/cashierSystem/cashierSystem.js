@@ -371,7 +371,6 @@ function getPrice(realPrice) {
 		
 	}
 	
-	
 	str = str.substring(0, str.length - 1);
 	str2 = str2.substring(0, str2.length - 1);
 	str3 = str3.substring(0, str3.length - 1);
@@ -518,7 +517,6 @@ function returnSAIndexof(arr, value) {
 		if (a[i] == value) {
 			_curIndex = i;
 		}
-		
 	}
 	//console.log(_curIndex);
 	return _curIndex;

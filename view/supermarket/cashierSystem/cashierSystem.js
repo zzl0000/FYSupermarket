@@ -374,19 +374,6 @@ function reset() {
 }
 
 
-$('body').keyup(function () {
-	// 先判断焦点是不是在文本框中或者下拉框
-	if (document.activeElement.localName != "input" && document.activeElement.localName != "select") {
-		//判断按键是不是R
-		if (event.ctrlKey && event.keyCode == 112) {
-			uplodOrder();
-		}
-		
-		if (event.ctrlKey && event.keyCode == 113) {
-			uplodOrder();
-		}
-	}
-});
 
 
 // 挂账
@@ -488,7 +475,7 @@ function checkOut() {
 		"nick": nick
 	}
 	
-	
+
 	
 	$.ajax({
 		type: "post",
@@ -572,13 +559,115 @@ $('body').on('click', '.minus', function (e) {
 
 $('.settlementMethod li').on('click', function(e){
 	var type = $(this).index();
+	$(this).addClass('active');
+	$(this).siblings().removeClass('active');
 	if(type == 0){
+		
 		$('.cashList').show();
 		$('.scanCodeList').hide();
+		$('#barCode').blur();
 	}
 	if(type == 1){
 		$('.cashList').hide();
 		$('.scanCodeList').show();
+		$('#barCode').focus();
 	}
 })
+
+
+$('body').keyup(function () {
+	// 先判断焦点是不是在文本框中或者下拉框
+	if (document.activeElement.localName != "input" && document.activeElement.localName != "select") {
+		//判断按键是不是R
+		if (event.ctrlKey && event.keyCode == 112) {
+			uplodOrder();
+		}
+		
+		if (event.ctrlKey && event.keyCode == 113) {
+			uplodOrder();
+		}
+		
+	}
+});
+
+$("#barCode").startListen({
+	barcodeLen : 18,
+	letter : true,
+	number : true,
+	check  : true,
+	show : function(code){
+		getBarCode(code);
+	}
+});
+
+function getBarCode(code){
+	if(ischeckOut){
+		return false;
+	}
+	var goodsList = [];
+	var _payPrice = $('#payPrice').text();
+	if (parseFloat(_payPrice) <= 0) {
+		layer.msg('请先添加商品');
+		return false;
+	}
+	
+	$('#Goods li').each(function (index, el) {
+		var goodsInfo = {
+			"gno": '0',
+			"goodsId": 0,
+			"fromSkuId":0,
+			"money": 0,
+			"num": 0,
+			"specValueId": 0,
+			"allotTitle": 0
+		};
+		goodsInfo.gno = $(el).attr('data-gNo');
+		goodsInfo.goodsId = $(el).attr('data-goodsId');
+		goodsInfo.fromSkuId = $(el).attr('data-fromSkuId');
+		goodsInfo.specValueId = $(el).attr('data-specValueId');
+		goodsInfo.allotTitle = $(el).attr('data-allotType');
+		goodsInfo.num = $(el).find('.number').text();
+		goodsInfo.money = parseFloat($(el).find('.price').text().substring(1) / goodsInfo.num);
+		goodsList.push(goodsInfo);
+	})
+	//console.log(goodsList)
+	
+	var data = {
+		bill:{
+			"goodsList": goodsList,
+			"sumMoney": _payPrice,
+			"token": token,
+			"nick": nick
+		}
+		
+	}
+	
+	
+	
+	$.ajax({
+		type: "post",
+		url: payByScan +"?barcode=" + code,
+		data:JSON.stringify(data),
+		contentType: "application/json",
+		dataType: 'json',
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function (rs) {
+			if (rs.status == 200) {
+				layer.msg('结账成功');
+				ischeckOut = true;
+				reset();
+				resetKeyboard();
+			} else {
+				reset();
+				ischeckOut = true;
+				layer.msg(rs.message)
+			}
+		}
+	});
+}
+
+
 

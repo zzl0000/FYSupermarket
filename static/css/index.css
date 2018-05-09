@@ -380,8 +380,6 @@
 	padding: 5px 0;
 }
 
-
-
 .shopGoodslist{
 	max-height: 450px;
 	overflow-x: hidden;
@@ -719,5 +717,16 @@
 	font-size: 18px;
 	padding-left: 12px;
 
+}
+
+.scanCodeList .scanCodeBg{
+	position: relative;
+	top: 20px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.scanCodeList .scanCodeBg img{
+	width: 100%;
 }
 
