@@ -74,7 +74,7 @@ function getReturnOrderList(orderId) {
 						_slef.addClass('disabled');
 						return false;
 					}else{
-						$(this).siblings(".number").text(addCount(_slef, num))
+						$(this).siblings(".number").text(addCount(_slef, num));
 						$('#returnPrice').text(returnPriceCount('add',_slef,addCount(_slef, num)));
 					}
 				})
@@ -95,9 +95,9 @@ function getReturnOrderList(orderId) {
 				
 				$('body input[type=checkbox]').off('click').on('click', function(){
 					
-					var price = parseFloat($(this).attr('data-num') * $(this).attr('data-money')).toFixed(2);
+					var price = parseFloat($(this).parent().siblings().find('.number').text() * $(this).attr('data-money')).toFixed(2);
 					var id = $(this).val();
-					
+					//console.log($(this).attr('data-money'));
 					if($(this).is(':checked')){
 						_returnPrice[id] = price ;
 					}else{
@@ -142,14 +142,11 @@ function returnPriceCount(type,el,_num){
 	var isChecked = $(el).parent().siblings().find('input');
 	if(isChecked.is(':checked')){
 		var _returnPrice =  $('#returnPrice').text();
-		
-			if(type == "add"){
-				_returnPrice = parseFloat(_returnPrice) + parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
-			}else{
-				_returnPrice = parseFloat(_returnPrice) - parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
-			}
-		
-		
+		if(type == "add"){
+			_returnPrice = parseFloat(_returnPrice) + parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
+		}else{
+			_returnPrice = parseFloat(_returnPrice) - parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
+		}
 	}else{
 		_returnPrice = 0;
 	}
