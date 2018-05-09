@@ -75,6 +75,7 @@ function getReturnOrderList(orderId) {
 						return false;
 					}else{
 						$(this).siblings(".number").text(addCount(_slef, num))
+						$('#returnPrice').text(returnPriceCount('add',_slef,addCount(_slef, num)));
 					}
 				})
 				$('body .minus').off('click').on('click', function (e) {
@@ -82,7 +83,12 @@ function getReturnOrderList(orderId) {
 					var _slef = $(this);
 					_slef.siblings('.add').removeClass('disabled');
 					var num = $(this).siblings('.number').text();
+					if(num <= 1 ){
+						_slef.addClass('disabled');
+						return false;
+					};
 					$(this).siblings(".number").text(minusCount(_slef, num))
+					$('#returnPrice').text(returnPriceCount('minus',_slef,minusCount(_slef, num)));
 				});
 				
 				var _returnPrice = [];
@@ -130,6 +136,26 @@ function minusCount(el, _num) {
 function sum(arr) {
 	return eval(arr.join("+")).toFixed(2);
 };
+
+function returnPriceCount(type,el,_num){
+	console.log(_num)
+	var isChecked = $(el).parent().siblings().find('input');
+	if(isChecked.is(':checked')){
+		var _returnPrice =  $('#returnPrice').text();
+		
+			if(type == "add"){
+				_returnPrice = parseFloat(_returnPrice) + parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
+			}else{
+				_returnPrice = parseFloat(_returnPrice) - parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
+			}
+		
+		
+	}else{
+		_returnPrice = 0;
+	}
+	
+	return _returnPrice.toFixed(2);
+}
 
 var goodsList = [];
 

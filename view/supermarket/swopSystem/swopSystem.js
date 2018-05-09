@@ -88,6 +88,12 @@ function getReturnOrderList(orderId){
 						var _slef = $(this);
 						_slef.siblings('.add').removeClass('disabled');
 						var num = $(this).siblings('.number').text();
+						console.log(num);
+						if(num <= 1 ){
+							_slef.addClass('disabled');
+							return false;
+						};
+						
 						$(this).siblings(".number").text(minusCount(_slef, num));
 						$('#returnPrice').text(returnPriceCount('minus',_slef,minusCount(_slef, num)));
 					});
@@ -130,12 +136,6 @@ function addCount(el, num) {
 function minusCount(el, _num) {
 	_curnum = parseInt(_num) - 1;
 	
-	if (_curnum < 1) {
-		// console.log(el);
-		el.addClass('disabled');
-		_curnum = 1;
-	}
-	//console.log(num);
 	return _curnum;
 }
 
@@ -143,8 +143,22 @@ function sum(arr) {
 	return eval(arr.join("+")).toFixed(2);
 };
 
-
-
+function returnPriceCount(type,el,_num){
+	//console.log(_num)
+	var isChecked = $(el).parent().siblings().find('input');
+	if(isChecked.is(':checked')){
+		var _returnPrice =  $('#returnPrice').text();
+			if(type == "add"){
+				_returnPrice = parseFloat(_returnPrice) + parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
+			}else{
+				_returnPrice = parseFloat(_returnPrice) - parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
+			}
+	}else{
+		_returnPrice = 0;
+	}
+	
+	return _returnPrice.toFixed(2);
+}
 
 
 var goodsList = [];
