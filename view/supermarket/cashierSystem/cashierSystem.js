@@ -28,6 +28,7 @@ var key;
 var keyId;
 var isMemberVal = false;
 var hangOrderNum = [];
+var ischeckOut = false;
 init();
 
 function init() {
@@ -366,6 +367,7 @@ function reset() {
 	isgNo = false;
 	num = 0;
 	ListData.goodsListData = [];
+	ischeckOut = false;
 	sessionStorage.setItem("hangOrderData", null);
 	$('#allotOnePrice').text('0.00');
 	$('#allotTowPrice').text('0.00');
@@ -448,6 +450,9 @@ function uplodOrder() {
 // 结账
 
 function checkOut() {
+	if(ischeckOut){
+		return false;
+	}
 	var goodsList = [];
 	var _payPrice = $('#payPrice').text();
 	if (parseFloat(_payPrice) <= 0) {
@@ -495,9 +500,12 @@ function checkOut() {
 		success: function (rs) {
 			if (rs.status == 200) {
 				layer.msg('结账成功');
+				ischeckOut = true;
 				reset();
 				resetKeyboard();
 			} else {
+				reset();
+				ischeckOut = true;
 				layer.msg(rs.message)
 			}
 		}

@@ -29,6 +29,7 @@ var ListData = {
 var PaymentKey = '';
 var isMemberVal = false;
 var key;
+var ischeckOut = false;
 init();
 
 function init() {
@@ -395,6 +396,9 @@ function getPrice(realPrice) {
 
 function checkOut() {
 	//console.log(PaymentKey);
+	if(ischeckOut){
+		return false;
+	}
 	var goodsList = [];
 	_payPrice = $('#payPrice').text();
 	var _integralPrice = $('#integralPrice').text();
@@ -453,8 +457,10 @@ function checkOut() {
 		success: function (rs) {
 			if (rs.status == 200) {
 				layer.msg('结账成功');
+				ischeckOut = true;
 				reset();
 			} else {
+				ischeckOut = true;
 				reset();
 				layer.msg(rs.message)
 			}
