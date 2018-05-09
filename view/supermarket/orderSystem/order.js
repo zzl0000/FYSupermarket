@@ -48,7 +48,7 @@ function getOrderList() {
 				}, 500)
 			}else {
 				setTimeout(function(){
-					//layer.msg(rs.message);
+					$("#HangOrderListDemo").html('');
 					$("#noeList").show();
 				},500)
 				

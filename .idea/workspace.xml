@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb063a20-08e2-465d-8db4-de4f023d7c7e" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/static/js/index.js" afterPath="$PROJECT_DIR$/static/js/index.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/login.js" afterPath="$PROJECT_DIR$/static/js/login.js" />
-      <change beforePath="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" afterPath="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" />
+      <change beforePath="$PROJECT_DIR$/view/supermarket/orderSystem/order.js" afterPath="$PROJECT_DIR$/view/supermarket/orderSystem/order.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -95,7 +93,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -108,6 +106,16 @@
                 <element signature="n#!!block;n#checkOut#0" expanded="false" />
                 <element signature="n#!!block;n#getBarCode#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/supermarket/orderSystem/order.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="672">
+              <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -204,7 +212,6 @@
         <option value="$PROJECT_DIR$/view/index.html" />
         <option value="$PROJECT_DIR$/view/integralSystem.html" />
         <option value="$PROJECT_DIR$/static/css/module.css" />
-        <option value="$PROJECT_DIR$/view/supermarket/orderSystem/order.js" />
         <option value="$PROJECT_DIR$/view/supermarket/swopSystem/index.html" />
         <option value="$PROJECT_DIR$/static/js/Keyboard.js" />
         <option value="$PROJECT_DIR$/view/supermarket/tradingRecord/index.html" />
@@ -225,6 +232,7 @@
         <option value="$PROJECT_DIR$/static/js/login.js" />
         <option value="$PROJECT_DIR$/static/js/index.js" />
         <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" />
+        <option value="$PROJECT_DIR$/view/supermarket/orderSystem/order.js" />
       </list>
     </option>
   </component>
@@ -367,6 +375,13 @@
               <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="supermarket" type="462c0819:PsiDirectoryNode" />
+              <item name="orderSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="supermarket" type="462c0819:PsiDirectoryNode" />
               <item name="setSystem" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -479,12 +494,12 @@
       <workItem from="1525654372933" duration="1725000" />
       <workItem from="1525656145583" duration="32767000" />
       <workItem from="1525740533539" duration="24977000" />
-      <workItem from="1525827953188" duration="30014000" />
+      <workItem from="1525827953188" duration="30237000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256374000" />
+    <option name="totallyTimeSpent" value="256597000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -743,14 +758,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/supermarket/orderSystem/order.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="33" column="41" lean-forward="true" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/KeyboardVal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="652">
@@ -948,6 +955,14 @@
             <element signature="n#!!block;n#checkOut#0" expanded="false" />
             <element signature="n#!!block;n#getBarCode#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/supermarket/orderSystem/order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="51" column="41" lean-forward="true" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
