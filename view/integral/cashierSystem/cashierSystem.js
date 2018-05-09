@@ -480,6 +480,7 @@ function reset() {
 	isMemberVal = false;
 	num = 0;
 	ListData.goodsListData = [];
+	resetKeyboard()
 }
 
 
