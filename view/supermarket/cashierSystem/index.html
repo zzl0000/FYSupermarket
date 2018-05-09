@@ -25,20 +25,22 @@
             <ul id="Goods">
                 <script type="text/template" id="GoodsList">
                     {{each list.goodsListData as value i}}
-                    <li class="border-gray border-bottom padding-big-bottom padding-big-top" data-fromSkuId="{{value.fromSkuId}}" data-allotType="{{value.allotTitle}}" data-gNo="{{value.gno}}"  data-goodsId="{{value.goodsId}}" data-specValueId="{{value.specValueId}}"  >
-                        <div class="shopGoodsTop">
-                            <h5 title="{{value.gname}}">{{value.gname}}</h5>
-                            <span>{{value.unit}}</span>
-                        </div>
-                        <div class="shopGoodsCT margin-big-top">
-                            <span class="price">¥ {{value.price}}</span>
-                            <div>
-                                <span class="minus" data-goodsId="{{value.goodsId}}" data-allotType="{{value.allotTitle}}"> - </span>
-                                <span class="number">{{value.num}}</span>
-                                <span class="add" data-goodsId="{{value.goodsId}}" data-allotType="{{value.allotTitle}}"> + </span>
-                            </div>
-                        </div>
-                    </li>
+                        {{if value.num >0 }}
+                                <li class="border-gray border-bottom padding-big-bottom padding-big-top" data-fromSkuId="{{value.fromSkuId}}" data-allotType="{{value.allotTitle}}" data-gNo="{{value.gno}}"  data-goodsId="{{value.goodsId}}" data-specValueId="{{value.specValueId}}"  >
+                                    <div class="shopGoodsTop">
+                                        <h5 title="{{value.gname}}">{{value.gname}}</h5>
+                                        <span>{{value.unit}}</span>
+                                    </div>
+                                    <div class="shopGoodsCT margin-big-top">
+                                        <span class="price">¥ {{value.price}}</span>
+                                        <div>
+                                            <span class="minus" data-goodsId="{{value.goodsId}}" data-allotType="{{value.allotTitle}}"> - </span>
+                                            <span class="number">{{value.num}}</span>
+                                            <span class="add" data-goodsId="{{value.goodsId}}" data-allotType="{{value.allotTitle}}"> + </span>
+                                        </div>
+                                    </div>
+                                </li>
+                        {{/if}}
                     {{/each}}
                 </script>
             </ul>

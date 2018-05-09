@@ -25,27 +25,29 @@
             <ul id="Goods">
                 <script type="text/template" id="GoodsList">
                     {{each list.goodsListData as value i}}
-                    <li class="border-gray border-bottom padding-big-bottom padding-big-top"
-                        data-allotType="{{value.allotTitle}}" data-gNo="{{value.goodsNo}}" data-goodsId="{{value.goodsId}}"
-                        data-specValueId="{{value.specValueId}}" data-fromSkuId="{{value.fromSkuId}}" data-sellType="{{value.sellType}}">
-                        <div class="shopGoodsTop">
-                            <h5 title="{{value.goodsName}}" style="">{{value.goodsName}}</h5>
-                        </div>
-                        <div class="shopGoodsCT margin-big-top">
-                            <div class="shopGoodPrice">
-                                <p>现金: <span class="price">{{value.price}}</span></p>
-                                <p>积分:  <span class="integral">{{value.integral}}</span></p>
-                                <p>福币: <span class="coupon">{{value.fubi}}</span></p>
-                            </div>
-                            <div>
-                                <span class="minus" data-goodsId="{{value.goodsId}}"
-                                      data-allotType="{{value.allotTitle}}"> - </span>
-                                <span class="number">{{value.num}}</span>
-                                <span class="add" data-goodsId="{{value.goodsId}}"
-                                      data-allotType="{{value.allotTitle}}"> + </span>
-                            </div>
-                        </div>
-                    </li>
+                        {{if value.num >0 }}
+                            <li class="border-gray border-bottom padding-big-bottom padding-big-top"
+                                data-allotType="{{value.allotTitle}}" data-gNo="{{value.goodsNo}}" data-goodsId="{{value.goodsId}}"
+                                data-specValueId="{{value.specValueId}}" data-fromSkuId="{{value.fromSkuId}}" data-sellType="{{value.sellType}}">
+                                <div class="shopGoodsTop">
+                                    <h5 title="{{value.goodsName}}" style="">{{value.goodsName}}</h5>
+                                </div>
+                                <div class="shopGoodsCT margin-big-top">
+                                    <div class="shopGoodPrice">
+                                        <p>现金: <span class="price">{{value.price}}</span></p>
+                                        <p>积分:  <span class="integral">{{value.integral}}</span></p>
+                                        <p>福币: <span class="coupon">{{value.fubi}}</span></p>
+                                    </div>
+                                    <div>
+                                        <span class="minus" data-goodsId="{{value.goodsId}}"
+                                              data-allotType="{{value.allotTitle}}"> - </span>
+                                        <span class="number">{{value.num}}</span>
+                                        <span class="add" data-goodsId="{{value.goodsId}}"
+                                              data-allotType="{{value.allotTitle}}"> + </span>
+                                    </div>
+                                </div>
+                            </li>
+                        {{/if}}
                     {{/each}}
                 </script>
             </ul>

@@ -258,13 +258,12 @@ function minusCount(el, _num) {
 		ListData.goodsListData[index].num = 0;
 		//ListData.goodsListData.baoremove(index);
 		//console.log(ListData.goodsListData[index]);
-		ListData.goodsListData.splice(1,1)
-		//gNo[index] = '';
+		///ListData.goodsListData.splice(1,1)
 		//hangOrderDtata[keyId].goodsList[index].gno = '';
 	} else {
 		ListData.goodsListData[index].num = _curnum;
 	}
-	console.log(ListData.goodsListData);
+	//console.log(ListData.goodsListData);
 	//console.log(num);
 	return _curnum;
 }
@@ -278,6 +277,7 @@ function priceCount(unitPrice, _curnum,el) {
 	if(el != undefined){
 		var id = el.attr('data-goodsId');
 		var index = returnIndexof(ListData.goodsListData, id);
+		console.log(index,ListData.goodsListData[index]);
 		ListData.goodsListData[index].price = _unitPrice.toFixed(2);
 	}
 	//console.log(key);
@@ -507,6 +507,87 @@ function checkOut() {
 }
 
 
+$("#barCode").startListen({
+	barcodeLen : 18,
+	letter : true,
+	number : true,
+	check  : true,
+	show : function(code){
+		getBarCode(code);
+	}
+});
+
+function getBarCode(code){
+	if(ischeckOut){
+		return false;
+	}
+	var goodsList = [];
+	var _payPrice = $('#payPrice').text();
+	if (parseFloat(_payPrice) <= 0) {
+		layer.msg('请先添加商品');
+		return false;
+	}
+	
+	$('#Goods li').each(function (index, el) {
+		var goodsInfo = {
+			"gno": '0',
+			"goodsId": 0,
+			"fromSkuId":0,
+			"money": 0,
+			"num": 0,
+			"specValueId": 0,
+			"allotTitle": 0
+		};
+		goodsInfo.gno = $(el).attr('data-gNo');
+		goodsInfo.goodsId = $(el).attr('data-goodsId');
+		goodsInfo.fromSkuId = $(el).attr('data-fromSkuId');
+		goodsInfo.specValueId = $(el).attr('data-specValueId');
+		goodsInfo.allotTitle = $(el).attr('data-allotType');
+		goodsInfo.num = $(el).find('.number').text();
+		goodsInfo.money = parseFloat($(el).find('.price').text().substring(1) / goodsInfo.num);
+		goodsList.push(goodsInfo);
+	})
+	//console.log(goodsList)
+	
+	var data = {
+		bill:{
+			"goodsList": goodsList,
+			"sumMoney": _payPrice,
+			"token": token,
+			"nick": nick
+		}
+		
+	}
+	
+	
+	
+	$.ajax({
+		type: "post",
+		url: payByScan +"?barcode=" + code,
+		data:JSON.stringify(data),
+		contentType: "application/json",
+		dataType: 'json',
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function (rs) {
+			if (rs.status == 200) {
+				layer.msg('结账成功');
+				ischeckOut = true;
+				reset();
+				resetKeyboard();
+			} else {
+				reset();
+				ischeckOut = true;
+				layer.msg(rs.message)
+			}
+		}
+	});
+}
+
+
+
 $('body').on('click', '.add', function (e) {
 	e.preventDefault();
 	var _slef = $(this);
@@ -598,85 +679,6 @@ $('body').keyup(function () {
 		
 	}
 });
-
-$("#barCode").startListen({
-	barcodeLen : 18,
-	letter : true,
-	number : true,
-	check  : true,
-	show : function(code){
-		getBarCode(code);
-	}
-});
-
-function getBarCode(code){
-	if(ischeckOut){
-		return false;
-	}
-	var goodsList = [];
-	var _payPrice = $('#payPrice').text();
-	if (parseFloat(_payPrice) <= 0) {
-		layer.msg('请先添加商品');
-		return false;
-	}
-	
-	$('#Goods li').each(function (index, el) {
-		var goodsInfo = {
-			"gno": '0',
-			"goodsId": 0,
-			"fromSkuId":0,
-			"money": 0,
-			"num": 0,
-			"specValueId": 0,
-			"allotTitle": 0
-		};
-		goodsInfo.gno = $(el).attr('data-gNo');
-		goodsInfo.goodsId = $(el).attr('data-goodsId');
-		goodsInfo.fromSkuId = $(el).attr('data-fromSkuId');
-		goodsInfo.specValueId = $(el).attr('data-specValueId');
-		goodsInfo.allotTitle = $(el).attr('data-allotType');
-		goodsInfo.num = $(el).find('.number').text();
-		goodsInfo.money = parseFloat($(el).find('.price').text().substring(1) / goodsInfo.num);
-		goodsList.push(goodsInfo);
-	})
-	//console.log(goodsList)
-	
-	var data = {
-		bill:{
-			"goodsList": goodsList,
-			"sumMoney": _payPrice,
-			"token": token,
-			"nick": nick
-		}
-		
-	}
-	
-	
-	
-	$.ajax({
-		type: "post",
-		url: payByScan +"?barcode=" + code,
-		data:JSON.stringify(data),
-		contentType: "application/json",
-		dataType: 'json',
-		xhrFields: {
-			withCredentials: true
-		},
-		crossDomain: true,
-		success: function (rs) {
-			if (rs.status == 200) {
-				layer.msg('结账成功');
-				ischeckOut = true;
-				reset();
-				resetKeyboard();
-			} else {
-				reset();
-				ischeckOut = true;
-				layer.msg(rs.message)
-			}
-		}
-	});
-}
 
 
 
