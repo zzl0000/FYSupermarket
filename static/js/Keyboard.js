@@ -17,7 +17,12 @@ function keyCount(val) {
 
 // 重置键盘
 function resetKeyboard() {
-	$('#storeOrderId').val('');
-	_inputkey = '';
+	var key = $('#storeOrderId').val();
+		key = key.substring(0,key.length - 1);
+		if(key.length < 0){
+			return false;
+		}
+	$('#storeOrderId').val(key);
+	
 }
 
