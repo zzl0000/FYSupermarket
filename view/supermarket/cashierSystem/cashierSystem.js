@@ -35,6 +35,7 @@ function init() {
 	gNo = [];
 	hangOrderDtata = null;
 	var offLine = sessionStorage.getItem('offLine');
+	console.log(offLine);
 	if(offLine == null){
 		$('.settlementMethod li').addClass('disabled');
 	}else{
