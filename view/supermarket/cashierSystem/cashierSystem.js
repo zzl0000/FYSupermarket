@@ -487,6 +487,9 @@ function checkOut() {
 		"token": token,
 		"nick": nick
 	}
+	
+	
+	
 	$.ajax({
 		type: "post",
 		url: payByCash,
@@ -564,5 +567,18 @@ $('body').on('click', '.minus', function (e) {
 	}
 	;
 	realPriceCount("minus", realPrice, unitPrice);
+});
+
+
+$('.settlementMethod li').on('click', function(e){
+	var type = $(this).index();
+	if(type == 0){
+		$('.cashList').show();
+		$('.scanCodeList').hide();
+	}
+	if(type == 1){
+		$('.cashList').hide();
+		$('.scanCodeList').show();
+	}
 })
 

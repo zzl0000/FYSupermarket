@@ -73,47 +73,58 @@
                 </ul>
             </div>
             <br clear="all" />
-            <div id="" class="ycPrice margin-big-top border-gray border-bottom padding-big-top padding-big-bottom">
-                <span>应收金额</span>
-                <span class="price ">¥ <font class="payPrice">0.00</font></span>
-            </div>
-            <div id="" class="scPrice margin-big-top border-gray border-bottom padding-big-top padding-big-bottom">
-                <div>
-                    <span>实收金额</span>
-                    <input type="text" readonly="" name="" id="relTakePrice">
+            <div class="cashList">
+                <div i class="ycPrice margin-big-top border-gray border-bottom padding-big-top padding-big-bottom">
+                    <span>应收金额</span>
+                    <span class="price ">¥ <font class="payPrice">0.00</font></span>
                 </div>
-                <div>
-                    <span>找零</span>
-                    <input type="text" readonly="" name="" id="changePrice">
+                <div  class="scPrice margin-big-top border-gray border-bottom padding-big-top padding-big-bottom">
+                    <div>
+                        <span>实收金额</span>
+                        <input type="text" readonly="" name="" id="relTakePrice">
+                    </div>
+                    <div>
+                        <span>找零</span>
+                        <input type="text" readonly="" name="" id="changePrice">
+                    </div>
+                </div>
+                <!--  触摸键盘 -->
+                <div class="settlementKeyboard">
+                    <ul>
+                        <li class="ml-none input-key">7</li>
+                        <li class="input-key">8</li>
+                        <li class="input-key">9</li>
+                        <li class="empty" onclick="resetKeyboard()"><span></span></li>
+                        <li class="ml-none input-key">4</li>
+                        <li class="input-key">5</li>
+                        <li class="input-key">6</li>
+                        <li class="bg-blue specialKey">¥10</li>
+                        <li class="ml-none input-key">1</li>
+                        <li class="input-key">2</li>
+                        <li class="input-key">3</li>
+                        <li class="bg-blue specialKey">¥50</li>
+                        <li class="ml-none input-key">0</li>
+                        <li class="input-key">00</li>
+                        <li class="decimal">.</li>
+                        <li class="bg-blue specialKey">¥100</li>
+                    </ul>
+                </div>
+                <!-- 结算 -->
+                <br clear="all" />
+                <div class="clearing_btn ">
+                    <button class="button" onclick="checkOut()" >结账</button>
+                    <!--<button class="button" onclick="viewToWord()">打印小票</button>-->
                 </div>
             </div>
-            <!--  触摸键盘 -->
-            <div class="settlementKeyboard ">
-                <ul>
-                    <li class="ml-none input-key">7</li>
-                    <li class="input-key">8</li>
-                    <li class="input-key">9</li>
-                    <li class="empty" onclick="resetKeyboard()"><span></span></li>
-                    <li class="ml-none input-key">4</li>
-                    <li class="input-key">5</li>
-                    <li class="input-key">6</li>
-                    <li class="bg-blue specialKey">¥10</li>
-                    <li class="ml-none input-key">1</li>
-                    <li class="input-key">2</li>
-                    <li class="input-key">3</li>
-                    <li class="bg-blue specialKey">¥50</li>
-                    <li class="ml-none input-key">0</li>
-                    <li class="input-key">00</li>
-                    <li class="decimal">.</li>
-                    <li class="bg-blue specialKey">¥100</li>
-                </ul>
+
+            <div class="scanCodeList" style="display: none">
+                <div id="" class="ycPrice margin-big-top border-gray border-bottom padding-big-top padding-big-bottom">
+                    <span>应收金额</span>
+                    <span class="price ">¥ <font class="payPrice">0.00</font></span>
+                </div>
             </div>
-            <!-- 结算 -->
-            <br clear="all" />
-            <div class="clearing_btn ">
-                <button class="button" onclick="checkOut()" >结账</button>
-                <!--<button class="button" onclick="viewToWord()">打印小票</button>-->
-            </div>
+
+
         </div>
     </div>
 </div>

@@ -1,5 +1,4 @@
-var _curnum;
-var isClick = false;
+var _curnum,isClick = false;
 
 
 $(function(){
@@ -80,7 +79,8 @@ function getReturnOrderList(orderId){
 							_slef.addClass('disabled');
 							return false;
 						}else{
-							$(this).siblings(".number").text(addCount(_slef, num))
+							$(this).siblings(".number").text(addCount(_slef, num));
+							$('#returnPrice').text(returnPriceCount('add',_slef,addCount(_slef, num)));
 						}
 					})
 					$('body .minus').off('click').on('click', function (e) {
@@ -88,17 +88,19 @@ function getReturnOrderList(orderId){
 						var _slef = $(this);
 						_slef.siblings('.add').removeClass('disabled');
 						var num = $(this).siblings('.number').text();
-						$(this).siblings(".number").text(minusCount(_slef, num))
+						$(this).siblings(".number").text(minusCount(_slef, num));
+						$('#returnPrice').text(returnPriceCount('minus',_slef,minusCount(_slef, num)));
 					});
 					
 					var _returnPrice = [];
 					
 					$('body input[type=checkbox]').off('click').on('click', function(){
 						
-						var price = parseFloat($(this).attr('data-num') * $(this).attr('data-money')).toFixed(2);
+						var price = parseFloat($(this).parent().siblings().find('.number').text() * $(this).attr('data-money')).toFixed(2);
 						var id = $(this).val();
 						
 						if($(this).is(':checked')){
+							
 							_returnPrice[id] = price ;
 						}else{
 							_returnPrice[id] = 0;
@@ -140,6 +142,28 @@ function minusCount(el, _num) {
 function sum(arr) {
 	return eval(arr.join("+")).toFixed(2);
 };
+
+function returnPriceCount(type,el,_num){
+	console.log(_num)
+	var isChecked = $(el).parent().siblings().find('input');
+	if(isChecked.is(':checked')){
+		var _returnPrice =  $('#returnPrice').text();
+		if(parseInt(_num) <= 1){
+			_returnPrice = parseFloat(_returnPrice);
+		}else{
+			if(type == "add"){
+				_returnPrice = parseFloat(_returnPrice) + parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
+			}else{
+				_returnPrice = parseFloat(_returnPrice) - parseFloat($(el).parent().siblings('.unitPrice').text().substring(1))
+			}
+		}
+		
+	}else{
+		_returnPrice = 0;
+	}
+	
+	return _returnPrice.toFixed(2);
+}
 
 var goodsList = [];
 
