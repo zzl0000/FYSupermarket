@@ -33,14 +33,18 @@ init();
 
 function init() {
 	gNo = [];
-	hangOrderDtata = null
+	hangOrderDtata = null;
+	var offLine = sessionStorage.getItem('offLine');
+	if(offLine == null){
+		$('.settlementMethod li').addClass('disabled');
+	}else{
+		$('.settlementMethod li').removeClass('disabled');
+	}
 	keyId = ''
 	if (sessionStorage.getItem("hangOrderData") != null) {
 		hangOrderDtata = JSON.parse(sessionStorage.getItem("hangOrderData"));
 		keyId = sessionStorage.getItem("clearingId");
-	}
-	;
-	
+	};
 	
 	//console.log(hangOrderDtata)
 	if (hangOrderDtata != null) {
@@ -558,6 +562,11 @@ $('body').on('click', '.minus', function (e) {
 
 
 $('.settlementMethod li').on('click', function(e){
+	e.preventDefault();
+	if (!isMemberVal) {
+		layer.msg('请先添加会员信息');
+		return false;
+	}
 	var type = $(this).index();
 	$(this).addClass('active');
 	$(this).siblings().removeClass('active');

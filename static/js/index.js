@@ -6,116 +6,138 @@ setInit();
 
 function setInit() {
     var dutyType = sessionStorage.getItem('dutyType');
-    console.log(dutyType)
+    var offLine = sessionStorage.getItem('offLine');
+    console.log(offLine)
     var letNavhtml = '';
     letNavhtml += '<ul>';
-    console.log(integral);
-    if(integral != 0){
-        homeUrl = './supermarket/home/index.html';
-        if (dutyType == 1) {
-            letNavhtml += '<li  data-url=\'supermarket/cashierSystem/index.html\'>';
-            letNavhtml += '<span class="icon01"></span>';
-            letNavhtml += '<font class="title">收银</font>';
-            letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'supermarket/tradingRecord/index.html\'>';
-            letNavhtml += '<span class="icon02"></span>';
-            letNavhtml += '<font class="title">交易记录</font>';
-            letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'supermarket/orderSystem/index.html\'>';
-            letNavhtml += '<span class="icon03"></span>';
-            letNavhtml += '<font class="title">挂单</font>';
-            letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'supermarket/swopSystem/index.html\'>';
-            letNavhtml += '<span class="icon04"></span>';
-            letNavhtml += '<font class="title">退还货</font>';
-            letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'supermarket/alterationSystem/index.html\'>';
-            letNavhtml += '<span class="icon05"></span>';
-            letNavhtml += '<font class="title">交换班</font>';
-            letNavhtml += '</li>';
-            // letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
-            // letNavhtml += '<span class="icon06"></span>';
-            // letNavhtml += '<font class="title">设置</font>';
-            // letNavhtml += '</li>';
-	        letNavhtml += '<li   class=""  data-url="" id="changeSystem">';
-	        letNavhtml += '<span class="icon07"></span>';
-	        letNavhtml += '<font class="title">切换</font>';
-	        letNavhtml += '</li>';
-        } else {
-            letNavhtml += '<li  data-url=\'supermarket/tradingRecord/index.html\'>';
-            letNavhtml += '<span class="icon02"></span>';
-            letNavhtml += '<font class="title">交易记录</font>';
-            letNavhtml += '</li>';
-            letNavhtml += '<li  data-url=\'supermarket/alterationSystem/index.html\'>';
-            letNavhtml += '<span class="icon05"></span>';
-            letNavhtml += '<font class="title">交换班</font>';
-            letNavhtml += '</li>';
-            // letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
-            // letNavhtml += '<span class="icon06"></span>';
-            // letNavhtml += '<font class="title">设置</font>';
-            // letNavhtml += '</li>';
-	        letNavhtml += '<li   class=""  data-url="" id="changeSystem">';
-	        letNavhtml += '<span class="icon07"></span>';
-	        letNavhtml += '<font class="title">切换</font>';
-	        letNavhtml += '</li>';
-	        letNavhtml += '<li style="background: white"></li>';
-	        letNavhtml += '<li style="background: white"></li>';
-	        letNavhtml += '<li style="background: white"></li>';
-        }
-        
-    }else{
-        homeUrl = './integral/home/index.html';
-	    if (dutyType == 1) {
-            letNavhtml += '<li class="integral"  data-url=\'integral/cashierSystem/index.html\'>';
-            letNavhtml += '<span class="icon01"></span>';
-            letNavhtml += '<font class="title">收银</font>';
-            letNavhtml += '</li>';
-            letNavhtml += '<li class="integral" data-url=\'integral/tradingRecord/index.html\'>';
-            letNavhtml += '<span class="icon02"></span>';
-            letNavhtml += '<font class="title">交易记录</font>';
-            letNavhtml += '</li>';
-            letNavhtml += '<li class="integral"  data-url=\'integral/swopSystem/index.html\'>';
-            letNavhtml += '<span class="icon04"></span>';
-            letNavhtml += '<font class="title">退还货</font>';
-            letNavhtml += '</li>';
-            letNavhtml += '<li class="integral"  data-url=\'integral/alterationSystem/index.html\'>';
-            letNavhtml += '<span class="icon05"></span>';
-            letNavhtml += '<font class="title">交换班</font>';
-            letNavhtml += '</li>';
-            // letNavhtml += '<li class="integral" data-url=\'integral/setSystem/index.html\'>';
-            // letNavhtml += '<span class="icon06"></span>';
-            // letNavhtml += '<font class="title">设置</font>';
-            // letNavhtml += '</li>';
-            letNavhtml += '<li   class="integral active"  data-url="" id="changeSystem">';
-            letNavhtml += '<span class="icon07"></span>';
-            letNavhtml += '<font class="title">切换</font>';
-            letNavhtml += '</li>';
-            letNavhtml += '<li style="background: white"></li>';
-	    }else{
-		    letNavhtml += '<li class="integral" data-url=\'integral/tradingRecord/index.html\'>';
-		    letNavhtml += '<span class="icon02"></span>';
-		    letNavhtml += '<font class="title">交易记录</font>';
-		    letNavhtml += '</li>';
-		    letNavhtml += '<li class="integral"  data-url=\'integral/alterationSystem/index.html\'>';
-		    letNavhtml += '<span class="icon05"></span>';
-		    letNavhtml += '<font class="title">交换班</font>';
-		    letNavhtml += '</li>';
-		    // letNavhtml += '<li class="integral" data-url=\'integral/setSystem/index.html\'>';
-		    // letNavhtml += '<span class="icon06"></span>';
-		    // letNavhtml += '<font class="title">设置</font>';
-		    // letNavhtml += '</li>';
-		    letNavhtml += '<li   class="integral active"  data-url="" id="changeSystem">';
-		    letNavhtml += '<span class="icon07"></span>';
-		    letNavhtml += '<font class="title">切换</font>';
-		    letNavhtml += '</li>';
-		    letNavhtml += '<li style="background: white"></li>';
-		    letNavhtml += '<li style="background: white"></li>';
-		    letNavhtml += '<li style="background: white"></li>';
-		   
-        }
-    }
-
-
+    //console.log(integral);
+	if(offLine != null){
+		if(integral != 0){
+			homeUrl = './supermarket/home/index.html';
+			if (dutyType == 1) {
+				letNavhtml += '<li  data-url=\'supermarket/cashierSystem/index.html\'>';
+				letNavhtml += '<span class="icon01"></span>';
+				letNavhtml += '<font class="title">收银</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li  data-url=\'supermarket/tradingRecord/index.html\'>';
+				letNavhtml += '<span class="icon02"></span>';
+				letNavhtml += '<font class="title">交易记录</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li  data-url=\'supermarket/orderSystem/index.html\'>';
+				letNavhtml += '<span class="icon03"></span>';
+				letNavhtml += '<font class="title">挂单</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li  data-url=\'supermarket/swopSystem/index.html\'>';
+				letNavhtml += '<span class="icon04"></span>';
+				letNavhtml += '<font class="title">退还货</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li  data-url=\'supermarket/alterationSystem/index.html\'>';
+				letNavhtml += '<span class="icon05"></span>';
+				letNavhtml += '<font class="title">交换班</font>';
+				letNavhtml += '</li>';
+				// letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
+				// letNavhtml += '<span class="icon06"></span>';
+				// letNavhtml += '<font class="title">设置</font>';
+				// letNavhtml += '</li>';
+				letNavhtml += '<li   class=""  data-url="" id="changeSystem">';
+				letNavhtml += '<span class="icon07"></span>';
+				letNavhtml += '<font class="title">切换</font>';
+				letNavhtml += '</li>';
+			} else {
+				letNavhtml += '<li  data-url=\'supermarket/tradingRecord/index.html\'>';
+				letNavhtml += '<span class="icon02"></span>';
+				letNavhtml += '<font class="title">交易记录</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li  data-url=\'supermarket/alterationSystem/index.html\'>';
+				letNavhtml += '<span class="icon05"></span>';
+				letNavhtml += '<font class="title">交换班</font>';
+				letNavhtml += '</li>';
+				// letNavhtml += '<li  data-url=\'supermarket/setSystem/index.html\'>';
+				// letNavhtml += '<span class="icon06"></span>';
+				// letNavhtml += '<font class="title">设置</font>';
+				// letNavhtml += '</li>';
+				letNavhtml += '<li   class=""  data-url="" id="changeSystem">';
+				letNavhtml += '<span class="icon07"></span>';
+				letNavhtml += '<font class="title">切换</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li style="background: white"></li>';
+				letNavhtml += '<li style="background: white"></li>';
+				letNavhtml += '<li style="background: white"></li>';
+			}
+			
+		}else{
+			homeUrl = './integral/home/index.html';
+			if (dutyType == 1) {
+				letNavhtml += '<li class="integral"  data-url=\'integral/cashierSystem/index.html\'>';
+				letNavhtml += '<span class="icon01"></span>';
+				letNavhtml += '<font class="title">收银</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li class="integral" data-url=\'integral/tradingRecord/index.html\'>';
+				letNavhtml += '<span class="icon02"></span>';
+				letNavhtml += '<font class="title">交易记录</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li class="integral"  data-url=\'integral/swopSystem/index.html\'>';
+				letNavhtml += '<span class="icon04"></span>';
+				letNavhtml += '<font class="title">退还货</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li class="integral"  data-url=\'integral/alterationSystem/index.html\'>';
+				letNavhtml += '<span class="icon05"></span>';
+				letNavhtml += '<font class="title">交换班</font>';
+				letNavhtml += '</li>';
+				// letNavhtml += '<li class="integral" data-url=\'integral/setSystem/index.html\'>';
+				// letNavhtml += '<span class="icon06"></span>';
+				// letNavhtml += '<font class="title">设置</font>';
+				// letNavhtml += '</li>';
+				letNavhtml += '<li   class="integral active"  data-url="" id="changeSystem">';
+				letNavhtml += '<span class="icon07"></span>';
+				letNavhtml += '<font class="title">切换</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li style="background: white"></li>';
+			}else{
+				letNavhtml += '<li class="integral" data-url=\'integral/tradingRecord/index.html\'>';
+				letNavhtml += '<span class="icon02"></span>';
+				letNavhtml += '<font class="title">交易记录</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li class="integral"  data-url=\'integral/alterationSystem/index.html\'>';
+				letNavhtml += '<span class="icon05"></span>';
+				letNavhtml += '<font class="title">交换班</font>';
+				letNavhtml += '</li>';
+				// letNavhtml += '<li class="integral" data-url=\'integral/setSystem/index.html\'>';
+				// letNavhtml += '<span class="icon06"></span>';
+				// letNavhtml += '<font class="title">设置</font>';
+				// letNavhtml += '</li>';
+				letNavhtml += '<li   class="integral active"  data-url="" id="changeSystem">';
+				letNavhtml += '<span class="icon07"></span>';
+				letNavhtml += '<font class="title">切换</font>';
+				letNavhtml += '</li>';
+				letNavhtml += '<li style="background: white"></li>';
+				letNavhtml += '<li style="background: white"></li>';
+				letNavhtml += '<li style="background: white"></li>';
+				
+			}
+		}
+	}else{
+		homeUrl = './supermarket/home/index.html';
+		letNavhtml += '<li  data-url=\'supermarket/cashierSystem/index.html\'>';
+		letNavhtml += '<span class="icon01"></span>';
+		letNavhtml += '<font class="title">收银</font>';
+		letNavhtml += '</li>';
+		letNavhtml += '<li  data-url=\'supermarket/tradingRecord/index.html\'>';
+		letNavhtml += '<span class="icon02"></span>';
+		letNavhtml += '<font class="title">交易记录</font>';
+		letNavhtml += '</li>';
+		letNavhtml += '<li  data-url=\'supermarket/orderSystem/index.html\'>';
+		letNavhtml += '<span class="icon03"></span>';
+		letNavhtml += '<font class="title">挂单</font>';
+		letNavhtml += '</li>';
+		letNavhtml += '<li  data-url=\'supermarket/alterationSystem/index.html\'>';
+		letNavhtml += '<span class="icon05"></span>';
+		letNavhtml += '<font class="title">交换班</font>';
+		letNavhtml += '</li>';
+		letNavhtml += '<li style="background: white"></li>';
+		letNavhtml += '<li style="background: white"></li>';
+	}
+	
     letNavhtml += '</ul>';
     $('#left-nav').html(letNavhtml);
 }

@@ -69,7 +69,9 @@ function signlogStore() {
         },
         crossDomain: false,
         success: function (rs) {
+        	
             if (rs.status == 200) {
+	            sessionStorage.setItem("offLine", rs.data);
 	            $('#signlogStore').attr({'disabled':"disabled"});
 	            layer.confirm('门店登录成功，是否同步数据',
 		            {
@@ -86,7 +88,8 @@ function signlogStore() {
 		            })
 	
             }else if(rs.status == 201){
-	           
+	            sessionStorage.setItem("offLine", null);
+	            layer.msg(rs.message, {time: 1000});
 	            $('.lo_title').find('font').text('员工登录')
 	            $('.lo_store').hide();
 	            $('.lo_employee').show();
