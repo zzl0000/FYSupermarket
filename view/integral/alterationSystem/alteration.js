@@ -77,25 +77,55 @@ function gainpage(pages, curr, alltotal) {
 // 下班
 
 function getLogout() {
-	$.ajax({
-		type: "get",
-		url: logout,
-		xhrFields: {
-			withCredentials: true
-		},
-		crossDomain: true,
-		success: function(rs) {
-			if(rs.status == 201 || rs.status == 200) {
-				layer.msg('下班成功', {
-					time: 1000
-				});
-				setTimeout(function() {
-					window.location.href = "login.html";
-				}, 2000);
+	layer.prompt({
+		title: '获取下班授权',
+		closeBtn: 2,
+		shade: 0,
+		formType: 0
+	}, function (pass, index) {
+		
+		$.ajax({
+			type: "get",
+			url: authorize,
+			data: {
+				username: pass
+			},
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			success: function (rs) {
+				if (rs.status == 200) {
+					layer.msg('授权成功', {'time': 1000}, function () {
+						$.ajax({
+							type: "get",
+							url: logout,
+							xhrFields: {
+								withCredentials: true
+							},
+							crossDomain: true,
+							success: function (rs) {
+								if (rs.status == 201 || rs.status == 200) {
+									layer.msg('下班成功', {
+										time: 1000
+									});
+									setTimeout(function () {
+										window.location.href = "login.html";
+									}, 2000);
+								}
+							}
+						})
+					});
+					//getReturnOrderList(orderId)
+				} else {
+					layer.msg(rs.message, {'time': 1000});
+				}
 			}
-		}
-	})
-
+		})
+		//layer.close(index);
+	});
+	
+	
 }
 
 // 获取员工信息

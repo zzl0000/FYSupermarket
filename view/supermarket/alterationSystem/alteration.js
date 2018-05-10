@@ -22,40 +22,40 @@ function getOrderList(_curr) {
 		},
 		data: data,
 		crossDomain: true,
-		success: function(rs) {
-            if(rs.status == 200) {
-                var html
-                if(rs.data.total == 0) {
-                    $("#alterationList").hide();
-                    $("#noeList").show();
-                    $('#page').hide();
-                    //layer.closeAll('loading');
-                }else {
-                    $("#alterationList").show();
-                    $('#page').show();
-                    $("#noeList").hide();
-                    template.defaults.imports.getPayWay = function(key){
-                        var payWayText =['无','现金','支付宝','微信'];
-                        return payWayText[key]
-                    };
-
-                    html = template('alterationList', {
-                        list: rs.data.rows
-                    });
-                }
-                setTimeout(function() {
-                   // layer.closeAll();
-                    $("#alterationListDemo").html(html);
-                    gainpage(Math.ceil(rs.data.total/10),_curr,0);
-                }, 0)
-            }
+		success: function (rs) {
+			if (rs.status == 200) {
+				var html
+				if (rs.data.total == 0) {
+					$("#alterationList").hide();
+					$("#noeList").show();
+					$('#page').hide();
+					//layer.closeAll('loading');
+				} else {
+					$("#alterationList").show();
+					$('#page').show();
+					$("#noeList").hide();
+					template.defaults.imports.getPayWay = function (key) {
+						var payWayText = ['无', '现金', '支付宝', '微信'];
+						return payWayText[key]
+					};
+					
+					html = template('alterationList', {
+						list: rs.data.rows
+					});
+				}
+				setTimeout(function () {
+					// layer.closeAll();
+					$("#alterationListDemo").html(html);
+					gainpage(Math.ceil(rs.data.total / 10), _curr, 0);
+				}, 0)
+			}
 		}
 	})
 }
 
 function gainpage(pages, curr, alltotal) {
 	console.log(alltotal)
-	if(alltotal < 0) {
+	if (alltotal < 0) {
 		return false;
 	} else {
 		laypage({
@@ -64,10 +64,10 @@ function gainpage(pages, curr, alltotal) {
 			skin: '#1E9FFF',
 			pages: pages,
 			curr: curr || 1,
-			jump: function(obj, first) {
+			jump: function (obj, first) {
 				var curr = obj.curr;
-				if(!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
-                    getOrderList(curr);
+				if (!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
+					getOrderList(curr);
 				}
 			}
 		})
@@ -77,86 +77,117 @@ function gainpage(pages, curr, alltotal) {
 // 下班
 
 function getLogout() {
+	layer.prompt({
+		title: '获取下班授权',
+		closeBtn: 2,
+		shade: 0,
+		formType: 0
+	}, function (pass, index) {
+		
+		$.ajax({
+			type: "get",
+			url: authorize,
+			data: {
+				username: pass
+			},
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			success: function (rs) {
+				if (rs.status == 200) {
+					layer.msg('授权成功', {'time': 1000}, function () {
+						$.ajax({
+							type: "get",
+							url: logout,
+							xhrFields: {
+								withCredentials: true
+							},
+							crossDomain: true,
+							success: function (rs) {
+								if (rs.status == 201 || rs.status == 200) {
+									layer.msg('下班成功', {
+										time: 1000
+									});
+									setTimeout(function () {
+										window.location.href = "login.html";
+									}, 2000);
+								}
+							}
+						})
+					});
+					//getReturnOrderList(orderId)
+				} else {
+					layer.msg(rs.message, {'time': 1000});
+				}
+			}
+		})
+		//layer.close(index);
+	});
+	
+	
+}
+
+// 获取员工信息
+function get() {
+}
+
+$('body').off('click').on('click', '#alterationListDemo .check_btn', function (e) {
+	var html = $('#refundPanel');
+	var orderId = $(this).attr('data-id');
+	layer.open({
+		title: '订单详情',
+		type: 1,
+		closeBtn: 2,
+		shadeClose: true, //开启遮罩关闭
+		area: ['1054px', '650px'], //宽高
+		content: html,
+		success: function () {
+			getOrderDetail(orderId);
+		}
+	});
+})
+
+function getOrderDetail(orderId) {
+	
 	$.ajax({
 		type: "get",
-		url: logout,
+		url: findOrderDetail,
+		data: {
+			orderId: orderId
+		},
 		xhrFields: {
 			withCredentials: true
 		},
 		crossDomain: true,
-		success: function(rs) {
-			if(rs.status == 201 || rs.status == 200) {
-				layer.msg('下班成功', {
-					time: 1000
+		success: function (rs) {
+			if (rs.status == 200) {
+				var data = rs.data;
+				var payWayText = ['无', '现金', '扫码', '余额'];
+				var html = template('orderDetailList', {
+					list: rs.data.orderOptionList
 				});
-				setTimeout(function() {
-					window.location.href = "login.html";
-				}, 2000);
+				$("#orderDetailListDemo").html(html);
+				$('.nick').text(rs.data.nick);
+				$('#realPrice').text(rs.data.receipt);
+				$('#payPrice').text(rs.data.totalMoney);
+				queryMenberIFFnfo(rs.data.token, function (val) {
+					console.log(val);
+					$('#nick').text(val.nick)
+					$('#phone').text(val.phone)
+					$('#orderCode').text(data.orderId)
+					$('#payWay').text(payWayText[data.payWay])
+					$('#payTime').text(data.payTime)
+					$('#employeeName').text(data.employeeName)
+					
+				})
 			}
 		}
 	})
-
-}
-
-// 获取员工信息
-function get() {}
-
-$('body').off('click').on('click', '#alterationListDemo .check_btn', function(e) {
-	var html = $('#refundPanel');
-    var orderId = $(this).attr('data-id');
-	layer.open({
-		title: '订单详情',
-		type: 1,
-        closeBtn:2,
-		shadeClose: true, //开启遮罩关闭
-		area: ['1054px', '650px'], //宽高
-		content: html,
-        success: function() {
-            getOrderDetail(orderId);
-        }
-	});
-})
-function getOrderDetail(orderId) {
-
-    $.ajax({
-        type: "get",
-        url: findOrderDetail,
-        data: {
-            orderId: orderId
-        },
-        xhrFields: {
-            withCredentials: true
-        },
-        crossDomain: true,
-        success: function(rs) {
-            if(rs.status == 200) {
-                var data = rs.data;
-                var payWayText =['无','现金','扫码','余额'];
-                var html = template('orderDetailList', {
-                    list: rs.data.orderOptionList
-                });
-                $("#orderDetailListDemo").html(html);
-	            $('.nick').text(rs.data.nick);
-                $('#realPrice').text(rs.data.receipt);
-                $('#payPrice').text(rs.data.totalMoney);
-                queryMenberIFFnfo(rs.data.token,function(val){
-                    console.log(val);
-                    $('#nick').text(val.nick)
-                    $('#phone').text(val.phone)
-                    $('#orderCode').text(data.orderId)
-                    $('#payWay').text(payWayText[data.payWay])
-                    $('#payTime').text(data.payTime)
-                    $('#employeeName').text(data.employeeName)
-
-                })
-            }
-        }
-    })
 }
 
 
 function openPanel() {
-
 	var html = $('#logoutPanel');
 	layer.open({
 		title: '今日统计',
@@ -165,7 +196,7 @@ function openPanel() {
 		shadeClose: true, //开启遮罩关闭
 		area: ['1054px', '650px'], //宽高
 		content: html,
-		success: function(index, layero) {
+		success: function (index, layero) {
 			$.ajax({
 				type: "get",
 				url: getCheckOut,
@@ -173,26 +204,26 @@ function openPanel() {
 					withCredentials: true
 				},
 				crossDomain: true,
-				success: function(rs) {
-					if(rs.status == 201 || rs.status == 200) {
+				success: function (rs) {
+					if (rs.status == 201 || rs.status == 200) {
 						console.log(rs);
-						if(rs.data != null){
-                            var html1 = template('templateList', {
-                                value: rs.data
-                            });
-                            var html2 = template('memberList', {
-                                value: rs.data
-                            });
-                            $("#gatheringList").html(html1);
-                            $("#memberlinfoList").html(html2);
-                            $('#imprestCashLogout').text(rs.data.imprestCashLogout);
-                            $('#LogoutTime').text(rs.data.logoutTime.slice(10,rs.data.logoutTime.length));
+						if (rs.data != null) {
+							var html1 = template('templateList', {
+								value: rs.data
+							});
+							var html2 = template('memberList', {
+								value: rs.data
+							});
+							$("#gatheringList").html(html1);
+							$("#memberlinfoList").html(html2);
+							$('#imprestCashLogout').text(rs.data.imprestCashLogout);
+							$('#LogoutTime').text(rs.data.logoutTime.slice(10, rs.data.logoutTime.length));
 						}
-
+						
 					}
 				}
 			})
 		}
 	});
-
 }
+
