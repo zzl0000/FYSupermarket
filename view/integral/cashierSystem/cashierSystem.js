@@ -295,6 +295,7 @@ function minusCount(el, _num) {
 		el.parent().parent().parent().remove();
 		$('#realPrice').text('0.00');
 		$('.payPrice').text('0.00');
+		$('#payPrice').text('0.00');
 		ListData.goodsListData[index].num = 0;
 	} else {
 		ListData.goodsListData[index].num = _curnum;
