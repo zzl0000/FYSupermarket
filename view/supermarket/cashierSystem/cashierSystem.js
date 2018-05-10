@@ -558,7 +558,6 @@ function getBarCode(code){
 	}
 	
 	
-	
 	$.ajax({
 		type: "post",
 		url: payByScan +"?barcode=" + code,
@@ -573,6 +572,9 @@ function getBarCode(code){
 			if (rs.status == 200) {
 				layer.msg('结账成功');
 				ischeckOut = true;
+				$('.cashList').show();
+				$('.scanCodeList').hide();
+				$('#barCode').blur();
 				reset();
 				resetKeyboard();
 			} else {
@@ -656,6 +658,7 @@ $('.settlementMethod li').on('click', function(e){
 		$('#barCode').blur();
 	}
 	if(type == 1){
+		ischeckOut = false;
 		$('.cashList').hide();
 		$('.scanCodeList').show();
 		$('#barCode').focus();
