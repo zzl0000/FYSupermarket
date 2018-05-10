@@ -71,7 +71,7 @@ function signlogStore() {
         success: function (rs) {
         	
             if (rs.status == 200) {
-	            sessionStorage.setItem("offLine", "null");
+	            sessionStorage.setItem("offLine", rs.data);
 	            $('#signlogStore').attr({'disabled':"disabled"});
 	            layer.confirm('门店登录成功，是否同步数据',
 		            {
