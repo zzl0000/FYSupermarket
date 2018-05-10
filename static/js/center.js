@@ -88,6 +88,7 @@ function format(times) {
 
 function formats(times) {
     var time = new Date(times);
+   
     var y = time.getFullYear();
     var m = time.getMonth() + 1;
     var d = time.getDate();
