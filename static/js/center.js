@@ -26,7 +26,10 @@ var removeHangOrder = turl + "/cashier/hangOrder/removeHangOrder";   //删除挂
 
 
 var getIntegralGoods = turl + "/cashier/integralCashier/getIntegralGoods"; // 积分获取商品信息
+
 var payIntegralOrder = turl + "/cashier/integralCashier/payIntegralOrder";  // 积分支付
+var checkPassword = turl + "/cashier/integralCashier/checkPassword";  // 校验账户密码
+
 var findIntegralOrderPage = turl + "/cashier/integralOrder/findPage";  // 获取积分订单列表
 var findIntegralOrderDetail = turl + "/cashier/integralOrder/findOrderDetail";  // 获取积分订单详情
 

@@ -26,6 +26,8 @@ var ListData = {
 	goodsListData: []
 };
 
+var userName = '';
+
 var PaymentKey = '';
 var isMemberVal = false;
 var key;
@@ -145,6 +147,7 @@ function getMemberInfo(inputkey) {
 				$("#ScanCodeinput").focus();
 				renderMenberInfo(rs);
 				token = rs.data.token;
+				userName = rs.data.token;
 				nick = rs.data.nick;
 			} else {
 				layer.msg(rs.message);
@@ -258,8 +261,6 @@ function renderGoodsList(data) {
 	});
 	$("#Goods").html(html);
 	getPrice(data.goodsListData);
-	
-	
 }
 
 /**
@@ -407,15 +408,51 @@ function checkOut() {
 	if(ischeckOut){
 		return false;
 	}
-	var goodsList = [];
-	_payPrice = $('#payPrice').text();
-	var _integralPrice = $('#integralPrice').text();
-	var _fubi = $('#couponPrice').text();
+	
 	//console.log(gNo)
 	if (gNo.length <= 0) {
 		layer.msg('请先添加商品');
 		return false;
 	}
+	
+	layer.prompt({
+		title: '会员密码',
+		closeBtn: 2,
+		shade: 0,
+		formType: 1,
+		btn: ['确定']
+	}, function (pass, index) {
+		//checkPassword
+		$.ajax({
+			type: "get",
+			url: checkPassword,
+			data:{username:userName,password:pass},
+			xhrFields: {
+				withCredentials: true
+			},
+			crossDomain: true,
+			success: function (rs) {
+				if (rs.status == 200) {
+					layer.msg(rs.message,{time:1000});
+					getCheckOut();
+				} else {
+					layer.msg(rs.message,{time:1000});
+				}
+			}
+		});
+	})
+	
+	
+	
+
+}
+
+
+function getCheckOut(){
+	var goodsList = [];
+	_payPrice = $('#payPrice').text();
+	var _integralPrice = $('#integralPrice').text();
+	var _fubi = $('#couponPrice').text();
 	
 	$('#Goods li').each(function (index, el) {
 		var integralBillOptions = {

@@ -179,3 +179,26 @@ function gainpage(pages,curr, alltotal) {
         })
     }
 }
+
+
+/*
+var letObj = document.getElementById('orderListDemo');
+var startY, endY;
+letObj.addEventListener("touchstart", function(event) {
+	event.preventDefault();
+	startY = event.targetTouches[0].pageY;
+});
+letObj.addEventListener('touchmove', function (event) {
+	var _self = $(this);
+	if (event.targetTouches.length == 1) {
+		event.preventDefault(); // 阻止浏览器默认事件，重要
+		var touch = event.targetTouches[0];
+		// 把元素放在手指所在的位置
+		endY = touch.pageY;
+		getTouch(endY - startY)
+	}
+});
+
+function getTouch(key){
+	gainpage(2,curr, 0)
+}*/
