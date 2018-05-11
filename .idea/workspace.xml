@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb063a20-08e2-465d-8db4-de4f023d7c7e" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/static/js/center.js" afterPath="$PROJECT_DIR$/static/js/center.js" />
-      <change beforePath="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" afterPath="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
-      <change beforePath="$PROJECT_DIR$/view/supermarket/alterationSystem/alteration.js" afterPath="$PROJECT_DIR$/view/supermarket/alterationSystem/alteration.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" afterPath="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,41 +17,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="alteration.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/supermarket/alterationSystem/alteration.js">
+      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="128" selection-end-column="1" />
-              <folding />
+            <state relative-caret-position="384">
+              <caret line="580" column="32" lean-forward="true" selection-start-line="580" selection-start-column="32" selection-end-line="580" selection-end-column="32" />
+              <folding>
+                <element signature="n#!!block;n#realPriceCount#0" expanded="false" />
+                <element signature="n#!!block;n#getPrice#0" expanded="false" />
+                <element signature="n#!!block;n#reset#0" expanded="false" />
+                <element signature="n#!!block;n#uplodOrder#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alteration.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="128" column="1" lean-forward="false" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginState.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/loginState.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
-              <caret line="31" column="18" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="31" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="center.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/center.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
+            <state relative-caret-position="384">
+              <caret line="69" column="40" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -155,7 +139,6 @@
         <option value="$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js" />
         <option value="$PROJECT_DIR$/view/integral/swopSystem/swopSystem.js" />
         <option value="$PROJECT_DIR$/view/supermarket/orderSystem/order.js" />
-        <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" />
         <option value="$PROJECT_DIR$/view/integralSystem.html" />
         <option value="$PROJECT_DIR$/view/index.html" />
         <option value="$PROJECT_DIR$/static/css/module.css" />
@@ -166,11 +149,12 @@
         <option value="$PROJECT_DIR$/static/js/login.js" />
         <option value="$PROJECT_DIR$/static/css/index.css" />
         <option value="$PROJECT_DIR$/view/integral/cashierSystem/index.html" />
-        <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" />
         <option value="$PROJECT_DIR$/static/css/main/public.css" />
         <option value="$PROJECT_DIR$/static/js/center.js" />
         <option value="$PROJECT_DIR$/view/supermarket/alterationSystem/alteration.js" />
         <option value="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
+        <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" />
+        <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" />
       </list>
     </option>
   </component>
@@ -227,7 +211,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -307,7 +290,7 @@
               <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="supermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="alterationSystem" type="462c0819:PsiDirectoryNode" />
+              <item name="cashierSystem" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
@@ -320,13 +303,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../JKSteward" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -420,12 +404,13 @@
       <workItem from="1525656145583" duration="32767000" />
       <workItem from="1525740533539" duration="24977000" />
       <workItem from="1525827953188" duration="30922000" />
-      <workItem from="1525914516342" duration="11164000" />
+      <workItem from="1525914516342" duration="11454000" />
+      <workItem from="1526000961608" duration="124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268446000" />
+    <option name="totallyTimeSpent" value="268860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -438,8 +423,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2109375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -545,9 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
           <caret line="1" column="19632" lean-forward="true" selection-start-line="1" selection-start-column="19632" selection-end-line="1" selection-end-column="19632" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -555,9 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -627,7 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="142" column="41" lean-forward="false" selection-start-line="142" selection-start-column="31" selection-end-line="142" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -646,20 +624,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/jQuery_barcode_listener/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/jQuery_barcode_listener/src/jquery.barcode.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1984">
-          <caret line="124" column="39" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="154" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/jQuery_barcode_listener/README.md" />
+    <entry file="file://$USER_HOME$/Desktop/jQuery_barcode_listener/src/jquery.barcode.js" />
     <entry file="file://$PROJECT_DIR$/static/js/barcode.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1040">
@@ -696,24 +662,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="633" column="4" lean-forward="false" selection-start-line="633" selection-start-column="4" selection-end-line="633" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!block;n#realPriceCount#0" expanded="false" />
-            <element signature="n#!!block;n#getPrice#0" expanded="false" />
-            <element signature="n#!!block;n#reset#0" expanded="false" />
-            <element signature="n#!!block;n#uplodOrder#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/integralSystem.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="90" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -721,7 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
           <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -729,7 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="17" column="120" lean-forward="true" selection-start-line="17" selection-start-column="120" selection-end-line="17" selection-end-column="120" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,7 +695,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
           <caret line="102" column="23" lean-forward="false" selection-start-line="102" selection-start-column="23" selection-end-line="102" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -769,21 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="668">
           <caret line="149" column="64" lean-forward="false" selection-start-line="149" selection-start-column="64" selection-end-line="149" selection-end-column="64" />
-          <folding>
-            <marker date="1525939746260" expanded="true" signature="2745:2762" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="2802:2819" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="2859:2876" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="4317:4334" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="5264:5281" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="5321:5338" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="5378:5395" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="6336:6353" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="6392:6409" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="6865:6882" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="6921:6938" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="6977:6994" ph="..." />
-            <marker date="1525939746260" expanded="true" signature="7033:7050" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -791,7 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
           <caret line="80" column="35" lean-forward="false" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,14 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="773">
@@ -849,18 +774,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/center.js">
+    <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/loginState.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="31" column="18" lean-forward="true" selection-start-line="29" selection-start-column="16" selection-end-line="31" selection-end-column="18" />
+        <state relative-caret-position="64">
+          <caret line="95" column="30" lean-forward="false" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -873,11 +790,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
+    <entry file="file://$PROJECT_DIR$/static/js/loginState.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="128" column="1" lean-forward="false" selection-start-line="128" selection-start-column="1" selection-end-line="128" selection-end-column="1" />
+        <state relative-caret-position="496">
+          <caret line="31" column="18" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="31" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/center.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="69" column="40" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="580" column="32" lean-forward="true" selection-start-line="580" selection-start-column="32" selection-end-line="580" selection-end-column="32" />
+          <folding>
+            <element signature="n#!!block;n#realPriceCount#0" expanded="false" />
+            <element signature="n#!!block;n#getPrice#0" expanded="false" />
+            <element signature="n#!!block;n#reset#0" expanded="false" />
+            <element signature="n#!!block;n#uplodOrder#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -575,6 +575,8 @@ function getBarCode(code){
 				$('.cashList').show();
 				$('.scanCodeList').hide();
 				$('#barCode').blur();
+				$('.settlementMethod li:eq(0)').addClass('active');
+				$('.settlementMethod li:eq(1)').removeClass('active');
 				reset();
 				resetKeyboard();
 			} else {
