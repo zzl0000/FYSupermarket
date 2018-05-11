@@ -40,7 +40,7 @@ function getReturnOrderList(orderId){
 		crossDomain: true,
 		success: function (rs) {
 			if (rs.status == 200) {
-				goodsList = []; 
+				goodsList = [];
 				$('#group-select').hide();
 				$('#swopPanel').show();
 				$('#storeOrderId').val('');

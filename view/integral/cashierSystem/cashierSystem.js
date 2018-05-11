@@ -312,9 +312,8 @@ function minusCount(el, _num) {
 
 
 function priceCount(val, _num,el,type) {
-	//console.log(val,_num);
+	
 	_unitPrice = parseFloat(val) * _num;
-	//console.log(key);
 	
 	if(el != undefined){
 		var id = el.attr('data-goodsId');
@@ -345,6 +344,15 @@ function realPriceCount(type,unitPrice, uniIntegral,unitFubi) {
 		cash = parseFloat($('#payPrice').text()) - parseFloat(unitPrice);
 		integralPrice = parseFloat($('#integralPrice').text()) - parseFloat(uniIntegral);
 		fubi =parseFloat($('#couponPrice').text()) - parseFloat(unitFubi);
+	}
+	if(cash < 0){
+		cash = 0
+	}
+	if(integralPrice < 0){
+		integralPrice = 0
+	}
+	if(fubi < 0){
+		integralPrice = 0
 	}
 	
 	$('#integralPrice').text(integralPrice.toFixed(2));

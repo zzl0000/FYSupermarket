@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb063a20-08e2-465d-8db4-de4f023d7c7e" name="默认的" comment="">
+      <change beforePath="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" afterPath="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" />
+      <change beforePath="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" afterPath="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" />
       <change beforePath="$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js" afterPath="$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -16,14 +18,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="swopSystem.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js">
+      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-              <folding>
-                <element signature="n#!!block;n#getBatchReturn#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="449">
+              <caret line="347" column="17" lean-forward="true" selection-start-line="347" selection-start-column="17" selection-end-line="347" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -40,7 +40,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Goods</find>
       <find>minus</find>
       <find>_payPrice</find>
       <find>renderGoodsList</find>
@@ -70,6 +69,7 @@
       <find>getLogout</find>
       <find>layer.c</find>
       <find>openPanel</find>
+      <find>returnBillOptionList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -129,7 +129,6 @@
         <option value="$PROJECT_DIR$/static/css/module.css" />
         <option value="$PROJECT_DIR$/view/supermarket/swopSystem/index.html" />
         <option value="$PROJECT_DIR$/view/integral/swopSystem/index.html" />
-        <option value="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" />
         <option value="$PROJECT_DIR$/static/js/index.js" />
         <option value="$PROJECT_DIR$/static/js/login.js" />
         <option value="$PROJECT_DIR$/static/css/index.css" />
@@ -138,9 +137,10 @@
         <option value="$PROJECT_DIR$/static/js/center.js" />
         <option value="$PROJECT_DIR$/view/supermarket/alterationSystem/alteration.js" />
         <option value="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
-        <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" />
         <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" />
         <option value="$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js" />
+        <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" />
+        <option value="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" />
       </list>
     </option>
   </component>
@@ -278,13 +278,6 @@
               <item name="supermarket" type="462c0819:PsiDirectoryNode" />
               <item name="cashierSystem" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="supermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="swopSystem" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -391,12 +384,12 @@
       <workItem from="1525740533539" duration="24977000" />
       <workItem from="1525827953188" duration="30922000" />
       <workItem from="1525914516342" duration="11454000" />
-      <workItem from="1526000961608" duration="1182000" />
+      <workItem from="1526000961608" duration="2752000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269918000" />
+    <option name="totallyTimeSpent" value="271488000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -592,6 +585,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="142" column="41" lean-forward="false" selection-start-line="142" selection-start-column="31" selection-end-line="142" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -714,30 +708,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/cashierSystem/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="55" column="38" lean-forward="false" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="279" column="32" lean-forward="false" selection-start-line="279" selection-start-column="32" selection-end-line="279" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/supermarket/swopSystem/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="748">
           <caret line="81" column="38" lean-forward="false" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="38" />
           <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#5;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#th#5;n#thead#0;n#table#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -782,12 +760,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="46" column="54" lean-forward="true" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
+          <folding>
+            <element signature="n#!!block;n#getBatchReturn#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="580" column="32" lean-forward="true" selection-start-line="580" selection-start-column="32" selection-end-line="580" selection-end-column="32" />
+        <state relative-caret-position="204">
+          <caret line="281" column="68" lean-forward="true" selection-start-line="281" selection-start-column="68" selection-end-line="281" selection-end-column="68" />
           <folding>
-            <element signature="n#!!block;n#realPriceCount#0" expanded="false" />
             <element signature="n#!!block;n#getPrice#0" expanded="false" />
             <element signature="n#!!block;n#reset#0" expanded="false" />
             <element signature="n#!!block;n#uplodOrder#0" expanded="false" />
@@ -795,21 +782,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/index.html">
+    <entry file="file://$PROJECT_DIR$/view/integral/cashierSystem/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="69" column="40" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="40" />
+        <state relative-caret-position="224">
+          <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js">
+    <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!block;n#getBatchReturn#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="224">
+          <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="347" column="17" lean-forward="true" selection-start-line="347" selection-start-column="17" selection-end-line="347" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
