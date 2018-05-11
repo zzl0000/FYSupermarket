@@ -147,7 +147,7 @@ function getMemberInfo(inputkey) {
 				$("#ScanCodeinput").focus();
 				renderMenberInfo(rs);
 				token = rs.data.token;
-				userName = rs.data.token;
+				userName = rs.data.phone;
 				nick = rs.data.nick;
 			} else {
 				layer.msg(rs.message);
