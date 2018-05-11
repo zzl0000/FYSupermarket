@@ -1,5 +1,5 @@
 var _curnum,isClick = false;
-
+var goodsList = [];
 
 $(function(){
 	$(document).keydown(function(event){
@@ -40,6 +40,7 @@ function getReturnOrderList(orderId){
 		crossDomain: true,
 		success: function (rs) {
 			if (rs.status == 200) {
+				goodsList = []; 
 				$('#group-select').hide();
 				$('#swopPanel').show();
 				$('#storeOrderId').val('');
@@ -162,7 +163,7 @@ function returnPriceCount(type,el,_num){
 }
 
 
-var goodsList = [];
+
 
 $('body').off('click').on('click','.refund_btn', function(e){
 	e.preventDefault()
