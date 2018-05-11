@@ -36,6 +36,7 @@ function getReturnOrderList(orderId){
 		xhrFields: {
 			withCredentials: true
 		},
+		cache:false,
 		crossDomain: true,
 		success: function (rs) {
 			if (rs.status == 200) {
