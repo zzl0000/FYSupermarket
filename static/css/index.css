@@ -498,7 +498,7 @@
 }
 .settlementMethod ul{}
 .settlementMethod ul li{
-	width: 33.3%;
+	width: 50%;
 	float: left;
 	padding: 10px 0;
 	font-size: 20px;
