@@ -166,7 +166,7 @@ function getOrderDetail(orderId) {
                     list: rs.data.integralOrderOptionList
                 });
                 $("#orderDetailListDemo").html(html);
-	            $('.nick').text(rs.data.nick)
+	            $('.nick').text(rs.data.nick);
 	            $('#balance').text(rs.data.balance);
 	            $('#integralPrice').text(rs.data.integral);
 	            //$('#couponPrice').text(rs.data.balance);
@@ -175,8 +175,8 @@ function getOrderDetail(orderId) {
                     console.log(val);
 	                $('#nick').text(val.nick)
                     $('#phone').text(val.phone)
-                    $('#orderCode').text(data.integralOrderId)
-                    $('#payWay').text(payWayText[data.payWay])
+                    $('#orderCode').text(data.integralOrderId);
+                    $('#payWay').text(payWayText[data.payWay];
                     $('#payTime').text(data.payTime)
                     $('#payTime').text(data.employeeName)
 
@@ -221,6 +221,8 @@ function openPanel() {
 							$('#LogoutTime').text(rs.data.logoutTime.slice(10,rs.data.logoutTime.length));
 						}
 
+					}else{
+						layer.msg(rs.message);
 					}
 				}
 			})

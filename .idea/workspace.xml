@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="cb063a20-08e2-465d-8db4-de4f023d7c7e" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/static/css/index.css" afterPath="$PROJECT_DIR$/static/css/index.css" />
-      <change beforePath="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" afterPath="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" />
+      <change beforePath="$PROJECT_DIR$/static/img/logo-icon.png" afterPath="$PROJECT_DIR$/static/img/logo-icon.png" />
+      <change beforePath="$PROJECT_DIR$/static/img/logo-icon02.png" afterPath="$PROJECT_DIR$/static/img/logo-icon02.png" />
+      <change beforePath="$PROJECT_DIR$/view/index.html" afterPath="$PROJECT_DIR$/view/index.html" />
+      <change beforePath="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" afterPath="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
+      <change beforePath="$PROJECT_DIR$/view/integralSystem.html" afterPath="$PROJECT_DIR$/view/integralSystem.html" />
+      <change beforePath="$PROJECT_DIR$/view/login.html" afterPath="$PROJECT_DIR$/view/login.html" />
+      <change beforePath="$PROJECT_DIR$/view/longinState.html" afterPath="$PROJECT_DIR$/view/longinState.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,21 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tradingRecord.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/supermarket/tradingRecord/tradingRecord.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2944">
-              <caret line="184" column="54" lean-forward="false" selection-start-line="184" selection-start-column="54" selection-end-line="184" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="alteration.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1344">
-              <caret line="84" column="31" lean-forward="false" selection-start-line="79" selection-start-column="4" selection-end-line="84" selection-end-column="31" />
+            <state relative-caret-position="416">
+              <caret line="167" column="53" lean-forward="true" selection-start-line="167" selection-start-column="53" selection-end-line="167" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -48,51 +43,75 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="336">
+              <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="longinState.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/longinState.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="integralSystem.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/integralSystem.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="27" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logo-icon02.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/img/logo-icon02.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logo-icon.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/img/logo-icon.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
+            <state relative-caret-position="1104">
               <caret line="69" column="40" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
+            <state relative-caret-position="7968">
               <caret line="498" column="22" lean-forward="true" selection-start-line="498" selection-start-column="22" selection-end-line="498" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="center.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/center.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="30" column="17" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/supermarket/tradingRecord/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1792">
-              <caret line="112" column="36" lean-forward="true" selection-start-line="112" selection-start-column="36" selection-end-line="112" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -176,14 +195,12 @@
         <option value="$PROJECT_DIR$/view/integral/home/home.js" />
         <option value="$PROJECT_DIR$/view/integral/home/index.html" />
         <option value="$USER_HOME$/Desktop/webapp/static/js/login.js" />
-        <option value="$PROJECT_DIR$/view/longinState.html" />
         <option value="$PROJECT_DIR$/lib/layer.js" />
         <option value="$PROJECT_DIR$/lib/skin/layer.css" />
         <option value="$PROJECT_DIR$/static/css/login.css" />
         <option value="$PROJECT_DIR$/view/integral/tradingRecord/tradingRecord.js" />
         <option value="$PROJECT_DIR$/view/integral/cashierSystem/1" />
         <option value="$PROJECT_DIR$/static/css/test1.css" />
-        <option value="$PROJECT_DIR$/view/login.html" />
         <option value="$PROJECT_DIR$/view/integral/tradingRecord/index.html" />
         <option value="$PROJECT_DIR$/static/js/KeyboardVal.js" />
         <option value="$PROJECT_DIR$/static/js/Keyboard.js" />
@@ -193,8 +210,6 @@
         <option value="$PROJECT_DIR$/view/integral/alterationSystem/index.html" />
         <option value="$PROJECT_DIR$/view/integral/swopSystem/swopSystem.js" />
         <option value="$PROJECT_DIR$/view/supermarket/orderSystem/order.js" />
-        <option value="$PROJECT_DIR$/view/integralSystem.html" />
-        <option value="$PROJECT_DIR$/view/index.html" />
         <option value="$PROJECT_DIR$/static/css/module.css" />
         <option value="$PROJECT_DIR$/view/supermarket/swopSystem/index.html" />
         <option value="$PROJECT_DIR$/view/integral/swopSystem/index.html" />
@@ -203,7 +218,6 @@
         <option value="$PROJECT_DIR$/view/integral/cashierSystem/index.html" />
         <option value="$PROJECT_DIR$/static/css/main/public.css" />
         <option value="$PROJECT_DIR$/view/supermarket/alterationSystem/alteration.js" />
-        <option value="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
         <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" />
         <option value="$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js" />
         <option value="$PROJECT_DIR$/view/supermarket/tradingRecord/tradingRecord.js" />
@@ -211,6 +225,11 @@
         <option value="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" />
         <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" />
         <option value="$PROJECT_DIR$/static/css/index.css" />
+        <option value="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
+        <option value="$PROJECT_DIR$/view/index.html" />
+        <option value="$PROJECT_DIR$/view/integralSystem.html" />
+        <option value="$PROJECT_DIR$/view/longinState.html" />
+        <option value="$PROJECT_DIR$/view/login.html" />
       </list>
     </option>
   </component>
@@ -251,6 +270,9 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="添加" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -266,6 +288,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -296,6 +319,12 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
@@ -345,7 +374,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,26 +478,28 @@
       <workItem from="1526000961608" duration="9907000" />
       <workItem from="1526032849467" duration="8000" />
       <workItem from="1526260263137" duration="13000" />
-      <workItem from="1526291265474" duration="190000" />
+      <workItem from="1526291265474" duration="341000" />
+      <workItem from="1526355006332" duration="2509000" />
+      <workItem from="1526520009883" duration="3406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278854000" />
+    <option name="totallyTimeSpent" value="284920000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16614583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="层次结构" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2109375" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -539,22 +569,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/view/supermarket/home/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/supermarket/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/lay/modules/code.js" />
-    <entry file="file://$PROJECT_DIR$/lib/modules/form.js" />
     <entry file="file://$PROJECT_DIR$/../safetyview/cbf/page/system/roleAdd.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -603,13 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="6" column="1195" lean-forward="true" selection-start-line="6" selection-start-column="1195" selection-end-line="6" selection-end-column="1195" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/longinState.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="33" column="55" lean-forward="false" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -683,20 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="816">
           <caret line="51" column="41" lean-forward="false" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/integralSystem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="24" column="4" lean-forward="false" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="39" column="7" lean-forward="false" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -806,17 +799,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="84" column="31" lean-forward="false" selection-start-line="79" selection-start-column="4" selection-end-line="84" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/supermarket/tradingRecord/tradingRecord.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2944">
+        <state relative-caret-position="0">
           <caret line="184" column="54" lean-forward="false" selection-start-line="184" selection-start-column="54" selection-end-line="184" selection-end-column="54" />
           <folding />
         </state>
@@ -838,17 +823,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
+        <state relative-caret-position="1104">
           <caret line="69" column="40" lean-forward="false" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="40" />
           <folding />
         </state>
@@ -856,8 +833,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
+        <state relative-caret-position="7968">
           <caret line="498" column="22" lean-forward="true" selection-start-line="498" selection-start-column="22" selection-end-line="498" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="167" column="53" lean-forward="true" selection-start-line="167" selection-start-column="53" selection-end-line="167" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/logo2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/logo-icon02.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/logo-icon.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="3" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="27" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/integralSystem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/longinState.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
           <folding />
         </state>
       </provider>
