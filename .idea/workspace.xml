@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cb063a20-08e2-465d-8db4-de4f023d7c7e" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" afterPath="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
+      <change beforePath="$PROJECT_DIR$/view/index.html" afterPath="$PROJECT_DIR$/view/index.html" />
+      <change beforePath="$PROJECT_DIR$/view/integralSystem.html" afterPath="$PROJECT_DIR$/view/integralSystem.html" />
+      <change beforePath="$PROJECT_DIR$/view/login.html" afterPath="$PROJECT_DIR$/view/login.html" />
+      <change beforePath="$PROJECT_DIR$/view/longinState.html" afterPath="$PROJECT_DIR$/view/longinState.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="alteration.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="alteration.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="178" column="62" lean-forward="false" selection-start-line="178" selection-start-column="62" selection-end-line="178" selection-end-column="62" />
+            <state relative-caret-position="205">
+              <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -30,8 +33,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="7" column="47" lean-forward="true" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+            <state relative-caret-position="80">
+              <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -40,14 +43,14 @@
       <file leaf-file-name="longinState.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/longinState.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="7" column="134" lean-forward="false" selection-start-line="7" selection-start-column="134" selection-end-line="7" selection-end-column="134" />
+            <state relative-caret-position="64">
+              <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="printer.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="printer.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/printer.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="560">
@@ -60,8 +63,8 @@
       <file leaf-file-name="integralSystem.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/integralSystem.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+            <state relative-caret-position="80">
+              <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -70,8 +73,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="80">
+              <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -219,11 +222,11 @@
         <option value="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" />
         <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" />
         <option value="$PROJECT_DIR$/static/css/index.css" />
+        <option value="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
+        <option value="$PROJECT_DIR$/view/login.html" />
         <option value="$PROJECT_DIR$/view/index.html" />
         <option value="$PROJECT_DIR$/view/integralSystem.html" />
         <option value="$PROJECT_DIR$/view/longinState.html" />
-        <option value="$PROJECT_DIR$/view/login.html" />
-        <option value="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
       </list>
     </option>
   </component>
@@ -239,7 +242,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="73" />
     <option name="y" value="72" />
     <option name="width" value="1845" />
@@ -282,6 +285,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -311,12 +315,6 @@
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
@@ -360,7 +358,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -408,23 +405,23 @@
   <component name="RunManager" selected="JavaScript Debug.login.html">
     <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/FYSupermarket/view/index.html" />
     <configuration name="login.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/FYSupermarket/view/login.html" />
-    <configuration name="printer.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/FYSupermarket/view/printer.html" />
+    <configuration name="alteration.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="alteration.js" working-dir="$PROJECT_DIR$/view/integral/alterationSystem" />
     <configuration name="cashierSystem.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="cashierSystem.js" working-dir="$PROJECT_DIR$/view/integral/cashierSystem" />
     <configuration name="center.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="center.js" working-dir="$PROJECT_DIR$/static/js" />
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.printer.html" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.cashierSystem.js" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.center.js" />
-      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.cashierSystem.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.center.js" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.alteration.js" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.login.html" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.center.js" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.cashierSystem.js" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.printer.html" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.alteration.js" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.center.js" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
+        <item index="4" class="java.lang.String" itemvalue="Node.js.cashierSystem.js" />
       </list>
     </recent_temporary>
   </component>
@@ -468,15 +465,17 @@
       <workItem from="1526291265474" duration="341000" />
       <workItem from="1526355006332" duration="2509000" />
       <workItem from="1526520009883" duration="5815000" />
-      <workItem from="1526865573890" duration="74000" />
+      <workItem from="1526865573890" duration="826000" />
+      <workItem from="1526868690807" duration="3104000" />
+      <workItem from="1526886057690" duration="217000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="287403000" />
+    <option name="totallyTimeSpent" value="291476000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -486,7 +485,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908705" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -839,18 +838,42 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="3" lean-forward="false" selection-start-line="21" selection-start-column="3" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="80">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/integralSystem.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="17" lean-forward="false" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        <state relative-caret-position="80">
+          <caret line="5" column="18" lean-forward="false" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/longinState.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="4" column="20" lean-forward="false" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -859,30 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="35" column="32" lean-forward="true" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/longinState.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="134" lean-forward="false" selection-start-line="7" selection-start-column="134" selection-end-line="7" selection-end-column="134" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="47" lean-forward="true" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="178" column="62" lean-forward="false" selection-start-line="178" selection-start-column="62" selection-end-line="178" selection-end-column="62" />
           <folding />
         </state>
       </provider>
