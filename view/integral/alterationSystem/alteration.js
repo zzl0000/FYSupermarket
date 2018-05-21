@@ -176,7 +176,7 @@ function getOrderDetail(orderId) {
 	                $('#nick').text(val.nick)
                     $('#phone').text(val.phone)
                     $('#orderCode').text(data.integralOrderId);
-                    $('#payWay').text(payWayText[data.payWay];
+                    $('#payWay').text(payWayText[data.payWay]);
                     $('#payTime').text(data.payTime)
                     $('#payTime').text(data.employeeName)
 
