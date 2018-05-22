@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb063a20-08e2-465d-8db4-de4f023d7c7e" name="默认的" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/view/integral/orderSystem/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/view/integral/orderSystem/order.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/static/js/center.js" afterPath="$PROJECT_DIR$/static/js/center.js" />
-      <change beforePath="$PROJECT_DIR$/static/js/index.js" afterPath="$PROJECT_DIR$/static/js/index.js" />
-      <change beforePath="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" afterPath="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" />
-      <change beforePath="$PROJECT_DIR$/view/integral/cashierSystem/index.html" afterPath="$PROJECT_DIR$/view/integral/cashierSystem/index.html" />
-      <change beforePath="$PROJECT_DIR$/view/printer.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/static/css/index.css" afterPath="$PROJECT_DIR$/static/css/index.css" />
+      <change beforePath="$PROJECT_DIR$/static/css/login.css" afterPath="$PROJECT_DIR$/static/css/login.css" />
+      <change beforePath="$PROJECT_DIR$/static/js/login.js" afterPath="$PROJECT_DIR$/static/js/login.js" />
+      <change beforePath="$PROJECT_DIR$/view/integral/home/index.html" afterPath="$PROJECT_DIR$/view/integral/home/index.html" />
+      <change beforePath="$PROJECT_DIR$/view/login.html" afterPath="$PROJECT_DIR$/view/login.html" />
+      <change beforePath="$PROJECT_DIR$/view/supermarket/home/index.html" afterPath="$PROJECT_DIR$/view/supermarket/home/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,63 +21,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="center.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/center.js">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/integral/orderSystem/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="24" column="66" lean-forward="true" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="258" column="78" lean-forward="true" selection-start-line="258" selection-start-column="78" selection-end-line="258" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cashierSystem.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="172" column="82" lean-forward="true" selection-start-line="172" selection-start-column="28" selection-end-line="172" selection-end-column="82" />
+            <state relative-caret-position="277">
+              <caret line="45" column="56" lean-forward="false" selection-start-line="45" selection-start-column="56" selection-end-line="45" selection-end-column="56" />
               <folding>
-                <element signature="n#!!block;n#getPrice#0" expanded="false" />
+                <element signature="n#style#0;n#div#4;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/integral/tradingRecord/index.html">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+            <state relative-caret-position="48">
+              <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/integral/orderSystem/order.js">
+      <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/login.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="80" column="99" lean-forward="false" selection-start-line="80" selection-start-column="78" selection-end-line="80" selection-end-column="99" />
+            <state relative-caret-position="309">
+              <caret line="164" column="16" lean-forward="false" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -97,11 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_payPrice</find>
-      <find>renderGoodsList</find>
-      <find>.add</find>
-      <find>group-list table tbody tr td</find>
-      <find>payPrice</find>
       <find>.tb_left ul li</find>
       <find>.shopGoodsClearing</find>
       <find>toFixed(2)</find>
@@ -127,6 +91,11 @@
       <find>openPanel</find>
       <find>returnBillOptionList</find>
       <find>hangOrderNum</find>
+      <find>lo_pwd</find>
+      <find>.lo_heigth</find>
+      <find>.lo_font</find>
+      <find>lo_way</find>
+      <find>storePwd2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -155,14 +124,11 @@
         <option value="$PROJECT_DIR$/static/js/loginState.js" />
         <option value="$PROJECT_DIR$/static/js/jquery.jqprint-0.3.js" />
         <option value="$PROJECT_DIR$/view/printer.html" />
-        <option value="$PROJECT_DIR$/view/supermarket/home/index.html" />
         <option value="$PROJECT_DIR$/view/supermarket/home/home.js" />
         <option value="$PROJECT_DIR$/view/integral/home/home.js" />
-        <option value="$PROJECT_DIR$/view/integral/home/index.html" />
         <option value="$USER_HOME$/Desktop/webapp/static/js/login.js" />
         <option value="$PROJECT_DIR$/lib/layer.js" />
         <option value="$PROJECT_DIR$/lib/skin/layer.css" />
-        <option value="$PROJECT_DIR$/static/css/login.css" />
         <option value="$PROJECT_DIR$/view/integral/tradingRecord/tradingRecord.js" />
         <option value="$PROJECT_DIR$/view/integral/cashierSystem/1" />
         <option value="$PROJECT_DIR$/static/css/test1.css" />
@@ -178,15 +144,12 @@
         <option value="$PROJECT_DIR$/static/css/module.css" />
         <option value="$PROJECT_DIR$/view/supermarket/swopSystem/index.html" />
         <option value="$PROJECT_DIR$/view/integral/swopSystem/index.html" />
-        <option value="$PROJECT_DIR$/static/js/login.js" />
         <option value="$PROJECT_DIR$/static/css/main/public.css" />
         <option value="$PROJECT_DIR$/view/supermarket/alterationSystem/alteration.js" />
         <option value="$PROJECT_DIR$/view/supermarket/swopSystem/swopSystem.js" />
         <option value="$PROJECT_DIR$/view/supermarket/tradingRecord/tradingRecord.js" />
         <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/index.html" />
-        <option value="$PROJECT_DIR$/static/css/index.css" />
         <option value="$PROJECT_DIR$/view/integral/alterationSystem/alteration.js" />
-        <option value="$PROJECT_DIR$/view/login.html" />
         <option value="$PROJECT_DIR$/view/index.html" />
         <option value="$PROJECT_DIR$/view/integralSystem.html" />
         <option value="$PROJECT_DIR$/view/longinState.html" />
@@ -197,6 +160,12 @@
         <option value="$PROJECT_DIR$/view/integral/orderSystem/order.js" />
         <option value="$PROJECT_DIR$/view/supermarket/cashierSystem/cashierSystem.js" />
         <option value="$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js" />
+        <option value="$PROJECT_DIR$/view/supermarket/home/index.html" />
+        <option value="$PROJECT_DIR$/view/integral/home/index.html" />
+        <option value="$PROJECT_DIR$/static/css/index.css" />
+        <option value="$PROJECT_DIR$/static/css/login.css" />
+        <option value="$PROJECT_DIR$/view/login.html" />
+        <option value="$PROJECT_DIR$/static/js/login.js" />
       </list>
     </option>
   </component>
@@ -277,6 +246,12 @@
               <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
               <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -294,28 +269,7 @@
               <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
               <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="integral" type="462c0819:PsiDirectoryNode" />
-              <item name="cashierSystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="integral" type="462c0819:PsiDirectoryNode" />
-              <item name="orderSystem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="supermarket" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FYSupermarket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FYSupermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="supermarket" type="462c0819:PsiDirectoryNode" />
-              <item name="cashierSystem" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -432,12 +386,12 @@
       <workItem from="1526865573890" duration="826000" />
       <workItem from="1526868690807" duration="3104000" />
       <workItem from="1526886057690" duration="281000" />
-      <workItem from="1526956070761" duration="4257000" />
+      <workItem from="1526956070761" duration="8617000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295797000" />
+    <option name="totallyTimeSpent" value="300157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -521,16 +475,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/layer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="1" column="19632" lean-forward="true" selection-start-line="1" selection-start-column="19632" selection-end-line="1" selection-end-column="19632" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/layui.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -538,14 +482,6 @@
           <folding>
             <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -633,14 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="37" column="29" lean-forward="true" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="80" column="35" lean-forward="false" selection-start-line="80" selection-start-column="35" selection-end-line="80" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -746,14 +674,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="498" column="22" lean-forward="false" selection-start-line="498" selection-start-column="22" selection-end-line="498" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/integral/alterationSystem/alteration.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -774,22 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="61" column="16" lean-forward="false" selection-start-line="61" selection-start-column="16" selection-end-line="61" selection-end-column="166" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="70" lean-forward="true" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -824,42 +728,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/center.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/supermarket/orderSystem/order.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/tradingRecord/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/orderSystem/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="24" column="66" lean-forward="true" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/integral/orderSystem/order.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="80" column="99" lean-forward="false" selection-start-line="80" selection-start-column="78" selection-end-line="80" selection-end-column="99" />
           <folding />
         </state>
       </provider>
@@ -874,10 +746,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/supermarket/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/integral/home/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="28" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/integral/cashierSystem/cashierSystem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="258" column="78" lean-forward="true" selection-start-line="258" selection-start-column="78" selection-end-line="258" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/integral/orderSystem/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="66" lean-forward="true" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/center.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="44" column="25" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/integral/tradingRecord/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/integral/orderSystem/order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="80" column="99" lean-forward="false" selection-start-line="80" selection-start-column="78" selection-end-line="80" selection-end-column="99" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="697" column="20" lean-forward="true" selection-start-line="697" selection-start-column="20" selection-end-line="697" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="164" column="16" lean-forward="false" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="45" column="56" lean-forward="false" selection-start-line="45" selection-start-column="56" selection-end-line="45" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
           <folding />
         </state>
       </provider>

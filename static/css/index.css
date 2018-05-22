@@ -729,3 +729,12 @@
 	width: 100%;
 }
 
+
+.system_title{
+	font-size: 48px;
+	color: white;
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}

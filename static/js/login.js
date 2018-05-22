@@ -1,7 +1,8 @@
 
 
 
-
+var loginType = 2;
+var storePwd = '';
 //console.log(sessionStorage.getItem("storeId"))
 
 if (sessionStorage.getItem("storeId") != null) {
@@ -12,6 +13,18 @@ if (sessionStorage.getItem("storeId") != null) {
 }
 
 
+$('.lo_way span').on('click', function(){
+	$(this).addClass('bg-blue').siblings().removeClass('bg-blue');
+	$('.lo_pwd1').removeClass('active');
+	var _slef = $(this).data('tab');
+	if(_slef == 'panel1'){
+		loginType = 2
+		
+	}else{
+		loginType = 1
+	}
+	$('#'+_slef).addClass('active');
+})
 
 //门店注销 
 
@@ -49,8 +62,12 @@ $('.back_btn').on('click', function (e) {
 function signlogStore() {
 	
     var phone = $("#phone").val();
-    var storePwd = $("#storePwd").val();
 
+	if(loginType == 1){
+		storePwd = $("#storePwd2").val();
+	}else{
+		storePwd = $("#storePwd1").val();
+	}
     if (phone == "" || storePwd == "") {
         layer.msg("请填写信息");
         return;
@@ -62,7 +79,7 @@ function signlogStore() {
         data: {
             "phone": phone,
             "code": storePwd,
-            "loginType": 1,
+            "loginType": loginType,
         },
         xhrFields: {
             withCredentials: true
