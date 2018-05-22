@@ -27,14 +27,53 @@ var ListData = {
 };
 
 var userName = '';
-
+var hangOrderData;
 var PaymentKey = '';
 var isMemberVal = false;
 var key;
 var ischeckOut = false;
+var keyId;
+var hangOrderNum = [];
+
 init();
 
 function init() {
+	
+	var offLine = sessionStorage.getItem('offLine');
+	//console.log(offLine);
+	if(offLine == "null"){
+		$('.settlementMethod li').addClass('disabled');
+	}else{
+		$('.settlementMethod li').removeClass('disabled');
+	}
+	
+	gNo = [];
+	hangOrderDtata = null;
+	keyId = '';
+	if (sessionStorage.getItem("hangIntegralOrderData") != null) {
+		hangOrderData = JSON.parse(sessionStorage.getItem("hangIntegralOrderData"));
+		keyId = sessionStorage.getItem("clearingId");
+	};
+	
+	console.log(hangOrderData)
+	if (hangOrderData != null) {
+		isMemberVal = true;
+		$("#memberInfo").show();
+		getMemberInfo(hangOrderData[keyId].token);
+		
+		//console.log(hangOrderDtata[0].goodsList);
+		$.each(hangOrderData[keyId].integralBillOptions, function (index, val) {
+			//console.log(val.num);
+			getGoodsList(val.goodsNo, curk ,val.sellType);
+			hangOrderNum.push(val.num);
+			curk++;
+
+		});
+		
+	}
+	
+	
+	
 	
 	$('#ScanCodeMember').bind('keypress', function (event) {
 		var inputkey = $('#ScanCodeMember').val();
@@ -165,8 +204,8 @@ function renderMenberInfo(rs) {
 }
 
 
-function getGoodsList(key, status) {
-	//console.log(num);
+function getGoodsList(key, status, _sellType) {
+	
 	if (status <= 0) {
 		gNo.push(key);
 	} else {
@@ -214,34 +253,51 @@ function getGoodsList(key, status) {
 					ListData.goodsListData[index] = rs.data;
 					renderGoodsList(ListData);
 				} else {
-					layer.open({
-						title: '请选择支付方式',
-						type: 1,
-						closeBtn: 0,
-						shadeClose: false, //开启遮罩关闭
-						area: ['400px', 'auto'], //宽高
-						content: html,
-						success: function () {
-							
-							$("input[type=radio]").click(function () {
+					if(_sellType != null){
+						PaymentKey =_sellType
+						var integralIndex = returnIntegralIndex(rs.data.integralSellTypeList, PaymentKey);
+						rs.data.num = hangOrderNum[returnSAIndexof(gNo, key)];
+						rs.data.sellType = rs.data.integralSellTypeList[integralIndex].sellType;
+						rs.data.price = priceCount(rs.data.price, rs.data.num);
+						rs.data.price = priceCount(rs.data.integralSellTypeList[integralIndex].cash, rs.data.num);
+						unitPrice = priceCount(rs.data.integralSellTypeList[integralIndex].cash, rs.data.num);
+						rs.data.integral = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
+						unitIntegral = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
+						rs.data.fubi = priceCount(rs.data.integralSellTypeList[integralIndex].fubi, rs.data.num);
+						unitFubi = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
+						ListData.goodsListData.push(rs.data);
+						renderGoodsList(ListData);
+					}else{
+						layer.open({
+							title: '请选择支付方式',
+							type: 1,
+							closeBtn: 0,
+							shadeClose: false, //开启遮罩关闭
+							area: ['400px', 'auto'], //宽高
+							content: html,
+							success: function () {
 								
-								PaymentKey = $(this).val();
-								var integralIndex = returnIntegralIndex(rs.data.integralSellTypeList, PaymentKey);
-								rs.data.num = 1;
-								rs.data.sellType = rs.data.integralSellTypeList[integralIndex].sellType;
-								rs.data.price = priceCount(rs.data.price, rs.data.num);
-								rs.data.price = priceCount(rs.data.integralSellTypeList[integralIndex].cash, rs.data.num);
-								unitPrice = priceCount(rs.data.integralSellTypeList[integralIndex].cash, rs.data.num);
-								rs.data.integral = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
-								unitIntegral = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
-								rs.data.fubi = priceCount(rs.data.integralSellTypeList[integralIndex].fubi, rs.data.num);
-								unitFubi = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
-								ListData.goodsListData.push(rs.data);
-								renderGoodsList(ListData);
-								layer.closeAll();
-							})
-						}
-					});
+								$("input[type=radio]").click(function () {
+									
+									PaymentKey = $(this).val();
+									var integralIndex = returnIntegralIndex(rs.data.integralSellTypeList, PaymentKey);
+									rs.data.num = 1;
+									rs.data.sellType = rs.data.integralSellTypeList[integralIndex].sellType;
+									rs.data.price = priceCount(rs.data.price, rs.data.num);
+									rs.data.price = priceCount(rs.data.integralSellTypeList[integralIndex].cash, rs.data.num);
+									unitPrice = priceCount(rs.data.integralSellTypeList[integralIndex].cash, rs.data.num);
+									rs.data.integral = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
+									unitIntegral = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
+									rs.data.fubi = priceCount(rs.data.integralSellTypeList[integralIndex].fubi, rs.data.num);
+									unitFubi = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
+									ListData.goodsListData.push(rs.data);
+									renderGoodsList(ListData);
+									layer.closeAll();
+								})
+							}
+						});
+					}
+					
 				}
 				
 				
@@ -364,7 +420,7 @@ function realPriceCount(type,unitPrice, uniIntegral,unitFubi) {
 
 
 function getPrice(realPrice) {
-	console.log(realPrice);
+	//console.log(realPrice);
 	var payPrice, couponPrice, integralPrice;
 	
 	var str = '';
@@ -513,6 +569,80 @@ function getCheckOut(){
 	});
 }
 
+/**
+ *  挂单
+ */
+
+
+
+function uplodOrder() {
+	var goodsList = [];
+	//console.log(gNo)
+	if (gNo.length <= 0) {
+		layer.msg('请先添加商品');
+		return false;
+	}
+	_payPrice = $('#payPrice').text();
+	var _integralPrice = $('#integralPrice').text();
+	var _fubi = $('#couponPrice').text();
+	
+	$('#Goods li').each(function (index, el) {
+		var integralBillOptions = {
+			"balance": 0,
+			"goodsId": 0,
+			"goodsNo": 0,
+			"integral": 0,
+			"fromSkuId":0,
+			"cash": 0,
+			"num": 0,
+			"fromSkuId": "string",
+			"sellType": 0
+		};
+		integralBillOptions.goodsNo = $(el).attr('data-gNo');
+		integralBillOptions.goodsId = $(el).attr('data-goodsId');
+		integralBillOptions.fromSkuId = $(el).attr('data-fromSkuId');
+		integralBillOptions.num = $(el).find('.number').text();
+		integralBillOptions.integral = parseFloat($(el).find('.integral').text() / integralBillOptions.num);
+		//integralBillOptions.balance =  parseFloat($(el).find('.price').text() / integralBillOptions.num);
+		integralBillOptions.cash = parseFloat($(el).find('.price').text() / integralBillOptions.num);
+		integralBillOptions.fubi = parseFloat($(el).find('.coupon').text() / integralBillOptions.num);
+		console.log(integralBillOptions.fubi);
+		integralBillOptions.sellType = $(el).attr('data-sellType');
+		goodsList.push(integralBillOptions);
+	})
+	//console.log(goodsList)
+	
+	var data = {
+		"integralBillOptions": goodsList,
+		"sumCash": _payPrice,
+		"sumIntegral": _integralPrice,
+		"sumFubi": _fubi,
+		"token": token,
+		"nick": nick,
+	};
+	//console.log(data)
+	$.ajax({
+		type: "post",
+		url: saveHangIntegralOrder,
+		data: JSON.stringify(data),
+		contentType: "application/json",
+		dataType: 'json',
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function (rs) {
+			if (rs.status == 200) {
+				layer.msg('挂账成功');
+				reset();
+				resetKeyboard();
+			} else {
+				layer.msg(rs.message)
+			}
+		}
+	});
+}
+
 
 /**
  * 清空重置
@@ -531,6 +661,7 @@ function reset() {
 	isMemberVal = false;
 	num = 0;
 	ListData.goodsListData = [];
+	sessionStorage.setItem("hangIntegralOrderData", null);
 	resetKeyboard()
 }
 

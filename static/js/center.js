@@ -41,6 +41,12 @@ var batchReturn = turl + "/cashier/return/batchReturn";  // 批量退货
 var findIntegralOrder = turl + "/cashier/integralReturn/findIntegralOrder";  // 获取积分退货订单
 var integralReturn = turl + "/cashier/integralReturn/batchReturn";  // 积分批量退货
 
+
+var saveHangIntegralOrder = turl + "/cashier/hangIntegralOrder/saveHangIntegralOrder"; // 积分保存挂单
+var getHangIntegralOrderList = turl + "/cashier/hangIntegralOrder/getHangIntegralOrderList";   //获取积分挂单数据
+var removeHangIntegralOrder = turl + "/cashier/hangIntegralOrder/removeHangIntegralOrder";   //删除积分挂单数据
+
+
 function queryMenberIFFnfo(token,callback){
 	$.ajax({
         type: "get",
