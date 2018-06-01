@@ -442,13 +442,24 @@ function uplodOrder() {
 // 结账
 
 function checkOut() {
+	console.log(ischeckOut);
 	if(ischeckOut){
 		return false;
 	}
+	
 	var goodsList = [];
 	var _payPrice = $('#payPrice').text();
+	var _relTakePrice = $('#relTakePrice').val();
+	
 	if (parseFloat(_payPrice) <= 0) {
 		layer.msg('请先添加商品');
+		ischeckOut = false;
+		return false;
+	}
+	
+	if (_relTakePrice == '') {
+		layer.msg('实收金额不能为空');
+		ischeckOut = false;
 		return false;
 	}
 	
@@ -480,8 +491,7 @@ function checkOut() {
 		"nick": nick
 	}
 	
-
-	
+	ischeckOut = true;
 	$.ajax({
 		type: "post",
 		url: payByCash,
@@ -495,12 +505,10 @@ function checkOut() {
 		success: function (rs) {
 			if (rs.status == 200) {
 				layer.msg('结账成功');
-				ischeckOut = true;
 				reset();
 				resetKeyboard();
 			} else {
 				reset();
-				ischeckOut = true;
 				layer.msg(rs.message)
 			}
 		}

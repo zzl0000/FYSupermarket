@@ -12,7 +12,7 @@
                         <li>会员:<span>{{value.nick}}</span></li>
                         <li>手机号:<span>{{value.phone}}</span></li>
                         <li>积分:<span>{{value.points}}</span></li>
-                        <li>福币:<span>{{value.packet}}</span></li>
+                        <li>消费券:<span>{{value.packet}}</span></li>
                     </ul>
                 </script>
             </div>
@@ -36,7 +36,7 @@
                                     <div class="shopGoodPrice">
                                         <p>现金: <span class="price">{{value.price}}</span></p>
                                         <p>积分:  <span class="integral">{{value.integral}}</span></p>
-                                        <p>福币: <span class="coupon">{{value.fubi}}</span></p>
+                                        <p>消费券: <span class="coupon">{{value.fubi}}</span></p>
                                     </div>
                                     <div>
                                         <span class="minus" data-goodsId="{{value.goodsId}}"
@@ -57,7 +57,7 @@
 
             <div class="shopGoodsInfo  float-right" style="width: 50%">
                 <p>积分：¥ <span id="integralPrice">0.00</span></p>
-                <p>福币：¥ <span id="couponPrice">0.00</span></p>
+                <p>消费券：¥ <span id="couponPrice">0.00</span></p>
                 <p>现金：¥ <span id="payPrice" class="payPrice">0.00</span></p>
             </div>
             <br clear="all">
@@ -130,7 +130,7 @@
             <div class="tb_list">
                 <div class="tb_list_left">
                     <input class="my_radio" type="radio" name="paymentType" value="{{rs.sellType}}"/>
-                    <span>{{if rs.sellType==1}}积分 {{else if rs.sellType==2}}积分+现金{{else if rs.sellType==3}}福币{{else if rs.sellType==4}}福币+现金{{/if}}</span>
+                    <span>{{if rs.sellType==1}}积分 {{else if rs.sellType==2}}积分+现金{{else if rs.sellType==3}}消费券{{else if rs.sellType==4}}消费券+现金{{/if}}</span>
                 </div>
                 <span>{{if rs.sellType==1}}{{rs.integral}} {{else if rs.sellType==2}}{{rs.integral}}+{{rs.cash}}{{else if rs.sellType==3}}{{rs.fubi}}{{else if rs.sellType==4}}{{rs.fubi}}+{{rs.cash}}{{/if}} </span>
 

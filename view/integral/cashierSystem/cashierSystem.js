@@ -468,8 +468,18 @@ function checkOut() {
 	//console.log(gNo)
 	if (gNo.length <= 0) {
 		layer.msg('请先添加商品');
+		ischeckOut = false;
 		return false;
 	}
+	var _payPrice = $('#payPrice').text();
+	var _relTakePrice = $('#relTakePrice').val();
+
+	if (_relTakePrice == '' && parseFloat(_payPrice) > 0) {
+		layer.msg('实收金额不能为空');
+		ischeckOut = false;
+		return false;
+	}
+	
 	
 	layer.prompt({
 		title: '会员密码',
@@ -544,7 +554,7 @@ function getCheckOut(){
 		"token": token,
 		"nick": nick,
 	};
-	
+	ischeckOut = true;
 	$.ajax({
 		type: "post",
 		url: payIntegralOrder,
@@ -558,10 +568,8 @@ function getCheckOut(){
 		success: function (rs) {
 			if (rs.status == 200) {
 				layer.msg('结账成功');
-				ischeckOut = true;
 				reset();
 			} else {
-				ischeckOut = true;
 				reset();
 				layer.msg(rs.message)
 			}
@@ -658,6 +666,7 @@ function reset() {
 	gNo = [];
 	curk = 0;
 	isgNo = false;
+	ischeckOut = false;
 	isMemberVal = false;
 	num = 0;
 	ListData.goodsListData = [];

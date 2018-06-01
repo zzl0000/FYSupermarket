@@ -62,25 +62,36 @@ $('.back_btn').on('click', function (e) {
 function signlogStore() {
 	
     var phone = $("#phone").val();
+    var data;
 
 	if(loginType == 1){
 		storePwd = $("#storePwd2").val();
+        data = {
+            "phone": phone,
+            "code": storePwd,
+            "loginType": loginType,
+        };
 	}else{
 		storePwd = $("#storePwd1").val();
+        data = {
+            "phone": phone,
+            "password": storePwd,
+            "loginType": loginType,
+        };
 	}
+
     if (phone == "" || storePwd == "") {
         layer.msg("请填写信息");
         return;
     }
 
+
+
+
     $.ajax({
         type: "get",
         url: turl + "/cashier/login/storeLogin",
-        data: {
-            "phone": phone,
-            "code": storePwd,
-            "loginType": loginType,
-        },
+        data: data,
         xhrFields: {
             withCredentials: true
         },

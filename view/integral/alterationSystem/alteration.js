@@ -75,57 +75,29 @@ function gainpage(pages, curr, alltotal) {
 }
 
 // 下班
-
 function getLogout() {
-	layer.prompt({
-		title: '获取下班授权',
-		closeBtn: 2,
-		shade: 0,
-		formType: 0
-	}, function (pass, index) {
-		
-		$.ajax({
-			type: "get",
-			url: authorize,
-			data: {
-				username: pass
-			},
-			xhrFields: {
-				withCredentials: true
-			},
-			crossDomain: true,
-			success: function (rs) {
-				if (rs.status == 200) {
-					layer.msg('授权成功', {'time': 1000}, function () {
-						$.ajax({
-							type: "get",
-							url: logout,
-							xhrFields: {
-								withCredentials: true
-							},
-							crossDomain: true,
-							success: function (rs) {
-								if (rs.status == 201 || rs.status == 200) {
-									layer.msg('下班成功', {
-										time: 1000
-									});
-									setTimeout(function () {
-										window.location.href = "login.html";
-									}, 2000);
-								}
-							}
-						})
-					});
-					//getReturnOrderList(orderId)
-				} else {
-					layer.msg(rs.message, {'time': 1000});
-				}
-			}
-		})
-		//layer.close(index);
+	var index = layer.load(3,{
+		shade: [0.8,'#000'],
 	});
-	
-	
+	$.ajax({
+		type: "get",
+		url: logout,
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function (rs) {
+			if (rs.status == 201 || rs.status == 200) {
+				layer.close(index);
+				layer.msg('下班成功', {
+					time: 2000
+				},function () {
+					window.location.href = "login.html";
+				});
+				
+			}
+		}
+	})
 }
 
 // 获取员工信息
@@ -190,43 +162,73 @@ function getOrderDetail(orderId) {
 function openPanel() {
 
 	var html = $('#logoutPanel');
-	layer.open({
-		title: '今日统计',
-		type: 1,
-		closeBtn: 2,
-		shadeClose: true, //开启遮罩关闭
-		area: ['1054px', '650px'], //宽高
-		content: html,
-		success: function(index, layero) {
-			$.ajax({
-				type: "get",
-				url: getCheckOut,
-				xhrFields: {
-					withCredentials: true
-				},
-				crossDomain: true,
-				success: function(rs) {
-					if(rs.status == 201 || rs.status == 200) {
-						console.log(rs);
-						if(rs.data != null){
-                            var html1 = template('templateList', {
-                                value: rs.data
-                            });
-                            var html2 = template('memberList', {
-                                value: rs.data
-                            });
-                            $("#gatheringList").html(html1);
-                            $("#memberlinfoList").html(html2);
-                            $('#imprestCashLogout').text(rs.data.imprestCashLogout);
-							$('#LogoutTime').text(rs.data.logoutTime.slice(10,rs.data.logoutTime.length));
-						}
+    layer.prompt({
+        title: '获取下班授权',
+        closeBtn: 2,
+        shade: 0,
+        formType: 0
+    }, function (pass, index) {
 
-					}else{
-						layer.msg(rs.message);
-					}
-				}
-			})
-		}
-	});
+        $.ajax({
+            type: "get",
+            url: authorize,
+            data: {
+                username: pass
+            },
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            success: function (rs) {
+                if (rs.status == 200) {
+                    layer.msg('授权成功', {'time': 1000}, function () {
+                        layer.open({
+                            title: '今日统计',
+                            type: 1,
+                            closeBtn: 2,
+                            shadeClose: true, //开启遮罩关闭
+                            area: ['1054px', '650px'], //宽高
+                            content: html,
+                            success: function(index, layero) {
+                                $.ajax({
+                                    type: "get",
+                                    url: getCheckOut,
+                                    xhrFields: {
+                                        withCredentials: true
+                                    },
+                                    crossDomain: true,
+                                    success: function(rs) {
+                                        if(rs.status == 201 || rs.status == 200) {
+                                            console.log(rs);
+                                            if(rs.data != null){
+                                                var html1 = template('templateList', {
+                                                    value: rs.data
+                                                });
+                                                var html2 = template('memberList', {
+                                                    value: rs.data
+                                                });
+                                                $("#gatheringList").html(html1);
+                                                $("#memberlinfoList").html(html2);
+                                                $('#imprestCashLogout').text(rs.data.imprestCashLogout);
+                                                $('#LogoutTime').text(rs.data.logoutTime.slice(10,rs.data.logoutTime.length));
+                                            }
+
+                                        }else{
+                                            layer.msg(rs.message);
+                                        }
+                                    }
+                                })
+                            }
+                        });
+                    });
+                    //getReturnOrderList(orderId)
+                } else {
+                    layer.msg(rs.message, {'time': 1000});
+                }
+            }
+        })
+        //layer.close(index);
+    });
+
 
 }
