@@ -454,6 +454,7 @@ function uplodOrder() {
 
 function checkOut() {
 	console.log(ischeckOut);
+	
 	if(ischeckOut){
 		return false;
 	}
@@ -473,7 +474,7 @@ function checkOut() {
 		ischeckOut = false;
 		return false;
 	}
-	
+	var index = layer.load(3,{shade: [0.8,'#000'],});
 	$('#Goods li').each(function (index, el) {
 		var goodsInfo = {
 			"gno": '0',
@@ -515,10 +516,12 @@ function checkOut() {
 		crossDomain: true,
 		success: function (rs) {
 			if (rs.status == 200) {
+				layer.close(index);
 				layer.msg('结账成功');
 				reset();
 				resetKeyboard();
 			} else {
+				layer.close(index);
 				ischeckOut = false;
 				layer.msg(rs.message)
 			}

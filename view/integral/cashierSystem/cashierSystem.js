@@ -530,7 +530,7 @@ function getCheckOut(){
 	_payPrice = $('#payPrice').text();
 	var _integralPrice = $('#integralPrice').text();
 	var _fubi = $('#couponPrice').text();
-	
+	var index = layer.load(3,{shade: [0.8,'#000'],});
 	$('#Goods li').each(function (index, el) {
 		var integralBillOptions = {
 			"balance": 0,
@@ -579,9 +579,11 @@ function getCheckOut(){
 		success: function (rs) {
 			if (rs.status == 200) {
 				layer.msg('结账成功');
+				layer.close(index);
 				reset();
 			} else {
 				ischeckOut = false;
+				layer.close(index);
 				layer.msg(rs.message)
 			}
 		}
