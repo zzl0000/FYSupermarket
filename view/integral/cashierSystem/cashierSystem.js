@@ -55,7 +55,7 @@ function init() {
 		keyId = sessionStorage.getItem("clearingId");
 	};
 	
-	console.log(hangOrderData)
+	//console.log(hangOrderData)
 	if (hangOrderData != null) {
 		isMemberVal = true;
 		$("#memberInfo").show();
@@ -205,7 +205,7 @@ function renderMenberInfo(rs) {
 
 
 function getGoodsList(key, status, _sellType) {
-	
+	//console.log(isgNo,status);
 	if (status <= 0) {
 		gNo.push(key);
 	} else {
@@ -219,7 +219,6 @@ function getGoodsList(key, status, _sellType) {
 		}
 	}
 	
-	//console.log(gNo,isgNo,status)
 	//return;
 	$.ajax({
 		type: "get",
@@ -353,6 +352,8 @@ function minusCount(el, _num) {
 		$('#realPrice').text('0.00');
 		$('.payPrice').text('0.00');
 		$('#payPrice').text('0.00');
+		curk = 0;
+		isgNo = false;
 		ListData.goodsListData[index].num = 0;
 	} else {
 		ListData.goodsListData[index].num = _curnum;
@@ -440,7 +441,7 @@ function getPrice(realPrice) {
 	str = str.substring(0, str.length - 1);
 	str2 = str2.substring(0, str2.length - 1);
 	str3 = str3.substring(0, str3.length - 1);
-	console.log(str3);
+	//console.log(str3);
 	payPrice = eval(str).toFixed(2);
 	integralPrice = eval(str2).toFixed(2);
 	couponPrice = eval(str3).toFixed(2);
@@ -570,7 +571,7 @@ function getCheckOut(){
 				layer.msg('结账成功');
 				reset();
 			} else {
-				reset();
+				ischeckOut = false;
 				layer.msg(rs.message)
 			}
 		}
@@ -715,7 +716,6 @@ function returnIndexof(arr, value) {
 	for (var i = 0; i < a.length; i++) {
 		if (a[i].goodsId == value) {
 			_curIndex = i;
-			isgNo = true;
 		}
 	}
 	//console.log(_curIndex);

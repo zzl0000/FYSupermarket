@@ -508,7 +508,7 @@ function checkOut() {
 				reset();
 				resetKeyboard();
 			} else {
-				reset();
+				ischeckOut = false;
 				layer.msg(rs.message)
 			}
 		}
