@@ -186,9 +186,19 @@ function getMemberInfo(inputkey) {
 				$("#ScanCodeinput").focus();
 				renderMenberInfo(rs);
 				token = rs.data.token;
-				userName = rs.data.phone;
 				nick = rs.data.nick;
-			} else {
+			} else if(rs.status == 301){
+				layer.msg(rs.message,function () {
+					$('#ScanCodeMemberInput').hide();
+					$('#ScanCodeMember').val('');
+					$("#memberInfo").show();
+					$("#ScanCodeinput").focus();
+					renderMenberInfo(rs);
+					token = rs.data.token;
+					nick = rs.data.nick;
+				});
+			}
+			else {
 				layer.msg(rs.message);
 			}
 		}
