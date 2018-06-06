@@ -478,7 +478,7 @@ function checkOut() {
 		layer.msg('实收金额不能为空');
 		ischeckOut = false;
 		return false;
-	}else if(_relTakePrice < _payPrice){
+	}else if(parseFloat(_relTakePrice) < parseFloat(_payPrice)){
 		layer.msg('实收金额不能小于应收金额');
 		ischeckOut = false;
 		return false;
