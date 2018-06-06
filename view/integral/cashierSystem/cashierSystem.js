@@ -77,6 +77,7 @@ function init() {
 	
 	$('#ScanCodeMember').bind('keypress', function (event) {
 		var inputkey = $('#ScanCodeMember').val();
+		userName = $('#ScanCodeMember').val();
 		if (inputkey != "") {
 			isMemberVal = true;
 		}
