@@ -478,6 +478,10 @@ function checkOut() {
 		layer.msg('实收金额不能为空');
 		ischeckOut = false;
 		return false;
+	}else if(_relTakePrice < _payPrice){
+		layer.msg('实收金额不能小于应收金额');
+		ischeckOut = false;
+		return false;
 	}
 	var index = layer.load(3,{shade: [0.8,'#000'],});
 	$('#Goods li').each(function (index, el) {
