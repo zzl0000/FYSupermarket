@@ -63,7 +63,8 @@ function signlogStore() {
 	
     var phone = $("#phone").val();
     var data;
-
+	var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
+	
 	if(loginType == 1){
 		storePwd = $("#storePwd2").val();
         data = {
@@ -84,6 +85,11 @@ function signlogStore() {
         layer.msg("请填写信息");
         return;
     }
+	
+	if (!myreg.test(phone)) {
+		layer.msg("请输入有效的手机号！");
+		return false;
+	}
 
 
 

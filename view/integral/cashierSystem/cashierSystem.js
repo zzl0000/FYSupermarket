@@ -242,6 +242,7 @@ function getGoodsList(key, status, _sellType) {
 		crossDomain: true,
 		success: function (rs) {
 			if (rs.status == 200) {
+				$("#ScanCodeinput").focus();
 				$('#ScanCodeinput').val('');
 				
 				var paymentList = template('paymentList', {
@@ -675,6 +676,10 @@ function reset() {
 	$('#payPrice').text('0.00');
 	$('#couponPrice').text('0.00');
 	$('#ScanCodeMemberInput').show();
+	$('#ScanCodeMember').val('');
+	$('#ScanCodeinput').val('');
+	$('#relTakePrice').val('');
+	$('#changePrice').val('');
 	$('#memberInfo').hide();
 	gNo = [];
 	curk = 0;

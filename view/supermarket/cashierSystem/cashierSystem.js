@@ -171,6 +171,7 @@ function getGoodsList(key, status) {
 			success: function (rs) {
 				if (rs.status == 200) {
 					//console.log(rs.data);
+					$("#ScanCodeinput").focus();
 					$('#ScanCodeinput').val('');
 					if (isgNo) {
 						var index = returnIndexof(ListData.goodsListData, rs.data.goodsId);
@@ -377,6 +378,10 @@ function reset() {
 	$('#realPrice').text('0.00');
 	$('.payPrice').text('0.00');
 	$('#ScanCodeMemberInput').show();
+	$('#ScanCodeMember').val('');
+	$('#ScanCodeinput').val('');
+	$('#relTakePrice').val('');
+	$('#changePrice').val('');
 	$('#memberInfo').hide();
 	gNo = [];
 	curk = 0;
