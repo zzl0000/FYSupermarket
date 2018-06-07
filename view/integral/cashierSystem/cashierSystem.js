@@ -20,7 +20,8 @@ var token;
 var nick;
 
 var gNo = [],
-	isgNo = false;
+	isgNo = false,
+	isgNos = true;
 
 var ListData = {
 	goodsListData: []
@@ -222,6 +223,7 @@ function getGoodsList(key, status, _sellType) {
 	} else {
 		if (gNo[returnSAIndexof(gNo, key)] == key) {
 			//num++;
+			
 			isgNo = true;
 		} else {
 			gNo.push(key);
@@ -262,7 +264,7 @@ function getGoodsList(key, status, _sellType) {
 					rs.data.fubi = priceCount(rs.data.integralSellTypeList[integralIndex].fubi, rs.data.num);
 					unitFubi = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
 					ListData.goodsListData[index] = rs.data;
-					renderGoodsList(ListData);
+					renderGoodsList(ListData,isgNo);
 				} else {
 					if(_sellType != null){
 						PaymentKey =_sellType
@@ -277,7 +279,7 @@ function getGoodsList(key, status, _sellType) {
 						rs.data.fubi = priceCount(rs.data.integralSellTypeList[integralIndex].fubi, rs.data.num);
 						unitFubi = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
 						ListData.goodsListData.push(rs.data);
-						renderGoodsList(ListData);
+						renderGoodsList(ListData,isgNo);
 					}else{
 						layer.open({
 							title: '请选择支付方式',
@@ -302,7 +304,7 @@ function getGoodsList(key, status, _sellType) {
 									rs.data.fubi = priceCount(rs.data.integralSellTypeList[integralIndex].fubi, rs.data.num);
 									unitFubi = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
 									ListData.goodsListData.push(rs.data);
-									renderGoodsList(ListData);
+									renderGoodsList(ListData,isgNo);
 									layer.closeAll();
 								})
 							}
@@ -322,7 +324,14 @@ function getGoodsList(key, status, _sellType) {
 
 
 function renderGoodsList(data) {
-
+	if(!isgNos){
+		console.log(data.goodsListData.reverse());
+	}
+	if(!isgNo){
+		console.log(data.goodsListData.reverse());
+	}
+	
+	isgNos = true;
 	var html = template('GoodsList', {
 		list: data
 	});
@@ -365,7 +374,7 @@ function minusCount(el, _num) {
 		$('.payPrice').text('0.00');
 		$('#payPrice').text('0.00');
 		curk = 0;
-		isgNo = false;
+		isgNos = true;
 		ListData.goodsListData[index].num = 0;
 	} else {
 		ListData.goodsListData[index].num = _curnum;

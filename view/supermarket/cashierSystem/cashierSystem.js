@@ -18,7 +18,8 @@ var nick;
 var goodsList = [];
 
 var gNo = [],
-	isgNo = false;
+	isgNo = false,
+	isgNos = true;
 
 var ListData = {
 	goodsListData: []
@@ -190,7 +191,7 @@ function getGoodsList(key, status) {
 						ListData.goodsListData.push(rs.data);
 					}
 					
-					renderGoodsList(ListData);
+					renderGoodsList(ListData,isgNo);
 				} else {
 					layer.msg(rs.message)
 				}
@@ -202,9 +203,16 @@ function getGoodsList(key, status) {
 }
 
 
-function renderGoodsList(data) {
+function renderGoodsList(data,isgNo) {
+
+	if(!isgNos){
+		console.log(data.goodsListData.reverse());
+	}
+	if(!isgNo){
+		console.log(data.goodsListData.reverse());
+	}
 	
-	//console.log(data);
+	isgNos = true;
 	var html = template('GoodsList', {
 		list: data
 	});
@@ -269,10 +277,7 @@ function minusCount(el, _num) {
 		$('#realPrice').text('0.00');
 		$('.payPrice').text('0.00');
 		ListData.goodsListData[index].num = 0;
-		//ListData.goodsListData.baoremove(index);
-		//console.log(ListData.goodsListData[index]);
-		///ListData.goodsListData.splice(1,1)
-		//hangOrderDtata[keyId].goodsList[index].gno = '';
+		isgNos =false;
 	} else {
 		ListData.goodsListData[index].num = _curnum;
 	}
@@ -346,7 +351,6 @@ function returnIndexof(arr, value) {
 	for (var i = 0; i < a.length; i++) {
 		if (a[i].goodsId == value) {
 			_curIndex = i;
-			isgNo = true;
 		}
 		
 	}
