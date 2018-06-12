@@ -35,7 +35,7 @@ function getUpdateImprestCash() {
 				},
 				crossDomain: true,
 				success: function(rs) {
-					if (rs.status == 200) {
+					if (rs.status == 200 || rs.message == '打印小票异常') {
 						layer.msg(rs.message);
 						setTimeout(function() {
 							window.location.href = "index.html";

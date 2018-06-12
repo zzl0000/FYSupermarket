@@ -47,6 +47,11 @@ var getHangIntegralOrderList = turl + "/cashier/hangIntegralOrder/getHangIntegra
 var removeHangIntegralOrder = turl + "/cashier/hangIntegralOrder/removeHangIntegralOrder";   //删除积分挂单数据
 
 
+
+var printWc = turl + "/cashier/print/wc";   //打印网超小票
+var printIntegral = turl + "/cashier/print/integral";   //打印积分小票
+
+
 function queryMenberIFFnfo(token,callback){
 	$.ajax({
         type: "get",

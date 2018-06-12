@@ -6,7 +6,9 @@ $(function(){
 	$(document).keydown(function(event){
 		//alert(event.keyCode);
 		if(event.keyCode == '13'){
-			searchReturnOrder()
+			searchReturnOrder();
+
+			
 			
 		}
 	});
@@ -21,10 +23,39 @@ $(function(){
 function searchReturnOrder(){
 	var orderId = $('#storeOrderId').val();
 	if(orderId == ''){
-		layer.msg('请填写订单号')
+		layer.msg('请填写订单号');
 		return false;
 	}else{
-		getReturnOrderList(orderId);
+		layer.prompt({
+			title: '获取退换货授权',
+			closeBtn: 2,
+			shade: 0,
+			formType: 0
+		}, function (pass, index) {
+			$.ajax({
+				type: "get",
+				url: authorize,
+				data: {
+					username: pass
+				},
+				xhrFields: {
+					withCredentials: true
+				},
+				crossDomain: true,
+				success: function (rs) {
+					if (rs.status == 200) {
+						layer.msg('授权成功', {'time': 1000}, function () {
+							getReturnOrderList(orderId);
+						})
+					} else {
+						layer.msg(rs.message, {'time': 1000});
+					}
+					
+				}
+				
+			})
+		});
+		
 	}
 }
 

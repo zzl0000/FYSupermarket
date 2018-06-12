@@ -58,6 +58,7 @@ $('body').off('click').on('click', '#orderListDemo .check_btn', function(e) {
         area: ['1054px', '650px'], //宽高
         content: html,
         success: function() {
+	        $('.print_btn').attr({'data-id':orderId});
             getOrderDetail(orderId);
         }
     });
@@ -180,3 +181,30 @@ function gainpage(pages,curr, alltotal) {
         })
     }
 }
+
+
+// 打印下票
+
+$('body').on('click', '.print_btn', function (e) {
+	e.preventDefault();
+	var integralOrderId = $(this).attr('data-id');
+	$.ajax({
+		type: "get",
+		url: printWc,
+		data: {
+			integralOrderId: integralOrderId
+		},
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function (rs) {
+			if (rs.status == 200) {
+				layer.msg('打印成功！')
+			} else {
+				layer.msg(rs.message)
+			}
+		}
+	})
+	
+});
