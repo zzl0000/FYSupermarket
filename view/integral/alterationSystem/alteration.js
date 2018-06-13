@@ -165,7 +165,7 @@ function openPanel() {
     layer.prompt({
         title: '获取下班授权',
         closeBtn: 2,
-        shade: 0,
+	    shade: 0.8,
         formType: 0
     }, function (pass, index) {
 

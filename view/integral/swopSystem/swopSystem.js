@@ -29,7 +29,7 @@ function searchReturnOrder(){
 		layer.prompt({
 			title: '获取退换货授权',
 			closeBtn: 2,
-			shade: 0,
+			shade: 0.8,
 			formType: 0
 		}, function (pass, index) {
 			$.ajax({
