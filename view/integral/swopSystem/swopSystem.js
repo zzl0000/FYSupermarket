@@ -3,7 +3,7 @@
 var _curnum;
 
 $(function(){
-	$(document).keydown(function(event){
+	$('#storeOrderId').keydown(function(event){
 		//alert(event.keyCode);
 		if(event.keyCode == '13'){
 			searchReturnOrder();

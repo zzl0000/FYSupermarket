@@ -2,11 +2,10 @@ var _curnum, isClick = false;
 var goodsList = [];
 
 $(function () {
-	$(document).keydown(function (event) {
+	$('#storeOrderId').keydown(function (event) {
 		//alert(event.keyCode);
 		if (event.keyCode == '13') {
 			searchReturnOrder();
-			
 		}
 	});
 	
