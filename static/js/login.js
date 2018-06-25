@@ -91,9 +91,7 @@ function signlogStore() {
 		return false;
 	}
 
-
-
-
+	
     $.ajax({
         type: "get",
         url: turl + "/cashier/login/storeLogin",
@@ -128,6 +126,9 @@ function signlogStore() {
 	            $('.lo_store').hide();
 	            $('.lo_employee').show();
 	            $('.lo_title').find('span').show();
+            }else if(rs.status == 301){
+	            $('.updateSystem').show();
+	            layer.msg('请点击更新系统按钮，更新系统', {time: 2000});
             }
             else{
                 layer.msg(rs.message, {time: 1000});
@@ -243,6 +244,13 @@ function signlog() {
         }
     })
 }
+
+
+// 更新系统
+
+$('.update_btn').on('click', function(){
+	window.open(turl + '/cashier-reboot/reboot.do')
+})
 
 
 

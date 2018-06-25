@@ -31,6 +31,15 @@ body {
 }
 
 
+/* 更新系统*/
+
+.updateSystem{
+     position: absolute;
+     bottom: 30px;
+     right: 0;
+}
+
+
 /*内容上下左右居中*/
 
 .lo_weint {

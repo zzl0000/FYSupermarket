@@ -22,7 +22,7 @@ $('body').on('click', '.input-key', function(e) {
 		_inputkey = '';
 
 		if(_relTakePrice.split('.')[1].length > 2) {
-			layer.msg('小数位数书不能超过两位');
+			layer.msg('小数位数不能超过两位');
 			return;
 		}
 		key = parseFloat(_relTakePrice);

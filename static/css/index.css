@@ -389,8 +389,8 @@
 }
 
 .shopGoodslist .shopGoodsTop h5{
-	width: 240px;
-	font-size: 20px;
+	width: 320px;
+	font-size: 16px;
 	color: #000;
 	font-weight: 600;
 	white-space: nowrap;
@@ -456,7 +456,14 @@
 
 .shopGoodsClearing{
 	width: 100%;
-	position: absolute;
+	position: relative;
+	bottom: 0;
+	left: 0;
+}
+
+.shopGoodsClearings{
+	width: 100%;
+	position:absolute;
 	bottom: 0;
 	left: 0;
 }
