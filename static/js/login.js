@@ -249,7 +249,29 @@ function signlog() {
 // 更新系统
 
 $('.update_btn').on('click', function(){
-	window.open(turl + '/cashier-reboot/reboot.do')
+	var index = layer.load(3);
+	$('.loading').show();
+	$.ajax({
+		type: "get",
+		url: "http://192.168.0.133:8082/cashier-reboot/reboot.do\n",
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function (rs) {
+			if(rs.status == 200){
+				layer.msg('更新成功');
+				setTimeout(function () {
+					layer.close(index);
+					$('.loading').hide();
+				}, 3000)
+			}
+			
+		}
+	})
+	
+	
+	//window.open(turl + '/cashier-reboot/reboot.do')
 })
 
 
