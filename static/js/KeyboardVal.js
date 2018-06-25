@@ -62,8 +62,7 @@ $('body').on('click', '.decimal', function() {
 
 function keyCount(val) {
 	var price = _payPrice || $('#payPrice').text();
-	//console.log(price)
-	//console.log(price);
+	console.log(price)
 	$('#relTakePrice').val(val);
 	if(parseFloat(val) <= parseFloat(price)) {
 		//layer.msg('输入的价格不能小于应收金额');

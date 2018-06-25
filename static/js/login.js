@@ -44,7 +44,8 @@ $('.back_btn').on('click', function (e) {
                 layer.msg('注销成功', {time: 1000})
 	            $('#signlogStore').removeAttr('disabled');
                 $("#phone").val('')
-                $("#storePwd").val('')
+                $("#storePwd1").val('')
+	            $("#storePwd2").val('')
                 $('.lo_store').show();
                 $('.lo_employee').hide();
                 $('.lo_title').find('span').hide();
@@ -107,7 +108,8 @@ function signlogStore() {
 	            $('#signlogStore').attr({'disabled':"disabled"});
 	            layer.confirm('门店登录成功，是否同步数据',
 		            {
-			            btn: ['同步', '否']
+			            btn: ['同步', '否'],
+			            closeBtn: 0
 		            }, function () {
 			            inStepData(phone);
 		            },function () {
@@ -260,11 +262,15 @@ $('.update_btn').on('click', function(){
 		crossDomain: true,
 		success: function (rs) {
 			if(rs.status == 200){
-				layer.msg('更新成功');
 				setTimeout(function () {
 					layer.close(index);
 					$('.loading').hide();
-				}, 3000)
+					layer.msg('更新成功');
+					$('.updateSystem').hide();
+					$("#phone").val('')
+					$("#storePwd1").val('')
+					$("#storePwd2").val('')
+				}, 60000)
 			}
 			
 		}
