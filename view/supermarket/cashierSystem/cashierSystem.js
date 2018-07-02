@@ -143,6 +143,7 @@ function renderMenberInfo(rs) {
 
 
 function getGoodsList(key, status) {
+	
 	if (key != '') {
 		if (status <= 0) {
 			gNo.push(key);

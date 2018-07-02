@@ -42,9 +42,9 @@ function init() {
 	
 	var offLine = sessionStorage.getItem('offLine');
 	//console.log(offLine);
-	if(offLine == "null"){
+	if (offLine == "null") {
 		$('.settlementMethod li').addClass('disabled');
-	}else{
+	} else {
 		$('.settlementMethod li').removeClass('disabled');
 	}
 	
@@ -54,7 +54,8 @@ function init() {
 	if (sessionStorage.getItem("hangIntegralOrderData") != null) {
 		hangOrderData = JSON.parse(sessionStorage.getItem("hangIntegralOrderData"));
 		keyId = sessionStorage.getItem("clearingId");
-	};
+	}
+	;
 	
 	//console.log(hangOrderData)
 	if (hangOrderData != null) {
@@ -65,15 +66,13 @@ function init() {
 		//console.log(hangOrderDtata[0].goodsList);
 		$.each(hangOrderData[keyId].integralBillOptions, function (index, val) {
 			//console.log(val.num);
-			getGoodsList(val.goodsNo, curk ,val.sellType);
+			getGoodsList(val.goodsNo, curk, val.sellType);
 			hangOrderNum.push(val.num);
 			curk++;
-
+			
 		});
 		
 	}
-	
-	
 	
 	
 	$('#ScanCodeMember').bind('keypress', function (event) {
@@ -126,15 +125,15 @@ function init() {
 		} else {
 			unitPrice = $(this).parent().siblings().find('.price').text() / num;
 			unitIntegral = $(this).parent().siblings().find('.integral').text() / num;
-			unitFubi = $(this).parent().siblings().find('.coupon').text()/ num;
+			unitFubi = $(this).parent().siblings().find('.coupon').text() / num;
 			
 		}
 		$(this).siblings(".number").text(addCount(_slef, num));
-		$(this).parent().siblings().find('.price').text(priceCount(unitPrice, _curnum,_slef,1));
-		$(this).parent().siblings().find('.integral').text(priceCount(unitIntegral, _curnum,_slef,2));
-		$(this).parent().siblings().find('.coupon').text(priceCount(unitFubi, _curnum,_slef,3));
+		$(this).parent().siblings().find('.price').text(priceCount(unitPrice, _curnum, _slef, 1));
+		$(this).parent().siblings().find('.integral').text(priceCount(unitIntegral, _curnum, _slef, 2));
+		$(this).parent().siblings().find('.coupon').text(priceCount(unitFubi, _curnum, _slef, 3));
 		
-		realPriceCount('add', unitPrice, unitIntegral,unitFubi);
+		realPriceCount('add', unitPrice, unitIntegral, unitFubi);
 	})
 	
 	$('body').on('click', '.minus', function (e) {
@@ -151,9 +150,9 @@ function init() {
 			unitFubi = $(this).parent().siblings().find('.coupon').text() / num;
 		}
 		$(this).siblings(".number").text(minusCount(_slef, num));
-		$(this).parent().siblings().find('.price').text(priceCount(unitPrice, _curnum,_slef,1));
-		$(this).parent().siblings().find('.integral').text(priceCount(unitIntegral, _curnum,_slef,2));
-		$(this).parent().siblings().find('.coupon').text(priceCount(unitFubi, _curnum,_slef,3));
+		$(this).parent().siblings().find('.price').text(priceCount(unitPrice, _curnum, _slef, 1));
+		$(this).parent().siblings().find('.integral').text(priceCount(unitIntegral, _curnum, _slef, 2));
+		$(this).parent().siblings().find('.coupon').text(priceCount(unitFubi, _curnum, _slef, 3));
 		
 		realPriceCount('minus', unitPrice, unitIntegral, unitFubi);
 	})
@@ -189,8 +188,8 @@ function getMemberInfo(inputkey) {
 				renderMenberInfo(rs);
 				token = rs.data.token;
 				nick = rs.data.nick;
-			} else if(rs.status == 301){
-				layer.msg(rs.message,function () {
+			} else if (rs.status == 301) {
+				layer.msg(rs.message, function () {
 					$('#ScanCodeMemberInput').hide();
 					$('#ScanCodeMember').val('');
 					$("#memberInfo").show();
@@ -217,13 +216,12 @@ function renderMenberInfo(rs) {
 
 
 function getGoodsList(key, status, _sellType) {
-	//console.log(isgNo,status);
+	console.log(ListData)
 	if (status <= 0) {
 		gNo.push(key);
 	} else {
 		if (gNo[returnSAIndexof(gNo, key)] == key) {
 			//num++;
-			
 			isgNo = true;
 		} else {
 			gNo.push(key);
@@ -231,8 +229,8 @@ function getGoodsList(key, status, _sellType) {
 			num = 0;
 		}
 	}
+	console.log(gNo,status);
 	
-	//return;
 	$.ajax({
 		type: "get",
 		url: getIntegralGoods,
@@ -244,6 +242,7 @@ function getGoodsList(key, status, _sellType) {
 		},
 		crossDomain: true,
 		success: function (rs) {
+			
 			if (rs.status == 200) {
 				$("#ScanCodeinput").focus();
 				$('#ScanCodeinput').val('');
@@ -264,10 +263,10 @@ function getGoodsList(key, status, _sellType) {
 					rs.data.fubi = priceCount(rs.data.integralSellTypeList[integralIndex].fubi, rs.data.num);
 					unitFubi = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
 					ListData.goodsListData[index] = rs.data;
-					renderGoodsList(ListData,isgNo);
+					renderGoodsList(ListData, isgNo);
 				} else {
-					if(_sellType != null){
-						PaymentKey =_sellType
+					if (_sellType != null) {
+						PaymentKey = _sellType
 						var integralIndex = returnIntegralIndex(rs.data.integralSellTypeList, PaymentKey);
 						rs.data.num = hangOrderNum[returnSAIndexof(gNo, key)];
 						rs.data.sellType = rs.data.integralSellTypeList[integralIndex].sellType;
@@ -279,8 +278,8 @@ function getGoodsList(key, status, _sellType) {
 						rs.data.fubi = priceCount(rs.data.integralSellTypeList[integralIndex].fubi, rs.data.num);
 						unitFubi = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
 						ListData.goodsListData.push(rs.data);
-						renderGoodsList(ListData,isgNo);
-					}else{
+						renderGoodsList(ListData, isgNo);
+					} else {
 						layer.open({
 							title: '请选择支付方式',
 							type: 1,
@@ -304,7 +303,7 @@ function getGoodsList(key, status, _sellType) {
 									rs.data.fubi = priceCount(rs.data.integralSellTypeList[integralIndex].fubi, rs.data.num);
 									unitFubi = priceCount(rs.data.integralSellTypeList[integralIndex].integral, rs.data.num);
 									ListData.goodsListData.push(rs.data);
-									renderGoodsList(ListData,isgNo);
+									renderGoodsList(ListData, isgNo);
 									layer.closeAll();
 								})
 							}
@@ -312,6 +311,7 @@ function getGoodsList(key, status, _sellType) {
 					}
 					
 				}
+				
 				
 				
 			} else {
@@ -323,12 +323,13 @@ function getGoodsList(key, status, _sellType) {
 }
 
 
-function renderGoodsList(data) {
-	if(!isgNos){
-		console.log(data.goodsListData.reverse());
+function renderGoodsList(data,isgNo) {
+	//console.log(data);
+	if (!isgNos) {
+		data.goodsListData.reverse();
 	}
-	if(!isgNo){
-		console.log(data.goodsListData.reverse());
+	if (!isgNo) {
+		data.goodsListData.reverse();
 	}
 	
 	isgNos = true;
@@ -364,7 +365,11 @@ function addCount(el, num) {
 function minusCount(el, _num) {
 	_curnum = parseInt(_num) - 1;
 	var id = el.attr('data-goodsId');
+	var gno = el.attr('data-goodsNo');
 	var index = returnIndexof(ListData.goodsListData, id);
+	var index2 = returnSAIndexof(gNo, gno);
+	//console.log(index2)
+	
 	
 	if (_curnum <= 0) {
 		// console.log(el);
@@ -375,7 +380,9 @@ function minusCount(el, _num) {
 		$('#payPrice').text('0.00');
 		curk = 0;
 		isgNos = true;
-		ListData.goodsListData[index].num = 0;
+		isgNo = false;
+		remove(ListData.goodsListData,index);
+		remove(gNo,index2);
 	} else {
 		ListData.goodsListData[index].num = _curnum;
 	}
@@ -390,31 +397,23 @@ function minusCount(el, _num) {
 
 
 
-function priceCount(val, _num,el,type) {
+function priceCount(val, _num, el, type) {
 	
 	_unitPrice = parseFloat(val) * _num;
 	
-	if(el != undefined){
+	if (el != undefined) {
 		var id = el.attr('data-goodsId');
 		var index = returnIndexof(ListData.goodsListData, id);
-		if(type == 1){
-			ListData.goodsListData[index].price = _unitPrice.toFixed(2);
-		}
-		if(type == 2){
-			ListData.goodsListData[index].integral = _unitPrice.toFixed(2);
-		}
-		if(type == 3){
-			ListData.goodsListData[index].fubi = _unitPrice.toFixed(2);
-		}
+		//console.log(index);
 		
 	}
 	return _unitPrice.toFixed(2);
 }
 
 
-function realPriceCount(type,unitPrice, uniIntegral,unitFubi) {
+function realPriceCount(type, unitPrice, uniIntegral, unitFubi) {
 	
-	var cash, integralPrice,fubi;
+	var cash, integralPrice, fubi;
 	if (type == 'add') {
 		cash = parseFloat(unitPrice) + parseFloat($('#payPrice').text());
 		integralPrice = parseFloat(uniIntegral) + parseFloat($('#integralPrice').text());
@@ -422,15 +421,15 @@ function realPriceCount(type,unitPrice, uniIntegral,unitFubi) {
 	} else {
 		cash = parseFloat($('#payPrice').text()) - parseFloat(unitPrice);
 		integralPrice = parseFloat($('#integralPrice').text()) - parseFloat(uniIntegral);
-		fubi =parseFloat($('#couponPrice').text()) - parseFloat(unitFubi);
+		fubi = parseFloat($('#couponPrice').text()) - parseFloat(unitFubi);
 	}
-	if(cash < 0){
+	if (cash < 0) {
 		cash = 0
 	}
-	if(integralPrice < 0){
+	if (integralPrice < 0) {
 		integralPrice = 0
 	}
-	if(fubi < 0){
+	if (fubi < 0) {
 		integralPrice = 0
 	}
 	
@@ -483,7 +482,7 @@ function getPrice(realPrice) {
 
 function checkOut() {
 	//console.log(PaymentKey);
-	if(ischeckOut){
+	if (ischeckOut) {
 		return false;
 	}
 	
@@ -495,12 +494,12 @@ function checkOut() {
 	}
 	var _payPrice = $('#payPrice').text();
 	var _relTakePrice = $('#relTakePrice').val();
-
+	
 	if (_relTakePrice == '' && parseFloat(_payPrice) > 0) {
 		layer.msg('实收金额不能为空');
 		ischeckOut = false;
 		return false;
-	}else if(parseFloat(_relTakePrice) < parseFloat(_payPrice)){
+	} else if (parseFloat(_relTakePrice) < parseFloat(_payPrice)) {
 		layer.msg('实收金额不能小于应收金额');
 		ischeckOut = false;
 		return false;
@@ -514,45 +513,27 @@ function checkOut() {
 		formType: 1,
 		btn: ['确定']
 	}, function (pass, index) {
+		getCheckOut(pass)
 		//checkPassword
-		$.ajax({
-			type: "get",
-			url: checkPassword,
-			data:{username:userName,password:pass},
-			xhrFields: {
-				withCredentials: true
-			},
-			crossDomain: true,
-			success: function (rs) {
-				if (rs.status == 200) {
-					layer.msg(rs.message,{time:1000});
-					getCheckOut();
-				} else {
-					layer.msg(rs.message,{time:1000});
-				}
-			}
-		});
 	})
 	
 	
-	
-
 }
 
 
-function getCheckOut(){
+function getCheckOut(pass) {
 	var goodsList = [];
 	_payPrice = $('#payPrice').text();
 	var _integralPrice = $('#integralPrice').text();
 	var _fubi = $('#couponPrice').text();
-	var index = layer.load(3,{shade: [0.8,'#000'],});
+	var index = layer.load(3, {shade: [0.8, '#000'],});
 	$('#Goods li').each(function (index, el) {
 		var integralBillOptions = {
 			"balance": 0,
 			"goodsId": 0,
 			"goodsNo": 0,
 			"integral": 0,
-			"fromSkuId":0,
+			"fromSkuId": 0,
 			"cash": 0,
 			"num": 0,
 			"fromSkuId": "string",
@@ -583,7 +564,7 @@ function getCheckOut(){
 	ischeckOut = true;
 	$.ajax({
 		type: "post",
-		url: payIntegralOrder,
+		url: payIntegralOrder + "?password=" + pass,
 		data: JSON.stringify(data),
 		contentType: "application/json",
 		dataType: 'json',
@@ -628,7 +609,7 @@ function uplodOrder() {
 			"goodsId": 0,
 			"goodsNo": 0,
 			"integral": 0,
-			"fromSkuId":0,
+			"fromSkuId": 0,
 			"cash": 0,
 			"num": 0,
 			"fromSkuId": "string",

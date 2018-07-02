@@ -1,7 +1,7 @@
-
 /*接口*/
-  var turl = "http://192.168.0.133:8080";
- //var turl = "http://120.79.90.220:8080";
+ var turl = "http://192.168.0.133:8080";
+//var turl = "http://120.79.90.220:8080";
+//var turl = "http://127.0.0.1:8080";
 
 /*接口api*/
 
@@ -47,13 +47,17 @@ var getHangIntegralOrderList = turl + "/cashier/hangIntegralOrder/getHangIntegra
 var removeHangIntegralOrder = turl + "/cashier/hangIntegralOrder/removeHangIntegralOrder";   //删除积分挂单数据
 
 
-
 var printWc = turl + "/cashier/print/wc";   //打印网超小票
 var printIntegral = turl + "/cashier/print/integral";   //打印积分小票
 
 
-function queryMenberIFFnfo(token,callback){
-	$.ajax({
+//获取当前登录的 门店账号‘
+var getLoginStore = turl + "/cashier/login/getLoginStore";   //打印积分小票
+
+
+
+function queryMenberIFFnfo(token, callback) {
+    $.ajax({
         type: "get",
         url: getUser,
         data: {
@@ -72,8 +76,6 @@ function queryMenberIFFnfo(token,callback){
 }
 
 
-
-
 function removeHTML(str) {
     str = str.replace(/<\/?[^>]*>/g, ''); //去除HTML tag
     str = str.replace(/[ | ]*\n/g, '\n'); //去除行尾空白
@@ -82,7 +84,6 @@ function removeHTML(str) {
     str = str.replace(/\s/g, ''); //将空格去掉
     return str;
 }
-
 
 
 /*时间渲染*/
@@ -104,17 +105,16 @@ function format(times) {
 
 function formats(times) {
     var time = new Date(times);
-   
+
     var y = time.getFullYear();
     var m = time.getMonth() + 1;
     var d = time.getDate();
     var h = time.getHours();
     var mm = time.getMinutes();
     var s = time.getSeconds();
-    return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) +':' + add0(s);
+    return y + '-' + add0(m) + '-' + add0(d) + ' ' + add0(h) + ':' + add0(mm) + ':' + add0(s);
     /*return y + '-' + add0(m) + '-' + add0(d);*/
 }
-
 
 
 //判断比例  %
@@ -133,6 +133,19 @@ function nulls(s) {
     }
     return 1;
 }
+
+function remove(arr, item) {
+ 
+	if (arr.length) {
+	//	console.log(item)
+		if (item > -1) {
+			
+			return arr.splice(item, 1)
+		}
+	}
+}
+
+
 
 
 

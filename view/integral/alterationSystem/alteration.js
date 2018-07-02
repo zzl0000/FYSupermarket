@@ -1,7 +1,8 @@
 init()
 
 function init() {
-	getOrderList(1)
+	getOrderList(1);
+	getStore();getStore();
 }
 
 //  获取 所有订单数据
@@ -73,6 +74,28 @@ function gainpage(pages, curr, alltotal) {
 		})
 	}
 }
+
+// 获取店铺信息
+function getStore(){
+	$.ajax({
+		type: "get",
+		url: getLoginStore,
+		xhrFields: {
+			withCredentials: true
+		},
+		crossDomain: true,
+		success: function(rs) {
+			if (rs.status == 200 ) {
+				// 存储 店铺名称
+				sessionStorage.setItem("StoreName", rs.data.storeName);
+			} else {
+				layer.msg(rs.message);
+			}
+			
+		}
+	})
+}
+
 
 // 下班
 function getLogout() {
@@ -210,6 +233,7 @@ function openPanel() {
                                                 $("#gatheringList").html(html1);
                                                 $("#memberlinfoList").html(html2);
                                                 $('#imprestCashLogout').text(rs.data.imprestCashLogout);
+	                                            $('#storeName').text(sessionStorage.getItem('StoreName'));
                                                 $('#LogoutTime').text(rs.data.logoutTime.slice(10,rs.data.logoutTime.length));
                                             }
 
